@@ -8,5 +8,8 @@ namespace ShiNengShiHui.AppServices.Teacher.Dto
 {
     public class CreateStudentInput
     {
+        public string Name { get; set; }
+
+        public bool sex { get; set; }
     }
 }
