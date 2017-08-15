@@ -3,7 +3,7 @@ using ShiNengShiHui.AppServices.Teacher.Dto;
 
 namespace ShiNengShiHui.AppServices.Teacher
 {
-    interface ITeacherAppService:IApplicationService
+    public interface ITeacherAppService:IApplicationService
     {
         ShowStudentOutput ShowStudent(ShowStudentInput showStudentInput);
         ShowPageStudentOutput ShowPageStudent(ShowPageStudentInput showPageStudentInput);

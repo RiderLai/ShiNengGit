@@ -118,6 +118,7 @@
     <Compile Include="Entities\OtherData\GradeorPrizeDateTime.cs" />
     <Compile Include="Entities\Prizes\Prize.cs" />
     <Compile Include="Entities\Prizes\PrizeItem.cs" />
+    <Compile Include="Entities\Students\IStudentRepository.cs" />
     <Compile Include="Entities\Students\Student.cs" />
     <Compile Include="Entities\Teachers\Teacher.cs" />
     <Compile Include="ShiNengShiHuiConsts.cs" />

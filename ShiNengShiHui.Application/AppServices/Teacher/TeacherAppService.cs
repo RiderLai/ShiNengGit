@@ -4,11 +4,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ShiNengShiHui.AppServices.Teacher.Dto;
+using Abp.Domain.Repositories;
+using ShiNengShiHui.Entities.Students;
+using ShiNengShiHui.Entities.Grades;
+using ShiNengShiHui.Entities.Prizes;
 
 namespace ShiNengShiHui.AppServices.Teacher
 {
     public class TeacherAppService : ShiNengShiHuiAppServiceBase, ITeacherAppService
     {
+
+        private readonly IRepository<Student> _studentRepository;
+        private readonly IRepository<Grade, long> _gradeRepository;
+        private readonly IRepository<Prize, long> _prizeRepository;
+
+
+        public TeacherAppService(IRepository<Student> studentRepository,
+            IRepository<Grade,long> gradeRepository,
+            IRepository<Prize,long> prizeRepository)
+        {
+            _studentRepository = studentRepository;
+            _gradeRepository = gradeRepository;
+            _prizeRepository = prizeRepository;
+        }
+
         public CreateGradeOutput CreateGrade(CreateGradeInput createGradeInput)
         {
             throw new NotImplementedException();
