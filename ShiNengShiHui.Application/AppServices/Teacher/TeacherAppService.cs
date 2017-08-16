@@ -14,14 +14,14 @@ namespace ShiNengShiHui.AppServices.Teacher
     public class TeacherAppService : ShiNengShiHuiAppServiceBase, ITeacherAppService
     {
 
-        private readonly IRepository<Student> _studentRepository;
-        private readonly IRepository<Grade, long> _gradeRepository;
-        private readonly IRepository<Prize, long> _prizeRepository;
+        private readonly IStudentRepository _studentRepository;
+        private readonly IGradeRepository _gradeRepository;
+        private readonly IPrizeRepository _prizeRepository;
 
 
-        public TeacherAppService(IRepository<Student> studentRepository,
-            IRepository<Grade,long> gradeRepository,
-            IRepository<Prize,long> prizeRepository)
+        public TeacherAppService(IStudentRepository studentRepository,
+            IGradeRepository gradeRepository,
+            IPrizeRepository prizeRepository)
         {
             _studentRepository = studentRepository;
             _gradeRepository = gradeRepository;
