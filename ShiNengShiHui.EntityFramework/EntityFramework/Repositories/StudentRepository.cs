@@ -13,7 +13,7 @@ namespace ShiNengShiHui.EntityFramework.Repositories
 {
     public class StudentRepository : SqlRepositoryBase<Student>, IStudentRepository
     {
-        private string TableName { get => GetTable(TableType.Student) == null ? "testStudents" : GetTable(TableType.Student); }
+        private string TableName { get => GetTable(SqlRepositoryBase<Student, int>.TableType.Student) == null ? "testStudents" : GetTable(SqlRepositoryBase<Student, int>.TableType.Student); }
 
         public StudentRepository(IDbContextProvider<ShiNengShiHuiDbContext> dbContextProvider) : base(dbContextProvider)
         {
@@ -27,9 +27,10 @@ namespace ShiNengShiHui.EntityFramework.Repositories
         public override IQueryable<Student> GetAll()
         {
             var list = new List<Student>();
-            using (Context.Database.Connection)
+            using (var connection = Context.Database.Connection)
             {
-                var students = Context.Database.SqlQuery<Student>("Select * From " + TableName);
+                connection.Open();
+                var students = Context.Database.SqlQuery<Student>($@"Select * From {TableName} Where IsDeleted=0");
                 list.AddRange(students);
             }
             return list.AsQueryable<Student>();
@@ -37,8 +38,9 @@ namespace ShiNengShiHui.EntityFramework.Repositories
 
         public override Student Insert(Student entity)
         {
-            using (Context.Database.Connection)
+            using (var connection = Context.Database.Connection)
             {
+                connection.Open();
                 Context.Database.ExecuteSqlCommand($@"INSERT INTO [dbo].[{TableName}]
                                                             ([Name]
                                                             ,[sex]
@@ -51,16 +53,16 @@ namespace ShiNengShiHui.EntityFramework.Repositories
                                                             ,[CreatorUserId]
                                                             ,[Class_Id])
                                                       VALUES
-                                                            (< @Name, nvarchar(10),>
-                                                            ,< @sex, bit,>
-                                                            ,< @IsDeleted, bit,>
-                                                            ,< @DeleterUserId, bigint,>
-                                                            ,< @DeletionTime, datetime,>
-                                                            ,< @LastModificationTime, datetime,>
-                                                            ,< @LastModifierUserId, bigint,>
-                                                            ,< @CreationTime, datetime,>
-                                                            ,< @CreatorUserId, bigint,>
-                                                            ,< @Class_Id, int,>)",
+                                                            (< Name, nvarchar(10),@Name>
+                                                            ,< sex, bit,@sex>
+                                                            ,< IsDeleted, bit,@IsDeleted>
+                                                            ,< DeleterUserId, bigint,@DeleterUserId>
+                                                            ,< DeletionTime, datetime,@DeletionTime>
+                                                            ,< LastModificationTime, datetime,@LastModificationTime>
+                                                            ,< LastModifierUserId, bigint,@LastModifierUserId>
+                                                            ,< CreationTime, datetime,@CreationTime>
+                                                            ,< CreatorUserId, bigint,@CreatorUserId>
+                                                            ,< Class_Id, int,@Class_Id>)",
                                                             new SqlParameter("Name", entity.Name),
                                                             new SqlParameter("sex", entity.sex),
                                                             new SqlParameter("IsDeleted", entity.IsDeleted),
@@ -72,7 +74,7 @@ namespace ShiNengShiHui.EntityFramework.Repositories
                                                             new SqlParameter("CreatorUserId", entity.CreatorUserId),
                                                             new SqlParameter("Class_Id", entity.Class.Id));
             }
-            return FirstOrDefault(s=>s.Name.Equals(entity.Name)&&s.sex==entity.sex&&s.CreationTime==entity.CreationTime);
+            return FirstOrDefault(s => s.Name.Equals(entity.Name) && s.sex == entity.sex && s.CreationTime == entity.CreationTime);
         }
 
         public override Task<Student> InsertAsync(Student entity)
@@ -80,50 +82,24 @@ namespace ShiNengShiHui.EntityFramework.Repositories
             return base.InsertAsync(entity);
         }
 
-        public override int InsertAndGetId(Student entity)
-        {
-            return Insert(entity).Id;
-        }
-
-        public override Task<int> InsertAndGetIdAsync(Student entity)
-        {
-            return base.InsertAndGetIdAsync(entity);
-        }
-
-        public override Student InsertOrUpdate(Student entity)
-        {
-            var student = FirstOrDefault(entity.Id);
-            if (student==null)
-            {
-                student = Insert(entity);
-            }
-            else
-            {
-                Update(entity);
-            }
-            return student;
-        }
-
-        public override Task<Student> InsertOrUpdateAsync(Student entity)
-        {
-            return base.InsertOrUpdateAsync(entity);
-        }
-
         public override Student Update(Student entity)
         {
-            using (Context.Database.Connection)
+            entity.LastModifierUserId = AbpSession.UserId;
+            entity.LastModificationTime = Clock.Now;
+            using (var connection = Context.Database.Connection)
             {
+                connection.Open();
                 Context.Database.ExecuteSqlCommand($@"UPDATE [dbo].[{TableName}]
-                                                       SET[Name] = < @Name, nvarchar(10),>
-                                                          ,[sex] = < @sex, bit,>
-                                                          ,[IsDeleted] = < @IsDeleted, bit,>
-                                                          ,[DeleterUserId] = < @DeleterUserId, bigint,>
-                                                          ,[DeletionTime] = < @DeletionTime, datetime,>
-                                                          ,[LastModificationTime] = < @LastModificationTime, datetime,>
-                                                          ,[LastModifierUserId] = < @LastModifierUserId, bigint,>
-                                                          ,[CreationTime] = < @CreationTime, datetime,>
-                                                          ,[CreatorUserId] = < @CreatorUserId, bigint,>
-                                                          ,[Class_Id] = < @Class_Id, int,>
+                                                       SET[Name] = < Name, nvarchar(10),@Name>
+                                                          ,[sex] = < sex, bit,@sex>
+                                                          ,[IsDeleted] = < IsDeleted, bit,@IsDeleted>
+                                                          ,[DeleterUserId] = < DeleterUserId, bigint,@DeleterUserId>
+                                                          ,[DeletionTime] = < DeletionTime, datetime,@DeletionTime>
+                                                          ,[LastModificationTime] = < LastModificationTime, datetime,@LastModificationTime>
+                                                          ,[LastModifierUserId] = < LastModifierUserId, bigint,@LastModifierUserId>
+                                                          ,[CreationTime] = < CreationTime, datetime,@CreationTime>
+                                                          ,[CreatorUserId] = < CreatorUserId, bigint,@CreatorUserId>
+                                                          ,[Class_Id] = < Class_Id, int,@Class_Id>
                                                      WHERE Id=@Id ",
                                                      new SqlParameter("Name", entity.Name),
                                                      new SqlParameter("sex", entity.sex),
@@ -145,30 +121,12 @@ namespace ShiNengShiHui.EntityFramework.Repositories
             return base.UpdateAsync(entity);
         }
 
-        public override void Delete(int id)
-        {
-            var student = FirstOrDefault(id);
-            if (student==null)
-            {
-                return;
-            }
-            Delete(student);
-        }
-
         public override void Delete(Student entity)
         {
             entity.IsDeleted = true;
             entity.DeleterUserId = AbpSession.UserId;
             entity.DeletionTime = Clock.Now;
             Update(entity);
-        }
-
-        protected override void AttachIfNot(Student entity)
-        {
-            if (FirstOrDefault(entity.Id) == null)
-            {
-                Update(entity);
-            }
         }
     }
 }
