@@ -47,7 +47,7 @@ namespace ShiNengShiHui.EntityFramework.Repositories
                                                             ,[LastModifierUserId]
                                                             ,[CreationTime]
                                                             ,[CreatorUserId]
-                                                            ,[Student_Id])
+                                                            ,[StudentId])
                                                       VALUES
                                                             (<DateJson, nvarchar(max),@DateJson>
                                                             ,<GradeStringJson, nvarchar(max),@GradeStringJson>
@@ -58,7 +58,7 @@ namespace ShiNengShiHui.EntityFramework.Repositories
                                                             ,<LastModifierUserId, bigint,@LastModifierUserId>
                                                             ,<CreationTime, datetime,@CreationTime>
                                                             ,<CreatorUserId, bigint,@CreatorUserId>
-                                                            ,<Student_Id, int,@Student_Id>)",
+                                                            ,<StudentId, int,@StudentId>)",
                                                             new SqlParameter("DateJson", entity.DateJson),
                                                             new SqlParameter("GradeStringJson", entity.GradeStringJson),
                                                             new SqlParameter("IsDeleted", entity.IsDeleted),
@@ -68,7 +68,7 @@ namespace ShiNengShiHui.EntityFramework.Repositories
                                                             new SqlParameter("LastModifierUserId", entity.LastModifierUserId),
                                                             new SqlParameter("CreationTime", entity.CreationTime),
                                                             new SqlParameter("CreatorUserId", entity.CreatorUserId),
-                                                            new SqlParameter("Student_Id", entity.Student.Id));
+                                                            new SqlParameter("StudentId", entity.StudentId));
             }
             return FirstOrDefault(g => g.Student.Id == entity.Student.Id && g.CreationTime == entity.CreationTime);
         }
@@ -95,7 +95,7 @@ namespace ShiNengShiHui.EntityFramework.Repositories
                                                            ,[LastModifierUserId] = <LastModifierUserId, bigint,@LastModifierUserId>
                                                            ,[CreationTime] = <CreationTime, datetime,@CreationTime>
                                                            ,[CreatorUserId] = <CreatorUserId, bigint,@CreatorUserId>
-                                                           ,[Student_Id] = <Student_Id, int,@Student_Id>
+                                                           ,[StudentId] = <StudentId, int,@StudentId>
                                                       WHERE Id=@Id",
                                                       new SqlParameter("DateJson", entity.DateJson),
                                                       new SqlParameter("GradeStringJson", entity.GradeStringJson),
@@ -106,7 +106,7 @@ namespace ShiNengShiHui.EntityFramework.Repositories
                                                       new SqlParameter("LastModifierUserId", entity.LastModifierUserId),
                                                       new SqlParameter("CreationTime", entity.CreationTime),
                                                       new SqlParameter("CreatorUserId", entity.CreatorUserId),
-                                                      new SqlParameter("Student_Id", entity.Student.Id),
+                                                      new SqlParameter("StudentId", entity.StudentId),
                                                       new SqlParameter("Id", entity.Id));
             }
             return entity;

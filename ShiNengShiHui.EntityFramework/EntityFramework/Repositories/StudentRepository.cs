@@ -43,7 +43,7 @@ namespace ShiNengShiHui.EntityFramework.Repositories
                 connection.Open();
                 Context.Database.ExecuteSqlCommand($@"INSERT INTO [dbo].[{TableName}]
                                                             ([Name]
-                                                            ,[sex]
+                                                            ,[Sex]
                                                             ,[IsDeleted]
                                                             ,[DeleterUserId]
                                                             ,[DeletionTime]
@@ -51,10 +51,11 @@ namespace ShiNengShiHui.EntityFramework.Repositories
                                                             ,[LastModifierUserId]
                                                             ,[CreationTime]
                                                             ,[CreatorUserId]
-                                                            ,[Class_Id])
+                                                            ,[ClassId]
+                                                            ,[Group])
                                                       VALUES
                                                             (< Name, nvarchar(10),@Name>
-                                                            ,< sex, bit,@sex>
+                                                            ,< Sex, bit,@Sex>
                                                             ,< IsDeleted, bit,@IsDeleted>
                                                             ,< DeleterUserId, bigint,@DeleterUserId>
                                                             ,< DeletionTime, datetime,@DeletionTime>
@@ -62,9 +63,10 @@ namespace ShiNengShiHui.EntityFramework.Repositories
                                                             ,< LastModifierUserId, bigint,@LastModifierUserId>
                                                             ,< CreationTime, datetime,@CreationTime>
                                                             ,< CreatorUserId, bigint,@CreatorUserId>
-                                                            ,< Class_Id, int,@Class_Id>)",
+                                                            ,<ClassId, int,@ClassId>
+                                                            ,<[Group], int,@[Group]>)",
                                                             new SqlParameter("Name", entity.Name),
-                                                            new SqlParameter("sex", entity.sex),
+                                                            new SqlParameter("Sex", entity.Sex),
                                                             new SqlParameter("IsDeleted", entity.IsDeleted),
                                                             new SqlParameter("DeleterUserId", entity.DeleterUserId),
                                                             new SqlParameter("DeletionTime", entity.DeletionTime),
@@ -72,9 +74,10 @@ namespace ShiNengShiHui.EntityFramework.Repositories
                                                             new SqlParameter("LastModifierUserId", entity.LastModifierUserId),
                                                             new SqlParameter("CreationTime", entity.CreationTime),
                                                             new SqlParameter("CreatorUserId", entity.CreatorUserId),
-                                                            new SqlParameter("Class_Id", entity.Class.Id));
+                                                            new SqlParameter("ClassId", entity.ClassId),
+                                                            new SqlParameter("[Group]", entity.Group));
             }
-            return FirstOrDefault(s => s.Name.Equals(entity.Name) && s.sex == entity.sex && s.CreationTime == entity.CreationTime);
+            return FirstOrDefault(s => s.Name.Equals(entity.Name) && s.Sex == entity.Sex && s.CreationTime == entity.CreationTime);
         }
 
         public override Task<Student> InsertAsync(Student entity)
@@ -91,7 +94,7 @@ namespace ShiNengShiHui.EntityFramework.Repositories
                 connection.Open();
                 Context.Database.ExecuteSqlCommand($@"UPDATE [dbo].[{TableName}]
                                                        SET[Name] = < Name, nvarchar(10),@Name>
-                                                          ,[sex] = < sex, bit,@sex>
+                                                          ,[Sex] = < Sex, bit,@Sex>
                                                           ,[IsDeleted] = < IsDeleted, bit,@IsDeleted>
                                                           ,[DeleterUserId] = < DeleterUserId, bigint,@DeleterUserId>
                                                           ,[DeletionTime] = < DeletionTime, datetime,@DeletionTime>
@@ -99,10 +102,11 @@ namespace ShiNengShiHui.EntityFramework.Repositories
                                                           ,[LastModifierUserId] = < LastModifierUserId, bigint,@LastModifierUserId>
                                                           ,[CreationTime] = < CreationTime, datetime,@CreationTime>
                                                           ,[CreatorUserId] = < CreatorUserId, bigint,@CreatorUserId>
-                                                          ,[Class_Id] = < Class_Id, int,@Class_Id>
+                                                          ,[ClassId] = <ClassId, int,@ClassId>
+                                                          ,[Group] = <[Group], int,@[Group]>
                                                      WHERE Id=@Id ",
                                                      new SqlParameter("Name", entity.Name),
-                                                     new SqlParameter("sex", entity.sex),
+                                                     new SqlParameter("Sex", entity.Sex),
                                                      new SqlParameter("IsDeleted", entity.IsDeleted),
                                                      new SqlParameter("DeleterUserId", entity.DeleterUserId),
                                                      new SqlParameter("DeletionTime", entity.DeletionTime),
@@ -110,7 +114,8 @@ namespace ShiNengShiHui.EntityFramework.Repositories
                                                      new SqlParameter("LastModifierUserId", entity.LastModifierUserId),
                                                      new SqlParameter("CreationTime", entity.CreationTime),
                                                      new SqlParameter("CreatorUserId", entity.CreatorUserId),
-                                                     new SqlParameter("Class_Id", entity.Class.Id),
+                                                     new SqlParameter("ClassId", entity.ClassId),
+                                                     new SqlParameter("[Group]", entity.Group),
                                                      new SqlParameter("Id", entity.Id));
             }
             return entity;

@@ -118,22 +118,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppServices\Return\ReturnVal.cs" />
     <Compile Include="AppServices\Teacher\Dto\CreateGradeInput.cs" />
-    <Compile Include="AppServices\Teacher\Dto\CreateGradeOutput.cs" />
     <Compile Include="AppServices\Teacher\Dto\CreateGradeRangeInput.cs" />
-    <Compile Include="AppServices\Teacher\Dto\CreateGradeRangeOutput.cs" />
     <Compile Include="AppServices\Teacher\Dto\CreateStudentInput.cs" />
-    <Compile Include="AppServices\Teacher\Dto\CreateStudentOutput.cs" />
     <Compile Include="AppServices\Teacher\Dto\CreateStudentRangeInput.cs" />
-    <Compile Include="AppServices\Teacher\Dto\CreateStudentRangeOutput.cs" />
     <Compile Include="AppServices\Teacher\Dto\DeleteGradeInput.cs" />
-    <Compile Include="AppServices\Teacher\Dto\DeleteGradeOutput.cs" />
     <Compile Include="AppServices\Teacher\Dto\DeleteGradeRangeInput.cs" />
-    <Compile Include="AppServices\Teacher\Dto\DeleteGradeRangeOutput.cs" />
     <Compile Include="AppServices\Teacher\Dto\DeleteStudentInput.cs" />
-    <Compile Include="AppServices\Teacher\Dto\DeleteStudentOutput.cs" />
     <Compile Include="AppServices\Teacher\Dto\DeleteStudentRangeInput.cs" />
-    <Compile Include="AppServices\Teacher\Dto\DeleteStudentRangeOutput.cs" />
+    <Compile Include="AppServices\Teacher\ScreenEnum.cs" />
     <Compile Include="AppServices\Teacher\Dto\ShowGradeInput.cs" />
     <Compile Include="AppServices\Teacher\Dto\ShowGradeOutput.cs" />
     <Compile Include="AppServices\Teacher\Dto\ShowPageGradeInput.cs" />
@@ -147,15 +141,12 @@
     <Compile Include="AppServices\Teacher\Dto\ShowStudentInput.cs" />
     <Compile Include="AppServices\Teacher\Dto\ShowStudentOutput.cs" />
     <Compile Include="AppServices\Teacher\Dto\UpdateGradeInput.cs" />
-    <Compile Include="AppServices\Teacher\Dto\UpdateGradeOutput.cs" />
     <Compile Include="AppServices\Teacher\Dto\UpdateGradeRangeInput.cs" />
-    <Compile Include="AppServices\Teacher\Dto\UpdateGradeRangeOutput.cs" />
     <Compile Include="AppServices\Teacher\Dto\UpdateStudentInput.cs" />
-    <Compile Include="AppServices\Teacher\Dto\UpdateStudentOutput.cs" />
     <Compile Include="AppServices\Teacher\Dto\UpdateStudentRangeInput.cs" />
-    <Compile Include="AppServices\Teacher\Dto\UpdateStudentRangeOutput.cs" />
     <Compile Include="AppServices\Teacher\ITeacherAppService.cs" />
     <Compile Include="AppServices\Teacher\TeacherAppService.cs" />
+    <Compile Include="Dto\PageBaseDto.cs" />
     <Compile Include="ShiNengShiHuiApplicationModule.cs" />
     <Compile Include="ShiNengShiHuiAppServiceBase.cs" />
     <Compile Include="MultiTenancy\Dto\CreateTenantInput.cs" />

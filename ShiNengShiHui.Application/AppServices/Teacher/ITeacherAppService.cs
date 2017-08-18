@@ -1,4 +1,5 @@
 ﻿using Abp.Application.Services;
+using ShiNengShiHui.AppServices.Return;
 using ShiNengShiHui.AppServices.Teacher.Dto;
 
 namespace ShiNengShiHui.AppServices.Teacher
@@ -9,26 +10,26 @@ namespace ShiNengShiHui.AppServices.Teacher
         ShowPageStudentOutput ShowPageStudent(ShowPageStudentInput showPageStudentInput);
 
 
-        CreateStudentOutput CreateStudent(CreateStudentInput createStudentInput);
-        CreateStudentRangeOutput CreateStudentRange(CreateStudentRangeInput createStudentRangeInput);
+        ReturnVal CreateStudent(CreateStudentInput createStudentInput);
+        ReturnVal CreateStudentRange(CreateStudentRangeInput createStudentRangeInput);
 
-        UpdateStudentOutput UpdateStudent(UpdateStudentInput updateStudentInput);
-        UpdateStudentRangeOutput UpdateStudentRange(UpdateStudentRangeInput updateStudentRangeInput);
+        ReturnVal UpdateStudent(UpdateStudentInput updateStudentInput);
+        ReturnVal UpdateStudentRange(UpdateStudentRangeInput updateStudentRangeInput);
 
-        DeleteStudentOutput DeleteStudent(DeleteStudentInput deleteStudentInput);
-        DeleteStudentRangeOutput DeleteStudentRange(DeleteStudentRangeInput deleteStudentRangeInput);
+        ReturnVal DeleteStudent(DeleteStudentInput deleteStudentInput);
+        ReturnVal DeleteStudentRange(DeleteStudentRangeInput deleteStudentRangeInput);
 
         ShowGradeOutput ShowGrade(ShowGradeInput showGradeInput);
         ShowPageGradeOutput ShowPageGrade(ShowPageGradeInput showPageGradeInput);
 
-        CreateGradeOutput CreateGrade(CreateGradeInput createGradeInput);
-        CreateGradeRangeOutput CreateGradeRange(CreateGradeRangeInput createGradeRangeInput);
+        ReturnVal CreateGrade(CreateGradeInput createGradeInput);
+        ReturnVal CreateGradeRange(CreateGradeRangeInput createGradeRangeInput);
 
-        UpdateGradeOutput UpdateGrade(UpdateGradeInput updateGradeInput);
-        UpdateGradeRangeOutput UpdateGradeRange(UpdateGradeRangeInput updateGradeRangeInput);
+        ReturnVal UpdateGrade(UpdateGradeInput updateGradeInput);
+        ReturnVal UpdateGradeRange(UpdateGradeRangeInput updateGradeRangeInput);
 
-        DeleteGradeOutput DeleteGrade(DeleteGradeInput deleteGradeInput);
-        DeleteGradeRangeOutput DeleteGradeRange(DeleteGradeRangeInput deleteGradeRangeInput);
+        ReturnVal DeleteGrade(DeleteGradeInput deleteGradeInput);
+        ReturnVal DeleteGradeRange(DeleteGradeRangeInput deleteGradeRangeInput);
 
         ShowPrizeOutput ShowPrize(ShowPrizeInput showPrizeInput);
         ShowPagePrizeOutput ShowPagePrize(ShowPagePrizeInput showPagePrizeInput);

@@ -116,7 +116,7 @@
     <Compile Include="Entities\Grades\Grade.cs" />
     <Compile Include="Entities\Grades\GradeData.cs" />
     <Compile Include="Entities\Grades\IGradeRepository.cs" />
-    <Compile Include="Entities\OtherData\GradeorPrizeDateTime.cs" />
+    <Compile Include="Entities\OtherData\GradeOrPrizeDateTime.cs" />
     <Compile Include="Entities\Prizes\IPrizeRepository.cs" />
     <Compile Include="Entities\Prizes\Prize.cs" />
     <Compile Include="Entities\Prizes\PrizeItem.cs" />

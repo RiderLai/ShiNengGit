@@ -3,6 +3,7 @@ using Abp.Authorization.Users;
 using Abp.Extensions;
 using Microsoft.AspNet.Identity;
 using ShiNengShiHui.Entities.Teachers;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ShiNengShiHui.Users
 {
@@ -28,6 +29,9 @@ namespace ShiNengShiHui.Users
             };
         }
 
+        public virtual int? TeacherId { get; set; }
+
+        [ForeignKey("TeacherId")]
         public virtual Teacher Teacher { get; set; }
     }
 }

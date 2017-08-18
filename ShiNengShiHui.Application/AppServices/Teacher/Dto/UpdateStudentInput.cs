@@ -8,5 +8,14 @@ namespace ShiNengShiHui.AppServices.Teacher.Dto
 {
     public class UpdateStudentInput
     {
+        public int Id { get; set; }
+
+        public string Name { get; set; }
+
+        public bool Sex { get; set; }
+
+        public int? Group { get; set; }
+
+        public int ClassId { get; set; }
     }
 }

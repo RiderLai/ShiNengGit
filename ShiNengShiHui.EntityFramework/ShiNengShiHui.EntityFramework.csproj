@@ -146,6 +146,14 @@
     <Compile Include="Migrations\201708140905019_EntitiesInitial1.Designer.cs">
       <DependentUpon>201708140905019_EntitiesInitial1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708181101533_EntitiesInitial2.cs" />
+    <Compile Include="Migrations\201708181101533_EntitiesInitial2.Designer.cs">
+      <DependentUpon>201708181101533_EntitiesInitial2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708181149040_EntitiesInitial3.cs" />
+    <Compile Include="Migrations\201708181149040_EntitiesInitial3.Designer.cs">
+      <DependentUpon>201708181149040_EntitiesInitial3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedData\EntitiesData\DefaultEntitiesDataCreator.cs" />
@@ -176,6 +184,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708140905019_EntitiesInitial1.resx">
       <DependentUpon>201708140905019_EntitiesInitial1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708181101533_EntitiesInitial2.resx">
+      <DependentUpon>201708181101533_EntitiesInitial2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708181149040_EntitiesInitial3.resx">
+      <DependentUpon>201708181149040_EntitiesInitial3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

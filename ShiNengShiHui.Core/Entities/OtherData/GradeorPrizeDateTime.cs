@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace ShiNengShiHui.Entities.OtherData
 {
-    public class GradeorPrizeDateTime
+    public class GradeOrPrizeDateTime
     {
-        public DateTime DateTime { get; set; }
+        public DateTime Date { get; set; }
+
+        public int SchoolYear { get; set; }
+
+        public int Semester { get; set; }
+
+        public int Week { get; set; }
     }
 }

@@ -44,8 +44,8 @@ namespace ShiNengShiHui.EntityFramework.Repositories
                                                             ,[LastModifierUserId]
                                                             ,[CreationTime]
                                                             ,[CreatorUserId]
-                                                            ,[PrizeItem_Id]
-                                                            ,[Student_Id])
+                                                            ,[PrizeItemId]
+                                                            ,[StudentId])
                                                       VALUES
                                                             (<DateJosn, nvarchar(max),@DateJosn>
                                                             ,<IsDeleted, bit,@IsDeleted>
@@ -55,8 +55,8 @@ namespace ShiNengShiHui.EntityFramework.Repositories
                                                             ,<LastModifierUserId, bigint,@LastModifierUserId>
                                                             ,<CreationTime, datetime,@CreationTime>
                                                             ,<CreatorUserId, bigint,@CreatorUserId>
-                                                            ,<PrizeItem_Id, uniqueidentifier,@PrizeItem_Id>
-                                                            ,<Student_Id, int,@Student_Id>)",
+                                                            ,<PrizeItemId, uniqueidentifier,@PrizeItemId>
+                                                            ,<StudentId, int,@StudentId>)",
                                                             new SqlParameter("DateJosn", entity.DateJosn),
                                                             new SqlParameter("IsDeleted", entity.IsDeleted),
                                                             new SqlParameter("DeleterUserId", entity.DeleterUserId),
@@ -65,8 +65,8 @@ namespace ShiNengShiHui.EntityFramework.Repositories
                                                             new SqlParameter("LastModifierUserId", entity.LastModifierUserId),
                                                             new SqlParameter("CreationTime", entity.CreationTime),
                                                             new SqlParameter("CreatorUserId", entity.CreatorUserId),
-                                                            new SqlParameter("PrizeItem_Id", entity.PrizeItem.Id),
-                                                            new SqlParameter("Student_Id", entity.Student.Id));
+                                                            new SqlParameter("PrizeItemId", entity.PrizeItemId),
+                                                            new SqlParameter("StudentId", entity.StudentId));
             }
             return FirstOrDefault(p => p.Student.Id == entity.Student.Id && p.PrizeItem.Id == entity.PrizeItem.Id && p.CreationTime == entity.CreationTime);
         }
@@ -93,7 +93,7 @@ namespace ShiNengShiHui.EntityFramework.Repositories
                                                            ,[CreationTime] = <CreationTime, datetime,@CreationTime>
                                                            ,[CreatorUserId] = <CreatorUserId, bigint,@CreatorUserId>
                                                            ,[PrizeItem_Id] = <PrizeItem_Id, uniqueidentifier,@PrizeItem_Id>
-                                                           ,[Student_Id] = <Student_Id, int,@Student_Id>
+                                                           ,[StudentId] = <StudentId, int,@StudentId>
                                                       WHERE Id=@Id",
                                                       new SqlParameter("DateJosn", entity.DateJosn),
                                                       new SqlParameter("IsDeleted", entity.IsDeleted),
@@ -103,8 +103,8 @@ namespace ShiNengShiHui.EntityFramework.Repositories
                                                       new SqlParameter("LastModifierUserId", entity.LastModifierUserId),
                                                       new SqlParameter("CreationTime", entity.CreationTime),
                                                       new SqlParameter("CreatorUserId", entity.CreatorUserId),
-                                                      new SqlParameter("PrizeItem_Id", entity.PrizeItem.Id),
-                                                      new SqlParameter("Student_Id", entity.Student.Id),
+                                                      new SqlParameter("PrizeItemId", entity.PrizeItemId),
+                                                      new SqlParameter("StudentId", entity.StudentId),
                                                       new SqlParameter("Id", entity.Id));
             }
             return entity;
