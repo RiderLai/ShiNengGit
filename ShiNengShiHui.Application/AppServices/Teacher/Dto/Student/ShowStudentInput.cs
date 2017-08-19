@@ -5,8 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ShiNengShiHui.AppServices.Teacher.Dto
-{ 
-    public class ShowPageGradeOutput
+{
+    public class ShowStudentInput
     {
+        public int Id { get; set; }
     }
 }

@@ -5,8 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ShiNengShiHui.AppServices.Teacher.Dto
-{ 
-    public class ShowGradeInput
+{
+    public class ShowPrizeInput
     {
+        public int Id { get; set; }
     }
 }

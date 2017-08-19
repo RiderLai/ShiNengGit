@@ -8,5 +8,12 @@ namespace ShiNengShiHui.AppServices.Teacher.Dto
 {
     public class ShowPrizeOutput
     {
+        public string StudentName { get; set; }
+
+        public string PrizeName { get; set; }
+
+        public DateTime DateTime { get; set; }
+
+        public string SchoolYearAndMore { get; set; }
     }
 }

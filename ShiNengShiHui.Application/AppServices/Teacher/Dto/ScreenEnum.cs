@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShiNengShiHui.AppServices.Teacher
+namespace ShiNengShiHui.AppServices.Teacher.Dto
 {
     public enum ScreenEnum
     {

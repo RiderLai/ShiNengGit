@@ -23,15 +23,17 @@ namespace ShiNengShiHui.AppServices.Teacher
         private readonly IStudentRepository _studentRepository;
         private readonly IGradeRepository _gradeRepository;
         private readonly IPrizeRepository _prizeRepository;
-
+        private readonly IRepository<PrizeItem,Guid> _prizeItemRepository;
 
         public TeacherAppService(IStudentRepository studentRepository,
             IGradeRepository gradeRepository,
-            IPrizeRepository prizeRepository)
+            IPrizeRepository prizeRepository,
+            IRepository<PrizeItem,Guid> prizeItemRepository)
         {
             _studentRepository = studentRepository;
             _gradeRepository = gradeRepository;
             _prizeRepository = prizeRepository;
+            _prizeItemRepository = prizeItemRepository;
         }
 
         #region 添加
@@ -133,32 +135,129 @@ namespace ShiNengShiHui.AppServices.Teacher
         #region 展示
         public ShowGradeOutput ShowGrade(ShowGradeInput showGradeInput)
         {
-            throw new NotImplementedException();
+            Grade grade = _gradeRepository.FirstOrDefault(showGradeInput.Id);
+
+            if (grade==null)
+            {
+                return null;
+            }
+
+            var date = ObjectMapper.Map<GradeOrPrizeDateTime>(grade.DateJson);
+            return new ShowGradeOutput()
+            {
+                StudentName = _studentRepository.Get(grade.StudentId).Name,
+                Grades = JsonConvert.DeserializeObject<GradeData>(grade.GradeStringJson).G,
+                DateTime = date.Date,
+                SchoolYearAndMore = date.SchoolYear + "  " + date.Semester + "  " + date.Week
+            };
         }
 
         public ShowPrizeOutput ShowPrize(ShowPrizeInput showPrizeInput)
         {
-            throw new NotImplementedException();
+            Prize prize = _prizeRepository.FirstOrDefault(showPrizeInput.Id);
+
+            if (prize==null)
+            {
+                return null;
+            }
+
+            var date = ObjectMapper.Map<GradeOrPrizeDateTime>(prize.DateJosn);
+            return new ShowPrizeOutput()
+            {
+                StudentName = _studentRepository.Get(prize.StudentId).Name,
+                PrizeName = _prizeItemRepository.Get(prize.PrizeItemId).Name,
+                DateTime = date.Date,
+                SchoolYearAndMore = date.SchoolYear + "  " + date.Semester + "  " + date.Week
+            };
         }
 
         public ShowStudentOutput ShowStudent(ShowStudentInput showStudentInput)
         {
-            throw new NotImplementedException();
+            Student student = _studentRepository.FirstOrDefault(showStudentInput.Id);
+
+            if (student==null)
+            {
+                return null;
+            }
+            return ObjectMapper.Map<ShowStudentOutput>(student);
         }
 
         public ShowPageGradeOutput ShowPageGrade(ShowPageGradeInput showPageGradeInput)
         {
-            throw new NotImplementedException();
+            showPageGradeInput.PageCount = _gradeRepository.Count() / showPageGradeInput.ShowCount;
+            if (showPageGradeInput.PageIndex>showPageGradeInput.PageCount)
+            {
+                showPageGradeInput.PageIndex = 1;
+            }
+
+            Grade[] grades = _gradeRepository.GetPage(showPageGradeInput.PageIndex, showPageGradeInput.ShowCount);
+            var result = ObjectMapper.Map<ShowPageGradeOutput>(showPageGradeInput);
+            result.Lenth = grades.Length;
+            result.ShowGradeOutputs = grades.Select<Grade, ShowGradeOutput>(m =>
+               {
+                   GradeOrPrizeDateTime gradeOrPrizeDateTime = JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJson);
+                   return new ShowGradeOutput()
+                   {
+                       StudentName = _studentRepository.Get(m.StudentId).Name,
+                       Grades = JsonConvert.DeserializeObject<GradeData>(m.GradeStringJson).G,
+                       DateTime = gradeOrPrizeDateTime.Date,
+                       SchoolYearAndMore = gradeOrPrizeDateTime.SchoolYear + "  " + gradeOrPrizeDateTime.Semester + "  " + gradeOrPrizeDateTime.Week
+                   };
+               }).ToArray<ShowGradeOutput>();
+            return result;
         }
 
         public ShowPagePrizeOutput ShowPagePrize(ShowPagePrizeInput showPagePrizeInput)
         {
-            throw new NotImplementedException();
+            showPagePrizeInput.PageCount = _prizeRepository.Count() / showPagePrizeInput.ShowCount;
+            if (showPagePrizeInput.PageIndex>showPagePrizeInput.PageCount)
+            {
+                showPagePrizeInput.PageIndex = 1;
+            }
+
+            Prize[] prizes = _prizeRepository.GetPage(showPagePrizeInput.PageIndex, showPagePrizeInput.ShowCount);
+            var result = ObjectMapper.Map<ShowPagePrizeOutput>(showPagePrizeInput);
+            result.Lenth = prizes.Length;
+            result.ShowPrizeOutputs = prizes.Select<Prize, ShowPrizeOutput>(m =>
+               {
+                   var date = JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJosn);
+                   return new ShowPrizeOutput()
+                   {
+                       StudentName = _studentRepository.Get(m.StudentId).Name,
+                       PrizeName = _prizeItemRepository.Get(m.PrizeItemId).Name,
+                       DateTime = date.Date,
+                       SchoolYearAndMore = date.SchoolYear + "  " + date.Semester + "  " + date.Week
+                   };
+               }).ToArray<ShowPrizeOutput>();
+            return result;
         }
 
         public ShowPageStudentOutput ShowPageStudent(ShowPageStudentInput showPageStudentInput)
         {
-            throw new NotImplementedException();
+            showPageStudentInput.PageCount = _studentRepository.Count() / showPageStudentInput.ShowCount;
+            if (showPageStudentInput.PageIndex > showPageStudentInput.PageCount)
+            {
+                showPageStudentInput.PageIndex = 1;
+            }
+            //Student[] students = _studentRepository.GetAllList().ToArray<Student>();
+            //List<ShowStudentOutput> list = new List<ShowStudentOutput>();
+
+            //int start = (showPageStudentInput.PageIndex - 1) * showPageStudentInput.ShowCount;
+            //int end = start + showPageStudentInput.ShowCount;
+            //if (end>students.Length)
+            //{
+            //    end = students.Length;
+            //}
+            //for (int i = start; i < end; i++)
+            //{
+            //    list.Add(ObjectMapper.Map<ShowStudentOutput>(students[i]));
+            //}
+
+            Student[] students = _studentRepository.GetPage(showPageStudentInput.PageIndex, showPageStudentInput.ShowCount);
+            var result=ObjectMapper.Map<ShowPageStudentOutput>(showPageStudentInput);
+            result.Lenth = students.Length;
+            result.ShowStudentOutputs = students.Select<Student, ShowStudentOutput>(s => ObjectMapper.Map<ShowStudentOutput>(s)).ToArray<ShowStudentOutput>();
+            return result;
         }
         #endregion
 

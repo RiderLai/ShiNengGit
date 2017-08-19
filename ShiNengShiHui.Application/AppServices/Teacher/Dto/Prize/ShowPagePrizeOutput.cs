@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace ShiNengShiHui.AppServices.Teacher.Dto
 {
-    public class ShowPageStudentOutput:PageBaseDto
+    public class ShowPagePrizeOutput:PageBaseDto
     {
-        public ShowStudentOutput[] ShowStudentOutput { get; set; }
+        public ShowPrizeOutput[] ShowPrizeOutputs { get; set; }
 
-        public int Lenth { get; set; }
+        public int Lenth;
     }
 }
