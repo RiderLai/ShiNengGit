@@ -27,6 +27,7 @@
     <TypeScriptToolsVersion>2.2</TypeScriptToolsVersion>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -317,6 +318,55 @@
     <Content Include="Abp\Framework\styles\abp.mixings.min.css" />
     <Content Include="Abp\Framework\styles\utils\ie10fix.css" />
     <Content Include="App\Main\app.js" />
+    <Content Include="App\Main\assets\css\bootstrap.css" />
+    <Content Include="App\Main\assets\css\bootstrap.min.css" />
+    <Content Include="App\Main\assets\css\demo.css" />
+    <Content Include="App\Main\assets\css\main.css" />
+    <Content Include="App\Main\assets\img\apple-icon.png" />
+    <Content Include="App\Main\assets\img\favicon.png" />
+    <Content Include="App\Main\assets\img\login-bg.jpg" />
+    <Content Include="App\Main\assets\img\logo-dark.png" />
+    <Content Include="App\Main\assets\img\profile-bg.png" />
+    <Content Include="App\Main\assets\img\user-medium.png" />
+    <Content Include="App\Main\assets\img\user.png" />
+    <Content Include="App\Main\assets\img\user1.png" />
+    <Content Include="App\Main\assets\img\user2.png" />
+    <Content Include="App\Main\assets\img\user3.png" />
+    <Content Include="App\Main\assets\img\user4.png" />
+    <Content Include="App\Main\assets\img\user5.png" />
+    <Content Include="App\Main\assets\scripts\klorofil-common.js" />
+    <Content Include="App\Main\assets\vendor\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="App\Main\assets\vendor\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="App\Main\assets\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="App\Main\assets\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="App\Main\assets\vendor\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="App\Main\assets\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="App\Main\assets\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="App\Main\assets\vendor\bootstrap\js\npm.js" />
+    <Content Include="App\Main\assets\vendor\chartist\css\chartist-custom.css" />
+    <Content Include="App\Main\assets\vendor\chartist\css\chartist.css" />
+    <Content Include="App\Main\assets\vendor\chartist\css\chartist.min.css" />
+    <Content Include="App\Main\assets\vendor\chartist\js\chartist.js" />
+    <Content Include="App\Main\assets\vendor\chartist\js\chartist.min.js" />
+    <Content Include="App\Main\assets\vendor\font-awesome\css\font-awesome.css" />
+    <Content Include="App\Main\assets\vendor\font-awesome\css\font-awesome.min.css" />
+    <Content Include="App\Main\assets\vendor\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="App\Main\assets\vendor\jquery-slimscroll\jquery.slimscroll.js" />
+    <Content Include="App\Main\assets\vendor\jquery-slimscroll\jquery.slimscroll.min.js" />
+    <Content Include="App\Main\assets\vendor\jquery.easy-pie-chart\angular.easypiechart.js" />
+    <Content Include="App\Main\assets\vendor\jquery.easy-pie-chart\angular.easypiechart.min.js" />
+    <Content Include="App\Main\assets\vendor\jquery.easy-pie-chart\easypiechart.js" />
+    <Content Include="App\Main\assets\vendor\jquery.easy-pie-chart\easypiechart.min.js" />
+    <Content Include="App\Main\assets\vendor\jquery.easy-pie-chart\jquery.easypiechart.js" />
+    <Content Include="App\Main\assets\vendor\jquery.easy-pie-chart\jquery.easypiechart.min.js" />
+    <Content Include="App\Main\assets\vendor\jquery\jquery.js" />
+    <Content Include="App\Main\assets\vendor\jquery\jquery.min.js" />
+    <Content Include="App\Main\assets\vendor\linearicons\fonts\Linearicons-Free.svg" />
+    <Content Include="App\Main\assets\vendor\linearicons\style.css" />
+    <Content Include="App\Main\assets\vendor\toastr\toastr.css" />
+    <Content Include="App\Main\assets\vendor\toastr\toastr.js" />
+    <Content Include="App\Main\assets\vendor\toastr\toastr.min.css" />
+    <Content Include="App\Main\assets\vendor\toastr\toastr.min.js" />
     <Content Include="App\Main\images\abp-logo.png" />
     <Content Include="App\Main\main.css">
       <DependentUpon>main.less</DependentUpon>
@@ -468,6 +518,26 @@
     <Content Include="Abp\Framework\styles\abp.mixings.css.map" />
     <Content Include="Abp\Framework\styles\abp.less" />
     <Content Include="Abp\Framework\styles\abp.css.map" />
+    <Content Include="App\Main\assets\css\demo.css.map" />
+    <Content Include="App\Main\assets\css\main.css.map" />
+    <Content Include="App\Main\assets\vendor\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="App\Main\assets\vendor\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="App\Main\assets\vendor\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="App\Main\assets\vendor\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="App\Main\assets\vendor\chartist\css\chartist-custom.css.map" />
+    <Content Include="App\Main\assets\vendor\chartist\map\chartist.css.map" />
+    <Content Include="App\Main\assets\vendor\chartist\map\chartist.min.js.map" />
+    <Content Include="App\Main\assets\vendor\chartist\scss\chartist.scss" />
+    <Content Include="App\Main\assets\vendor\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="App\Main\assets\vendor\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="App\Main\assets\vendor\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="App\Main\assets\vendor\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="App\Main\assets\vendor\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="App\Main\assets\vendor\jquery\jquery.min.map" />
+    <Content Include="App\Main\assets\vendor\linearicons\fonts\Linearicons-Free.eot" />
+    <Content Include="App\Main\assets\vendor\linearicons\fonts\Linearicons-Free.ttf" />
+    <Content Include="App\Main\assets\vendor\linearicons\fonts\Linearicons-Free.woff" />
+    <Content Include="App\Main\assets\vendor\linearicons\fonts\Linearicons-Free.woff2" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <None Include="Scripts\jquery-2.2.0-vsdoc.js" />
     <Content Include="Scripts\i18n\angular-locale_af-na.js" />

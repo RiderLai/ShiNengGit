@@ -18,6 +18,7 @@
 
     <link rel="shortcut icon" href="~/favicon.ico">
 
+
     @Styles.Render("~/Bundles/App/vendor/css")
     @Styles.Render("~/Bundles/App/Main/css")
 
@@ -49,17 +50,38 @@
 
     @Scripts.Render("~/Bundles/App/Main/js")
     
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+    <!-- ICONS -->
+    <link rel="apple-touch-icon" sizes="76x76" href="/App/Main/assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/App/Main/assets/img/favicon.png">
 </head>
 <body>
     <div ng-app="app">
         <div ng-controller="app.views.layout as vm">
-            <div ng-include="'/App/Main/views/layout/header.cshtml'"></div>
-            <div class="container">
-                <div class="angular-animation-container row">
-                    <div ui-view class="shuffle-animation col-xs-12"></div>
+            <div id="wrapper">
+                <div ng-include="'/App/Main/views/layout/header.cshtml'"></div>
+
+
+
+
+                <div class="main">
+                    <!-- MAIN CONTENT -->
+                    <div class="main-content">
+                        <div class="container-fluid">
+                            <div class="angular-animation-container row">
+                                <div ui-view class="shuffle-animation col-xs-8"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+
+    
+    
+
 </body>
 </html>

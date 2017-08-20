@@ -68,7 +68,8 @@ namespace ShiNengShiHui.Web
             //~/Bundles/App/Main/css
             bundles.Add(
                 new StyleBundle("~/Bundles/App/Main/css")
-                    .IncludeDirectory("~/App/Main", "*.css", true)
+                    .IncludeDirectory("~/App/Main/assets/vendor", "*.css", true)
+                    .IncludeDirectory("~/App/Main/assets/css","*.css",true)
                 );
 
             //~/Bundles/App/Main/js
