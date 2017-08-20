@@ -113,6 +113,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Classes\Class.cs" />
+    <Compile Include="Entities\Function\Function.cs" />
+    <Compile Include="Entities\Function\IFunctionRepository.cs" />
     <Compile Include="Entities\Grades\Grade.cs" />
     <Compile Include="Entities\Grades\GradeData.cs" />
     <Compile Include="Entities\Grades\IGradeRepository.cs" />

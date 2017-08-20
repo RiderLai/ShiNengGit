@@ -3,6 +3,7 @@ using System.Reflection;
 using Abp.Modules;
 using Abp.Zero.EntityFramework;
 using ShiNengShiHui.EntityFramework;
+using Abp.EntityFramework;
 
 namespace ShiNengShiHui
 {
@@ -14,6 +15,8 @@ namespace ShiNengShiHui
             Database.SetInitializer(new CreateDatabaseIfNotExists<ShiNengShiHuiDbContext>());
 
             Configuration.DefaultNameOrConnectionString = "Default";
+
+            
         }
 
         public override void Initialize()

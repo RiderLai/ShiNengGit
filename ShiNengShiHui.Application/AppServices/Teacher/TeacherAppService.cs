@@ -15,7 +15,7 @@ using ShiNengShiHui.AppServices.Return;
 using Abp.Timing;
 using ShiNengShiHui.Entities.OtherData;
 
-namespace ShiNengShiHui.AppServices.Teacher
+namespace ShiNengShiHui.AppServices
 {
     public class TeacherAppService : ShiNengShiHuiAppServiceBase, ITeacherAppService
     {

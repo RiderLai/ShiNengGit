@@ -2,7 +2,7 @@
 using ShiNengShiHui.AppServices.Return;
 using ShiNengShiHui.AppServices.Teacher.Dto;
 
-namespace ShiNengShiHui.AppServices.Teacher
+namespace ShiNengShiHui.AppServices
 {
     public interface ITeacherAppService:IApplicationService
     {

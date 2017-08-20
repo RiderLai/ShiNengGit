@@ -118,6 +118,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppServices\Function\Dto\FunctionDto.cs" />
+    <Compile Include="AppServices\Function\Dto\FunctionGetOfRoleOutput.cs" />
+    <Compile Include="AppServices\Function\FunctionAppService.cs" />
+    <Compile Include="AppServices\Function\IFunctionAppService.cs" />
     <Compile Include="AppServices\Return\ReturnVal.cs" />
     <Compile Include="AppServices\Teacher\Dto\Grade\CreateGradeInput.cs" />
     <Compile Include="AppServices\Teacher\Dto\Grade\CreateGradeRangeInput.cs" />

@@ -66,11 +66,11 @@ namespace ShiNengShiHui.Web
             //APPLICATION RESOURCES
 
             //~/Bundles/App/Main/css
-            bundles.Add(
-                new StyleBundle("~/Bundles/App/Main/css")
-                    .IncludeDirectory("~/App/Main/assets/vendor", "*.css", true)
-                    .IncludeDirectory("~/App/Main/assets/css","*.css",true)
-                );
+            //bundles.Add(
+            //    new StyleBundle("~/Bundles/App/Main/css")
+            //        .IncludeDirectory("~/App/Main/assets/vendor", "*.css", true)
+            //        .IncludeDirectory("~/App/Main/assets/css","*.css",true)
+            //    );
 
             //~/Bundles/App/Main/js
             bundles.Add(

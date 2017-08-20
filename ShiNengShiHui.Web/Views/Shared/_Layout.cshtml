@@ -11,69 +11,51 @@
 @{
     SetAntiForgeryCookie();
 }
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
+    <title>Home</title>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>ShiNengShiHui</title>
-
-    <link rel="shortcut icon" href="~/favicon.ico">
-
-    @Html.IncludeStyle("~/Content/themes/base/all.css")
-    @Html.IncludeStyle("~/Content/bootstrap-cosmo.min.css")
-    @Html.IncludeStyle("~/Content/font-awesome.min.css")
-    @Html.IncludeStyle("~/Content/toastr.min.css")
-    @Html.IncludeStyle("~/Content/flags/famfamfam-flags.css")
-    @Html.IncludeStyle("~/Scripts/sweetalert/sweet-alert.css")
-
-    @RenderSection("Styles", false)
-
-    <script type="text/javascript">
-        //This is used to get the application's root path from javascript. It's useful if you're running application in a virtual directory under IIS.
-        var abp = abp || {}; abp.appPath = '@ApplicationPath';
-    </script>
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-        @Html.IncludeScript("~/Scripts/others/html5shiv.js")
-        @Html.IncludeScript("~/Scripts/others/respond.min.js")
-    <![endif]-->
-
-
-    @Html.IncludeScript("~/Abp/Framework/scripts/utils/ie10fix.js")
-    @Html.IncludeScript("~/Scripts/modernizr-2.8.3.js")
-
-    @Html.IncludeScript("~/Scripts/json2.min.js")
-    @Html.IncludeScript("~/Scripts/jquery-2.2.0.min.js")
-    @Html.IncludeScript("~/Scripts/jquery-ui-1.11.4.min.js")
-    @Html.IncludeScript("~/Scripts/bootstrap.min.js")
-
-    @Html.IncludeScript("~/Scripts/jquery.validate.min.js")
-    @Html.IncludeScript("~/Scripts/jquery.blockUI.js")
-    @Html.IncludeScript("~/Scripts/toastr.min.js")
-    @Html.IncludeScript("~/Scripts/others/spinjs/spin.js")
-    @Html.IncludeScript("~/Scripts/others/spinjs/jquery.spin.js")
-    @Html.IncludeScript("~/Scripts/sweetalert/sweet-alert.min.js")
-
-    @Html.IncludeScript("~/Abp/Framework/scripts/abp.js")
-    @Html.IncludeScript("~/Abp/Framework/scripts/libs/abp.jquery.js")
-    @Html.IncludeScript("~/Abp/Framework/scripts/libs/abp.toastr.js")
-    @Html.IncludeScript("~/Abp/Framework/scripts/libs/abp.blockUI.js")
-    @Html.IncludeScript("~/Abp/Framework/scripts/libs/abp.spin.js")
-    @Html.IncludeScript("~/Abp/Framework/scripts/libs/abp.sweet-alert.js")
-
-    <!-- Dynamic scripts of ABP system (They are created on runtime and can not be bundled) -->
-    <script src="~/api/AbpServiceProxies/GetAll?v=@(Clock.Now.Ticks)"></script>
-    <script src="~/AbpScripts/GetScripts?v=@(Clock.Now.Ticks)" type="text/javascript"></script>
-
-    @RenderSection("Scripts", false)
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- VENDOR CSS -->
+    <link rel="stylesheet" href="~/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/assets/vendor/linearicons/style.css">
+    <link rel="stylesheet" href="~/assets/vendor/chartist/css/chartist-custom.css">
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="~/assets/css/main.css">
+    <!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
+    <link rel="stylesheet" href="~/assets/css/demo.css">
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+    <!-- ICONS -->
+    <link rel="apple-touch-icon" sizes="76x76" href="~/assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="~/assets/img/favicon.png">
 </head>
+
 <body>
-    @RenderBody()
+    <div id="wrapper">
+        @Html.Partial("_head")
+        @Html.Partial("_leftsidebar")
+        <!-- MAIN -->
+        <div class="main">
+            <!-- MAIN CONTENT -->
+            <div class="main-content">
+                <div class="container-fluid">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="~/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="~/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="~/assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
+    <script src="~/assets/vendor/chartist/js/chartist.min.js"></script>
+    <script src="~/assets/scripts/klorofil-common.js"></script>
 </body>
 </html>

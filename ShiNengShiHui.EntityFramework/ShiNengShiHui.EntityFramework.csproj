@@ -132,6 +132,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntityFramework\Repositories\FunctionRepository.cs" />
     <Compile Include="EntityFramework\Repositories\GradeRepository.cs" />
     <Compile Include="EntityFramework\Repositories\PrizeRepository.cs" />
     <Compile Include="EntityFramework\Repositories\SqlRepositoryBase.cs" />
@@ -154,10 +155,16 @@
     <Compile Include="Migrations\201708181149040_EntitiesInitial3.Designer.cs">
       <DependentUpon>201708181149040_EntitiesInitial3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708200754302_EntitiesInitial4.cs" />
+    <Compile Include="Migrations\201708200754302_EntitiesInitial4.Designer.cs">
+      <DependentUpon>201708200754302_EntitiesInitial4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedData\EntitiesData\DefaultEntitiesDataCreator.cs" />
     <Compile Include="Migrations\SeedData\EntitiesData\RoleCreator.cs" />
+    <Compile Include="Migrations\SeedData\EntitiesData\TeacherFunctionCreator.cs" />
+    <Compile Include="Migrations\SeedData\EntitiesData\TeacherUserCreator.cs" />
     <Compile Include="ShiNengShiHuiDataModule.cs" />
     <Compile Include="Migrations\SeedData\DefaultEditionsCreator.cs" />
     <Compile Include="Migrations\SeedData\DefaultLanguagesCreator.cs" />
@@ -190,6 +197,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708181149040_EntitiesInitial3.resx">
       <DependentUpon>201708181149040_EntitiesInitial3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708200754302_EntitiesInitial4.resx">
+      <DependentUpon>201708200754302_EntitiesInitial4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
