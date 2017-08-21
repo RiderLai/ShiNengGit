@@ -184,7 +184,13 @@ namespace ShiNengShiHui.AppServices
 
         public ShowPageGradeOutput ShowPageGrade(ShowPageGradeInput showPageGradeInput)
         {
-            showPageGradeInput.PageCount = _gradeRepository.Count() / showPageGradeInput.ShowCount;
+            long count = _gradeRepository.Count();
+            showPageGradeInput.PageCount = (int)(count / showPageGradeInput.ShowCount);
+            if (count%showPageGradeInput.ShowCount>0)
+            {
+                showPageGradeInput.PageCount += 1;
+            }
+
             if (showPageGradeInput.PageIndex>showPageGradeInput.PageCount)
             {
                 showPageGradeInput.PageIndex = 1;
@@ -209,7 +215,13 @@ namespace ShiNengShiHui.AppServices
 
         public ShowPagePrizeOutput ShowPagePrize(ShowPagePrizeInput showPagePrizeInput)
         {
-            showPagePrizeInput.PageCount = _prizeRepository.Count() / showPagePrizeInput.ShowCount;
+            long count = _prizeRepository.Count();
+            showPagePrizeInput.PageCount = (int)(count / showPagePrizeInput.ShowCount);
+            if (count%showPagePrizeInput.ShowCount>0)
+            {
+                showPagePrizeInput.PageCount += 1;
+            }
+
             if (showPagePrizeInput.PageIndex>showPagePrizeInput.PageCount)
             {
                 showPagePrizeInput.PageIndex = 1;
@@ -234,7 +246,13 @@ namespace ShiNengShiHui.AppServices
 
         public ShowPageStudentOutput ShowPageStudent(ShowPageStudentInput showPageStudentInput)
         {
-            showPageStudentInput.PageCount = _studentRepository.Count() / showPageStudentInput.ShowCount;
+            int count = _studentRepository.Count();
+            showPageStudentInput.PageCount = count/showPageStudentInput.ShowCount;
+            if (count%showPageStudentInput.ShowCount>0)
+            {
+                showPageStudentInput.PageCount += 1;
+            }
+
             if (showPageStudentInput.PageIndex > showPageStudentInput.PageCount)
             {
                 showPageStudentInput.PageIndex = 1;
@@ -290,6 +308,7 @@ namespace ShiNengShiHui.AppServices
             var flag = _studentRepository.FirstOrDefault(updateStudentInput.Id);
             if (flag != null)
             {
+                updateStudentInput.ClassId = flag.ClassId;
                 ObjectMapper.Map<UpdateStudentInput, Student>(updateStudentInput, flag);
                 _studentRepository.Update(flag);
                 return new ReturnVal(ReturnStatu.Success);

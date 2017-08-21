@@ -19,7 +19,7 @@ namespace ShiNengShiHui.EntityFramework.Repositories
             AbpSession = NullAbpSession.Instance;
         }
 
-        public List<Function> GetFunctionOfRoles(long? userId)
+        public List<Function> GetFunctionOfRoles()
         {
             var role = Context.UserRoles.FirstOrDefault(m => m.UserId == AbpSession.UserId);
             if (role == null)

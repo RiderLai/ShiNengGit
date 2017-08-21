@@ -21,20 +21,20 @@ namespace ShiNengShiHui.EntityFramework.Repositories
         public override IQueryable<Prize> GetAll()
         {
             List<Prize> list = new List<Prize>();
-            using (var connection=Context.Database.Connection)
-            {
-                connection.Open();
+            //using (var connection=Context.Database.Connection)
+            //{
+            //    connection.Open();
                 var prizes = Context.Database.SqlQuery<Prize>($@"Select * From {TableName} Where IsDeleted=0");
                 list.AddRange(prizes);
-            }
+            //}
             return list.AsQueryable<Prize>();
         }
 
         public override Prize Insert(Prize entity)
         {
-            using (var connection = Context.Database.Connection)
-            {
-                connection.Open();
+            //using (var connection = Context.Database.Connection)
+            //{
+            //    connection.Open();
                 Context.Database.ExecuteSqlCommand($@"INSERT INTO [dbo].[{TableName}]
                                                             ([DateJosn]
                                                             ,[IsDeleted]
@@ -67,7 +67,7 @@ namespace ShiNengShiHui.EntityFramework.Repositories
                                                             new SqlParameter("CreatorUserId", entity.CreatorUserId),
                                                             new SqlParameter("PrizeItemId", entity.PrizeItemId),
                                                             new SqlParameter("StudentId", entity.StudentId));
-            }
+            //}
             return FirstOrDefault(p => p.Student.Id == entity.Student.Id && p.PrizeItem.Id == entity.PrizeItem.Id && p.CreationTime == entity.CreationTime);
         }
 
@@ -80,9 +80,9 @@ namespace ShiNengShiHui.EntityFramework.Repositories
         {
             entity.LastModifierUserId = AbpSession.UserId;
             entity.LastModificationTime = Clock.Now;
-            using (var connection=Context.Database.Connection)
-            {
-                connection.Open();
+            //using (var connection=Context.Database.Connection)
+            //{
+            //    connection.Open();
                 Context.Database.ExecuteSqlCommand($@"UPDATE [dbo].[{TableName}]
                                                         SET [DateJosn] = <DateJosn, nvarchar(max),@DateJosn>
                                                            ,[IsDeleted] = <IsDeleted, bit,@IsDeleted>
@@ -106,7 +106,7 @@ namespace ShiNengShiHui.EntityFramework.Repositories
                                                       new SqlParameter("PrizeItemId", entity.PrizeItemId),
                                                       new SqlParameter("StudentId", entity.StudentId),
                                                       new SqlParameter("Id", entity.Id));
-            }
+            //}
             return entity;
         }
 

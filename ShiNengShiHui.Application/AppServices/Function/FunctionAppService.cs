@@ -20,7 +20,7 @@ namespace ShiNengShiHui.AppServices
 
         public FunctionGetOfRoleOutput FunctionOfRoleGetAll()
         {
-            var functions=_functionRepository.GetFunctionOfRoles(AbpSession.UserId);
+            var functions=_functionRepository.GetFunctionOfRoles();
             if (functions==null)
             {
                 return null;

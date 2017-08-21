@@ -1,0 +1,68 @@
+﻿@{
+    Layout = null;
+}
+@{
+    SetAntiForgeryCookie();
+}
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+
+    <!-- VENDOR CSS -->
+    <link rel="stylesheet" href="~/assets/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/assets/vendor/linearicons/style.css">
+    <link rel="stylesheet" href="~/assets/vendor/chartist/css/chartist-custom.css">
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="~/assets/css/main.css">
+    <!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
+    <link rel="stylesheet" href="~/assets/css/demo.css">
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+
+    <link href="~/assets/vendor/jquery-ui/jquery-ui-1.10.1.custom.min.css" rel="stylesheet" />
+    
+    @RenderSection("PageSpecificStyleSheetIncludes", required: false)
+</head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<body>
+    @RenderSection("BeforForm", required: false)
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "mainForm" }))
+    {
+
+        @RenderBody()
+
+        <div style="height:80px;"></div>
+
+        <div class="form-actions navbar-fixed-bottom">
+            <button type="submit" id="submit" class="btn btn-success"><i class="fa fa-check-circle"></i> 提交</button>
+            @Html.ValidationSummary(false)
+        </div>
+    }
+    @RenderSection("OtherContent", required: false)
+
+    <script src="~/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="~/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="~/assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
+    <script src="~/assets/vendor/chartist/js/chartist.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/assets/vendor/jquery-ui/jquery-ui-1.10.1.custom.min.js"></script>
+
+
+    @RenderSection("PageSpecificJavascriptIncludes", required: false)
+    <!-- END JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+</html>

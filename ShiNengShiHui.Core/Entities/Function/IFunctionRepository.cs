@@ -9,6 +9,6 @@ namespace ShiNengShiHui.Entities.Function
 {
     public interface IFunctionRepository:IRepository<Function>
     {
-        List<Function> GetFunctionOfRoles(long? userId);
+        List<Function> GetFunctionOfRoles();
     }
 }

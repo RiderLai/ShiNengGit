@@ -23,20 +23,20 @@ namespace ShiNengShiHui.EntityFramework.Repositories
         public override IQueryable<Grade> GetAll()
         {
             List<Grade> list = new List<Grade>();
-            using (var connection = Context.Database.Connection)
-            {
-                connection.Open();
+            //using (var connection = Context.Database.Connection)
+            //{
+            //    connection.Open();
                 var grades = Context.Database.SqlQuery<Grade>($@"Select * From {TableName} Where IsDeleted=0");
                 list.AddRange(grades);
-            }
+            //}
             return list.AsQueryable<Grade>();
         }
 
         public override Grade Insert(Grade entity)
         {
-            using (var connection = Context.Database.Connection)
-            {
-                connection.Open();
+            //using (var connection = Context.Database.Connection)
+            //{
+            //    connection.Open();
                 Context.Database.ExecuteSqlCommand($@"INSERT INTO [dbo].[{TableName}]
                                                             ([DateJson]
                                                             ,[GradeStringJson]
@@ -69,7 +69,7 @@ namespace ShiNengShiHui.EntityFramework.Repositories
                                                             new SqlParameter("CreationTime", entity.CreationTime),
                                                             new SqlParameter("CreatorUserId", entity.CreatorUserId),
                                                             new SqlParameter("StudentId", entity.StudentId));
-            }
+            //}
             return FirstOrDefault(g => g.Student.Id == entity.Student.Id && g.CreationTime == entity.CreationTime);
         }
 
@@ -82,9 +82,9 @@ namespace ShiNengShiHui.EntityFramework.Repositories
         {
             entity.LastModifierUserId = AbpSession.UserId;
             entity.LastModificationTime = Clock.Now;
-            using (var connection = Context.Database.Connection)
-            {
-                connection.Open();
+            //using (var connection = Context.Database.Connection)
+            //{
+            //    connection.Open();
                 Context.Database.ExecuteSqlCommand($@"UPDATE [dbo].[{TableName}]
                                                         SET [DateJson] = <DateJson, nvarchar(max),@DateJson>
                                                            ,[GradeStringJson] = <GradeStringJson, nvarchar(max),@GradeStringJson>
@@ -108,7 +108,7 @@ namespace ShiNengShiHui.EntityFramework.Repositories
                                                       new SqlParameter("CreatorUserId", entity.CreatorUserId),
                                                       new SqlParameter("StudentId", entity.StudentId),
                                                       new SqlParameter("Id", entity.Id));
-            }
+            //}
             return entity;
         }
 
