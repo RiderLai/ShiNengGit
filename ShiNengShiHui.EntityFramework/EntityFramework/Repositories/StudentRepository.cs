@@ -38,6 +38,8 @@ namespace ShiNengShiHui.EntityFramework.Repositories
 
         public override Student Insert(Student entity)
         {
+            entity.CreationTime = Clock.Now;
+            entity.CreatorUserId = AbpSession.UserId;
             //using (var connection = Context.Database.Connection)
             //{
             //    connection.Open();
@@ -45,29 +47,25 @@ namespace ShiNengShiHui.EntityFramework.Repositories
                                                             ([Name]
                                                             ,[Sex]
                                                             ,[IsDeleted]
-                                                            ,[DeleterUserId]
-                                                            ,[DeletionTime]
-                                                            ,[LastModificationTime]
-                                                            ,[LastModifierUserId]
                                                             ,[CreationTime]
                                                             ,[CreatorUserId]
                                                             ,[ClassId]
                                                             ,[Group])
                                                       VALUES
-                                                            (< Name, nvarchar(10),@Name>
-                                                            ,< Sex, bit,@Sex>
-                                                            ,< IsDeleted, bit,@IsDeleted>
-                                                            ,< CreationTime, datetime,@CreationTime>
-                                                            ,< CreatorUserId, bigint,@CreatorUserId>
-                                                            ,<ClassId, int,@ClassId>
-                                                            ,<[Group], int,@[Group]>)",
+                                                            (@Name
+                                                            ,@Sex
+                                                            ,@IsDeleted
+                                                            ,@CreationTime
+                                                            ,@CreatorUserId
+                                                            ,@ClassId
+                                                            ,@Group)",
                                                             new SqlParameter("Name", entity.Name),
                                                             new SqlParameter("Sex", entity.Sex),
                                                             new SqlParameter("IsDeleted", false),
                                                             new SqlParameter("CreationTime", entity.CreationTime),
                                                             new SqlParameter("CreatorUserId", entity.CreatorUserId),
                                                             new SqlParameter("ClassId", entity.ClassId),
-                                                            new SqlParameter("[Group]", entity.Group));
+                                                            new SqlParameter("Group", entity.Group));
             //}
             return FirstOrDefault(s => s.Name.Equals(entity.Name) && s.Sex == entity.Sex && s.CreationTime == entity.CreationTime);
         }

@@ -1,4 +1,6 @@
 ﻿using Abp.Application.Services.Dto;
+using Abp.AutoMapper;
+using ShiNengShiHui.Entities.Students;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +9,8 @@ using System.Threading.Tasks;
 
 namespace ShiNengShiHui.AppServices.Teacher.Dto
 {
-    public class CreateStudentInput:FullAuditedEntityDto
+    [AutoMapTo(typeof(Student))]
+    public class CreateStudentInput
     {
         public string Name { get; set; }
 

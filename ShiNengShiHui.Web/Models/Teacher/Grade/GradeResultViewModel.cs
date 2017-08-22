@@ -1,12 +1,14 @@
-﻿using System;
+﻿using Abp.AutoMapper;
+using ShiNengShiHui.AppServices.Teacher.Dto;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace ShiNengShiHui.AppServices.Teacher.Dto
+namespace ShiNengShiHui.Web.Models.Teacher.Grade
 {
-    public class ShowGradeOutput
+    [AutoMapFrom(typeof(ShowGradeOutput))]
+    public class GradeResultViewModel
     {
         public long Id { get; set; }
 
@@ -18,12 +20,6 @@ namespace ShiNengShiHui.AppServices.Teacher.Dto
 
         public DateTime DateTime { get; set; }
 
-        public int SchoolYead { get; set; }
-
-        public int Semester { get; set; }
-
-        public int Week { get; set; }
-
         public string SchoolYearAndMore { get; set; }
 
         #region 十项分数
@@ -32,28 +28,28 @@ namespace ShiNengShiHui.AppServices.Teacher.Dto
         /// </summary>
         public int Respect
         {
-            get { return Grades[0] ; }
+            get { return Grades[0]; }
         }
         /// <summary>
         /// 善
         /// </summary>
         public int Kind
         {
-            get { return Grades[1] ; }
+            get { return Grades[1]; }
         }
         /// <summary>
         /// 净
         /// </summary>
         public int Clean
         {
-            get { return Grades[2] ; }
+            get { return Grades[2]; }
         }
         /// <summary>
         /// 捡
         /// </summary>
         public int Saves
         {
-            get { return Grades[3] ; }
+            get { return Grades[3]; }
         }
         /// <summary>
         /// 勤
@@ -67,7 +63,7 @@ namespace ShiNengShiHui.AppServices.Teacher.Dto
         /// </summary>
         public int Quiet
         {
-            get { return Grades[5] ; }
+            get { return Grades[5]; }
         }
         /// <summary>
         /// 厚
@@ -95,7 +91,7 @@ namespace ShiNengShiHui.AppServices.Teacher.Dto
         /// </summary>
         public int Brave
         {
-            get { return Grades[9] ; }
+            get { return Grades[9]; }
         }
         /// <summary>
         /// 总分

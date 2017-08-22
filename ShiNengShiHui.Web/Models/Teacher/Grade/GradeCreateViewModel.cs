@@ -1,15 +1,16 @@
-﻿using System;
+﻿using Abp.AutoMapper;
+using ShiNengShiHui.AppServices.Teacher.Dto;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace ShiNengShiHui.AppServices.Teacher.Dto
+namespace ShiNengShiHui.Web.Models.Teacher.Grade
 {
-    public class UpdateGradeInput
+    [AutoMapTo(typeof(CreateGradeInput))]
+    public class GradeCreateViewModel
     {
-        public long Id { get; set; }
+        public int StudentId { get; set; }
 
         public int[] Grades { get; set; }
 

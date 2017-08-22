@@ -48,12 +48,14 @@
     <i class="fa fa-info-circle"></i> 批量导入功能可以通过Excel表格导入学生信息，为保证系统性能，单次导入学生数量不可超过500人。导入的Excel模板请点击<a class="green" href="@Url.Action("DownInputStudentTemplate")"> 这里下载</a>。
 </div>
 
-@using (Html.BeginForm("DeleteStudents", "UserManagement", FormMethod.Post, new { id = "mainForm" }))
+@using (Html.BeginForm("StudentDelete", "Teacher", FormMethod.Post, new { id = "mainForm" }))
 {
+    @Html.AntiForgeryToken()
+
 <div class="panel">
     <div class="panel-heading">
         <a class="btn btn-danger" id="delete" href="javascript:;"><i class="fa fa-trash-o"></i> 删除</a>
-        <a class="btn btn-success" title='添加新用户' href="@Url.Action("StudentCreate")?TB_iframe=true&height=450&width=500"><i class="fa fa-plus" aria-hidden="true"></i> 新增</a>
+        <a class="btn btn-success thickbox" title='添加新用户' href="@Url.Action("StudentCreate")?TB_iframe=true&height=450&width=500"><i class="fa fa-plus" aria-hidden="true"></i> 新增</a>
         <a class="btn btn-default" id="BatchImportStudents" href="javascript:;"><i class="fa fa-folder-open" aria-hidden="true"></i> 批量导入</a>
     </div>
     <div class="panel-body">

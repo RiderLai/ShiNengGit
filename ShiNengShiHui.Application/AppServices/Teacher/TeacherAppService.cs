@@ -23,12 +23,12 @@ namespace ShiNengShiHui.AppServices
         private readonly IStudentRepository _studentRepository;
         private readonly IGradeRepository _gradeRepository;
         private readonly IPrizeRepository _prizeRepository;
-        private readonly IRepository<PrizeItem,Guid> _prizeItemRepository;
+        private readonly IRepository<PrizeItem, Guid> _prizeItemRepository;
 
         public TeacherAppService(IStudentRepository studentRepository,
             IGradeRepository gradeRepository,
             IPrizeRepository prizeRepository,
-            IRepository<PrizeItem,Guid> prizeItemRepository)
+            IRepository<PrizeItem, Guid> prizeItemRepository)
         {
             _studentRepository = studentRepository;
             _gradeRepository = gradeRepository;
@@ -39,22 +39,21 @@ namespace ShiNengShiHui.AppServices
         #region 添加
         public ReturnVal CreateGrade(CreateGradeInput createGradeInput)
         {
-            var flag = _gradeRepository.FirstOrDefault(g => JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(g.DateJson).Date.DayOfYear == createGradeInput.Datetime.DayOfYear && JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(g.DateJson).Date.Year == createGradeInput.Datetime.Year && g.Student.Id == createGradeInput.StudentId);
+            var flag = _gradeRepository.FirstOrDefault(g => JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(g.DateJson).Date.DayOfYear == createGradeInput.Datetime.DayOfYear && JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(g.DateJson).Date.Year == createGradeInput.Datetime.Year && g.StudentId == createGradeInput.StudentId);
             if (flag == null)
             {
                 Grade grade = new Grade()
                 {
-                    CreationTime = Clock.Now,
-                    CreatorUserId = AbpSession.UserId,
                     StudentId = createGradeInput.StudentId,
+                    GradeStringJson = JsonConvert.SerializeObject(new GradeData() { Grades = createGradeInput.Grades, PenaltyReason = createGradeInput.PenaltyReason }),
                     DateJson = JsonConvert.SerializeObject(new GradeOrPrizeDateTime()
                     {
                         Date = createGradeInput.Datetime,
                         SchoolYear = createGradeInput.SchoolYead,
                         Semester = createGradeInput.Semester,
                         Week = createGradeInput.Week
-                    }),
-                    GradeStringJson = JsonConvert.SerializeObject(new GradeData() { G = createGradeInput.Grades })
+                    })
+                    
                 };
                 _gradeRepository.Insert(grade);
                 return new ReturnVal(ReturnStatu.Success);
@@ -77,6 +76,7 @@ namespace ShiNengShiHui.AppServices
             if (flag == null)
             {
                 Student student = ObjectMapper.Map<Student>(createStudentInput);
+                student.ClassId = UserManager.Users.Where(m => m.Id == AbpSession.UserId).ToList()[0].Teacher.ClassId;
                 _studentRepository.Insert(student);
                 return new ReturnVal(ReturnStatu.Success);
             }
@@ -89,7 +89,7 @@ namespace ShiNengShiHui.AppServices
         public ReturnVal CreateStudentRange(CreateStudentRangeInput createStudentRangeInput)
         {
             throw new NotImplementedException();
-        } 
+        }
         #endregion
 
         #region 删除
@@ -129,7 +129,7 @@ namespace ShiNengShiHui.AppServices
         public ReturnVal DeleteStudentRange(DeleteStudentRangeInput deleteStudentRangeInput)
         {
             throw new NotImplementedException();
-        } 
+        }
         #endregion
 
         #region 展示
@@ -137,17 +137,23 @@ namespace ShiNengShiHui.AppServices
         {
             Grade grade = _gradeRepository.FirstOrDefault(showGradeInput.Id);
 
-            if (grade==null)
+            if (grade == null)
             {
                 return null;
             }
 
-            var date = ObjectMapper.Map<GradeOrPrizeDateTime>(grade.DateJson);
+            var date = JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(grade.DateJson);
+            var gradedata = JsonConvert.DeserializeObject<GradeData>(grade.GradeStringJson);
             return new ShowGradeOutput()
             {
+                Id=grade.Id,
                 StudentName = _studentRepository.Get(grade.StudentId).Name,
-                Grades = JsonConvert.DeserializeObject<GradeData>(grade.GradeStringJson).G,
+                Grades = gradedata.Grades,
+                PenaltyReason = gradedata.PenaltyReason,
                 DateTime = date.Date,
+                SchoolYead=date.SchoolYear,
+                Semester=date.Semester,
+                Week=date.Week,
                 SchoolYearAndMore = date.SchoolYear + "  " + date.Semester + "  " + date.Week
             };
         }
@@ -156,7 +162,7 @@ namespace ShiNengShiHui.AppServices
         {
             Prize prize = _prizeRepository.FirstOrDefault(showPrizeInput.Id);
 
-            if (prize==null)
+            if (prize == null)
             {
                 return null;
             }
@@ -175,7 +181,7 @@ namespace ShiNengShiHui.AppServices
         {
             Student student = _studentRepository.FirstOrDefault(showStudentInput.Id);
 
-            if (student==null)
+            if (student == null)
             {
                 return null;
             }
@@ -186,12 +192,12 @@ namespace ShiNengShiHui.AppServices
         {
             long count = _gradeRepository.Count();
             showPageGradeInput.PageCount = (int)(count / showPageGradeInput.ShowCount);
-            if (count%showPageGradeInput.ShowCount>0)
+            if (count % showPageGradeInput.ShowCount > 0)
             {
                 showPageGradeInput.PageCount += 1;
             }
 
-            if (showPageGradeInput.PageIndex>showPageGradeInput.PageCount)
+            if (showPageGradeInput.PageIndex > showPageGradeInput.PageCount)
             {
                 showPageGradeInput.PageIndex = 1;
             }
@@ -202,10 +208,13 @@ namespace ShiNengShiHui.AppServices
             result.ShowGradeOutputs = grades.Select<Grade, ShowGradeOutput>(m =>
                {
                    GradeOrPrizeDateTime gradeOrPrizeDateTime = JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJson);
+                   GradeData gradeData = JsonConvert.DeserializeObject<GradeData>(m.GradeStringJson);
                    return new ShowGradeOutput()
                    {
+                       Id = m.Id,
                        StudentName = _studentRepository.Get(m.StudentId).Name,
-                       Grades = JsonConvert.DeserializeObject<GradeData>(m.GradeStringJson).G,
+                       Grades = gradeData.Grades,
+                       PenaltyReason = gradeData.PenaltyReason,
                        DateTime = gradeOrPrizeDateTime.Date,
                        SchoolYearAndMore = gradeOrPrizeDateTime.SchoolYear + "  " + gradeOrPrizeDateTime.Semester + "  " + gradeOrPrizeDateTime.Week
                    };
@@ -217,12 +226,12 @@ namespace ShiNengShiHui.AppServices
         {
             long count = _prizeRepository.Count();
             showPagePrizeInput.PageCount = (int)(count / showPagePrizeInput.ShowCount);
-            if (count%showPagePrizeInput.ShowCount>0)
+            if (count % showPagePrizeInput.ShowCount > 0)
             {
                 showPagePrizeInput.PageCount += 1;
             }
 
-            if (showPagePrizeInput.PageIndex>showPagePrizeInput.PageCount)
+            if (showPagePrizeInput.PageIndex > showPagePrizeInput.PageCount)
             {
                 showPagePrizeInput.PageIndex = 1;
             }
@@ -247,8 +256,8 @@ namespace ShiNengShiHui.AppServices
         public ShowPageStudentOutput ShowPageStudent(ShowPageStudentInput showPageStudentInput)
         {
             int count = _studentRepository.Count();
-            showPageStudentInput.PageCount = count/showPageStudentInput.ShowCount;
-            if (count%showPageStudentInput.ShowCount>0)
+            showPageStudentInput.PageCount = count / showPageStudentInput.ShowCount;
+            if (count % showPageStudentInput.ShowCount > 0)
             {
                 showPageStudentInput.PageCount += 1;
             }
@@ -272,7 +281,7 @@ namespace ShiNengShiHui.AppServices
             //}
 
             Student[] students = _studentRepository.GetPage(showPageStudentInput.PageIndex, showPageStudentInput.ShowCount);
-            var result=ObjectMapper.Map<ShowPageStudentOutput>(showPageStudentInput);
+            var result = ObjectMapper.Map<ShowPageStudentOutput>(showPageStudentInput);
             result.Lenth = students.Length;
             result.ShowStudentOutputs = students.Select<Student, ShowStudentOutput>(s => ObjectMapper.Map<ShowStudentOutput>(s)).ToArray<ShowStudentOutput>();
             return result;
@@ -286,9 +295,14 @@ namespace ShiNengShiHui.AppServices
             if (flag != null)
             {
                 Grade grade = flag;
-                grade.StudentId = updateGradeInput.StudentId;
-                grade.DateJson = JsonConvert.SerializeObject(new GradeData() { G = updateGradeInput.Grades });
-                grade.GradeStringJson = JsonConvert.SerializeObject(new GradeOrPrizeDateTime() { Date = updateGradeInput.Datetime, SchoolYear = updateGradeInput.SchoolYead, Semester = updateGradeInput.Semester, Week = updateGradeInput.Week });
+                grade.GradeStringJson = JsonConvert.SerializeObject(new GradeData() { Grades = updateGradeInput.Grades,PenaltyReason=updateGradeInput.PenaltyReason});
+                grade.DateJson = JsonConvert.SerializeObject(new GradeOrPrizeDateTime()
+                {
+                    Date = updateGradeInput.Datetime,
+                    SchoolYear = updateGradeInput.SchoolYead,
+                    Semester = updateGradeInput.Semester,
+                    Week = updateGradeInput.Week
+                });
                 _gradeRepository.Update(grade);
                 return new ReturnVal(ReturnStatu.Success);
             }
@@ -322,7 +336,7 @@ namespace ShiNengShiHui.AppServices
         public ReturnVal UpdateStudentRange(UpdateStudentRangeInput updateStudentRangeInput)
         {
             throw new NotImplementedException();
-        } 
+        }
         #endregion
     }
 }

@@ -1,0 +1,150 @@
+﻿
+@{
+    ViewBag.Title = "GradeEdit";
+    Layout = "~/Views/Shared/_Layout.Edit.cshtml";
+}
+
+@model ShiNengShiHui.Web.Models.Teacher.Grade.GradeEditViewModel
+
+@if (Model==null)
+{
+    <h3>访问出错。请重试</h3>
+}
+else
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+
+
+        <div class="form-group">
+            <label class="col-xs-4 control-label text-right">姓名：</label>
+            <div class="col-xs-6">
+                @Html.Label(Model.StudentName,new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-xs-4 control-label text-right">学年：</label>
+            <div class="col-xs-6">
+                @Html.DropDownListFor(m => m.SchoolYead, ViewBag.SchoolYearList as List<SelectListItem>, new { @class = "form-control" })
+                <span class="help-inline">@Html.ValidationMessageFor(m => m.SchoolYead)</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-xs-4 control-label text-right">学期：</label>
+            <div class="col-xs-6">
+                @Html.DropDownListFor(m => m.Semester, ViewBag.SemesterLiset as List<SelectListItem>, new { @class = "form-control" })
+                <span class="help-inline">@Html.ValidationMessageFor(m => m.Semester)</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-xs-4 control-label text-right">星期：</label>
+            <div class="col-xs-6">
+                @Html.DropDownListFor(m => m.Week, ViewBag.WeekList as List<SelectListItem>, new { @class = "form-control" })
+                <span class="help-inline">@Html.ValidationMessageFor(m => m.Week)</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-xs-4 control-label text-right">时间：</label>
+            <div class="col-xs-6">
+                @Html.TextBoxFor(m => m.Datetime, new { id = "datetimepicker" })
+                <span class="help-inline">@Html.ValidationMessageFor(m => m.Datetime)</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-xs-4 control-label text-right">敬：</label>
+            <div class="col-xs-6">
+                @Html.DropDownListFor(m => m.Grades[0], (ViewBag.GradeList as List<List<SelectListItem>>)[0], new { @class = "form-control" })
+                <span class="help-inline">@Html.ValidationMessageFor(m => m.Grades[0])</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-xs-4 control-label text-right">善：</label>
+            <div class="col-xs-6">
+                @Html.DropDownListFor(m => m.Grades[1], (ViewBag.GradeList as List<List<SelectListItem>>)[1], new { @class = "form-control" })
+                <span class="help-inline">@Html.ValidationMessageFor(m => m.Grades[1])</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-xs-4 control-label text-right">净：</label>
+            <div class="col-xs-6">
+                @Html.DropDownListFor(m => m.Grades[2], (ViewBag.GradeList as List<List<SelectListItem>>)[2], new { @class = "form-control" })
+                <span class="help-inline">@Html.ValidationMessageFor(m => m.Grades[2])</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-xs-4 control-label text-right">捡：</label>
+            <div class="col-xs-6">
+                @Html.DropDownListFor(m => m.Grades[3], (ViewBag.GradeList as List<List<SelectListItem>>)[3], new { @class = "form-control" })
+                <span class="help-inline">@Html.ValidationMessageFor(m => m.Grades[3])</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-xs-4 control-label text-right">勤：</label>
+            <div class="col-xs-6">
+                @Html.DropDownListFor(m => m.Grades[4], (ViewBag.GradeList as List<List<SelectListItem>>)[4], new { @class = "form-control" })
+                <span class="help-inline">@Html.ValidationMessageFor(m => m.Grades[4])</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-xs-4 control-label text-right">静：</label>
+            <div class="col-xs-6">
+                @Html.DropDownListFor(m => m.Grades[5], (ViewBag.GradeList as List<List<SelectListItem>>)[5], new { @class = "form-control" })
+                <span class="help-inline">@Html.ValidationMessageFor(m => m.Grades[5])</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-xs-4 control-label text-right">厚：</label>
+            <div class="col-xs-6">
+                @Html.DropDownListFor(m => m.Grades[6], (ViewBag.GradeList as List<List<SelectListItem>>)[6], new { @class = "form-control" })
+                <span class="help-inline">@Html.ValidationMessageFor(m => m.Grades[6])</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-xs-4 control-label text-right">乐：</label>
+            <div class="col-xs-6">
+                @Html.DropDownListFor(m => m.Grades[7], (ViewBag.GradeList as List<List<SelectListItem>>)[7], new { @class = "form-control" })
+                <span class="help-inline">@Html.ValidationMessageFor(m => m.Grades[7])</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-xs-4 control-label text-right">跑：</label>
+            <div class="col-xs-6">
+                @Html.DropDownListFor(m => m.Grades[8], (ViewBag.GradeList as List<List<SelectListItem>>)[8], new { @class = "form-control" })
+                <span class="help-inline">@Html.ValidationMessageFor(m => m.Grades[8])</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-xs-4 control-label text-right">勇：</label>
+            <div class="col-xs-6">
+                @Html.DropDownListFor(m => m.Grades[9], (ViewBag.GradeList as List<List<SelectListItem>>)[9], new { @class = "form-control" })
+                <span class="help-inline">@Html.ValidationMessageFor(m => m.Grades[9])</span>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="col-xs-4 control-label text-right">扣分原因：</label>
+            <div class="col-xs-6">
+
+                @Html.TextBoxFor(m => m.PenaltyReason, new { @class = "form-control" })
+                <span class="help-inline">@Html.ValidationMessageFor(m => m.PenaltyReason)</span>
+            </div>
+        </div>
+
+    </div>
+}
+
