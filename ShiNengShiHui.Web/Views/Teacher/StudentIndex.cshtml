@@ -19,9 +19,10 @@
 
         $("#BatchImportStudents").click(function () {
             $.upload({
-                url: '@Url.Action("BatchImportStudents")',
+                url: '@Url.Action("StudentsCereateOfExcel")',
                 fileName: 'file',
                 dataType: 'json',
+                validateAntiForgeryToken:'@Html.AntiForgeryToken()',
                 onSend: function () {
                     return true;
                 },
@@ -29,12 +30,12 @@
                     bootbox.alert("请选择导入的Excel表格，导入过程需要较长时间，请耐心等待！");
                 },
                 onComplate: function (jsdata) {
-                    if (jsdata.Statu == "Success") {
-                        bootbox.alert(jsdata.Msg, function () {
+                    if (jsdata.result.statu == "Success") {
+                        bootbox.alert(jsdata.result.msg, function () {
                             location.reload();
                         });
                     } else {
-                        bootbox.alert("导入失败！" + jsdata.Msg);
+                        bootbox.alert("导入失败！" + jsdata.result.msg);
                     }
                 }
             });
@@ -45,7 +46,7 @@
 
 <div class="alert alert-info alert-dismissible" role="alert">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <i class="fa fa-info-circle"></i> 批量导入功能可以通过Excel表格导入学生信息，为保证系统性能，单次导入学生数量不可超过500人。导入的Excel模板请点击<a class="green" href="@Url.Action("DownInputStudentTemplate")"> 这里下载</a>。
+    <i class="fa fa-info-circle"></i> 批量导入功能可以通过Excel表格导入学生信息，为保证系统性能，单次导入学生数量不可超过500人。导入的Excel模板请点击<a class="green" href="@Url.Action("StudentExcelDown")"> 这里下载</a>。
 </div>
 
 @using (Html.BeginForm("StudentDelete", "Teacher", FormMethod.Post, new { id = "mainForm" }))
@@ -99,7 +100,7 @@
                                 @s.Name
                             </td>
                             @if (s.Sex)
-                        {
+                            {
                                 <td>男</td>
                             }
                             else
@@ -108,7 +109,7 @@
                             }
 
                             @if (s.Group == null)
-                        {
+                            {
                                 <td></td>
                             }
                             else
@@ -134,4 +135,78 @@
 </div>
 }
 
+@{ 
+    int pageIndex = (int)ViewData["pageIndex"];
+    int pageCount = (int)ViewData["pageCount"];
+}
+<div class="text-right">
 
+
+    <ul class="pagination">
+        <li><a href="@Url.Action("StudentIndex","Teacher",new { pageIndex=1})">首页</a></li>
+        @if (pageIndex <= 5)
+        {
+            for (int i = 1, length = pageCount; i <= length; i++)
+            {
+                if (pageIndex == i)
+                {
+                    <li class="active"><a href="@Url.Action("StudentIndex","Teacher",new { pageIndex=i})">@i</a></li>
+                }
+                else
+                {
+                    <li><a href="@Url.Action("StudentIndex","Teacher",new { pageIndex=i})">@i</a></li>
+                }
+            }
+        }
+        else
+        {
+            if (pageIndex >= 3 && pageIndex <= pageCount - 2)
+            {
+                for (int i = pageIndex - 2; i < pageIndex + 2; i++)
+                {
+                    if (pageIndex == i)
+                    {
+                        <li class="active"><a href="@Url.Action("StudentIndex","Teacher",new { pageIndex=i})">@i</a></li>
+                    }
+                    else
+                    {
+                        <li><a href="@Url.Action("StudentIndex","Teacher",new { pageIndex=i})">@i</a></li>
+                    }
+                }
+            }
+            else
+            {
+                if (pageIndex <= 2)
+                {
+                    for (int i = 1; i <= 5; i++)
+                    {
+                        if (pageIndex == i)
+                        {
+                            <li class="active"><a href="@Url.Action("StudentIndex","Teacher",new { pageIndex=i})">@i</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="@Url.Action("StudentIndex","Teacher",new { pageIndex=i})">@i</a></li>
+                        }
+                    }
+                }
+                else
+                {
+                    for (int i = pageCount - 4; i <= pageCount; i++)
+                    {
+                        if (pageIndex == i)
+                        {
+                            <li class="active"><a href="@Url.Action("StudentIndex","Teacher",new { pageIndex=i})">@i</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="@Url.Action("StudentIndex","Teacher",new { pageIndex=i})">@i</a></li>
+                        }
+                    }
+                }
+            }
+        }
+        <li><a href="@Url.Action("StudentIndex","Teacher",new { pageIndex=pageCount })">尾页</a></li>
+    </ul>
+
+</div>

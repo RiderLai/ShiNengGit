@@ -10,6 +10,10 @@ using System.Web.Mvc;
 using ShiNengShiHui.Web.Models.Teacher.Student;
 using ShiNengShiHui.Web.Models.Teacher.Grade;
 using Abp.Timing;
+using ShiNengShiHui.AppServices.Dto;
+using System.IO;
+using ShiNengShiHui.AppServices.Return;
+using System.Text;
 
 namespace ShiNengShiHui.Web.Controllers
 {
@@ -17,10 +21,13 @@ namespace ShiNengShiHui.Web.Controllers
     public class TeacherController : ShiNengShiHuiControllerBase
     {
         private readonly ITeacherAppService _teacherAppService;
+        private readonly IExcelAppService _excelAppService;
 
-        public TeacherController(ITeacherAppService teacherAppService)
+        public TeacherController(ITeacherAppService teacherAppService,
+            IExcelAppService excelAppService)
         {
             _teacherAppService = teacherAppService;
+            _excelAppService = excelAppService;
         }
 
         // GET: Teacher
@@ -30,10 +37,20 @@ namespace ShiNengShiHui.Web.Controllers
         }
 
         #region 学生模块
-        public ActionResult StudentIndex()
+        public ActionResult StudentIndex(int? pageIndex)
         {
+            ShowPageStudentOutput result;
+            if (pageIndex==null||!ModelState.IsValid)
+            {
+                result= _teacherAppService.ShowPageStudent(new ShowPageStudentInput());
+            }
+            else
+            {
+                result = _teacherAppService.ShowPageStudent(new ShowPageStudentInput() { PageIndex=(int)pageIndex});
+            }
 
-            ShowPageStudentOutput result = _teacherAppService.ShowPageStudent(new ShowPageStudentInput());
+            ViewData["pageIndex"] = result.PageIndex;
+            ViewData["pageCount"] = result.PageCount;
 
             var listmodel = result.ShowStudentOutputs.Select<ShowStudentOutput, StudentResultViewModel>(m => ObjectMapper.Map<StudentResultViewModel>(m));
             return View(listmodel);
@@ -193,13 +210,78 @@ namespace ShiNengShiHui.Web.Controllers
             return RedirectToAction("StudentIndex");
         }
         #endregion
+
+        #region 表格下载
+        public FileResult StudentExcelDown()
+        {
+            StudentExcelDownOutput studentExcelDownOutput = _excelAppService.StudentExcelDown();
+            using (studentExcelDownOutput.ExcelData)
+            {
+                return File(studentExcelDownOutput.ExcelData.ToArray(), "application/octet-stream", "学生登记表.xls");
+            }
+        }
+        #endregion
+
+        #region Excel导入
+        public ActionResult StudentsCereateOfExcel(HttpPostedFileBase file)
+        {
+            if (file == null)
+            {
+                return this.RedirectAjax("Failure", "没有文件", null, null);
+            }
+            else if (!Path.GetExtension(file.FileName).Equals(".xls"))
+            {
+                return this.RedirectAjax("Failure", "请选择excel", null, null);
+            }
+            else if (file.ContentLength > 0)
+            {
+                ReturnVal returnVal = _teacherAppService.CreateStudentRange(new CreateStudentRangeInput() { DataStream = file.InputStream });
+                if (returnVal.Data != null)
+                {
+                    StringBuilder returnDataInfo = new StringBuilder();
+                    foreach (string item in (List<string>)returnVal.Data)
+                    {
+                        returnDataInfo.Append(item);
+                        returnDataInfo.Append("  ");
+                    }
+                    returnVal.Message += returnDataInfo.ToString();
+                }
+
+                switch (returnVal.Statu)
+                {
+                    case ReturnStatu.Err:
+                        return this.RedirectAjax("Failure", returnVal.Message, null, null);
+                    case ReturnStatu.Failure:
+                        return this.RedirectAjax("Failure", returnVal.Message, null, null);
+                    case ReturnStatu.Success:
+                        return this.RedirectAjax("Success", returnVal.Message, null, null);
+                    default:
+                        return this.RedirectAjax("Failure", "内部出错", null, null);
+                }
+            }
+            else
+            {
+                return this.RedirectAjax("Failure", null, null, null);
+            }
+        } 
+        #endregion
         #endregion
 
         #region 成绩模块
-        public ActionResult GradeIndex()
+        public ActionResult GradeIndex(int? pageIndex)
         {
-            ShowPageGradeOutput result = _teacherAppService.ShowPageGrade(new ShowPageGradeInput());
+            ShowPageGradeOutput result;
+            if (pageIndex == null || !ModelState.IsValid)
+            {
+                result = _teacherAppService.ShowPageGrade(new ShowPageGradeInput());
+            }
+            else
+            {
+                result = _teacherAppService.ShowPageGrade(new ShowPageGradeInput() { PageIndex = (int)pageIndex });
+            }
 
+            ViewData["pageIndex"] = result.PageIndex;
+            ViewData["pageCount"] = result.PageCount;
             var listmodel = result.ShowGradeOutputs.Select<ShowGradeOutput, GradeResultViewModel>(m => ObjectMapper.Map<GradeResultViewModel>(m));
             return View(listmodel);
         }
@@ -473,6 +555,59 @@ namespace ShiNengShiHui.Web.Controllers
             return RedirectToAction("GradeIndex");
         }
         #endregion 
+
+        #region 表格下载
+        public FileResult GradeExcelDown()
+        {
+            GradeExcelOutput gradeExcelOutput = _excelAppService.GradeExcelDown();
+            using (gradeExcelOutput.ExcelData)
+            {
+                return File(gradeExcelOutput.ExcelData.ToArray(), "application/octet-stream", "成绩导入模板.xls");
+            }
+        }
+        #endregion
+
+        public ActionResult GradeCereateOfExcel(HttpPostedFileBase file)
+        {
+            if (file == null)
+            {
+                return this.RedirectAjax("Failure", "没有文件", null, null);
+            }
+            else if (!Path.GetExtension(file.FileName).Equals(".xls"))
+            {
+                return this.RedirectAjax("Failure", "请选择excel", null, null);
+            }
+            else if (file.ContentLength > 0)
+            {
+                ReturnVal returnVal = _teacherAppService.CreateGradeRange(new CreateGradeRangeInput(){ DataStream = file.InputStream });
+                if (returnVal.Data != null)
+                {
+                    StringBuilder returnDataInfo = new StringBuilder();
+                    foreach (string item in (List<string>)returnVal.Data)
+                    {
+                        returnDataInfo.Append(item);
+                        returnDataInfo.Append("  ");
+                    }
+                    returnVal.Message += returnDataInfo.ToString();
+                }
+
+                switch (returnVal.Statu)
+                {
+                    case ReturnStatu.Err:
+                        return this.RedirectAjax("Failure", returnVal.Message, null, null);
+                    case ReturnStatu.Failure:
+                        return this.RedirectAjax("Failure", returnVal.Message, null, null);
+                    case ReturnStatu.Success:
+                        return this.RedirectAjax("Success", returnVal.Message, null, null);
+                    default:
+                        return this.RedirectAjax("Failure", "内部出错", null, null);
+                }
+            }
+            else
+            {
+                return this.RedirectAjax("Failure", null, null, null);
+            }
+        }
         #endregion
 
 

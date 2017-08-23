@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShiNengShiHui.AppServices.Teacher.Dto
+namespace ShiNengShiHui.AppServices.Dto
 {
-    public class CreateGradeRangeInput
+    public class GradeExcelOutput
     {
-        public Stream DataStream { get; set; }
+        public MemoryStream ExcelData { get; set; }
     }
 }

@@ -14,6 +14,7 @@ using ShiNengShiHui.Entities.Classes;
 using ShiNengShiHui.AppServices.Return;
 using Abp.Timing;
 using ShiNengShiHui.Entities.OtherData;
+using ShiNengShiHui.AppServices.Dto;
 
 namespace ShiNengShiHui.AppServices
 {
@@ -25,15 +26,19 @@ namespace ShiNengShiHui.AppServices
         private readonly IPrizeRepository _prizeRepository;
         private readonly IRepository<PrizeItem, Guid> _prizeItemRepository;
 
+        private readonly IExcelAppService _excelAppService;
+
         public TeacherAppService(IStudentRepository studentRepository,
             IGradeRepository gradeRepository,
             IPrizeRepository prizeRepository,
-            IRepository<PrizeItem, Guid> prizeItemRepository)
+            IRepository<PrizeItem, Guid> prizeItemRepository,
+            IExcelAppService excelAppService)
         {
             _studentRepository = studentRepository;
             _gradeRepository = gradeRepository;
             _prizeRepository = prizeRepository;
             _prizeItemRepository = prizeItemRepository;
+            _excelAppService = excelAppService;
         }
 
         #region 添加
@@ -67,6 +72,53 @@ namespace ShiNengShiHui.AppServices
 
         public ReturnVal CreateGradeRange(CreateGradeRangeInput createGradeRangeInput)
         {
+            GradeInsertOfExcelOutput gradeInsertOfExcelOutput = _excelAppService.GradeInsertOfExcel(new GradeInsertOfExcelInput() { DataStream = createGradeRangeInput.DataStream });
+
+            if (gradeInsertOfExcelOutput==null)
+            {
+                return null;
+            }
+
+            List<string> errNumber = new List<string>();
+            for (int i = 0,length=gradeInsertOfExcelOutput.Grades.Length; i < length; i++)
+            {
+                CreateGradeInput temp = gradeInsertOfExcelOutput.Grades[i];
+                var flag = _gradeRepository.FirstOrDefault(g => JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(g.DateJson).Date.DayOfYear == temp.Datetime.DayOfYear && JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(g.DateJson).Date.Year == temp.Datetime.Year && g.StudentId == temp.StudentId);
+                if (flag==null)
+                {
+                    Grade grade = new Grade()
+                    {
+                        StudentId = temp.StudentId,
+                        GradeStringJson = JsonConvert.SerializeObject(new GradeData() { Grades = temp.Grades, PenaltyReason = temp.PenaltyReason }),
+                        DateJson = JsonConvert.SerializeObject(new GradeOrPrizeDateTime()
+                        {
+                            Date = temp.Datetime,
+                            SchoolYear = temp.SchoolYead,
+                            Semester = temp.Semester,
+                            Week = temp.Week
+                        })
+                    };
+                    _gradeRepository.Insert(grade);
+                }
+                else
+                {
+                    errNumber.Add(temp.StudentId.ToString());
+                }
+            }
+
+            if (errNumber.Count==gradeInsertOfExcelOutput.Grades.Length)
+            {
+                return new ReturnVal(ReturnStatu.Err, "添加失败，失败同学的学号：", errNumber);
+            }
+            else if (errNumber.Count>0)
+            {
+                return new ReturnVal(ReturnStatu.Failure, "有部分同学成绩没有添加成功，失败同学的学号：", errNumber);
+            }
+            else
+            {
+                return new ReturnVal(ReturnStatu.Success, "全部添加成功");
+            }
+
             throw new NotImplementedException();
         }
 
@@ -88,7 +140,39 @@ namespace ShiNengShiHui.AppServices
 
         public ReturnVal CreateStudentRange(CreateStudentRangeInput createStudentRangeInput)
         {
-            throw new NotImplementedException();
+            StudentInsertOfExcelOutput studentInsertOfExcelOutput = _excelAppService.StudentInsertOfExcel(new StudentInsertOfExcelInput() { DataStream = createStudentRangeInput.DataStream });
+
+            if (studentInsertOfExcelOutput==null)
+            {
+                return null;
+            }
+
+            List<string> errStudentName = new List<string>();
+            for (int i = 0,length=studentInsertOfExcelOutput.Students.Length; i < length; i++)
+            {
+                var flag = _studentRepository.FirstOrDefault(m => m.Name.Equals(studentInsertOfExcelOutput.Students[i].Name));
+                if (flag==null)
+                {
+                    _studentRepository.Insert(ObjectMapper.Map<Student>(studentInsertOfExcelOutput.Students[i]));
+                }
+                else
+                {
+                    errStudentName.Add(studentInsertOfExcelOutput.Students[i].Name);
+                }
+            }
+
+            if (errStudentName.Count==studentInsertOfExcelOutput.Students.Length)
+            {
+                return new ReturnVal(ReturnStatu.Err, "添加失败，失败同学的名字：", errStudentName);
+            }
+            else if(errStudentName.Count>0)
+            {
+                return new ReturnVal(ReturnStatu.Failure, "有部分同学没有添加成功，失败同学的名字：", errStudentName);
+            }
+            else
+            {
+                return new ReturnVal(ReturnStatu.Success, "全部添加成功");
+            }
         }
         #endregion
 

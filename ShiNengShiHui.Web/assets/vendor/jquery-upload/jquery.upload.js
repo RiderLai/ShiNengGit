@@ -12,7 +12,8 @@
 		url: '',
 		fileName: 'filedata',
 		dataType: 'json',
-		params: {},
+        params: {},
+        validateAntiForgeryToken:'',
 		onSend: noop,
 		onSubmit: noop,
 		onComplate: noop
@@ -38,7 +39,8 @@
 		var formHtml = '<input type="file" name="' + opts.fileName + '" onchange="onChooseFile(this)">';
 		for (key in opts.params) {
 			formHtml += '<input type="hidden" name="' + key + '" value="' + opts.params[key] + '">';
-		}
+        }
+        form.append(opts.validateAntiForgeryToken);
 		form.append(formHtml);
 
 		iframe.appendTo("body");
