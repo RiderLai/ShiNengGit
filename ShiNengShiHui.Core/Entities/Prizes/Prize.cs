@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ShiNengShiHui.Entities.Prizes
 {
-    public class Prize:FullAuditedEntity<long>
+    public class Prize:Entity<long>
     {
         public virtual int StudentId { get; set; }
 

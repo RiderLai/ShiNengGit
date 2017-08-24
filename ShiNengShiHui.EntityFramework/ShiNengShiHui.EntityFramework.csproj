@@ -159,6 +159,10 @@
     <Compile Include="Migrations\201708200754302_EntitiesInitial4.Designer.cs">
       <DependentUpon>201708200754302_EntitiesInitial4.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708240840457_EntitiesInitial5.cs" />
+    <Compile Include="Migrations\201708240840457_EntitiesInitial5.Designer.cs">
+      <DependentUpon>201708240840457_EntitiesInitial5.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedData\EntitiesData\DefaultEntitiesDataCreator.cs" />
@@ -200,6 +204,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708200754302_EntitiesInitial4.resx">
       <DependentUpon>201708200754302_EntitiesInitial4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708240840457_EntitiesInitial5.resx">
+      <DependentUpon>201708240840457_EntitiesInitial5.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

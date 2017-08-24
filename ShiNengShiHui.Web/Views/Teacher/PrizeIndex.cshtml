@@ -1,1 +1,149 @@
-﻿
+﻿@model IEnumerable<ShiNengShiHui.Web.Models.Teacher.Prize.PrizeResultViewModel>
+
+@section PageSpecificJavascriptIncludes{
+    <script type="text/javascript">
+        $("#PrizeComput").click(function () {
+            $("#PrizeComputForm").submit();
+        })
+    </script>
+}
+
+<div class="panel">
+    <div class="panel-heading">
+        @using (Html.BeginForm("PrizeComput", "Teacher", FormMethod.Post,new { id="PrizeComputForm"}))
+        {
+            @Html.AntiForgeryToken();
+            <input type="text" id="datetimepicker" name="time">
+            <a class="btn btn-primary" id="PrizeComput" title='计算成绩' href="javascript:;"><i class="fa fa-calendar" aria-hidden="true"></i> 计算成绩</a>
+        }
+    </div>
+    <div class="panel-body">
+        @if (Model == null)
+            {
+            <h3>请计算当天的成绩</h3>
+        }
+        else
+        {
+            <table class="table table-striped table-hover ">
+                <thead>
+                    <tr>
+                        <th>
+                            姓名
+                        </th>
+                        <th>
+                            获奖名称
+                        </th>
+                        <th>
+                            时间
+                        </th>
+                        <th>
+                            学期
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (ShiNengShiHui.Web.Models.Teacher.Prize.PrizeResultViewModel m in Model)
+                    {
+                        <tr>
+                            <td>
+                                @m.StudentName
+                            </td>
+                            <td>
+                                @m.PrizeName
+                            </td>
+                            <td>
+                                @m.DateTime
+                            </td>
+                            <td>
+                                @m.SchoolYearAndMore
+                            </td>
+                        </tr>
+                    }
+
+
+
+                </tbody>
+            </table>
+
+        }
+
+    </div>
+</div>
+
+@*@{
+        int pageIndex = (int)ViewData["pageIndex"];
+        int pageCount = (int)ViewData["pageCount"];
+    }
+    <div class="text-right">
+
+
+        <ul class="pagination">
+            <li><a href="@Url.Action("GradeIndex","Teacher",new { pageIndex=1})">首页</a></li>
+            @if (pageIndex <= 5)
+            {
+                for (int i = 1, length = pageCount; i <= length; i++)
+                {
+                    if (pageIndex == i)
+                    {
+                        <li class="active"><a href="@Url.Action("GradeIndex","Teacher",new { pageIndex=i})">@i</a></li>
+                    }
+                    else
+                    {
+                        <li><a href="@Url.Action("GradeIndex","Teacher",new { pageIndex=i})">@i</a></li>
+                    }
+                }
+            }
+            else
+            {
+                if (pageIndex >= 3 && pageIndex <= pageCount - 2)
+                {
+                    for (int i = pageIndex - 2; i < pageIndex + 2; i++)
+                    {
+                        if (pageIndex == i)
+                        {
+                            <li class="active"><a href="@Url.Action("GradeIndex","Teacher",new { pageIndex=i})">@i</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="@Url.Action("GradeIndex","Teacher",new { pageIndex=i})">@i</a></li>
+                        }
+                    }
+                }
+                else
+                {
+                    if (pageIndex <= 2)
+                    {
+                        for (int i = 1; i <= 5; i++)
+                        {
+                            if (pageIndex == i)
+                            {
+                                <li class="active"><a href="@Url.Action("GradeIndex","Teacher",new { pageIndex=i})">@i</a></li>
+                            }
+                            else
+                            {
+                                <li><a href="@Url.Action("GradeIndex","Teacher",new { pageIndex=i})">@i</a></li>
+                            }
+                        }
+                    }
+                    else
+                    {
+                        for (int i = pageCount - 4; i <= pageCount; i++)
+                        {
+                            if (pageIndex == i)
+                            {
+                                <li class="active"><a href="@Url.Action("GradeIndex","Teacher",new { pageIndex=i})">@i</a></li>
+                            }
+                            else
+                            {
+                                <li><a href="@Url.Action("GradeIndex","Teacher",new { pageIndex=i})">@i</a></li>
+                            }
+                        }
+                    }
+                }
+            }
+            <li><a href="@Url.Action("GradeIndex","Teacher",new { pageIndex=pageCount })">尾页</a></li>
+        </ul>
+
+    </div>*@
+

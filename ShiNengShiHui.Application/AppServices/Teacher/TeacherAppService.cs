@@ -202,6 +202,11 @@ namespace ShiNengShiHui.AppServices
             if (flag != null)
             {
                 _studentRepository.Delete(flag);
+                var gradeDeleteList= _gradeRepository.GetAllList(m => m.StudentId == flag.Id);
+                for (int i = 0,length=gradeDeleteList.Count; i < length; i++)
+                {
+                    _gradeRepository.Delete(gradeDeleteList[i]);
+                }
                 return new ReturnVal(ReturnStatu.Success);
             }
             else
@@ -420,6 +425,27 @@ namespace ShiNengShiHui.AppServices
         public ReturnVal UpdateStudentRange(UpdateStudentRangeInput updateStudentRangeInput)
         {
             throw new NotImplementedException();
+        }
+
+        public void PrizeComput(PrizeComputInput prizeComputInput)
+        {
+            var gradeList= _gradeRepository.GetAllList(m =>JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJson).Date.Year==prizeComputInput.DateTime.Year&&JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJson).Date.DayOfYear==prizeComputInput.DateTime.DayOfYear);
+            if (gradeList==null||gradeList.Count<=0)
+            {
+                return;
+            }
+
+            double avgGrade = 0;
+            gradeList.ForEach(m => avgGrade += JsonConvert.DeserializeObject<GradeData>(m.GradeStringJson).Sums);
+            avgGrade /= gradeList.Count;
+
+            //gradeList.ForEach(m=>
+            //{
+            //    if (JsonConvert.DeserializeObject<GradeData>(m.GradeStringJson).Sums>=avgGrade)
+            //    {
+            //        _prizeRepository.Insert
+            //    }
+            //})
         }
         #endregion
     }

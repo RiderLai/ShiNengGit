@@ -148,6 +148,7 @@
     <Compile Include="AppServices\Return\ReturnVal.cs" />
     <Compile Include="AppServices\Teacher\Dto\Grade\CreateGradeInput.cs" />
     <Compile Include="AppServices\Teacher\Dto\Grade\CreateGradeRangeInput.cs" />
+    <Compile Include="AppServices\Teacher\Dto\Prize\PrizeComputInput.cs" />
     <Compile Include="AppServices\Teacher\Dto\Student\CreateStudentInput.cs" />
     <Compile Include="AppServices\Teacher\Dto\Student\CreateStudentRangeInput.cs" />
     <Compile Include="AppServices\Teacher\Dto\Grade\DeleteGradeInput.cs" />

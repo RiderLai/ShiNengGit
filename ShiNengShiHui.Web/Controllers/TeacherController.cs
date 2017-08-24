@@ -222,7 +222,7 @@ namespace ShiNengShiHui.Web.Controllers
         }
         #endregion
 
-        #region Excel导入
+        #region Excel批量导入
         public ActionResult StudentsCereateOfExcel(HttpPostedFileBase file)
         {
             if (file == null)
@@ -567,6 +567,7 @@ namespace ShiNengShiHui.Web.Controllers
         }
         #endregion
 
+        #region Excel批量导入
         public ActionResult GradeCereateOfExcel(HttpPostedFileBase file)
         {
             if (file == null)
@@ -579,7 +580,7 @@ namespace ShiNengShiHui.Web.Controllers
             }
             else if (file.ContentLength > 0)
             {
-                ReturnVal returnVal = _teacherAppService.CreateGradeRange(new CreateGradeRangeInput(){ DataStream = file.InputStream });
+                ReturnVal returnVal = _teacherAppService.CreateGradeRange(new CreateGradeRangeInput() { DataStream = file.InputStream });
                 if (returnVal.Data != null)
                 {
                     StringBuilder returnDataInfo = new StringBuilder();
@@ -607,13 +608,20 @@ namespace ShiNengShiHui.Web.Controllers
             {
                 return this.RedirectAjax("Failure", null, null, null);
             }
-        }
+        } 
+        #endregion
         #endregion
 
 
         public ActionResult PrizeIndex()
         {
             return View();
+        }
+
+        public ActionResult PrizeComput(DateTime time)
+        {
+            _teacherAppService.PrizeComput(new PrizeComputInput() { DateTime=time});
+            return RedirectToAction("PrizeIndex");
         }
     }
 }

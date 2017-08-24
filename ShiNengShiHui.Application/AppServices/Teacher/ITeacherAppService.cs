@@ -33,5 +33,7 @@ namespace ShiNengShiHui.AppServices
 
         ShowPrizeOutput ShowPrize(ShowPrizeInput showPrizeInput);
         ShowPagePrizeOutput ShowPagePrize(ShowPagePrizeInput showPagePrizeInput);
+
+        void PrizeComput(PrizeComputInput prizeComputInput);
     }
 }

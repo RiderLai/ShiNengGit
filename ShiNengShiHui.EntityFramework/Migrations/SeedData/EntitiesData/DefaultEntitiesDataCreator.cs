@@ -85,6 +85,18 @@ namespace ShiNengShiHui.Migrations.SeedData.EntitiesData
                 _context.SaveChanges();
             }
 
+            var youXiuTuanDui = _context.PrizeItem.FirstOrDefault(c => c.Name.Equals(PrizeItem.YouXiuTuanDui));
+            if (youXiuTuanDui==null)
+            {
+                youXiuTuanDui = new PrizeItem()
+                {
+                    Id = Guid.NewGuid(),
+                    Name = PrizeItem.YouXiuTuanDui
+                };
+                _context.PrizeItem.Add(youXiuTuanDui);
+                _context.SaveChanges();
+            }
+
             var yueMoFanSheng = _context.PrizeItem.FirstOrDefault(c => c.Name.Equals(PrizeItem.YueMoFanSheng));
             if (yueMoFanSheng == null)
             {

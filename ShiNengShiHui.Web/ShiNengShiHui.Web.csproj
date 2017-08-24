@@ -1419,6 +1419,7 @@
     <Compile Include="Models\Teacher\Grade\GradeCreateViewModel.cs" />
     <Compile Include="Models\Teacher\Grade\GradeEditViewModel.cs" />
     <Compile Include="Models\Teacher\Grade\GradeResultViewModel.cs" />
+    <Compile Include="Models\Teacher\Prize\PrizeResultViewModel.cs" />
     <Compile Include="Models\Teacher\Student\StudentCreatreViewModel.cs" />
     <Compile Include="Models\Teacher\Student\StudentEditViewModel.cs" />
     <Compile Include="Models\Teacher\Student\StudentResultViewModel.cs" />
