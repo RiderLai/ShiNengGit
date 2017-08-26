@@ -13,10 +13,11 @@ namespace ShiNengShiHui.EntityFramework.Repositories
 {
     public class StudentRepository : SqlRepositoryBase<Student>, IStudentRepository
     {
-        private string TableName { get => GetTable(SqlRepositoryBase<Student, int>.TableType.Student) == null ? "testStudents" : GetTable(SqlRepositoryBase<Student, int>.TableType.Student); }
+        private string TableName { get => GetTable(SqlRepositoryBase<Student, int>.TableType.Student) == null ? "testStudents" : GetTable(SqlRepositoryBase<Student, int>.TableType.Student);}
 
         public StudentRepository(IDbContextProvider<ShiNengShiHuiDbContext> dbContextProvider) : base(dbContextProvider)
         {
+            
         }
 
         //public override int Count()
@@ -130,6 +131,16 @@ namespace ShiNengShiHui.EntityFramework.Repositories
                                                      new SqlParameter("ClassId", entity.ClassId),
                                                      new SqlParameter("Group", entity.Group),
                                                      new SqlParameter("Id", entity.Id));
+        }
+
+        public IQueryable<Student> GetAll(string tableName)
+        {
+            var list = new List<Student>();
+
+            var students = Context.Database.SqlQuery<Student>($@"Select * From {tableName} Where IsDeleted=0");
+            list.AddRange(students);
+
+            return list.AsQueryable<Student>();
         }
     }
 }

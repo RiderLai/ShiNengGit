@@ -10,5 +10,6 @@ namespace ShiNengShiHui.Entities.Students
 {
     public interface IStudentRepository:IRepository<Student>,IPageRepository<Student>
     {
+        IQueryable<Student> GetAll(string tableName);
     }
 }

@@ -163,9 +163,15 @@
     <Compile Include="Migrations\201708240840457_EntitiesInitial5.Designer.cs">
       <DependentUpon>201708240840457_EntitiesInitial5.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708260704016_EntitiesInitial6.cs" />
+    <Compile Include="Migrations\201708260704016_EntitiesInitial6.Designer.cs">
+      <DependentUpon>201708260704016_EntitiesInitial6.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\SeedData\EntitiesData\AdministratorFunctionCreator.cs" />
     <Compile Include="Migrations\SeedData\EntitiesData\DefaultEntitiesDataCreator.cs" />
+    <Compile Include="Migrations\SeedData\EntitiesData\HeadmasterFunctionCreator.cs" />
     <Compile Include="Migrations\SeedData\EntitiesData\RoleCreator.cs" />
     <Compile Include="Migrations\SeedData\EntitiesData\TeacherFunctionCreator.cs" />
     <Compile Include="Migrations\SeedData\EntitiesData\TeacherUserCreator.cs" />
@@ -207,6 +213,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708240840457_EntitiesInitial5.resx">
       <DependentUpon>201708240840457_EntitiesInitial5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708260704016_EntitiesInitial6.resx">
+      <DependentUpon>201708260704016_EntitiesInitial6.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

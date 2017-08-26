@@ -34,6 +34,14 @@ namespace ShiNengShiHui.AppServices
         ShowPrizeOutput ShowPrize(ShowPrizeInput showPrizeInput);
         ShowPagePrizeOutput ShowPagePrize(ShowPagePrizeInput showPagePrizeInput);
 
-        void PrizeComput(PrizeComputInput prizeComputInput);
+        void PrizeComput(PrizeComputInput prizeCoumputInput);
+
+        void PrizeTianMoFanShengComput(PrizeTianMoFanShengComputInput prizeComputInput);
+
+        void PrizeZhouMoFanShengComput(PrizeZhouMoFanShengComputInput prizeZhouMoFanShengComputInput);
+
+        void PrizeYueMoFanShengComput(PrizeYueMoFanShengComputInput prizeYueMoFanShengComput);
+
+        void PrizeXiaoMoFanShengComput(PrizeXiaoMoFanShengComputInput prizeXiaoMoFanShengComput);
     }
 }

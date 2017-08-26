@@ -11,6 +11,8 @@ namespace ShiNengShiHui.Entities.Classes
         [Required]
         public virtual string Name { get; set; }
 
+        public virtual string Display { get; set; }
+
         public virtual DateTime InTime { get; set; }
 
         public  string StudentsTable { get=>Name+"Students"; }
@@ -18,5 +20,7 @@ namespace ShiNengShiHui.Entities.Classes
         public string GradesTable { get=>Name+"Grades"; }
 
         public string PrizesTable { get=>Name+"Prizes";}
+
+        
     }
 }

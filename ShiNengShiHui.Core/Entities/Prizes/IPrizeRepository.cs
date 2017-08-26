@@ -10,5 +10,6 @@ namespace ShiNengShiHui.Entities.Prizes
 {
     public interface IPrizeRepository:IRepository<Prize,long>,IPageRepository<Prize,long>
     {
+        IQueryable<Prize> GetAll(string tableName);
     }
 }

@@ -133,6 +133,40 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppServices\Administrator\AdministratorAppService.cs" />
+    <Compile Include="AppServices\Administrator\Dto\Class\ClassCreateInput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\Class\ClassCreateOutput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\Class\ClassCreateRangeInput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\Class\ClassDeleteInput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\Class\ClassDeleteOutput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\Class\ClassShowInput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\Class\ClassShowOutput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\Class\ClassShowPageInput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\Class\ClassShowPageOutput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\Class\ClassUpdateInput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\Class\ClassUpdateOutput.cs" />
+    <Compile Include="AppServices\Administrator\IAdministratorAppService.cs" />
+    <Compile Include="AppServices\Administrator\Dto\Teacher\TeacherCreateInput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\Teacher\TeacherCreateOutput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\Teacher\TeacherCreateRangeInput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\Teacher\TeacherCreateRangeOutput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\Teacher\TeacherDeleteInput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\Teacher\TeacherDeleteOutput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\Teacher\TeacherShowInput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\Teacher\TeacherShowOutput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\Teacher\TeacherShowPageInput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\Teacher\TeacherShowPageOutput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\Teacher\TeacherUpdateInput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\Teacher\TeacherUpdateOutput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\User\UserCreateInput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\User\UserCreateOutput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\User\UserDeleteInput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\User\UserShowInput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\User\UserShowOutput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\User\UserShowPageInput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\User\UserShowPageOutput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\User\UserUpdateInput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\User\UserUpdateOutput.cs" />
     <Compile Include="AppServices\Excel\Dto\GradeExcelOutput.cs" />
     <Compile Include="AppServices\Excel\Dto\GradeInsertOfExcelInput.cs" />
     <Compile Include="AppServices\Excel\Dto\GradeInsertOfExcelOutput.cs" />
@@ -149,6 +183,10 @@
     <Compile Include="AppServices\Teacher\Dto\Grade\CreateGradeInput.cs" />
     <Compile Include="AppServices\Teacher\Dto\Grade\CreateGradeRangeInput.cs" />
     <Compile Include="AppServices\Teacher\Dto\Prize\PrizeComputInput.cs" />
+    <Compile Include="AppServices\Teacher\Dto\Prize\PrizeTianMoFanShengComputInput.cs" />
+    <Compile Include="AppServices\Teacher\Dto\Prize\PrizeXiaoMoFanShengComputInput.cs" />
+    <Compile Include="AppServices\Teacher\Dto\Prize\PrizeYueMoFanShengComputInput.cs" />
+    <Compile Include="AppServices\Teacher\Dto\Prize\PrizeZhouMoFanShengComputInput.cs" />
     <Compile Include="AppServices\Teacher\Dto\Student\CreateStudentInput.cs" />
     <Compile Include="AppServices\Teacher\Dto\Student\CreateStudentRangeInput.cs" />
     <Compile Include="AppServices\Teacher\Dto\Grade\DeleteGradeInput.cs" />
@@ -209,7 +247,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="AppServices\Adminstrator\" />
     <Folder Include="AppServices\Headmaster\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

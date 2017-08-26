@@ -27,7 +27,7 @@ namespace ShiNengShiHui.Migrations.SeedData.EntitiesData
         {
             var teacherRole = _context.Roles.FirstOrDefault(m => m.Name.Equals(StaticRoleNames.Tenants.Teacher));
 
-            var index = _context.Function.FirstOrDefault(m => m.Name.Equals("主页"));
+            var index = _context.Function.FirstOrDefault(m => m.Name.Equals("主页") && m.RoleId==teacherRole.Id);
             if (index == null)
             {
                 index = new Function()
@@ -45,7 +45,7 @@ namespace ShiNengShiHui.Migrations.SeedData.EntitiesData
                 _context.SaveChanges();
             }
 
-            var studentManage = _context.Function.FirstOrDefault(m => m.Name.Equals("学生管理"));
+            var studentManage = _context.Function.FirstOrDefault(m => m.Name.Equals("学生管理") && m.RoleId==teacherRole.Id);
             if (studentManage==null)
             {
                 studentManage = new Function()
@@ -63,7 +63,7 @@ namespace ShiNengShiHui.Migrations.SeedData.EntitiesData
                 _context.SaveChanges();
             }
 
-            var gradeManage = _context.Function.FirstOrDefault(m => m.Name.Equals("成绩管理"));
+            var gradeManage = _context.Function.FirstOrDefault(m => m.Name.Equals("成绩管理") && m.RoleId==teacherRole.Id);
             if (gradeManage==null)
             {
                 gradeManage = new Function()
@@ -81,7 +81,7 @@ namespace ShiNengShiHui.Migrations.SeedData.EntitiesData
                 _context.SaveChanges();
             }
 
-            var prizeManage = _context.Function.FirstOrDefault(m => m.Name.Equals("获奖查看"));
+            var prizeManage = _context.Function.FirstOrDefault(m => m.Name.Equals("获奖查看")&& m.RoleId==teacherRole.Id);
             if (prizeManage == null)
             {
                 prizeManage = new Function()

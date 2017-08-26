@@ -439,13 +439,116 @@ namespace ShiNengShiHui.AppServices
             gradeList.ForEach(m => avgGrade += JsonConvert.DeserializeObject<GradeData>(m.GradeStringJson).Sums);
             avgGrade /= gradeList.Count;
 
-            //gradeList.ForEach(m=>
-            //{
-            //    if (JsonConvert.DeserializeObject<GradeData>(m.GradeStringJson).Sums>=avgGrade)
-            //    {
-            //        _prizeRepository.Insert
-            //    }
-            //})
+            //奖项ID
+            Guid tianMoFanShengId = _prizeItemRepository.FirstOrDefault(m => m.Name.Equals(PrizeItem.TianMoFanSheng)).Id;
+            Guid zhouMoFanShengId = _prizeItemRepository.FirstOrDefault(m => m.Name.Equals(PrizeItem.ZhouMoFanSheng)).Id;
+            Guid yueMoFanShengI = _prizeItemRepository.FirstOrDefault(m => m.Name.Equals(PrizeItem.YueMoFanSheng)).Id;
+            Guid youXiuTuanDui = _prizeItemRepository.FirstOrDefault(m => m.Name.Equals(PrizeItem.YouXiuTuanDui)).Id;
+
+            #region 评选天模范生
+            //评选天模范生
+            gradeList.ForEach(m =>
+            {
+                var prize = _prizeRepository.FirstOrDefault(p => p.DateJosn.Equals(m.DateJson));
+                if (prize != null)
+                {
+                    _prizeRepository.Delete(prize);
+                }
+
+
+                if (JsonConvert.DeserializeObject<GradeData>(m.GradeStringJson).Sums >= avgGrade)
+                {
+                    _prizeRepository.Insert(new Prize()
+                    {
+                        PrizeItemId = tianMoFanShengId,
+                        StudentId = m.StudentId,
+                        DateJosn = m.DateJson
+                    });
+                }
+            });
+            #endregion
+
+            #region 评选周模范生
+            var prizeTianList = _prizeRepository.GetAllList(m => JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJosn).Week == JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(gradeList[0].DateJson).Week &&
+                                                   JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJosn).SchoolYear == JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(gradeList[0].DateJson).SchoolYear &&
+                                                   JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJosn).Semester == JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(gradeList[0].DateJson).Semester &&
+                                                   m.PrizeItemId == tianMoFanShengId);
+            var studentList = _studentRepository.GetAll().ToList<Student>();
+
+            //判断这一周有几天
+            double weekDayMax = 0;
+            for (int i = 0, length = studentList.Count / 2; i < length; i++)
+            {
+                int flag = prizeTianList.Where(m => m.StudentId == studentList[i].Id).Count();
+                if (flag > weekDayMax) weekDayMax = flag;
+            }
+
+
+            //删除已存在的周模范生
+            var prizeZhouList = _prizeRepository.GetAllList(m => JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJosn).Week == JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(gradeList[0].DateJson).Week &&
+                                                             JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJosn).SchoolYear == JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(gradeList[0].DateJson).SchoolYear &&
+                                                             JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJosn).Semester == JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(gradeList[0].DateJson).Semester &&
+                                                             m.PrizeItemId == zhouMoFanShengId);
+            if (prizeZhouList != null)
+            {
+                for (int i = 0, length = prizeZhouList.Count; i < length; i++)
+                {
+                    _prizeRepository.Delete(prizeZhouList[i]);
+                }
+            }
+            //新增周模范生
+            for (int i = 0, length = studentList.Count; i < length; i++)
+            {
+                int flag = prizeTianList.Where(m => m.StudentId == studentList[i].Id).Count();
+                if (flag == weekDayMax)
+                {
+                    _prizeRepository.Insert(new Prize()
+                    {
+                        StudentId = studentList[i].Id,
+                        PrizeItemId = zhouMoFanShengId,
+                        DateJosn = gradeList[0].DateJson
+                    });
+                }
+            }
+            #endregion
+
+            int week = JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(gradeList[0].DateJson).Week;
+            List<Prize> prizeMonthOfWeelList = null;
+            if (week%4!=0)
+            {
+                prizeMonthOfWeelList = _prizeRepository.GetAllList(m => JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJosn).Week > (week - week % 4) &&
+                                                                        JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJosn).Week <= week&&
+                                                                        m.PrizeItemId==zhouMoFanShengId);
+            }
+            else
+            {
+                prizeMonthOfWeelList = _prizeRepository.GetAllList(m => JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJosn).Week > (week - 4) &&
+                                                                        JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJosn).Week <= week&&
+                                                                        m.PrizeItemId == zhouMoFanShengId);
+            }
+
+            int monthWeekMax = week % 4 != 0 ? week % 4 : 4;
+            
+        }
+
+        public void PrizeTianMoFanShengComput(PrizeTianMoFanShengComputInput prizeComputInput)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void PrizeZhouMoFanShengComput(PrizeZhouMoFanShengComputInput prizeZhouMoFanShengComputInput)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void PrizeYueMoFanShengComput(PrizeYueMoFanShengComputInput prizeYueMoFanShengComput)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void PrizeXiaoMoFanShengComput(PrizeXiaoMoFanShengComputInput prizeXiaoMoFanShengComput)
+        {
+            throw new NotImplementedException();
         }
         #endregion
     }

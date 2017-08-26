@@ -10,5 +10,6 @@ namespace ShiNengShiHui.Entities.Grades
 {
     public interface IGradeRepository:IRepository<Grade,long>,IPageRepository<Grade,long>
     {
+        IQueryable<Grade> GetAll(string tableName);
     }
 }

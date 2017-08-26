@@ -119,5 +119,15 @@ namespace ShiNengShiHui.EntityFramework.Repositories
                                                       new SqlParameter("StudentId", entity.StudentId),
                                                       new SqlParameter("Id", entity.Id));
         }
+
+        public IQueryable<Grade> GetAll(string tableName)
+        {
+            List<Grade> list = new List<Grade>();
+            
+            var grades = Context.Database.SqlQuery<Grade>($@"Select * From {tableName} Where IsDeleted=0");
+            list.AddRange(grades);
+            
+            return list.AsQueryable<Grade>();
+        }
     }
 }
