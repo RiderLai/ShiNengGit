@@ -135,38 +135,30 @@
   <ItemGroup>
     <Compile Include="AppServices\Administrator\AdministratorAppService.cs" />
     <Compile Include="AppServices\Administrator\Dto\Class\ClassCreateInput.cs" />
-    <Compile Include="AppServices\Administrator\Dto\Class\ClassCreateOutput.cs" />
     <Compile Include="AppServices\Administrator\Dto\Class\ClassCreateRangeInput.cs" />
     <Compile Include="AppServices\Administrator\Dto\Class\ClassDeleteInput.cs" />
-    <Compile Include="AppServices\Administrator\Dto\Class\ClassDeleteOutput.cs" />
     <Compile Include="AppServices\Administrator\Dto\Class\ClassShowInput.cs" />
     <Compile Include="AppServices\Administrator\Dto\Class\ClassShowOutput.cs" />
     <Compile Include="AppServices\Administrator\Dto\Class\ClassShowPageInput.cs" />
     <Compile Include="AppServices\Administrator\Dto\Class\ClassShowPageOutput.cs" />
     <Compile Include="AppServices\Administrator\Dto\Class\ClassUpdateInput.cs" />
-    <Compile Include="AppServices\Administrator\Dto\Class\ClassUpdateOutput.cs" />
     <Compile Include="AppServices\Administrator\IAdministratorAppService.cs" />
     <Compile Include="AppServices\Administrator\Dto\Teacher\TeacherCreateInput.cs" />
-    <Compile Include="AppServices\Administrator\Dto\Teacher\TeacherCreateOutput.cs" />
     <Compile Include="AppServices\Administrator\Dto\Teacher\TeacherCreateRangeInput.cs" />
-    <Compile Include="AppServices\Administrator\Dto\Teacher\TeacherCreateRangeOutput.cs" />
     <Compile Include="AppServices\Administrator\Dto\Teacher\TeacherDeleteInput.cs" />
-    <Compile Include="AppServices\Administrator\Dto\Teacher\TeacherDeleteOutput.cs" />
     <Compile Include="AppServices\Administrator\Dto\Teacher\TeacherShowInput.cs" />
     <Compile Include="AppServices\Administrator\Dto\Teacher\TeacherShowOutput.cs" />
     <Compile Include="AppServices\Administrator\Dto\Teacher\TeacherShowPageInput.cs" />
     <Compile Include="AppServices\Administrator\Dto\Teacher\TeacherShowPageOutput.cs" />
     <Compile Include="AppServices\Administrator\Dto\Teacher\TeacherUpdateInput.cs" />
-    <Compile Include="AppServices\Administrator\Dto\Teacher\TeacherUpdateOutput.cs" />
     <Compile Include="AppServices\Administrator\Dto\User\UserCreateInput.cs" />
-    <Compile Include="AppServices\Administrator\Dto\User\UserCreateOutput.cs" />
     <Compile Include="AppServices\Administrator\Dto\User\UserDeleteInput.cs" />
     <Compile Include="AppServices\Administrator\Dto\User\UserShowInput.cs" />
     <Compile Include="AppServices\Administrator\Dto\User\UserShowOutput.cs" />
     <Compile Include="AppServices\Administrator\Dto\User\UserShowPageInput.cs" />
     <Compile Include="AppServices\Administrator\Dto\User\UserShowPageOutput.cs" />
     <Compile Include="AppServices\Administrator\Dto\User\UserUpdateInput.cs" />
-    <Compile Include="AppServices\Administrator\Dto\User\UserUpdateOutput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\User\UserCreateRangeInput.cs" />
     <Compile Include="AppServices\Excel\Dto\GradeExcelOutput.cs" />
     <Compile Include="AppServices\Excel\Dto\GradeInsertOfExcelInput.cs" />
     <Compile Include="AppServices\Excel\Dto\GradeInsertOfExcelOutput.cs" />
@@ -179,6 +171,27 @@
     <Compile Include="AppServices\Function\FunctionAppService.cs" />
     <Compile Include="AppServices\Function\IFunctionAppService.cs" />
     <Compile Include="AppServices\Excel\IExcelAppService.cs" />
+    <Compile Include="AppServices\Headmaster\Dto\ClassShowInput.cs" />
+    <Compile Include="AppServices\Headmaster\Dto\ClassShowOutput.cs" />
+    <Compile Include="AppServices\Headmaster\Dto\ClassShowPageInput.cs" />
+    <Compile Include="AppServices\Headmaster\Dto\ClassShowPageOutput.cs" />
+    <Compile Include="AppServices\Headmaster\Dto\GradeShowInput.cs" />
+    <Compile Include="AppServices\Headmaster\Dto\GradeShowOutput.cs" />
+    <Compile Include="AppServices\Headmaster\Dto\GradeShowPageInput.cs" />
+    <Compile Include="AppServices\Headmaster\Dto\GradeShowPageOutput.cs" />
+    <Compile Include="AppServices\Headmaster\IHeadmasterAppService.cs" />
+    <Compile Include="AppServices\Headmaster\Dto\PrizeShowInput.cs" />
+    <Compile Include="AppServices\Headmaster\Dto\PrizeShowOutput.cs" />
+    <Compile Include="AppServices\Headmaster\Dto\PrizeShowPageInput.cs" />
+    <Compile Include="AppServices\Headmaster\Dto\PrizeShowPageOutput.cs" />
+    <Compile Include="AppServices\Headmaster\Dto\StudentShowInput.cs" />
+    <Compile Include="AppServices\Headmaster\Dto\StudentShowOutput.cs" />
+    <Compile Include="AppServices\Headmaster\Dto\StudentShowPageInput.cs" />
+    <Compile Include="AppServices\Headmaster\Dto\StudentShowPageOutput.cs" />
+    <Compile Include="AppServices\Headmaster\Dto\TeacherShowInput.cs" />
+    <Compile Include="AppServices\Headmaster\Dto\TeacherShowOutput.cs" />
+    <Compile Include="AppServices\Headmaster\Dto\TeacherShowPageInput.cs" />
+    <Compile Include="AppServices\Headmaster\Dto\TeacherShowPageOutput.cs" />
     <Compile Include="AppServices\Return\ReturnVal.cs" />
     <Compile Include="AppServices\Teacher\Dto\Grade\CreateGradeInput.cs" />
     <Compile Include="AppServices\Teacher\Dto\Grade\CreateGradeRangeInput.cs" />
@@ -246,9 +259,7 @@
       <Name>ShiNengShiHui.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="AppServices\Headmaster\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

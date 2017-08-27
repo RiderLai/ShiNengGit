@@ -1,6 +1,7 @@
-﻿namespace ShiNengShiHui.AppServices.Dto
+﻿namespace ShiNengShiHui.AppServices.AdministratorDTO
 {
     public class ClassDeleteInput
     {
+        public int Id { get; set; }
     }
 }

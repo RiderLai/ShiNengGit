@@ -1,20 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ShiNengShiHui.AppServices.Teacher.Dto;
 using Abp.Domain.Repositories;
 using ShiNengShiHui.Entities.Students;
 using ShiNengShiHui.Entities.Grades;
 using ShiNengShiHui.Entities.Prizes;
 using Newtonsoft.Json;
-using ShiNengShiHui.Entities;
-using ShiNengShiHui.Entities.Classes;
 using ShiNengShiHui.AppServices.Return;
-using Abp.Timing;
 using ShiNengShiHui.Entities.OtherData;
-using ShiNengShiHui.AppServices.Dto;
+using ShiNengShiHui.AppServices.TeacherDTO;
+using ShiNengShiHui.AppServices.ExcelDTO;
 
 namespace ShiNengShiHui.AppServices
 {

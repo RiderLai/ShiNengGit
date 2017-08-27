@@ -1,9 +1,5 @@
 ﻿using Abp.AutoMapper;
-using ShiNengShiHui.AppServices.Teacher.Dto;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using ShiNengShiHui.AppServices.TeacherDTO;
 
 namespace ShiNengShiHui.Web.Models.Teacher.Student
 {

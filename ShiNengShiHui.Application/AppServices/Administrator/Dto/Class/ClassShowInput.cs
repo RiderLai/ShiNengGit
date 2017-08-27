@@ -1,4 +1,4 @@
-﻿namespace ShiNengShiHui.AppServices.Dto
+﻿namespace ShiNengShiHui.AppServices.AdministratorDTO
 {
     public class ClassShowInput
     {

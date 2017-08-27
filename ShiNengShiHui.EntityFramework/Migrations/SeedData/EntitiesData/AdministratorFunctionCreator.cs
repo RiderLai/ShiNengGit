@@ -25,7 +25,7 @@ namespace ShiNengShiHui.Migrations.SeedData.EntitiesData
 
         private void CreateEditons()
         {
-            var adminRole = _context.Roles.FirstOrDefault(m => m.Name.Equals(StaticRoleNames.Tenants.Admin));
+            var adminRole = _context.Roles.FirstOrDefault(m => m.Name.Equals(StaticRoleNames.Tenants.Admin) && m.TenantId == 1);
 
             var index = _context.Function.FirstOrDefault(m => m.Name.Equals("主页") && m.RoleId==adminRole.Id);
             if (index == null)

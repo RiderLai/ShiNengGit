@@ -1,9 +1,5 @@
 ﻿using ShiNengShiHui.AppServices;
-using ShiNengShiHui.AppServices.Dto;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using ShiNengShiHui.AppServices.FunctionDTO;
 using System.Web.Mvc;
 
 namespace ShiNengShiHui.Web.Controllers

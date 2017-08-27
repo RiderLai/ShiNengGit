@@ -37,6 +37,7 @@ namespace ShiNengShiHui.Migrations.SeedData.EntitiesData
                 defaultClass = new Class()
                 {
                     Name = DefaultEntitiesDataCreator.DefalutClassName,
+                    Display=DefaultEntitiesDataCreator.DefalutClassName,
                     InTime = Clock.Now
                 };
                 _context.Class.Add(defaultClass);

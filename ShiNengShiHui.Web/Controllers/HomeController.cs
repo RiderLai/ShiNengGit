@@ -1,7 +1,5 @@
 ﻿using System.Web.Mvc;
 using Abp.Web.Mvc.Authorization;
-using ShiNengShiHui.AppServices;
-using ShiNengShiHui.AppServices.Dto;
 
 namespace ShiNengShiHui.Web.Controllers
 {

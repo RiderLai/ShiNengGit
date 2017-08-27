@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ShiNengShiHui.AppServices.Dto;
 using ShiNengShiHui.Entities.Students;
 using ShiNengShiHui.Entities.Grades;
 using NPOI.HSSF.UserModel;
 using NPOI.SS.UserModel;
 using System.IO;
 using System.Data;
-using ShiNengShiHui.AppServices.Teacher.Dto;
+using ShiNengShiHui.AppServices.TeacherDTO;
+using ShiNengShiHui.AppServices.ExcelDTO;
 
 namespace ShiNengShiHui.AppServices
 {

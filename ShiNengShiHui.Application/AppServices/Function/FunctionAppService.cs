@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ShiNengShiHui.AppServices.Dto;
-using Abp.Domain.Repositories;
+﻿using System.Linq;
 using ShiNengShiHui.Entities.Function;
+using ShiNengShiHui.AppServices.FunctionDTO;
 
 namespace ShiNengShiHui.AppServices
 {

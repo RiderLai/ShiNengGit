@@ -1,7 +1,6 @@
 ﻿using Abp.Web.Mvc.Authorization;
 using ShiNengShiHui.AppServices;
 using ShiNengShiHui.Authorization;
-using ShiNengShiHui.AppServices.Teacher.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,10 +9,11 @@ using System.Web.Mvc;
 using ShiNengShiHui.Web.Models.Teacher.Student;
 using ShiNengShiHui.Web.Models.Teacher.Grade;
 using Abp.Timing;
-using ShiNengShiHui.AppServices.Dto;
 using System.IO;
 using ShiNengShiHui.AppServices.Return;
 using System.Text;
+using ShiNengShiHui.AppServices.TeacherDTO;
+using ShiNengShiHui.AppServices.ExcelDTO;
 
 namespace ShiNengShiHui.Web.Controllers
 {

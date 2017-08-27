@@ -1,9 +1,6 @@
 ﻿using Abp.AutoMapper;
-using ShiNengShiHui.AppServices.Teacher.Dto;
+using ShiNengShiHui.AppServices.TeacherDTO;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace ShiNengShiHui.Web.Models.Teacher.Grade
 {

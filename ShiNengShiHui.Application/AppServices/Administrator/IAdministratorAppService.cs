@@ -1,10 +1,6 @@
 ﻿using Abp.Application.Services;
-using ShiNengShiHui.AppServices.Dto;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ShiNengShiHui.AppServices.AdministratorDTO;
+using ShiNengShiHui.AppServices.Return;
 
 namespace ShiNengShiHui.AppServices
 {
@@ -14,34 +10,36 @@ namespace ShiNengShiHui.AppServices
 
         UserShowPageOutput UserShowPage(UserShowPageInput userShowPageInput);
 
-        UserCreateOutput UserCreate(UserCreateInput userCreateInput);
+        ReturnVal UserCreate(UserCreateInput userCreateInput);
 
-        UserUpdateOutput UserUpdate(UserUpdateInput userUpdateInput);
+        ReturnVal UserCreateRange(UserCreateRangeInput userCreateRangeInput);
 
-        void UserDelete(UserDeleteInput userDeleteInput);
+        ReturnVal UserUpdate(UserUpdateInput userUpdateInput);
+
+        ReturnVal UserDelete(UserDeleteInput userDeleteInput);
 
         TeacherShowOutput TeacherShow(TeacherShowInput teacherShowInput);
 
         TeacherShowPageOutput TeacherShowPage(TeacherShowPageInput teacherShowPageInput);
 
-        TeacherCreateOutput TeacherCreate(TeacherCreateInput teacherCreateInput);
+        ReturnVal TeacherCreate(TeacherCreateInput teacherCreateInput);
 
-        TeacherCreateRangeOutput TeacherCreateRange(TeacherCreateRangeInput teacherCreateRangeInput);
+        ReturnVal TeacherCreateRange(TeacherCreateRangeInput teacherCreateRangeInput);
 
-        TeacherUpdateOutput TeacherUpdate(TeacherUpdateInput teacherUpdateInput);
+        ReturnVal TeacherUpdate(TeacherUpdateInput teacherUpdateInput);
 
-        TeacherDeleteOutput TeacherDelete(TeacherDeleteInput teacherDeleteInput);
+        ReturnVal TeacherDelete(TeacherDeleteInput teacherDeleteInput);
 
         ClassShowOutput ClassShow(ClassShowInput classShowInput);
 
         ClassShowPageOutput ClassShowPage(ClassShowPageInput classShowPageInput);
 
-        ClassCreateOutput ClassCreate(ClassCreateInput classCreateInput);
+        ReturnVal ClassCreate(ClassCreateInput classCreateInput);
 
-        ClassCreateOutput ClassCreateRange(ClassCreateRangeInput classCreateRangeInput);
+        ReturnVal ClassCreateRange(ClassCreateRangeInput classCreateRangeInput);
 
-        ClassUpdateOutput ClassUpdate(ClassUpdateInput classUpdateInput);
+        ReturnVal ClassUpdate(ClassUpdateInput classUpdateInput);
 
-        ClassDeleteOutput ClassDelete(ClassDeleteInput classDeleteInput);
+        ReturnVal ClassDelete(ClassDeleteInput classDeleteInput);
     }
 }

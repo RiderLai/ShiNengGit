@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShiNengShiHui.AppServices.Dto
+namespace ShiNengShiHui.AppServices.FunctionDTO
 {
     [AutoMapFrom(typeof(Function))]
     public class FunctionDto

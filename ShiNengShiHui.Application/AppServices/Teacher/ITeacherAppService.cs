@@ -1,6 +1,6 @@
 ﻿using Abp.Application.Services;
 using ShiNengShiHui.AppServices.Return;
-using ShiNengShiHui.AppServices.Teacher.Dto;
+using ShiNengShiHui.AppServices.TeacherDTO;
 
 namespace ShiNengShiHui.AppServices
 {

@@ -25,7 +25,7 @@ namespace ShiNengShiHui.Migrations.SeedData.EntitiesData
 
         private void CreateEditions()
         {
-            var headmasterRole = _context.Roles.FirstOrDefault(m => m.Name.Equals(StaticRoleNames.Tenants.Headmaster));
+            var headmasterRole = _context.Roles.FirstOrDefault(m => m.Name.Equals(StaticRoleNames.Tenants.Headmaster) && m.TenantId == 1);
 
             var index = _context.Function.FirstOrDefault(m => m.Name.Equals("主页") && m.RoleId == headmasterRole.Id);
             if (index==null)

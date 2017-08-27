@@ -1,11 +1,6 @@
-﻿using ShiNengShiHui.AppServices.Teacher.Dto;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ShiNengShiHui.AppServices.TeacherDTO;
 
-namespace ShiNengShiHui.AppServices.Dto
+namespace ShiNengShiHui.AppServices.ExcelDTO
 {
     public class GradeInsertOfExcelOutput
     {

@@ -25,7 +25,7 @@ namespace ShiNengShiHui.Migrations.SeedData.EntitiesData
 
         private void CreateEditions()
         {
-            var teacherRole = _context.Roles.FirstOrDefault(m => m.Name.Equals(StaticRoleNames.Tenants.Teacher));
+            var teacherRole = _context.Roles.FirstOrDefault(m => m.Name.Equals(StaticRoleNames.Tenants.Teacher) && m.TenantId == 1);
 
             var index = _context.Function.FirstOrDefault(m => m.Name.Equals("主页") && m.RoleId==teacherRole.Id);
             if (index == null)

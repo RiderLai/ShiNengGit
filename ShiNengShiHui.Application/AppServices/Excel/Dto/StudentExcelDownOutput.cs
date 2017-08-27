@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShiNengShiHui.AppServices.Dto
+namespace ShiNengShiHui.AppServices.ExcelDTO
 {
     public class StudentExcelDownOutput
     {

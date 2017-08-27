@@ -1,10 +1,6 @@
 ﻿using Abp.AutoMapper;
-using ShiNengShiHui.AppServices.Teacher.Dto;
-using System;
-using System.Collections.Generic;
+using ShiNengShiHui.AppServices.TeacherDTO;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 
 namespace ShiNengShiHui.Web.Models.Teacher.Student
 {

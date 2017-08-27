@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShiNengShiHui.AppServices.Teacher.Dto
+namespace ShiNengShiHui.AppServices.TeacherDTO
 { 
     [AutoMapFrom(typeof(ShowPageGradeInput))]
     public class ShowPageGradeOutput:PageBaseDto
