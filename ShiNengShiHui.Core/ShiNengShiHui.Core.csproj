@@ -116,6 +116,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Classes\Class.cs" />
+    <Compile Include="Entities\Classes\IClassRepository.cs" />
     <Compile Include="Entities\Function\Function.cs" />
     <Compile Include="Entities\Function\IFunctionRepository.cs" />
     <Compile Include="Entities\Grades\Grade.cs" />
@@ -127,6 +128,7 @@
     <Compile Include="Entities\Prizes\PrizeItem.cs" />
     <Compile Include="Entities\Students\IStudentRepository.cs" />
     <Compile Include="Entities\Students\Student.cs" />
+    <Compile Include="Entities\Teachers\ITeacherRepository.cs" />
     <Compile Include="Entities\Teachers\Teacher.cs" />
     <Compile Include="RepositoryExtend\IPageRepository.cs" />
     <Compile Include="ShiNengShiHuiConsts.cs" />
@@ -145,6 +147,7 @@
     <Compile Include="Authorization\Roles\Role.cs" />
     <Compile Include="Authorization\Roles\RoleManager.cs" />
     <Compile Include="Authorization\Roles\RoleStore.cs" />
+    <Compile Include="Users\IUserRepository.cs" />
     <Compile Include="Users\User.cs" />
     <Compile Include="Users\UserManager.cs" />
     <Compile Include="Users\UserStore.cs" />

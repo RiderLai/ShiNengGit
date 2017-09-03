@@ -25,7 +25,7 @@ namespace ShiNengShiHui.EntityFramework.Repositories
     /// </summary>
     /// <typeparam name="TEntity"></typeparam>
     /// <typeparam name="TPrimaryKey"></typeparam>
-    public class SqlRepositoryBase<TEntity, TPrimaryKey> : ShiNengShiHuiRepositoryBase<TEntity, TPrimaryKey>,IPageRepository<TEntity,TPrimaryKey>
+    public class SqlRepositoryBase<TEntity, TPrimaryKey> : ShiNengShiHuiRepositoryBase<TEntity, TPrimaryKey>
         where TEntity : class, IEntity<TPrimaryKey>
     {
         public IAbpSession AbpSession{get;set;}
@@ -142,7 +142,7 @@ namespace ShiNengShiHui.EntityFramework.Repositories
             }
         }
 
-        public TEntity[] GetPage(int pageIndex, int showCount)
+        public override TEntity[] GetPage(int pageIndex, int showCount)
         {
             TEntity[] entiries = GetAllList().ToArray<TEntity>();
             List<TEntity> list = new List<TEntity>();

@@ -1,6 +1,12 @@
-﻿namespace ShiNengShiHui.AppServices.AdministratorDTO
+﻿using Abp.AutoMapper;
+using ShiNengShiHui.Dto;
+
+namespace ShiNengShiHui.AppServices.AdministratorDTO
 {
-    public class UserShowPageOutput
+    [AutoMapFrom(typeof(UserShowPageInput))]
+    public class UserShowPageOutput:PageBaseDto
     {
+        public UserShowOutput[] Users { get; set; }
+
     }
 }

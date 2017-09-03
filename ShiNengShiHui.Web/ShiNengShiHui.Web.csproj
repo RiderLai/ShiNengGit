@@ -1403,6 +1403,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdministratorController.cs" />
     <Compile Include="Controllers\HelperController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ShiNengShiHuiControllerBase.cs" />
@@ -1416,6 +1417,9 @@
     <Compile Include="Models\Account\RegisterResultViewModel.cs" />
     <Compile Include="Models\Account\RegisterViewModel.cs" />
     <Compile Include="Models\Account\TenantSelectionViewModel.cs" />
+    <Compile Include="Models\Administrator\Class\ClassResultViewModel.cs" />
+    <Compile Include="Models\Administrator\Teacher\TeacherResultViewModel.cs" />
+    <Compile Include="Models\Administrator\User\UserResultViewModel.cs" />
     <Compile Include="Models\Teacher\Grade\GradeCreateViewModel.cs" />
     <Compile Include="Models\Teacher\Grade\GradeEditViewModel.cs" />
     <Compile Include="Models\Teacher\Grade\GradeResultViewModel.cs" />
@@ -1456,6 +1460,9 @@
     <Content Include="Views\Teacher\StudentCreate.cshtml" />
     <Content Include="Views\Teacher\GradeCreate.cshtml" />
     <Content Include="Views\Teacher\GradeEdit.cshtml" />
+    <Content Include="Views\Administrator\UserIndex.cshtml" />
+    <Content Include="Views\Administrator\ClassIndex.cshtml" />
+    <Content Include="Views\Administrator\TeacherIndex.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

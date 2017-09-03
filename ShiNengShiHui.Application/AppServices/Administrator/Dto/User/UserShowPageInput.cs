@@ -1,6 +1,9 @@
-﻿namespace ShiNengShiHui.AppServices.AdministratorDTO
+﻿using ShiNengShiHui.Dto;
+
+namespace ShiNengShiHui.AppServices.AdministratorDTO
 {
-    public class UserShowPageInput
+    public class UserShowPageInput:PageBaseDto
     {
+
     }
 }

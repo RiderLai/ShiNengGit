@@ -132,11 +132,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntityFramework\Repositories\ClassRepository.cs" />
     <Compile Include="EntityFramework\Repositories\FunctionRepository.cs" />
     <Compile Include="EntityFramework\Repositories\GradeRepository.cs" />
     <Compile Include="EntityFramework\Repositories\PrizeRepository.cs" />
     <Compile Include="EntityFramework\Repositories\SqlRepositoryBase.cs" />
     <Compile Include="EntityFramework\Repositories\StudentRepository.cs" />
+    <Compile Include="EntityFramework\Repositories\TeacherRepository.cs" />
+    <Compile Include="EntityFramework\Repositories\UserRepository.cs" />
     <Compile Include="EntityFramework\ShiNengShiHuiDbContext.cs" />
     <Compile Include="EntityFramework\Repositories\ShiNengShiHuiRepositoryBase.cs" />
     <Compile Include="Migrations\201701271145151_AbpZero_Initial.cs" />

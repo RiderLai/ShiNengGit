@@ -14044,3 +14044,1082 @@ DEBUG 2017-08-27 12:57:17,481 [1    ] Abp.Logging.LogHelper                    -
 DEBUG 2017-08-27 12:57:17,482 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.AppServices.IFunctionAppService' with service name 'app/function'.
 DEBUG 2017-08-27 12:57:17,483 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.AppServices.IExcelAppService' with service name 'app/excel'.
 DEBUG 2017-08-27 12:57:17,484 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.AppServices.ITeacherAppService' with service name 'app/teacher'.
+DEBUG 2017-09-03 13:48:02,569 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-09-03 13:48:02,584 [1    ] Abp.Modules.AbpModuleManager             - Found 16 ABP modules in total.
+DEBUG 2017-09-03 13:48:02,589 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ShiNengShiHui.Web.ShiNengShiHuiWebModule, ShiNengShiHui.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 13:48:02,590 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ShiNengShiHui.ShiNengShiHuiDataModule, ShiNengShiHui.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 13:48:02,590 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 13:48:02,590 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 13:48:02,590 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 13:48:02,590 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 13:48:02,591 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 13:48:02,591 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ShiNengShiHui.ShiNengShiHuiCoreModule, ShiNengShiHui.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 13:48:02,591 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ShiNengShiHui.ShiNengShiHuiApplicationModule, ShiNengShiHui.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 13:48:02,591 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 13:48:02,591 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ShiNengShiHui.Api.ShiNengShiHuiWebApiModule, ShiNengShiHui.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 13:48:02,591 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 13:48:02,592 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 13:48:02,592 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 13:48:02,592 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 13:48:02,592 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 13:48:02,595 [1    ] Abp.Modules.AbpModuleManager             - 16 modules loaded.
+DEBUG 2017-09-03 13:48:02,697 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-03 13:48:02,697 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-03 13:48:02,697 [1    ] o.Configuration.LanguageManagementConfig - Converted ShiNengShiHui (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-03 13:48:02,697 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-03 13:48:02,958 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: ShiNengShiHui.EntityFramework.ShiNengShiHuiDbContext, ShiNengShiHui.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 13:48:04,208 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2017-09-03 13:48:04,230 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-09-03 13:48:04,234 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2017-09-03 13:48:04,236 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: ShiNengShiHui
+DEBUG 2017-09-03 13:48:04,237 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-09-03 13:48:04,328 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-09-03 13:48:04,378 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 25 classes define auto mapping attributes
+DEBUG 2017-09-03 13:48:04,378 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2017-09-03 13:48:04,380 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Sessions.Dto.UserLoginInfoDto
+DEBUG 2017-09-03 13:48:04,380 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Users.Dto.CreateUserInput
+DEBUG 2017-09-03 13:48:04,381 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Users.Dto.UserListDto
+DEBUG 2017-09-03 13:48:04,381 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.MultiTenancy.Dto.CreateTenantInput
+DEBUG 2017-09-03 13:48:04,381 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.MultiTenancy.Dto.TenantListDto
+DEBUG 2017-09-03 13:48:04,381 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.TeacherDTO.CreateStudentInput
+DEBUG 2017-09-03 13:48:04,381 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.TeacherDTO.ShowPageGradeOutput
+DEBUG 2017-09-03 13:48:04,381 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.TeacherDTO.ShowPageStudentOutput
+DEBUG 2017-09-03 13:48:04,381 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.TeacherDTO.ShowStudentOutput
+DEBUG 2017-09-03 13:48:04,382 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.TeacherDTO.UpdateStudentInput
+DEBUG 2017-09-03 13:48:04,382 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.FunctionDTO.FunctionDto
+DEBUG 2017-09-03 13:48:04,382 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.ClassCreateInput
+DEBUG 2017-09-03 13:48:04,382 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.ClassUpdateInput
+DEBUG 2017-09-03 13:48:04,382 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.TeacherCreateInput
+DEBUG 2017-09-03 13:48:04,382 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.TeacherUpdateInput
+DEBUG 2017-09-03 13:48:04,382 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.UserCreateInput
+DEBUG 2017-09-03 13:48:04,382 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Student.StudentCreatreViewModel
+DEBUG 2017-09-03 13:48:04,382 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Student.StudentEditViewModel
+DEBUG 2017-09-03 13:48:04,382 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Student.StudentResultViewModel
+DEBUG 2017-09-03 13:48:04,382 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Grade.GradeCreateViewModel
+DEBUG 2017-09-03 13:48:04,382 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Grade.GradeEditViewModel
+DEBUG 2017-09-03 13:48:04,382 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Grade.GradeResultViewModel
+DEBUG 2017-09-03 13:48:04,382 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Administrator.User.UserResultViewModel
+DEBUG 2017-09-03 13:48:04,382 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Account.TenantSelectionViewModel+TenantInfo
+DEBUG 2017-09-03 13:48:06,019 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.Sessions.ISessionAppService' with service name 'app/session'.
+DEBUG 2017-09-03 13:48:06,020 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2017-09-03 13:48:06,021 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.Roles.IRoleAppService' with service name 'app/role'.
+DEBUG 2017-09-03 13:48:06,021 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.MultiTenancy.ITenantAppService' with service name 'app/tenant'.
+DEBUG 2017-09-03 13:48:06,022 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.AppServices.IAdministratorAppService' with service name 'app/administrator'.
+DEBUG 2017-09-03 13:48:06,023 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.AppServices.IFunctionAppService' with service name 'app/function'.
+DEBUG 2017-09-03 13:48:06,024 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.AppServices.IExcelAppService' with service name 'app/excel'.
+DEBUG 2017-09-03 13:48:06,025 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.AppServices.ITeacherAppService' with service name 'app/teacher'.
+WARN  2017-09-03 13:48:07,523 [10   ] Abp.Logging.LogHelper                    - Abp.Authorization.AbpAuthorizationException: Current user did not login to the application!
+   at Abp.Authorization.AuthorizationHelper.<AuthorizeAsync>d__19.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Abp.Authorization.AuthorizationHelper.<CheckPermissions>d__22.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Abp.Authorization.AuthorizationHelper.<AuthorizeAsync>d__20.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.AsyncContext.<>c__DisplayClass15_0.<Run>b__0(Task t)
+   at System.Threading.Tasks.ContinuationTaskFromTask.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.AsyncContext.Run(Func`1 action)
+   at Abp.Authorization.AuthorizationHelperExtensions.Authorize(IAuthorizationHelper authorizationHelper, MethodInfo methodInfo)
+   at Abp.Web.Mvc.Authorization.AbpMvcAuthorizeFilter.OnAuthorization(AuthorizationContext filterContext)
+Abp.Authorization.AbpAuthorizationException: Current user did not login to the application!
+   at Abp.Authorization.AuthorizationHelper.<AuthorizeAsync>d__19.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Abp.Authorization.AuthorizationHelper.<CheckPermissions>d__22.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Abp.Authorization.AuthorizationHelper.<AuthorizeAsync>d__20.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.AsyncContext.<>c__DisplayClass15_0.<Run>b__0(Task t)
+   at System.Threading.Tasks.ContinuationTaskFromTask.InnerInvoke()
+   at System.Threading.Tasks.Task.Execute()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Nito.AsyncEx.AsyncContext.Run(Func`1 action)
+   at Abp.Authorization.AuthorizationHelperExtensions.Authorize(IAuthorizationHelper authorizationHelper, MethodInfo methodInfo)
+   at Abp.Web.Mvc.Authorization.AbpMvcAuthorizeFilter.OnAuthorization(AuthorizationContext filterContext)
+ERROR 2017-09-03 13:48:27,351 [9    ] engShiHui.Web.Controllers.HomeController - Error executing child request for handler 'System.Web.Mvc.HttpHandlerUtil+ServerExecuteHttpHandlerAsyncWrapper'.
+System.Web.HttpException (0x80004005): Error executing child request for handler 'System.Web.Mvc.HttpHandlerUtil+ServerExecuteHttpHandlerAsyncWrapper'. ---> System.Web.HttpCompileException (0x80004005): g:\程序\NET\ShiNengShiHui\ShiNengShiHui.Web\Views\Helper\FunctionMenue.cshtml(1): error CS0234: 命名空间“ShiNengShiHui.AppServices”中不存在类型或命名空间名称“Dto”(是否缺少程序集引用?)
+   at System.Web.Compilation.AssemblyBuilder.Compile()
+   at System.Web.Compilation.BuildProvidersCompiler.PerformBuild()
+   at System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile, Boolean throwIfNotFound, Boolean ensureIsUpToDate)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean throwIfNotFound)
+   at System.Web.Compilation.BuildManager.GetCompiledType(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetCompiledType(String virtualPath)
+   at System.Web.Mvc.BuildManagerWrapper.System.Web.Mvc.IBuildManager.GetCompiledType(String virtualPath)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.Mvc.HttpHandlerUtil.ServerExecuteHttpHandlerAsyncWrapper.<>c__DisplayClassa.<EndProcessRequest>b__9()
+   at System.Web.Mvc.HttpHandlerUtil.ServerExecuteHttpHandlerWrapper.<>c__DisplayClass4.<Wrap>b__3()
+   at System.Web.Mvc.HttpHandlerUtil.ServerExecuteHttpHandlerWrapper.Wrap[TResult](Func`1 func)
+   at System.Web.Mvc.HttpHandlerUtil.ServerExecuteHttpHandlerWrapper.Wrap(Action action)
+   at System.Web.Mvc.HttpHandlerUtil.ServerExecuteHttpHandlerAsyncWrapper.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpServerUtility.ExecuteInternal(IHttpHandler handler, TextWriter writer, Boolean preserveForm, Boolean setPreviousPage, VirtualPath path, VirtualPath filePath, String physPath, Exception error, String queryStringOverride)
+   at System.Web.HttpServerUtility.ExecuteInternal(IHttpHandler handler, TextWriter writer, Boolean preserveForm, Boolean setPreviousPage, VirtualPath path, VirtualPath filePath, String physPath, Exception error, String queryStringOverride)
+   at System.Web.HttpServerUtility.Execute(IHttpHandler handler, TextWriter writer, Boolean preserveForm, Boolean setPreviousPage)
+   at System.Web.HttpServerUtility.Execute(IHttpHandler handler, TextWriter writer, Boolean preserveForm)
+   at System.Web.HttpServerUtilityWrapper.Execute(IHttpHandler handler, TextWriter writer, Boolean preserveForm)
+   at System.Web.Mvc.Html.ChildActionExtensions.ActionHelper(HtmlHelper htmlHelper, String actionName, String controllerName, RouteValueDictionary routeValues, TextWriter textWriter)
+   at System.Web.Mvc.Html.ChildActionExtensions.Action(HtmlHelper htmlHelper, String actionName, String controllerName, RouteValueDictionary routeValues)
+   at System.Web.Mvc.Html.ChildActionExtensions.Action(HtmlHelper htmlHelper, String actionName, String controllerName)
+   at ASP._Page_Views_Shared__leftsidebar_cshtml.Execute() in g:\程序\NET\ShiNengShiHui\ShiNengShiHui.Web\Views\Shared\_leftsidebar.cshtml:line 23
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.HtmlHelper.RenderPartialInternal(String partialViewName, ViewDataDictionary viewData, Object model, TextWriter writer, ViewEngineCollection viewEngineCollection)
+   at System.Web.Mvc.Html.PartialExtensions.Partial(HtmlHelper htmlHelper, String partialViewName, Object model, ViewDataDictionary viewData)
+   at System.Web.Mvc.Html.PartialExtensions.Partial(HtmlHelper htmlHelper, String partialViewName)
+   at ASP._Page_Views_Shared__Layout_cshtml.Execute() in g:\程序\NET\ShiNengShiHui\ShiNengShiHui.Web\Views\Shared\_Layout.cshtml:line 43
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.WebPages.WebPageBase.<>c__DisplayClass3.<RenderPageCore>b__2(TextWriter writer)
+   at System.Web.WebPages.HelperResult.WriteTo(TextWriter writer)
+   at System.Web.WebPages.WebPageBase.Write(HelperResult result)
+   at System.Web.WebPages.WebPageBase.RenderSurrounding(String partialViewName, Action`1 body)
+   at System.Web.WebPages.WebPageBase.PopContext()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+DEBUG 2017-09-03 13:51:11,424 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-09-03 13:51:11,628 [1    ] Abp.Modules.AbpModuleManager             - Found 16 ABP modules in total.
+DEBUG 2017-09-03 13:51:11,633 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ShiNengShiHui.Web.ShiNengShiHuiWebModule, ShiNengShiHui.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 13:51:11,635 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ShiNengShiHui.ShiNengShiHuiDataModule, ShiNengShiHui.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 13:51:11,635 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 13:51:11,635 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 13:51:11,635 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 13:51:11,635 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 13:51:11,636 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 13:51:11,636 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ShiNengShiHui.ShiNengShiHuiCoreModule, ShiNengShiHui.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 13:51:11,636 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ShiNengShiHui.ShiNengShiHuiApplicationModule, ShiNengShiHui.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 13:51:11,636 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 13:51:11,636 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ShiNengShiHui.Api.ShiNengShiHuiWebApiModule, ShiNengShiHui.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 13:51:11,636 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 13:51:11,637 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 13:51:11,637 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 13:51:11,637 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 13:51:11,637 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 13:51:11,639 [1    ] Abp.Modules.AbpModuleManager             - 16 modules loaded.
+DEBUG 2017-09-03 13:51:11,982 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-03 13:51:11,982 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-03 13:51:11,982 [1    ] o.Configuration.LanguageManagementConfig - Converted ShiNengShiHui (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-03 13:51:11,982 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-03 13:51:12,290 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: ShiNengShiHui.EntityFramework.ShiNengShiHuiDbContext, ShiNengShiHui.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 13:51:12,851 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2017-09-03 13:51:12,867 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-09-03 13:51:12,870 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2017-09-03 13:51:12,872 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: ShiNengShiHui
+DEBUG 2017-09-03 13:51:12,873 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-09-03 13:51:12,950 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-09-03 13:51:12,999 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 25 classes define auto mapping attributes
+DEBUG 2017-09-03 13:51:12,999 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2017-09-03 13:51:13,002 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Sessions.Dto.UserLoginInfoDto
+DEBUG 2017-09-03 13:51:13,002 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Users.Dto.CreateUserInput
+DEBUG 2017-09-03 13:51:13,002 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Users.Dto.UserListDto
+DEBUG 2017-09-03 13:51:13,002 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.MultiTenancy.Dto.CreateTenantInput
+DEBUG 2017-09-03 13:51:13,002 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.MultiTenancy.Dto.TenantListDto
+DEBUG 2017-09-03 13:51:13,002 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.TeacherDTO.CreateStudentInput
+DEBUG 2017-09-03 13:51:13,002 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.TeacherDTO.ShowPageGradeOutput
+DEBUG 2017-09-03 13:51:13,002 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.TeacherDTO.ShowPageStudentOutput
+DEBUG 2017-09-03 13:51:13,002 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.TeacherDTO.ShowStudentOutput
+DEBUG 2017-09-03 13:51:13,002 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.TeacherDTO.UpdateStudentInput
+DEBUG 2017-09-03 13:51:13,002 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.FunctionDTO.FunctionDto
+DEBUG 2017-09-03 13:51:13,002 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.ClassCreateInput
+DEBUG 2017-09-03 13:51:13,002 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.ClassUpdateInput
+DEBUG 2017-09-03 13:51:13,003 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.TeacherCreateInput
+DEBUG 2017-09-03 13:51:13,003 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.TeacherUpdateInput
+DEBUG 2017-09-03 13:51:13,003 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.UserCreateInput
+DEBUG 2017-09-03 13:51:13,003 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Student.StudentCreatreViewModel
+DEBUG 2017-09-03 13:51:13,003 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Student.StudentEditViewModel
+DEBUG 2017-09-03 13:51:13,003 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Student.StudentResultViewModel
+DEBUG 2017-09-03 13:51:13,003 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Grade.GradeCreateViewModel
+DEBUG 2017-09-03 13:51:13,003 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Grade.GradeEditViewModel
+DEBUG 2017-09-03 13:51:13,003 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Grade.GradeResultViewModel
+DEBUG 2017-09-03 13:51:13,003 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Administrator.User.UserResultViewModel
+DEBUG 2017-09-03 13:51:13,003 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Account.TenantSelectionViewModel+TenantInfo
+DEBUG 2017-09-03 13:51:14,445 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.Sessions.ISessionAppService' with service name 'app/session'.
+DEBUG 2017-09-03 13:51:14,446 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2017-09-03 13:51:14,447 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.Roles.IRoleAppService' with service name 'app/role'.
+DEBUG 2017-09-03 13:51:14,448 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.MultiTenancy.ITenantAppService' with service name 'app/tenant'.
+DEBUG 2017-09-03 13:51:14,449 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.AppServices.IAdministratorAppService' with service name 'app/administrator'.
+DEBUG 2017-09-03 13:51:14,450 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.AppServices.IFunctionAppService' with service name 'app/function'.
+DEBUG 2017-09-03 13:51:14,451 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.AppServices.IExcelAppService' with service name 'app/excel'.
+DEBUG 2017-09-03 13:51:14,452 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.AppServices.ITeacherAppService' with service name 'app/teacher'.
+ERROR 2017-09-03 13:51:16,023 [5    ] gShiHui.Web.Controllers.HelperController - The action 'FunctionMenue' is accessible only by a child request.
+System.InvalidOperationException: The action 'FunctionMenue' is accessible only by a child request.
+   at System.Web.Mvc.ChildActionOnlyAttribute.OnAuthorization(AuthorizationContext filterContext)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeAuthorizationFilters(ControllerContext controllerContext, IList`1 filters, ActionDescriptor actionDescriptor)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__19(AsyncCallback asyncCallback, Object asyncState)
+ERROR 2017-09-03 13:52:05,974 [15   ] .Web.Controllers.AdministratorController - The method 'Skip' is only supported for sorted input in LINQ to Entities. The method 'OrderBy' must be called before the method 'Skip'.
+System.NotSupportedException: The method 'Skip' is only supported for sorted input in LINQ to Entities. The method 'OrderBy' must be called before the method 'Skip'.
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.OrderByLifter.PassthroughOrderByLifter.Skip(DbExpression k)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.OrderByLifter.Skip(DbExpressionBinding input, DbExpression skipCount)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.Skip(DbExpressionBinding input, DbExpression skipCount)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.SkipTranslator.TranslatePagingOperator(ExpressionConverter parent, DbExpression operand, DbExpression count)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.PagingTranslator.TranslateUnary(ExpressionConverter parent, DbExpression operand, MethodCallExpression call)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.UnarySequenceMethodTranslator.Translate(ExpressionConverter parent, MethodCallExpression call)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.SequenceMethodTranslator.Translate(ExpressionConverter parent, MethodCallExpression call, SequenceMethod sequenceMethod)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.TypedTranslate(ExpressionConverter parent, MethodCallExpression linq)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TypedTranslator`1.Translate(ExpressionConverter parent, Expression linq)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TranslateExpression(Expression linq)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.Convert()
+   at System.Data.Entity.Core.Objects.ELinq.ELinqQueryState.GetExecutionPlan(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__6()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at ShiNengShiHui.EntityFramework.Repositories.ShiNengShiHuiRepositoryBase`2.GetPage(Int32 pageIndex, Int32 showCount) in G:\程序\NET\ShiNengShiHui\ShiNengShiHui.EntityFramework\EntityFramework\Repositories\ShiNengShiHuiRepositoryBase.cs:line 20
+   at Castle.Proxies.UserRepositoryProxy.GetPage_callback(Int32 pageIndex, Int32 showCount)
+   at Castle.Proxies.Invocations.ShiNengShiHuiRepositoryBase`2_GetPage_1.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.UserRepositoryProxy.GetPage(Int32 pageIndex, Int32 showCount)
+   at ShiNengShiHui.AppServices.AdministratorAppService.UserShowPage(UserShowPageInput userShowPageInput) in G:\程序\NET\ShiNengShiHui\ShiNengShiHui.Application\AppServices\Administrator\AdministratorAppService.cs:line 219
+   at Castle.Proxies.AdministratorAppServiceProxy.UserShowPage_callback(UserShowPageInput userShowPageInput)
+   at Castle.Proxies.Invocations.IAdministratorAppService_UserShowPage.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Auditing.AuditingInterceptor.PerformSyncAuditing(IInvocation invocation, AuditInfo auditInfo)
+   at Abp.Auditing.AuditingInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Runtime.Validation.Interception.ValidationInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.AdministratorAppServiceProxy.UserShowPage(UserShowPageInput userShowPageInput)
+   at ShiNengShiHui.Web.Controllers.AdministratorController.UserIndex(Nullable`1 pageIndex) in G:\程序\NET\ShiNengShiHui\ShiNengShiHui.Web\Controllers\AdministratorController.cs:line 32
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+DEBUG 2017-09-03 13:56:07,807 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-09-03 13:56:07,820 [1    ] Abp.Modules.AbpModuleManager             - Found 16 ABP modules in total.
+DEBUG 2017-09-03 13:56:07,825 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ShiNengShiHui.Web.ShiNengShiHuiWebModule, ShiNengShiHui.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 13:56:07,827 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ShiNengShiHui.ShiNengShiHuiDataModule, ShiNengShiHui.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 13:56:07,827 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 13:56:07,827 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 13:56:07,827 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 13:56:07,827 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 13:56:07,828 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 13:56:07,828 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ShiNengShiHui.ShiNengShiHuiCoreModule, ShiNengShiHui.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 13:56:07,828 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ShiNengShiHui.ShiNengShiHuiApplicationModule, ShiNengShiHui.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 13:56:07,828 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 13:56:07,828 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ShiNengShiHui.Api.ShiNengShiHuiWebApiModule, ShiNengShiHui.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 13:56:07,828 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 13:56:07,828 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 13:56:07,828 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 13:56:07,828 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 13:56:07,829 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 13:56:07,831 [1    ] Abp.Modules.AbpModuleManager             - 16 modules loaded.
+DEBUG 2017-09-03 13:56:07,944 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-03 13:56:07,944 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-03 13:56:07,944 [1    ] o.Configuration.LanguageManagementConfig - Converted ShiNengShiHui (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-03 13:56:07,944 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-03 13:56:08,211 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: ShiNengShiHui.EntityFramework.ShiNengShiHuiDbContext, ShiNengShiHui.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 13:56:09,515 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2017-09-03 13:56:09,521 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-09-03 13:56:09,539 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2017-09-03 13:56:09,540 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: ShiNengShiHui
+DEBUG 2017-09-03 13:56:09,541 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-09-03 13:56:09,618 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-09-03 13:56:09,668 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 25 classes define auto mapping attributes
+DEBUG 2017-09-03 13:56:09,668 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2017-09-03 13:56:09,671 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Sessions.Dto.UserLoginInfoDto
+DEBUG 2017-09-03 13:56:09,671 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Users.Dto.CreateUserInput
+DEBUG 2017-09-03 13:56:09,671 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Users.Dto.UserListDto
+DEBUG 2017-09-03 13:56:09,671 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.MultiTenancy.Dto.CreateTenantInput
+DEBUG 2017-09-03 13:56:09,672 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.MultiTenancy.Dto.TenantListDto
+DEBUG 2017-09-03 13:56:09,672 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.TeacherDTO.CreateStudentInput
+DEBUG 2017-09-03 13:56:09,672 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.TeacherDTO.ShowPageGradeOutput
+DEBUG 2017-09-03 13:56:09,672 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.TeacherDTO.ShowPageStudentOutput
+DEBUG 2017-09-03 13:56:09,672 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.TeacherDTO.ShowStudentOutput
+DEBUG 2017-09-03 13:56:09,672 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.TeacherDTO.UpdateStudentInput
+DEBUG 2017-09-03 13:56:09,672 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.FunctionDTO.FunctionDto
+DEBUG 2017-09-03 13:56:09,672 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.ClassCreateInput
+DEBUG 2017-09-03 13:56:09,672 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.ClassUpdateInput
+DEBUG 2017-09-03 13:56:09,672 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.TeacherCreateInput
+DEBUG 2017-09-03 13:56:09,672 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.TeacherUpdateInput
+DEBUG 2017-09-03 13:56:09,672 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.UserCreateInput
+DEBUG 2017-09-03 13:56:09,672 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Student.StudentCreatreViewModel
+DEBUG 2017-09-03 13:56:09,672 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Student.StudentEditViewModel
+DEBUG 2017-09-03 13:56:09,672 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Student.StudentResultViewModel
+DEBUG 2017-09-03 13:56:09,672 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Grade.GradeCreateViewModel
+DEBUG 2017-09-03 13:56:09,672 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Grade.GradeEditViewModel
+DEBUG 2017-09-03 13:56:09,672 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Grade.GradeResultViewModel
+DEBUG 2017-09-03 13:56:09,672 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Administrator.User.UserResultViewModel
+DEBUG 2017-09-03 13:56:09,672 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Account.TenantSelectionViewModel+TenantInfo
+DEBUG 2017-09-03 13:56:11,092 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.Sessions.ISessionAppService' with service name 'app/session'.
+DEBUG 2017-09-03 13:56:11,093 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2017-09-03 13:56:11,094 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.Roles.IRoleAppService' with service name 'app/role'.
+DEBUG 2017-09-03 13:56:11,095 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.MultiTenancy.ITenantAppService' with service name 'app/tenant'.
+DEBUG 2017-09-03 13:56:11,096 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.AppServices.IAdministratorAppService' with service name 'app/administrator'.
+DEBUG 2017-09-03 13:56:11,097 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.AppServices.IFunctionAppService' with service name 'app/function'.
+DEBUG 2017-09-03 13:56:11,098 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.AppServices.IExcelAppService' with service name 'app/excel'.
+DEBUG 2017-09-03 13:56:11,098 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.AppServices.ITeacherAppService' with service name 'app/teacher'.
+ERROR 2017-09-03 13:56:31,025 [12   ] .Web.Controllers.AdministratorController - The method 'Skip' is only supported for sorted input in LINQ to Entities. The method 'OrderBy' must be called before the method 'Skip'.
+System.NotSupportedException: The method 'Skip' is only supported for sorted input in LINQ to Entities. The method 'OrderBy' must be called before the method 'Skip'.
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.OrderByLifter.PassthroughOrderByLifter.Skip(DbExpression k)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.OrderByLifter.Skip(DbExpressionBinding input, DbExpression skipCount)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.Skip(DbExpressionBinding input, DbExpression skipCount)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.SkipTranslator.TranslatePagingOperator(ExpressionConverter parent, DbExpression operand, DbExpression count)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.PagingTranslator.TranslateUnary(ExpressionConverter parent, DbExpression operand, MethodCallExpression call)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.UnarySequenceMethodTranslator.Translate(ExpressionConverter parent, MethodCallExpression call)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.SequenceMethodTranslator.Translate(ExpressionConverter parent, MethodCallExpression call, SequenceMethod sequenceMethod)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.TypedTranslate(ExpressionConverter parent, MethodCallExpression linq)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TypedTranslator`1.Translate(ExpressionConverter parent, Expression linq)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TranslateExpression(Expression linq)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.Convert()
+   at System.Data.Entity.Core.Objects.ELinq.ELinqQueryState.GetExecutionPlan(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__6()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at ShiNengShiHui.EntityFramework.Repositories.ShiNengShiHuiRepositoryBase`2.GetPage(Int32 pageIndex, Int32 showCount) in G:\程序\NET\ShiNengShiHui\ShiNengShiHui.EntityFramework\EntityFramework\Repositories\ShiNengShiHuiRepositoryBase.cs:line 22
+   at Castle.Proxies.UserRepositoryProxy.GetPage_callback(Int32 pageIndex, Int32 showCount)
+   at Castle.Proxies.Invocations.ShiNengShiHuiRepositoryBase`2_GetPage_1.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.UserRepositoryProxy.GetPage(Int32 pageIndex, Int32 showCount)
+   at ShiNengShiHui.AppServices.AdministratorAppService.UserShowPage(UserShowPageInput userShowPageInput) in G:\程序\NET\ShiNengShiHui\ShiNengShiHui.Application\AppServices\Administrator\AdministratorAppService.cs:line 219
+   at Castle.Proxies.AdministratorAppServiceProxy.UserShowPage_callback(UserShowPageInput userShowPageInput)
+   at Castle.Proxies.Invocations.IAdministratorAppService_UserShowPage.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Auditing.AuditingInterceptor.PerformSyncAuditing(IInvocation invocation, AuditInfo auditInfo)
+   at Abp.Auditing.AuditingInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Runtime.Validation.Interception.ValidationInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.AdministratorAppServiceProxy.UserShowPage(UserShowPageInput userShowPageInput)
+   at ShiNengShiHui.Web.Controllers.AdministratorController.UserIndex(Nullable`1 pageIndex) in G:\程序\NET\ShiNengShiHui\ShiNengShiHui.Web\Controllers\AdministratorController.cs:line 32
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+DEBUG 2017-09-03 14:02:29,039 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-09-03 14:02:29,053 [1    ] Abp.Modules.AbpModuleManager             - Found 16 ABP modules in total.
+DEBUG 2017-09-03 14:02:29,058 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ShiNengShiHui.Web.ShiNengShiHuiWebModule, ShiNengShiHui.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:02:29,059 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ShiNengShiHui.ShiNengShiHuiDataModule, ShiNengShiHui.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:02:29,059 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:02:29,059 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:02:29,060 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:02:29,060 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:02:29,060 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:02:29,060 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ShiNengShiHui.ShiNengShiHuiCoreModule, ShiNengShiHui.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:02:29,060 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ShiNengShiHui.ShiNengShiHuiApplicationModule, ShiNengShiHui.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:02:29,060 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:02:29,060 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ShiNengShiHui.Api.ShiNengShiHuiWebApiModule, ShiNengShiHui.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:02:29,061 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:02:29,061 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:02:29,061 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:02:29,061 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:02:29,061 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:02:29,063 [1    ] Abp.Modules.AbpModuleManager             - 16 modules loaded.
+DEBUG 2017-09-03 14:02:29,170 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-03 14:02:29,171 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-03 14:02:29,171 [1    ] o.Configuration.LanguageManagementConfig - Converted ShiNengShiHui (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-03 14:02:29,171 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-03 14:02:29,429 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: ShiNengShiHui.EntityFramework.ShiNengShiHuiDbContext, ShiNengShiHui.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:02:30,623 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2017-09-03 14:02:30,641 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-09-03 14:02:30,644 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2017-09-03 14:02:30,646 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: ShiNengShiHui
+DEBUG 2017-09-03 14:02:30,647 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-09-03 14:02:30,731 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-09-03 14:02:30,781 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 25 classes define auto mapping attributes
+DEBUG 2017-09-03 14:02:30,781 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2017-09-03 14:02:30,784 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Sessions.Dto.UserLoginInfoDto
+DEBUG 2017-09-03 14:02:30,784 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Users.Dto.CreateUserInput
+DEBUG 2017-09-03 14:02:30,784 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Users.Dto.UserListDto
+DEBUG 2017-09-03 14:02:30,784 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.MultiTenancy.Dto.CreateTenantInput
+DEBUG 2017-09-03 14:02:30,784 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.MultiTenancy.Dto.TenantListDto
+DEBUG 2017-09-03 14:02:30,785 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.TeacherDTO.CreateStudentInput
+DEBUG 2017-09-03 14:02:30,785 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.TeacherDTO.ShowPageGradeOutput
+DEBUG 2017-09-03 14:02:30,785 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.TeacherDTO.ShowPageStudentOutput
+DEBUG 2017-09-03 14:02:30,785 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.TeacherDTO.ShowStudentOutput
+DEBUG 2017-09-03 14:02:30,785 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.TeacherDTO.UpdateStudentInput
+DEBUG 2017-09-03 14:02:30,785 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.FunctionDTO.FunctionDto
+DEBUG 2017-09-03 14:02:30,785 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.ClassCreateInput
+DEBUG 2017-09-03 14:02:30,785 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.ClassUpdateInput
+DEBUG 2017-09-03 14:02:30,785 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.TeacherCreateInput
+DEBUG 2017-09-03 14:02:30,785 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.TeacherUpdateInput
+DEBUG 2017-09-03 14:02:30,785 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.UserCreateInput
+DEBUG 2017-09-03 14:02:30,785 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Student.StudentCreatreViewModel
+DEBUG 2017-09-03 14:02:30,785 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Student.StudentEditViewModel
+DEBUG 2017-09-03 14:02:30,785 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Student.StudentResultViewModel
+DEBUG 2017-09-03 14:02:30,785 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Grade.GradeCreateViewModel
+DEBUG 2017-09-03 14:02:30,785 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Grade.GradeEditViewModel
+DEBUG 2017-09-03 14:02:30,785 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Grade.GradeResultViewModel
+DEBUG 2017-09-03 14:02:30,785 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Administrator.User.UserResultViewModel
+DEBUG 2017-09-03 14:02:30,785 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Account.TenantSelectionViewModel+TenantInfo
+DEBUG 2017-09-03 14:02:32,207 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.Sessions.ISessionAppService' with service name 'app/session'.
+DEBUG 2017-09-03 14:02:32,208 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2017-09-03 14:02:32,209 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.Roles.IRoleAppService' with service name 'app/role'.
+DEBUG 2017-09-03 14:02:32,210 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.MultiTenancy.ITenantAppService' with service name 'app/tenant'.
+DEBUG 2017-09-03 14:02:32,211 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.AppServices.IAdministratorAppService' with service name 'app/administrator'.
+DEBUG 2017-09-03 14:02:32,211 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.AppServices.IFunctionAppService' with service name 'app/function'.
+DEBUG 2017-09-03 14:02:32,212 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.AppServices.IExcelAppService' with service name 'app/excel'.
+DEBUG 2017-09-03 14:02:32,213 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.AppServices.ITeacherAppService' with service name 'app/teacher'.
+ERROR 2017-09-03 14:02:45,443 [6    ] .Web.Controllers.AdministratorController - The method 'Skip' is only supported for sorted input in LINQ to Entities. The method 'OrderBy' must be called before the method 'Skip'.
+System.NotSupportedException: The method 'Skip' is only supported for sorted input in LINQ to Entities. The method 'OrderBy' must be called before the method 'Skip'.
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.OrderByLifter.PassthroughOrderByLifter.Skip(DbExpression k)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.OrderByLifter.Skip(DbExpressionBinding input, DbExpression skipCount)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.Skip(DbExpressionBinding input, DbExpression skipCount)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.SkipTranslator.TranslatePagingOperator(ExpressionConverter parent, DbExpression operand, DbExpression count)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.PagingTranslator.TranslateUnary(ExpressionConverter parent, DbExpression operand, MethodCallExpression call)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.UnarySequenceMethodTranslator.Translate(ExpressionConverter parent, MethodCallExpression call)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.SequenceMethodTranslator.Translate(ExpressionConverter parent, MethodCallExpression call, SequenceMethod sequenceMethod)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.TypedTranslate(ExpressionConverter parent, MethodCallExpression linq)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TypedTranslator`1.Translate(ExpressionConverter parent, Expression linq)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TranslateExpression(Expression linq)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.OneLambdaTranslator.Translate(ExpressionConverter parent, MethodCallExpression call, DbExpression& source, DbExpressionBinding& sourceBinding, DbExpression& lambda)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.OneLambdaTranslator.Translate(ExpressionConverter parent, MethodCallExpression call)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.SequenceMethodTranslator.Translate(ExpressionConverter parent, MethodCallExpression call, SequenceMethod sequenceMethod)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.MethodCallTranslator.TypedTranslate(ExpressionConverter parent, MethodCallExpression linq)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TypedTranslator`1.Translate(ExpressionConverter parent, Expression linq)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.TranslateExpression(Expression linq)
+   at System.Data.Entity.Core.Objects.ELinq.ExpressionConverter.Convert()
+   at System.Data.Entity.Core.Objects.ELinq.ELinqQueryState.GetExecutionPlan(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__6()
+   at System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClass7.<GetResults>b__5()
+   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   at System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   at System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at ShiNengShiHui.EntityFramework.Repositories.ShiNengShiHuiRepositoryBase`2.GetPage(Int32 pageIndex, Int32 showCount) in G:\程序\NET\ShiNengShiHui\ShiNengShiHui.EntityFramework\EntityFramework\Repositories\ShiNengShiHuiRepositoryBase.cs:line 22
+   at Castle.Proxies.UserRepositoryProxy.GetPage_callback(Int32 pageIndex, Int32 showCount)
+   at Castle.Proxies.Invocations.ShiNengShiHuiRepositoryBase`2_GetPage_1.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.UserRepositoryProxy.GetPage(Int32 pageIndex, Int32 showCount)
+   at ShiNengShiHui.AppServices.AdministratorAppService.UserShowPage(UserShowPageInput userShowPageInput) in G:\程序\NET\ShiNengShiHui\ShiNengShiHui.Application\AppServices\Administrator\AdministratorAppService.cs:line 219
+   at Castle.Proxies.AdministratorAppServiceProxy.UserShowPage_callback(UserShowPageInput userShowPageInput)
+   at Castle.Proxies.Invocations.IAdministratorAppService_UserShowPage.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Auditing.AuditingInterceptor.PerformSyncAuditing(IInvocation invocation, AuditInfo auditInfo)
+   at Abp.Auditing.AuditingInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Runtime.Validation.Interception.ValidationInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.AdministratorAppServiceProxy.UserShowPage(UserShowPageInput userShowPageInput)
+   at ShiNengShiHui.Web.Controllers.AdministratorController.UserIndex(Nullable`1 pageIndex) in G:\程序\NET\ShiNengShiHui\ShiNengShiHui.Web\Controllers\AdministratorController.cs:line 32
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+DEBUG 2017-09-03 14:04:12,361 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-09-03 14:04:12,375 [1    ] Abp.Modules.AbpModuleManager             - Found 16 ABP modules in total.
+DEBUG 2017-09-03 14:04:12,381 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ShiNengShiHui.Web.ShiNengShiHuiWebModule, ShiNengShiHui.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:04:12,382 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ShiNengShiHui.ShiNengShiHuiDataModule, ShiNengShiHui.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:04:12,383 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:04:12,383 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:04:12,383 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:04:12,383 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:04:12,383 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:04:12,383 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ShiNengShiHui.ShiNengShiHuiCoreModule, ShiNengShiHui.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:04:12,384 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ShiNengShiHui.ShiNengShiHuiApplicationModule, ShiNengShiHui.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:04:12,384 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:04:12,384 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ShiNengShiHui.Api.ShiNengShiHuiWebApiModule, ShiNengShiHui.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:04:12,384 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:04:12,384 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:04:12,384 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:04:12,384 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:04:12,384 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:04:12,387 [1    ] Abp.Modules.AbpModuleManager             - 16 modules loaded.
+DEBUG 2017-09-03 14:04:12,493 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-03 14:04:12,493 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-03 14:04:12,493 [1    ] o.Configuration.LanguageManagementConfig - Converted ShiNengShiHui (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-03 14:04:12,494 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-03 14:04:12,754 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: ShiNengShiHui.EntityFramework.ShiNengShiHuiDbContext, ShiNengShiHui.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:04:13,973 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2017-09-03 14:04:13,992 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-09-03 14:04:13,996 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2017-09-03 14:04:13,998 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: ShiNengShiHui
+DEBUG 2017-09-03 14:04:13,998 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-09-03 14:04:14,080 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-09-03 14:04:14,130 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 25 classes define auto mapping attributes
+DEBUG 2017-09-03 14:04:14,131 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2017-09-03 14:04:14,133 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Sessions.Dto.UserLoginInfoDto
+DEBUG 2017-09-03 14:04:14,133 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Users.Dto.CreateUserInput
+DEBUG 2017-09-03 14:04:14,133 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Users.Dto.UserListDto
+DEBUG 2017-09-03 14:04:14,133 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.MultiTenancy.Dto.CreateTenantInput
+DEBUG 2017-09-03 14:04:14,134 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.MultiTenancy.Dto.TenantListDto
+DEBUG 2017-09-03 14:04:14,134 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.TeacherDTO.CreateStudentInput
+DEBUG 2017-09-03 14:04:14,134 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.TeacherDTO.ShowPageGradeOutput
+DEBUG 2017-09-03 14:04:14,134 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.TeacherDTO.ShowPageStudentOutput
+DEBUG 2017-09-03 14:04:14,134 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.TeacherDTO.ShowStudentOutput
+DEBUG 2017-09-03 14:04:14,134 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.TeacherDTO.UpdateStudentInput
+DEBUG 2017-09-03 14:04:14,134 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.FunctionDTO.FunctionDto
+DEBUG 2017-09-03 14:04:14,134 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.ClassCreateInput
+DEBUG 2017-09-03 14:04:14,134 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.ClassUpdateInput
+DEBUG 2017-09-03 14:04:14,134 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.TeacherCreateInput
+DEBUG 2017-09-03 14:04:14,134 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.TeacherUpdateInput
+DEBUG 2017-09-03 14:04:14,134 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.UserCreateInput
+DEBUG 2017-09-03 14:04:14,134 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Student.StudentCreatreViewModel
+DEBUG 2017-09-03 14:04:14,134 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Student.StudentEditViewModel
+DEBUG 2017-09-03 14:04:14,134 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Student.StudentResultViewModel
+DEBUG 2017-09-03 14:04:14,134 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Grade.GradeCreateViewModel
+DEBUG 2017-09-03 14:04:14,134 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Grade.GradeEditViewModel
+DEBUG 2017-09-03 14:04:14,134 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Grade.GradeResultViewModel
+DEBUG 2017-09-03 14:04:14,134 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Administrator.User.UserResultViewModel
+DEBUG 2017-09-03 14:04:14,134 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Account.TenantSelectionViewModel+TenantInfo
+DEBUG 2017-09-03 14:04:15,629 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.Sessions.ISessionAppService' with service name 'app/session'.
+DEBUG 2017-09-03 14:04:15,630 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2017-09-03 14:04:15,631 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.Roles.IRoleAppService' with service name 'app/role'.
+DEBUG 2017-09-03 14:04:15,632 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.MultiTenancy.ITenantAppService' with service name 'app/tenant'.
+DEBUG 2017-09-03 14:04:15,633 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.AppServices.IAdministratorAppService' with service name 'app/administrator'.
+DEBUG 2017-09-03 14:04:15,634 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.AppServices.IFunctionAppService' with service name 'app/function'.
+DEBUG 2017-09-03 14:04:15,635 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.AppServices.IExcelAppService' with service name 'app/excel'.
+DEBUG 2017-09-03 14:04:15,636 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.AppServices.ITeacherAppService' with service name 'app/teacher'.
+ERROR 2017-09-03 14:04:53,374 [13   ] .Web.Controllers.AdministratorController - Missing type map configuration or unsupported mapping.
+
+Mapping types:
+User[] -> UserShowOutput
+ShiNengShiHui.Users.User[] -> ShiNengShiHui.AppServices.AdministratorDTO.UserShowOutput
+AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+User[] -> UserShowOutput
+ShiNengShiHui.Users.User[] -> ShiNengShiHui.AppServices.AdministratorDTO.UserShowOutput
+   at lambda_method(Closure , Object , Object , ResolutionContext )
+   at AutoMapper.Mapper.AutoMapper.IMapper.Map[TDestination](Object source)
+   at Abp.AutoMapper.AutoMapperObjectMapper.Map[TDestination](Object source)
+   at ShiNengShiHui.AppServices.AdministratorAppService.<>c__DisplayClass25_0.<UserShowPage>b__0(User m) in G:\程序\NET\ShiNengShiHui\ShiNengShiHui.Application\AppServices\Administrator\AdministratorAppService.cs:line 220
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at ShiNengShiHui.AppServices.AdministratorAppService.UserShowPage(UserShowPageInput userShowPageInput) in G:\程序\NET\ShiNengShiHui\ShiNengShiHui.Application\AppServices\Administrator\AdministratorAppService.cs:line 220
+   at Castle.Proxies.AdministratorAppServiceProxy.UserShowPage_callback(UserShowPageInput userShowPageInput)
+   at Castle.Proxies.Invocations.IAdministratorAppService_UserShowPage.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Auditing.AuditingInterceptor.PerformSyncAuditing(IInvocation invocation, AuditInfo auditInfo)
+   at Abp.Auditing.AuditingInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Runtime.Validation.Interception.ValidationInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.AdministratorAppServiceProxy.UserShowPage(UserShowPageInput userShowPageInput)
+   at ShiNengShiHui.Web.Controllers.AdministratorController.UserIndex(Nullable`1 pageIndex) in G:\程序\NET\ShiNengShiHui\ShiNengShiHui.Web\Controllers\AdministratorController.cs:line 32
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+DEBUG 2017-09-03 14:10:06,098 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-09-03 14:10:06,112 [1    ] Abp.Modules.AbpModuleManager             - Found 16 ABP modules in total.
+DEBUG 2017-09-03 14:10:06,118 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ShiNengShiHui.Web.ShiNengShiHuiWebModule, ShiNengShiHui.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:10:06,120 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ShiNengShiHui.ShiNengShiHuiDataModule, ShiNengShiHui.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:10:06,120 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:10:06,120 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:10:06,120 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:10:06,120 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:10:06,121 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:10:06,121 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ShiNengShiHui.ShiNengShiHuiCoreModule, ShiNengShiHui.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:10:06,121 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ShiNengShiHui.ShiNengShiHuiApplicationModule, ShiNengShiHui.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:10:06,121 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:10:06,121 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ShiNengShiHui.Api.ShiNengShiHuiWebApiModule, ShiNengShiHui.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:10:06,121 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:10:06,121 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:10:06,122 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:10:06,122 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:10:06,122 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:10:06,124 [1    ] Abp.Modules.AbpModuleManager             - 16 modules loaded.
+DEBUG 2017-09-03 14:10:06,233 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-03 14:10:06,233 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-03 14:10:06,233 [1    ] o.Configuration.LanguageManagementConfig - Converted ShiNengShiHui (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-03 14:10:06,233 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-03 14:10:06,489 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: ShiNengShiHui.EntityFramework.ShiNengShiHuiDbContext, ShiNengShiHui.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:10:07,706 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2017-09-03 14:10:07,726 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-09-03 14:10:07,730 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2017-09-03 14:10:07,731 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: ShiNengShiHui
+DEBUG 2017-09-03 14:10:07,732 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-09-03 14:10:07,822 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-09-03 14:10:07,871 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 25 classes define auto mapping attributes
+DEBUG 2017-09-03 14:10:07,872 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2017-09-03 14:10:07,874 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Sessions.Dto.UserLoginInfoDto
+DEBUG 2017-09-03 14:10:07,874 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Users.Dto.CreateUserInput
+DEBUG 2017-09-03 14:10:07,874 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Users.Dto.UserListDto
+DEBUG 2017-09-03 14:10:07,874 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.MultiTenancy.Dto.CreateTenantInput
+DEBUG 2017-09-03 14:10:07,874 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.MultiTenancy.Dto.TenantListDto
+DEBUG 2017-09-03 14:10:07,875 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.TeacherDTO.CreateStudentInput
+DEBUG 2017-09-03 14:10:07,875 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.TeacherDTO.ShowPageGradeOutput
+DEBUG 2017-09-03 14:10:07,875 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.TeacherDTO.ShowPageStudentOutput
+DEBUG 2017-09-03 14:10:07,875 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.TeacherDTO.ShowStudentOutput
+DEBUG 2017-09-03 14:10:07,875 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.TeacherDTO.UpdateStudentInput
+DEBUG 2017-09-03 14:10:07,875 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.FunctionDTO.FunctionDto
+DEBUG 2017-09-03 14:10:07,875 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.ClassCreateInput
+DEBUG 2017-09-03 14:10:07,875 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.ClassUpdateInput
+DEBUG 2017-09-03 14:10:07,875 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.TeacherCreateInput
+DEBUG 2017-09-03 14:10:07,875 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.TeacherUpdateInput
+DEBUG 2017-09-03 14:10:07,875 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.UserCreateInput
+DEBUG 2017-09-03 14:10:07,875 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Student.StudentCreatreViewModel
+DEBUG 2017-09-03 14:10:07,875 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Student.StudentEditViewModel
+DEBUG 2017-09-03 14:10:07,875 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Student.StudentResultViewModel
+DEBUG 2017-09-03 14:10:07,875 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Grade.GradeCreateViewModel
+DEBUG 2017-09-03 14:10:07,875 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Grade.GradeEditViewModel
+DEBUG 2017-09-03 14:10:07,875 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Grade.GradeResultViewModel
+DEBUG 2017-09-03 14:10:07,875 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Administrator.User.UserResultViewModel
+DEBUG 2017-09-03 14:10:07,875 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Account.TenantSelectionViewModel+TenantInfo
+DEBUG 2017-09-03 14:10:09,378 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.Sessions.ISessionAppService' with service name 'app/session'.
+DEBUG 2017-09-03 14:10:09,379 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2017-09-03 14:10:09,380 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.Roles.IRoleAppService' with service name 'app/role'.
+DEBUG 2017-09-03 14:10:09,381 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.MultiTenancy.ITenantAppService' with service name 'app/tenant'.
+DEBUG 2017-09-03 14:10:09,382 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.AppServices.IAdministratorAppService' with service name 'app/administrator'.
+DEBUG 2017-09-03 14:10:09,383 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.AppServices.IFunctionAppService' with service name 'app/function'.
+DEBUG 2017-09-03 14:10:09,384 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.AppServices.IExcelAppService' with service name 'app/excel'.
+DEBUG 2017-09-03 14:10:09,385 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.AppServices.ITeacherAppService' with service name 'app/teacher'.
+ERROR 2017-09-03 14:10:27,914 [11   ] .Web.Controllers.AdministratorController - Missing type map configuration or unsupported mapping.
+
+Mapping types:
+User[] -> UserShowOutput
+ShiNengShiHui.Users.User[] -> ShiNengShiHui.AppServices.AdministratorDTO.UserShowOutput
+AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+User[] -> UserShowOutput
+ShiNengShiHui.Users.User[] -> ShiNengShiHui.AppServices.AdministratorDTO.UserShowOutput
+   at lambda_method(Closure , Object , Object , ResolutionContext )
+   at AutoMapper.Mapper.AutoMapper.IMapper.Map[TDestination](Object source)
+   at Abp.AutoMapper.AutoMapperObjectMapper.Map[TDestination](Object source)
+   at ShiNengShiHui.AppServices.AdministratorAppService.<>c__DisplayClass25_0.<UserShowPage>b__0(User m) in G:\程序\NET\ShiNengShiHui\ShiNengShiHui.Application\AppServices\Administrator\AdministratorAppService.cs:line 220
+   at System.Linq.Enumerable.WhereSelectArrayIterator`2.MoveNext()
+   at System.Linq.Buffer`1..ctor(IEnumerable`1 source)
+   at System.Linq.Enumerable.ToArray[TSource](IEnumerable`1 source)
+   at ShiNengShiHui.AppServices.AdministratorAppService.UserShowPage(UserShowPageInput userShowPageInput) in G:\程序\NET\ShiNengShiHui\ShiNengShiHui.Application\AppServices\Administrator\AdministratorAppService.cs:line 220
+   at Castle.Proxies.AdministratorAppServiceProxy.UserShowPage_callback(UserShowPageInput userShowPageInput)
+   at Castle.Proxies.Invocations.IAdministratorAppService_UserShowPage.InvokeMethodOnTarget()
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformSyncUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.PerformUow(IInvocation invocation, UnitOfWorkOptions options)
+   at Abp.Domain.Uow.UnitOfWorkInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Auditing.AuditingInterceptor.PerformSyncAuditing(IInvocation invocation, AuditInfo auditInfo)
+   at Abp.Auditing.AuditingInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Abp.Runtime.Validation.Interception.ValidationInterceptor.Intercept(IInvocation invocation)
+   at Castle.DynamicProxy.AbstractInvocation.Proceed()
+   at Castle.Proxies.AdministratorAppServiceProxy.UserShowPage(UserShowPageInput userShowPageInput)
+   at ShiNengShiHui.Web.Controllers.AdministratorController.UserIndex(Nullable`1 pageIndex) in G:\程序\NET\ShiNengShiHui\ShiNengShiHui.Web\Controllers\AdministratorController.cs:line 32
+   at lambda_method(Closure , ControllerBase , Object[] )
+   at System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+DEBUG 2017-09-03 14:16:42,461 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-09-03 14:16:42,474 [1    ] Abp.Modules.AbpModuleManager             - Found 16 ABP modules in total.
+DEBUG 2017-09-03 14:16:42,479 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ShiNengShiHui.Web.ShiNengShiHuiWebModule, ShiNengShiHui.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:16:42,481 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ShiNengShiHui.ShiNengShiHuiDataModule, ShiNengShiHui.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:16:42,481 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:16:42,481 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:16:42,481 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:16:42,481 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:16:42,481 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:16:42,481 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ShiNengShiHui.ShiNengShiHuiCoreModule, ShiNengShiHui.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:16:42,482 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ShiNengShiHui.ShiNengShiHuiApplicationModule, ShiNengShiHui.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:16:42,482 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:16:42,482 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ShiNengShiHui.Api.ShiNengShiHuiWebApiModule, ShiNengShiHui.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:16:42,482 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:16:42,482 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:16:42,482 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:16:42,482 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:16:42,482 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:16:42,485 [1    ] Abp.Modules.AbpModuleManager             - 16 modules loaded.
+DEBUG 2017-09-03 14:16:42,597 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-03 14:16:42,597 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-03 14:16:42,597 [1    ] o.Configuration.LanguageManagementConfig - Converted ShiNengShiHui (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-03 14:16:42,597 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-03 14:16:42,863 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: ShiNengShiHui.EntityFramework.ShiNengShiHuiDbContext, ShiNengShiHui.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:16:44,119 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2017-09-03 14:16:44,126 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-09-03 14:16:44,131 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2017-09-03 14:16:44,133 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: ShiNengShiHui
+DEBUG 2017-09-03 14:16:44,133 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-09-03 14:16:44,225 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-09-03 14:16:44,277 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 25 classes define auto mapping attributes
+DEBUG 2017-09-03 14:16:44,278 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2017-09-03 14:16:44,280 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Sessions.Dto.UserLoginInfoDto
+DEBUG 2017-09-03 14:16:44,281 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Users.Dto.CreateUserInput
+DEBUG 2017-09-03 14:16:44,281 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Users.Dto.UserListDto
+DEBUG 2017-09-03 14:16:44,281 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.MultiTenancy.Dto.CreateTenantInput
+DEBUG 2017-09-03 14:16:44,281 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.MultiTenancy.Dto.TenantListDto
+DEBUG 2017-09-03 14:16:44,281 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.TeacherDTO.CreateStudentInput
+DEBUG 2017-09-03 14:16:44,281 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.TeacherDTO.ShowPageGradeOutput
+DEBUG 2017-09-03 14:16:44,281 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.TeacherDTO.ShowPageStudentOutput
+DEBUG 2017-09-03 14:16:44,281 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.TeacherDTO.ShowStudentOutput
+DEBUG 2017-09-03 14:16:44,281 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.TeacherDTO.UpdateStudentInput
+DEBUG 2017-09-03 14:16:44,281 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.FunctionDTO.FunctionDto
+DEBUG 2017-09-03 14:16:44,281 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.ClassCreateInput
+DEBUG 2017-09-03 14:16:44,281 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.ClassUpdateInput
+DEBUG 2017-09-03 14:16:44,281 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.TeacherCreateInput
+DEBUG 2017-09-03 14:16:44,281 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.TeacherUpdateInput
+DEBUG 2017-09-03 14:16:44,282 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.UserCreateInput
+DEBUG 2017-09-03 14:16:44,282 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Student.StudentCreatreViewModel
+DEBUG 2017-09-03 14:16:44,282 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Student.StudentEditViewModel
+DEBUG 2017-09-03 14:16:44,282 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Student.StudentResultViewModel
+DEBUG 2017-09-03 14:16:44,282 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Grade.GradeCreateViewModel
+DEBUG 2017-09-03 14:16:44,282 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Grade.GradeEditViewModel
+DEBUG 2017-09-03 14:16:44,282 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Grade.GradeResultViewModel
+DEBUG 2017-09-03 14:16:44,282 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Administrator.User.UserResultViewModel
+DEBUG 2017-09-03 14:16:44,282 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Account.TenantSelectionViewModel+TenantInfo
+DEBUG 2017-09-03 14:16:45,849 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.Sessions.ISessionAppService' with service name 'app/session'.
+DEBUG 2017-09-03 14:16:45,850 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2017-09-03 14:16:45,851 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.Roles.IRoleAppService' with service name 'app/role'.
+DEBUG 2017-09-03 14:16:45,852 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.MultiTenancy.ITenantAppService' with service name 'app/tenant'.
+DEBUG 2017-09-03 14:16:45,853 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.AppServices.IAdministratorAppService' with service name 'app/administrator'.
+DEBUG 2017-09-03 14:16:45,854 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.AppServices.IFunctionAppService' with service name 'app/function'.
+DEBUG 2017-09-03 14:16:45,855 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.AppServices.IExcelAppService' with service name 'app/excel'.
+DEBUG 2017-09-03 14:16:45,856 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.AppServices.ITeacherAppService' with service name 'app/teacher'.
+DEBUG 2017-09-03 14:18:43,309 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-09-03 14:18:43,506 [1    ] Abp.Modules.AbpModuleManager             - Found 16 ABP modules in total.
+DEBUG 2017-09-03 14:18:43,511 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ShiNengShiHui.Web.ShiNengShiHuiWebModule, ShiNengShiHui.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:18:43,512 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ShiNengShiHui.ShiNengShiHuiDataModule, ShiNengShiHui.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:18:43,512 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:18:43,512 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:18:43,513 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:18:43,513 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:18:43,513 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:18:43,513 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ShiNengShiHui.ShiNengShiHuiCoreModule, ShiNengShiHui.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:18:43,513 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ShiNengShiHui.ShiNengShiHuiApplicationModule, ShiNengShiHui.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:18:43,513 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:18:43,514 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ShiNengShiHui.Api.ShiNengShiHuiWebApiModule, ShiNengShiHui.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:18:43,514 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:18:43,514 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:18:43,514 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:18:43,514 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:18:43,514 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:18:43,517 [1    ] Abp.Modules.AbpModuleManager             - 16 modules loaded.
+DEBUG 2017-09-03 14:18:43,849 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-03 14:18:43,849 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-03 14:18:43,849 [1    ] o.Configuration.LanguageManagementConfig - Converted ShiNengShiHui (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-03 14:18:43,849 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-03 14:18:44,153 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: ShiNengShiHui.EntityFramework.ShiNengShiHuiDbContext, ShiNengShiHui.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:18:44,725 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2017-09-03 14:18:44,740 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-09-03 14:18:44,744 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2017-09-03 14:18:44,746 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: ShiNengShiHui
+DEBUG 2017-09-03 14:18:44,746 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-09-03 14:18:44,830 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-09-03 14:18:44,878 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 25 classes define auto mapping attributes
+DEBUG 2017-09-03 14:18:44,878 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2017-09-03 14:18:44,881 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Sessions.Dto.UserLoginInfoDto
+DEBUG 2017-09-03 14:18:44,882 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Users.Dto.CreateUserInput
+DEBUG 2017-09-03 14:18:44,882 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Users.Dto.UserListDto
+DEBUG 2017-09-03 14:18:44,882 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.MultiTenancy.Dto.CreateTenantInput
+DEBUG 2017-09-03 14:18:44,882 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.MultiTenancy.Dto.TenantListDto
+DEBUG 2017-09-03 14:18:44,882 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.TeacherDTO.CreateStudentInput
+DEBUG 2017-09-03 14:18:44,882 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.TeacherDTO.ShowPageGradeOutput
+DEBUG 2017-09-03 14:18:44,882 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.TeacherDTO.ShowPageStudentOutput
+DEBUG 2017-09-03 14:18:44,882 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.TeacherDTO.ShowStudentOutput
+DEBUG 2017-09-03 14:18:44,882 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.TeacherDTO.UpdateStudentInput
+DEBUG 2017-09-03 14:18:44,882 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.FunctionDTO.FunctionDto
+DEBUG 2017-09-03 14:18:44,882 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.ClassCreateInput
+DEBUG 2017-09-03 14:18:44,882 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.ClassUpdateInput
+DEBUG 2017-09-03 14:18:44,882 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.TeacherCreateInput
+DEBUG 2017-09-03 14:18:44,882 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.TeacherUpdateInput
+DEBUG 2017-09-03 14:18:44,883 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.UserCreateInput
+DEBUG 2017-09-03 14:18:44,883 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Student.StudentCreatreViewModel
+DEBUG 2017-09-03 14:18:44,883 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Student.StudentEditViewModel
+DEBUG 2017-09-03 14:18:44,883 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Student.StudentResultViewModel
+DEBUG 2017-09-03 14:18:44,883 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Grade.GradeCreateViewModel
+DEBUG 2017-09-03 14:18:44,883 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Grade.GradeEditViewModel
+DEBUG 2017-09-03 14:18:44,883 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Grade.GradeResultViewModel
+DEBUG 2017-09-03 14:18:44,883 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Administrator.User.UserResultViewModel
+DEBUG 2017-09-03 14:18:44,883 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Account.TenantSelectionViewModel+TenantInfo
+DEBUG 2017-09-03 14:18:46,313 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.Sessions.ISessionAppService' with service name 'app/session'.
+DEBUG 2017-09-03 14:18:46,314 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2017-09-03 14:18:46,315 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.Roles.IRoleAppService' with service name 'app/role'.
+DEBUG 2017-09-03 14:18:46,315 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.MultiTenancy.ITenantAppService' with service name 'app/tenant'.
+DEBUG 2017-09-03 14:18:46,316 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.AppServices.IAdministratorAppService' with service name 'app/administrator'.
+DEBUG 2017-09-03 14:18:46,317 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.AppServices.IFunctionAppService' with service name 'app/function'.
+DEBUG 2017-09-03 14:18:46,318 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.AppServices.IExcelAppService' with service name 'app/excel'.
+DEBUG 2017-09-03 14:18:46,319 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.AppServices.ITeacherAppService' with service name 'app/teacher'.
+DEBUG 2017-09-03 14:31:22,811 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-09-03 14:31:22,825 [1    ] Abp.Modules.AbpModuleManager             - Found 16 ABP modules in total.
+DEBUG 2017-09-03 14:31:22,830 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ShiNengShiHui.Web.ShiNengShiHuiWebModule, ShiNengShiHui.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:31:22,832 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ShiNengShiHui.ShiNengShiHuiDataModule, ShiNengShiHui.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:31:22,832 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:31:22,832 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:31:22,832 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:31:22,833 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:31:22,833 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:31:22,833 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ShiNengShiHui.ShiNengShiHuiCoreModule, ShiNengShiHui.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:31:22,833 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ShiNengShiHui.ShiNengShiHuiApplicationModule, ShiNengShiHui.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:31:22,833 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:31:22,833 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ShiNengShiHui.Api.ShiNengShiHuiWebApiModule, ShiNengShiHui.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:31:22,834 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:31:22,834 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:31:22,834 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:31:22,834 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:31:22,834 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:31:22,836 [1    ] Abp.Modules.AbpModuleManager             - 16 modules loaded.
+DEBUG 2017-09-03 14:31:22,935 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-03 14:31:22,935 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-03 14:31:22,935 [1    ] o.Configuration.LanguageManagementConfig - Converted ShiNengShiHui (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-03 14:31:22,935 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-03 14:31:23,191 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: ShiNengShiHui.EntityFramework.ShiNengShiHuiDbContext, ShiNengShiHui.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 14:31:24,407 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2017-09-03 14:31:24,414 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-09-03 14:31:24,418 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2017-09-03 14:31:24,441 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: ShiNengShiHui
+DEBUG 2017-09-03 14:31:24,443 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-09-03 14:31:24,541 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-09-03 14:31:24,593 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 26 classes define auto mapping attributes
+DEBUG 2017-09-03 14:31:24,593 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2017-09-03 14:31:24,596 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Sessions.Dto.UserLoginInfoDto
+DEBUG 2017-09-03 14:31:24,596 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Users.Dto.CreateUserInput
+DEBUG 2017-09-03 14:31:24,597 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Users.Dto.UserListDto
+DEBUG 2017-09-03 14:31:24,597 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.MultiTenancy.Dto.CreateTenantInput
+DEBUG 2017-09-03 14:31:24,597 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.MultiTenancy.Dto.TenantListDto
+DEBUG 2017-09-03 14:31:24,597 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.TeacherDTO.CreateStudentInput
+DEBUG 2017-09-03 14:31:24,597 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.TeacherDTO.ShowPageGradeOutput
+DEBUG 2017-09-03 14:31:24,597 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.TeacherDTO.ShowPageStudentOutput
+DEBUG 2017-09-03 14:31:24,597 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.TeacherDTO.ShowStudentOutput
+DEBUG 2017-09-03 14:31:24,597 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.TeacherDTO.UpdateStudentInput
+DEBUG 2017-09-03 14:31:24,597 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.FunctionDTO.FunctionDto
+DEBUG 2017-09-03 14:31:24,597 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.ClassCreateInput
+DEBUG 2017-09-03 14:31:24,597 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.ClassUpdateInput
+DEBUG 2017-09-03 14:31:24,597 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.TeacherCreateInput
+DEBUG 2017-09-03 14:31:24,597 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.TeacherUpdateInput
+DEBUG 2017-09-03 14:31:24,597 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.UserCreateInput
+DEBUG 2017-09-03 14:31:24,597 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.UserShowPageOutput
+DEBUG 2017-09-03 14:31:24,598 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Student.StudentCreatreViewModel
+DEBUG 2017-09-03 14:31:24,598 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Student.StudentEditViewModel
+DEBUG 2017-09-03 14:31:24,598 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Student.StudentResultViewModel
+DEBUG 2017-09-03 14:31:24,598 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Grade.GradeCreateViewModel
+DEBUG 2017-09-03 14:31:24,598 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Grade.GradeEditViewModel
+DEBUG 2017-09-03 14:31:24,598 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Grade.GradeResultViewModel
+DEBUG 2017-09-03 14:31:24,598 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Administrator.User.UserResultViewModel
+DEBUG 2017-09-03 14:31:24,598 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Account.TenantSelectionViewModel+TenantInfo
+DEBUG 2017-09-03 14:31:26,152 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.Sessions.ISessionAppService' with service name 'app/session'.
+DEBUG 2017-09-03 14:31:26,153 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2017-09-03 14:31:26,154 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.Roles.IRoleAppService' with service name 'app/role'.
+DEBUG 2017-09-03 14:31:26,154 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.MultiTenancy.ITenantAppService' with service name 'app/tenant'.
+DEBUG 2017-09-03 14:31:26,155 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.AppServices.IAdministratorAppService' with service name 'app/administrator'.
+DEBUG 2017-09-03 14:31:26,156 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.AppServices.IFunctionAppService' with service name 'app/function'.
+DEBUG 2017-09-03 14:31:26,157 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.AppServices.IExcelAppService' with service name 'app/excel'.
+DEBUG 2017-09-03 14:31:26,158 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.AppServices.ITeacherAppService' with service name 'app/teacher'.
+DEBUG 2017-09-03 16:40:52,217 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-09-03 16:40:52,231 [1    ] Abp.Modules.AbpModuleManager             - Found 16 ABP modules in total.
+DEBUG 2017-09-03 16:40:52,237 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ShiNengShiHui.Web.ShiNengShiHuiWebModule, ShiNengShiHui.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 16:40:52,239 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ShiNengShiHui.ShiNengShiHuiDataModule, ShiNengShiHui.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 16:40:52,239 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFramework.AbpZeroEntityFrameworkModule, Abp.Zero.EntityFramework, Version=2.0.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 16:40:52,239 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.Zero, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 16:40:52,239 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 16:40:52,239 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 16:40:52,240 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 16:40:52,240 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ShiNengShiHui.ShiNengShiHuiCoreModule, ShiNengShiHui.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 16:40:52,240 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ShiNengShiHui.ShiNengShiHuiApplicationModule, ShiNengShiHui.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 16:40:52,240 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 16:40:52,240 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: ShiNengShiHui.Api.ShiNengShiHuiWebApiModule, ShiNengShiHui.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 16:40:52,240 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 16:40:52,241 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 16:40:52,241 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 16:40:52,241 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.SignalR.AbpWebSignalRModule, Abp.Web.SignalR, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 16:40:52,241 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=2.0.2.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 16:40:52,243 [1    ] Abp.Modules.AbpModuleManager             - 16 modules loaded.
+DEBUG 2017-09-03 16:40:52,347 [1    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-03 16:40:52,347 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-03 16:40:52,347 [1    ] o.Configuration.LanguageManagementConfig - Converted ShiNengShiHui (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-03 16:40:52,347 [1    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-09-03 16:40:52,610 [1    ] EntityFramework.AbpEntityFrameworkModule - Registering DbContext: ShiNengShiHui.EntityFramework.ShiNengShiHuiDbContext, ShiNengShiHui.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-09-03 16:40:53,803 [1    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2017-09-03 16:40:53,822 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-09-03 16:40:53,826 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2017-09-03 16:40:53,827 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: ShiNengShiHui
+DEBUG 2017-09-03 16:40:53,828 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-09-03 16:40:53,910 [1    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-09-03 16:40:53,962 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 31 classes define auto mapping attributes
+DEBUG 2017-09-03 16:40:53,962 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2017-09-03 16:40:53,965 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Sessions.Dto.UserLoginInfoDto
+DEBUG 2017-09-03 16:40:53,965 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Users.Dto.CreateUserInput
+DEBUG 2017-09-03 16:40:53,965 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Users.Dto.UserListDto
+DEBUG 2017-09-03 16:40:53,965 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.MultiTenancy.Dto.CreateTenantInput
+DEBUG 2017-09-03 16:40:53,966 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.MultiTenancy.Dto.TenantListDto
+DEBUG 2017-09-03 16:40:53,966 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.TeacherDTO.CreateStudentInput
+DEBUG 2017-09-03 16:40:53,966 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.TeacherDTO.ShowPageGradeOutput
+DEBUG 2017-09-03 16:40:53,966 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.TeacherDTO.ShowPageStudentOutput
+DEBUG 2017-09-03 16:40:53,966 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.TeacherDTO.ShowStudentOutput
+DEBUG 2017-09-03 16:40:53,966 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.TeacherDTO.UpdateStudentInput
+DEBUG 2017-09-03 16:40:53,966 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.FunctionDTO.FunctionDto
+DEBUG 2017-09-03 16:40:53,966 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.ClassCreateInput
+DEBUG 2017-09-03 16:40:53,966 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.ClassShowOutput
+DEBUG 2017-09-03 16:40:53,966 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.ClassShowPageOutput
+DEBUG 2017-09-03 16:40:53,966 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.ClassUpdateInput
+DEBUG 2017-09-03 16:40:53,966 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.TeacherCreateInput
+DEBUG 2017-09-03 16:40:53,966 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.TeacherShowPageOutput
+DEBUG 2017-09-03 16:40:53,966 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.TeacherUpdateInput
+DEBUG 2017-09-03 16:40:53,966 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.UserCreateInput
+DEBUG 2017-09-03 16:40:53,966 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.AppServices.AdministratorDTO.UserShowPageOutput
+DEBUG 2017-09-03 16:40:53,966 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Student.StudentCreatreViewModel
+DEBUG 2017-09-03 16:40:53,966 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Student.StudentEditViewModel
+DEBUG 2017-09-03 16:40:53,966 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Student.StudentResultViewModel
+DEBUG 2017-09-03 16:40:53,966 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Grade.GradeCreateViewModel
+DEBUG 2017-09-03 16:40:53,966 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Grade.GradeEditViewModel
+DEBUG 2017-09-03 16:40:53,966 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Teacher.Grade.GradeResultViewModel
+DEBUG 2017-09-03 16:40:53,966 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Administrator.User.UserResultViewModel
+DEBUG 2017-09-03 16:40:53,966 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Administrator.Teacher.TeacherResultViewModel
+DEBUG 2017-09-03 16:40:53,966 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Administrator.Class.ClassResultViewModel
+DEBUG 2017-09-03 16:40:53,966 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - ShiNengShiHui.Web.Models.Account.TenantSelectionViewModel+TenantInfo
+DEBUG 2017-09-03 16:40:55,447 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.Sessions.ISessionAppService' with service name 'app/session'.
+DEBUG 2017-09-03 16:40:55,448 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2017-09-03 16:40:55,449 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.Roles.IRoleAppService' with service name 'app/role'.
+DEBUG 2017-09-03 16:40:55,450 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.MultiTenancy.ITenantAppService' with service name 'app/tenant'.
+DEBUG 2017-09-03 16:40:55,451 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.AppServices.IAdministratorAppService' with service name 'app/administrator'.
+DEBUG 2017-09-03 16:40:55,451 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.AppServices.IFunctionAppService' with service name 'app/function'.
+DEBUG 2017-09-03 16:40:55,452 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.AppServices.IExcelAppService' with service name 'app/excel'.
+DEBUG 2017-09-03 16:40:55,453 [1    ] Abp.Logging.LogHelper                    - Dynamic web api controller is created for type 'ShiNengShiHui.AppServices.ITeacherAppService' with service name 'app/teacher'.

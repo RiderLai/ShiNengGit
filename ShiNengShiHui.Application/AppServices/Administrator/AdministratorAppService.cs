@@ -10,6 +10,8 @@ using Abp.Authorization.Users;
 using ShiNengShiHui.Authorization.Roles;
 using ShiNengShiHui.AppServices.AdministratorDTO;
 using ShiNengShiHui.Entities.Teachers;
+using Microsoft.AspNet.Identity;
+using System.Linq;
 
 namespace ShiNengShiHui.AppServices
 {
@@ -18,18 +20,18 @@ namespace ShiNengShiHui.AppServices
         private readonly IStudentRepository _studentRepository;
         private readonly IPrizeRepository _prizeRepository;
         private readonly IGradeRepository _gradeRepository;
-        private readonly IRepository<ShiNengShiHui.Entities.Teachers.Teacher> _teacherRepository;
-        private readonly IRepository<Class> _classRepository;
-        private readonly IRepository<User, long> _userRepository;
+        private readonly ITeacherRepository _teacherRepository;
+        private readonly IClassRepository _classRepository;
+        private readonly IUserRepository _userRepository;
         private readonly IRepository<Role> _roleRepository;
         private readonly IRepository<UserRole, long> _userRoleRepository;
 
         public AdministratorAppService(IStudentRepository studentRepository,
             IPrizeRepository prizeRepository,
             IGradeRepository gradeRepository,
-            IRepository<ShiNengShiHui.Entities.Teachers.Teacher> teacherRepository,
-            IRepository<Class> classRepository,
-            IRepository<User, long> userRepository,
+            ITeacherRepository teacherRepository,
+            IClassRepository classRepository,
+            IUserRepository userRepository,
             IRepository<Role> roleRepository,
             IRepository<UserRole, long> userRoleRepository)
         {
@@ -43,6 +45,7 @@ namespace ShiNengShiHui.AppServices
             _userRoleRepository = userRoleRepository;
         }
 
+        #region 班级模块
         public ReturnVal ClassCreate(ClassCreateInput classCreateInput)
         {
             var Class = ObjectMapper.Map<Class>(classCreateInput);
@@ -77,7 +80,23 @@ namespace ShiNengShiHui.AppServices
 
         public ClassShowPageOutput ClassShowPage(ClassShowPageInput classShowPageInput)
         {
-            throw new NotImplementedException();
+            long count = _classRepository.Count();
+            classShowPageInput.PageCount = (int)(count / classShowPageInput.ShowCount);
+            if (count % classShowPageInput.ShowCount > 0)
+            {
+                classShowPageInput.PageCount += 1;
+            }
+            if (classShowPageInput.PageIndex > classShowPageInput.PageCount)
+            {
+                classShowPageInput.PageIndex = 1;
+            }
+
+            Class[] classes = _classRepository.GetPage(classShowPageInput.PageIndex, classShowPageInput.ShowCount);
+            ClassShowOutput[] classShowOutputs = classes.Select(m => ObjectMapper.Map<ClassShowOutput>(m)).ToArray();
+
+            ClassShowPageOutput result = ObjectMapper.Map<ClassShowPageOutput>(classShowPageInput);
+            result.Classes = classShowOutputs;
+            return result;
         }
 
         public ReturnVal ClassUpdate(ClassUpdateInput classUpdateInput)
@@ -96,7 +115,9 @@ namespace ShiNengShiHui.AppServices
             _classRepository.Update(Class);
             return new ReturnVal(ReturnStatu.Success);
         }
+        #endregion
 
+        #region 教师模块
         public ReturnVal TeacherCreate(TeacherCreateInput teacherCreateInput)
         {
             var teacher = ObjectMapper.Map<Teacher>(teacherCreateInput);
@@ -131,7 +152,24 @@ namespace ShiNengShiHui.AppServices
 
         public TeacherShowPageOutput TeacherShowPage(TeacherShowPageInput teacherShowPageInput)
         {
-            throw new NotImplementedException();
+            long count = _teacherRepository.Count();
+            teacherShowPageInput.PageCount = (int)(count / teacherShowPageInput.ShowCount);
+            if (count % teacherShowPageInput.ShowCount > 0)
+            {
+                teacherShowPageInput.PageCount += 1;
+            }
+            if (teacherShowPageInput.ShowCount>teacherShowPageInput.PageCount)
+            {
+                teacherShowPageInput.PageIndex = 1;
+            }
+
+            Teacher[] teachers = _teacherRepository.GetPage(teacherShowPageInput.PageIndex, teacherShowPageInput.ShowCount);
+            TeacherShowOutput[] teacherShowOutputs = teachers.Select(m => ObjectMapper.Map<TeacherShowOutput>(m)).ToArray();
+
+            TeacherShowPageOutput result = ObjectMapper.Map<TeacherShowPageOutput>(teacherShowPageInput);
+            result.Teachers = teacherShowOutputs;
+
+            return result;
         }
 
         public ReturnVal TeacherUpdate(TeacherUpdateInput teacherUpdateInput)
@@ -150,7 +188,9 @@ namespace ShiNengShiHui.AppServices
             _teacherRepository.Insert(teacher);
             return new ReturnVal(ReturnStatu.Success);
         }
+        #endregion
 
+        #region 用户模块
         public ReturnVal UserCreate(UserCreateInput userCreateInput)
         {
             var user = ObjectMapper.Map<User>(userCreateInput);
@@ -161,6 +201,7 @@ namespace ShiNengShiHui.AppServices
 
             user.TenantId = 1;
             user.Surname = user.Name;
+            user.Password = new PasswordHasher().HashPassword(user.Password);
             user = _userRepository.Insert(user);
 
             var teacherRole = _roleRepository.FirstOrDefault(m => m.Name.Equals(StaticRoleNames.Tenants.Teacher) && m.TenantId == 1);
@@ -197,7 +238,23 @@ namespace ShiNengShiHui.AppServices
 
         public UserShowPageOutput UserShowPage(UserShowPageInput userShowPageInput)
         {
-            throw new NotImplementedException();
+            long count = _userRepository.Count();
+            userShowPageInput.PageCount = (int)(count / userShowPageInput.ShowCount);
+            if (count % userShowPageInput.ShowCount > 0)
+            {
+                userShowPageInput.PageCount += 1;
+            }
+            if (userShowPageInput.PageIndex > userShowPageInput.PageCount)
+            {
+                userShowPageInput.PageIndex = 1;
+            }
+
+            User[] users = _userRepository.GetPage(userShowPageInput.PageIndex, userShowPageInput.ShowCount);
+            UserShowOutput[] userShowOutputs = users.Select<User, UserShowOutput>(m => ObjectMapper.Map<UserShowOutput>(m)).ToArray();
+
+            UserShowPageOutput result = ObjectMapper.Map<UserShowPageOutput>(userShowPageInput);
+            result.Users = userShowOutputs;
+            return result;
         }
 
         public ReturnVal UserUpdate(UserUpdateInput userUpdateInput)
@@ -209,7 +266,7 @@ namespace ShiNengShiHui.AppServices
             }
 
             var user = ObjectMapper.Map<User>(userUpdateInput);
-            if (user==null)
+            if (user == null)
             {
                 return new ReturnVal(ReturnStatu.Failure);
             }
@@ -218,5 +275,6 @@ namespace ShiNengShiHui.AppServices
             _userRepository.Update(user);
             return new ReturnVal(ReturnStatu.Success);
         }
+        #endregion
     }
 }
