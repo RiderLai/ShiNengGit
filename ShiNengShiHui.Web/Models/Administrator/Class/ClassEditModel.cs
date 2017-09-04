@@ -8,7 +8,8 @@ using System.Web;
 namespace ShiNengShiHui.Web.Models.Administrator.Class
 {
     [AutoMapFrom(typeof(ClassShowOutput))]
-    public class ClassResultViewModel
+    [AutoMapTo(typeof(ClassUpdateInput))]
+    public class ClassEditModel
     {
         public int Id { get; set; }
 
@@ -17,7 +18,5 @@ namespace ShiNengShiHui.Web.Models.Administrator.Class
         public string Display { get; set; }
 
         public DateTime InTime { get; set; }
-
-        public DateTime CreationTime { get; set; }
     }
 }

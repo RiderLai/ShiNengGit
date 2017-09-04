@@ -14,5 +14,7 @@ namespace ShiNengShiHui.AppServices.AdministratorDTO
         public string Display { get; set; }
 
         public DateTime InTime { get; set; }
+
+        public DateTime CreationTime { get; set; }
     }
 }

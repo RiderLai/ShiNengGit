@@ -49,10 +49,6 @@ namespace ShiNengShiHui.AppServices
         public ReturnVal ClassCreate(ClassCreateInput classCreateInput)
         {
             var Class = ObjectMapper.Map<Class>(classCreateInput);
-            if (Class == null)
-            {
-                return new ReturnVal(ReturnStatu.Failure);
-            }
             _classRepository.Insert(Class);
             return new ReturnVal(ReturnStatu.Success);
         }
@@ -75,7 +71,14 @@ namespace ShiNengShiHui.AppServices
 
         public ClassShowOutput ClassShow(ClassShowInput classShowInput)
         {
-            throw new NotImplementedException();
+            var Class = _classRepository.FirstOrDefault(classShowInput.Id);
+            if (Class == null)
+            {
+                return null;
+            }
+
+            return ObjectMapper.Map<ClassShowOutput>(Class);
+            
         }
 
         public ClassShowPageOutput ClassShowPage(ClassShowPageInput classShowPageInput)
@@ -101,17 +104,13 @@ namespace ShiNengShiHui.AppServices
 
         public ReturnVal ClassUpdate(ClassUpdateInput classUpdateInput)
         {
-            if (_classRepository.FirstOrDefault(classUpdateInput.Id) == null)
+            var Class = _classRepository.FirstOrDefault(classUpdateInput.Id);
+            if (Class == null)
             {
                 return new ReturnVal(ReturnStatu.Err);
             }
 
-            var Class = ObjectMapper.Map<Class>(classUpdateInput);
-            if (Class == null)
-            {
-                return new ReturnVal(ReturnStatu.Failure);
-            }
-
+            ObjectMapper.Map<ClassUpdateInput,Class>(classUpdateInput,Class);
             _classRepository.Update(Class);
             return new ReturnVal(ReturnStatu.Success);
         }
@@ -147,7 +146,13 @@ namespace ShiNengShiHui.AppServices
 
         public TeacherShowOutput TeacherShow(TeacherShowInput teacherShowInput)
         {
-            throw new NotImplementedException();
+            var teacher = _teacherRepository.FirstOrDefault(teacherShowInput.Id);
+            if (teacher==null)
+            {
+                return null;
+            }
+
+            return ObjectMapper.Map<TeacherShowOutput>(teacher);
         }
 
         public TeacherShowPageOutput TeacherShowPage(TeacherShowPageInput teacherShowPageInput)
@@ -194,14 +199,19 @@ namespace ShiNengShiHui.AppServices
         public ReturnVal UserCreate(UserCreateInput userCreateInput)
         {
             var user = ObjectMapper.Map<User>(userCreateInput);
-            if (user == null)
-            {
-                return new ReturnVal(ReturnStatu.Failure);
-            }
 
             user.TenantId = 1;
             user.Surname = user.Name;
             user.Password = new PasswordHasher().HashPassword(user.Password);
+            //添加教师
+            if (userCreateInput.TeacherId != null)
+            {
+                var teacher = _teacherRepository.FirstOrDefault((int)userCreateInput.TeacherId);
+                if (teacher != null)
+                {
+                    user.Teacher = teacher;
+                }
+            }
             user = _userRepository.Insert(user);
 
             var teacherRole = _roleRepository.FirstOrDefault(m => m.Name.Equals(StaticRoleNames.Tenants.Teacher) && m.TenantId == 1);
@@ -233,7 +243,13 @@ namespace ShiNengShiHui.AppServices
 
         public UserShowOutput UserShow(UserShowInput userShowInput)
         {
-            throw new NotImplementedException();
+            var user = _userRepository.FirstOrDefault(userShowInput.Id);
+            if (user==null)
+            {
+                return null;
+            }
+
+            return ObjectMapper.Map<UserShowOutput>(user);
         }
 
         public UserShowPageOutput UserShowPage(UserShowPageInput userShowPageInput)
@@ -259,19 +275,24 @@ namespace ShiNengShiHui.AppServices
 
         public ReturnVal UserUpdate(UserUpdateInput userUpdateInput)
         {
-
-            if (_userRepository.FirstOrDefault(m => m.Id == userUpdateInput.Id) == null)
+            var user = _userRepository.FirstOrDefault(userUpdateInput.Id);
+            if (user==null)
             {
                 return new ReturnVal(ReturnStatu.Err);
             }
 
-            var user = ObjectMapper.Map<User>(userUpdateInput);
-            if (user == null)
-            {
-                return new ReturnVal(ReturnStatu.Failure);
-            }
+            ObjectMapper.Map<UserUpdateInput, User>(userUpdateInput, user);
 
             user.Surname = user.Name;
+            //添加教师
+            if (userUpdateInput.TeacherId!=null)
+            {
+                var teacher = _teacherRepository.FirstOrDefault((int)userUpdateInput.TeacherId);
+                if (teacher!=null)
+                {
+                    user.Teacher = teacher;
+                }
+            }
             _userRepository.Update(user);
             return new ReturnVal(ReturnStatu.Success);
         }

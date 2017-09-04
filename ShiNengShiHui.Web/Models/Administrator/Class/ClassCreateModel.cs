@@ -7,17 +7,13 @@ using System.Web;
 
 namespace ShiNengShiHui.Web.Models.Administrator.Class
 {
-    [AutoMapFrom(typeof(ClassShowOutput))]
-    public class ClassResultViewModel
+    [AutoMapTo(typeof(ClassCreateInput))]
+    public class ClassCreateModel
     {
-        public int Id { get; set; }
-
         public string Name { get; set; }
 
         public string Display { get; set; }
 
         public DateTime InTime { get; set; }
-
-        public DateTime CreationTime { get; set; }
     }
 }

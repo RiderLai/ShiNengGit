@@ -7,9 +7,12 @@ using Abp.Hangfire.Configuration;
 using Abp.Modules;
 using Abp.Web.Mvc;
 using Abp.Web.SignalR;
+using Abp.AutoMapper;
 using Abp.Zero.Configuration;
 using ShiNengShiHui.Api;
 using Hangfire;
+using ShiNengShiHui.AppServices.AdministratorDTO;
+using ShiNengShiHui.Web.Models.Administrator.User;
 
 namespace ShiNengShiHui.Web
 {

@@ -13,5 +13,7 @@ namespace ShiNengShiHui.AppServices.AdministratorDTO
         public string EmailAddress { get; set; }
 
         public string Password { get; set; }
+
+        public int? TeacherId { get; set; }
     }
 }

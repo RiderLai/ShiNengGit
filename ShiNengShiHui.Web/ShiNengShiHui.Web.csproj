@@ -1417,8 +1417,12 @@
     <Compile Include="Models\Account\RegisterResultViewModel.cs" />
     <Compile Include="Models\Account\RegisterViewModel.cs" />
     <Compile Include="Models\Account\TenantSelectionViewModel.cs" />
+    <Compile Include="Models\Administrator\Class\ClassCreateModel.cs" />
+    <Compile Include="Models\Administrator\Class\ClassEditModel.cs" />
     <Compile Include="Models\Administrator\Class\ClassResultViewModel.cs" />
     <Compile Include="Models\Administrator\Teacher\TeacherResultViewModel.cs" />
+    <Compile Include="Models\Administrator\User\UserCreateModel.cs" />
+    <Compile Include="Models\Administrator\User\UserEditModel.cs" />
     <Compile Include="Models\Administrator\User\UserResultViewModel.cs" />
     <Compile Include="Models\Teacher\Grade\GradeCreateViewModel.cs" />
     <Compile Include="Models\Teacher\Grade\GradeEditViewModel.cs" />
@@ -1463,6 +1467,10 @@
     <Content Include="Views\Administrator\UserIndex.cshtml" />
     <Content Include="Views\Administrator\ClassIndex.cshtml" />
     <Content Include="Views\Administrator\TeacherIndex.cshtml" />
+    <Content Include="Views\Administrator\UserEdit.cshtml" />
+    <Content Include="Views\Administrator\UserCreate.cshtml" />
+    <Content Include="Views\Administrator\ClassEdit.cshtml" />
+    <Content Include="Views\Administrator\ClassCreate.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

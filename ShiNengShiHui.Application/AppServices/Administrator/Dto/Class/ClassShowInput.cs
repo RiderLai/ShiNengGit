@@ -2,5 +2,6 @@
 {
     public class ClassShowInput
     {
+        public int Id { get; set; }
     }
 }
