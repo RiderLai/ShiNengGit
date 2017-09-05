@@ -12,6 +12,8 @@ namespace ShiNengShiHui.AppServices.AdministratorDTO
 
         public DateTime? BirthDay{get;set;}
 
+        public int ClassId { get; set; }
+
         public string ClassName { get; set; }
     }
 }

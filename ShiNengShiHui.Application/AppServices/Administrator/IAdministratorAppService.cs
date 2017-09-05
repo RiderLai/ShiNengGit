@@ -10,6 +10,8 @@ namespace ShiNengShiHui.AppServices
 
         UserShowPageOutput UserShowPage(UserShowPageInput userShowPageInput);
 
+        ReturnVal UserPasswordUpdate(UserPasswordUpdateInput userPasswordUpdateInput);
+
         ReturnVal UserCreate(UserCreateInput userCreateInput);
 
         ReturnVal UserCreateRange(UserCreateRangeInput userCreateRangeInput);

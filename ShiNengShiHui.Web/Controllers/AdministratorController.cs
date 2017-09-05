@@ -1,5 +1,7 @@
-﻿using ShiNengShiHui.AppServices;
+﻿using Abp.Web.Mvc.Authorization;
+using ShiNengShiHui.AppServices;
 using ShiNengShiHui.AppServices.AdministratorDTO;
+using ShiNengShiHui.Authorization;
 using ShiNengShiHui.Web.Models.Administrator.Class;
 using ShiNengShiHui.Web.Models.Administrator.Teacher;
 using ShiNengShiHui.Web.Models.Administrator.User;
@@ -11,6 +13,7 @@ using System.Web.Mvc;
 
 namespace ShiNengShiHui.Web.Controllers
 {
+    [AbpMvcAuthorize(permissions: PermissionNames.Pages)]
     public class AdministratorController : ShiNengShiHuiControllerBase
     {
         private IAdministratorAppService _administratorAppService;
@@ -153,6 +156,32 @@ namespace ShiNengShiHui.Web.Controllers
         }
         #endregion
 
+        #region 更改用户密码
+        [HttpGet]
+        public ActionResult UserPasswordEdit(int id)
+        {
+            UserShowOutput userShowOutput = _administratorAppService.UserShow(new UserShowInput() { Id = id });
+            if (userShowOutput == null)
+            {
+                return View();
+            }
+
+            UserPasswordEditModel model = ObjectMapper.Map<UserPasswordEditModel>(userShowOutput);
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult UserPasswordEdit(UserPasswordEditModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                _administratorAppService.UserPasswordUpdate(ObjectMapper.Map<UserPasswordUpdateInput>(model));
+                return this.RefreshParent();
+            }
+            return View(model);
+        } 
+        #endregion
+
         #region 删除数据
         public ActionResult UserDelete(int[] sid)
         {
@@ -161,7 +190,7 @@ namespace ShiNengShiHui.Web.Controllers
                 _administratorAppService.UserDelete(new UserDeleteInput() { Id = sid[i] });
             }
             return RedirectToAction("UserIndex");
-        } 
+        }
         #endregion
         #endregion
 
@@ -240,7 +269,7 @@ namespace ShiNengShiHui.Web.Controllers
                 _administratorAppService.ClassDelete(new ClassDeleteInput() { Id = sid[i] });
             }
             return RedirectToAction("ClassIndex");
-        } 
+        }
         #endregion
         #endregion
 
@@ -262,7 +291,141 @@ namespace ShiNengShiHui.Web.Controllers
 
             List<TeacherResultViewModel> list = result.Teachers.Select(m => ObjectMapper.Map<TeacherResultViewModel>(m)).ToList();
             return View(list);
+        }
+
+        #region 编辑数据
+        [HttpGet]
+        public ActionResult TeacherEdit(int id)
+        {
+            TeacherShowOutput teacherShowOutput = _administratorAppService.TeacherShow(new TeacherShowInput() { Id = id });
+            if (teacherShowOutput == null)
+            {
+                return View();
+            }
+            TeacherEditModel model = ObjectMapper.Map<TeacherEditModel>(teacherShowOutput);
+
+            #region 初始化数据
+            //性别
+            List<SelectListItem> sexList = new List<SelectListItem>();
+            sexList.Add(new SelectListItem() { Text = "男", Value = "true" });
+            sexList.Add(new SelectListItem() { Text = "女", Value = "false" });
+            ViewBag.SexList = sexList;
+
+            //班级
+            List<SelectListItem> classList = new List<SelectListItem>();
+            var classes = _administratorAppService.ClassShowPage(new ClassShowPageInput() { ShowCount = 10000 });
+            classList.AddRange(classes.Classes.Select(m =>
+            {
+                if (model.ClassId == m.Id)
+                {
+                    return new SelectListItem() { Text = m.Display, Value = m.Id.ToString(), Selected = true };
+                }
+                return new SelectListItem() { Text = m.Display, Value = m.Id.ToString() };
+            }).ToList());
+            ViewBag.ClassList = classList;
+            #endregion
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult TeacherEdit(TeacherEditModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                _administratorAppService.TeacherUpdate(ObjectMapper.Map<TeacherUpdateInput>(model));
+                return this.RefreshParent();
+            }
+
+            #region 初始化数据
+            //性别
+            List<SelectListItem> sexList = new List<SelectListItem>();
+            sexList.Add(new SelectListItem() { Text = "男", Value = "true" });
+            sexList.Add(new SelectListItem() { Text = "女", Value = "false" });
+            ViewBag.SexList = sexList;
+
+            //班级
+            List<SelectListItem> classList = new List<SelectListItem>();
+            var classes = _administratorAppService.ClassShowPage(new ClassShowPageInput() { ShowCount = 10000 });
+            classList.AddRange(classes.Classes.Select(m =>
+            {
+               if (model.ClassId == m.Id)
+               {
+                   return new SelectListItem() { Text = m.Display, Value = m.Id.ToString(), Selected = true };
+               }
+               return new SelectListItem() { Text = m.Display, Value = m.Id.ToString() };
+            }).ToList());
+            ViewBag.ClassList = classList;
+            #endregion
+            return View(model);
+        }
+        #endregion
+
+        #region 添加数据
+        [HttpGet]
+        public ActionResult TeacherCreate()
+        {
+            #region 初始化数据
+            //性别
+            List<SelectListItem> sexList = new List<SelectListItem>();
+            sexList.Add(new SelectListItem() { Text = "男", Value = "true" });
+            sexList.Add(new SelectListItem() { Text = "女", Value = "false" });
+            ViewBag.SexList = sexList;
+
+            //班级
+            List<SelectListItem> classList = new List<SelectListItem>();
+            var classes = _administratorAppService.ClassShowPage(new ClassShowPageInput() { ShowCount = 10000 });
+            classList.AddRange(classes.Classes.Select(m =>
+            {
+                return new SelectListItem() { Text = m.Display, Value = m.Id.ToString() };
+            }).ToList());
+            ViewBag.ClassList = classList;
+            #endregion
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult TeacherCreate(TeacherCreateModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                _administratorAppService.TeacherCreate(ObjectMapper.Map<TeacherCreateInput>(model));
+                return this.RefreshParent();
+            }
+
+            #region 初始化数据
+            //性别
+            List<SelectListItem> sexList = new List<SelectListItem>();
+            sexList.Add(new SelectListItem() { Text = "男", Value = "true" });
+            sexList.Add(new SelectListItem() { Text = "女", Value = "false" });
+            ViewBag.SexList = sexList;
+
+            //班级
+            List<SelectListItem> classList = new List<SelectListItem>();
+            var classes = _administratorAppService.ClassShowPage(new ClassShowPageInput() { ShowCount = 10000 });
+            classList.AddRange(classes.Classes.Select(m =>
+            {
+                if (model.ClassId == m.Id)
+                {
+                    return new SelectListItem() { Text = m.Display, Value = m.Id.ToString(), Selected = true };
+                }
+                return new SelectListItem() { Text = m.Display, Value = m.Id.ToString() };
+            }).ToList());
+            ViewBag.ClassList = classList;
+            #endregion
+            return View(model);
+        }
+        #endregion
+
+        #region 删除数据
+        public ActionResult TeacherDelete(int[] sid)
+        {
+            for (int i = 0, length = sid.Length; i < length; i++)
+            {
+                _administratorAppService.TeacherDelete(new TeacherDeleteInput() { Id = sid[i] });
+            }
+            return RedirectToAction("TeacherIndex");
         } 
+        #endregion
         #endregion
     }
 }

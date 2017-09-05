@@ -48,8 +48,14 @@ namespace ShiNengShiHui.AppServices
         #region 班级模块
         public ReturnVal ClassCreate(ClassCreateInput classCreateInput)
         {
-            var Class = ObjectMapper.Map<Class>(classCreateInput);
+            var Class = _classRepository.FirstOrDefault(m => m.Name == classCreateInput.Name);
+            if (Class==null)
+            {
+                return new ReturnVal(ReturnStatu.Failure);
+            }
+            Class = ObjectMapper.Map<Class>(classCreateInput);
             _classRepository.Insert(Class);
+            _classRepository.TableCreate(Class);
             return new ReturnVal(ReturnStatu.Success);
         }
 
@@ -179,18 +185,14 @@ namespace ShiNengShiHui.AppServices
 
         public ReturnVal TeacherUpdate(TeacherUpdateInput teacherUpdateInput)
         {
-            if (_teacherRepository.FirstOrDefault(teacherUpdateInput.Id) == null)
+            var teacher = _teacherRepository.FirstOrDefault(teacherUpdateInput.Id);
+            if (teacher == null)
             {
                 return new ReturnVal(ReturnStatu.Err);
             }
 
-            var teacher = ObjectMapper.Map<Teacher>(teacherUpdateInput);
-            if (teacher == null)
-            {
-                return new ReturnVal(ReturnStatu.Failure);
-            }
-
-            _teacherRepository.Insert(teacher);
+            ObjectMapper.Map<TeacherUpdateInput,Teacher>(teacherUpdateInput,teacher);
+            _teacherRepository.Update(teacher);
             return new ReturnVal(ReturnStatu.Success);
         }
         #endregion
@@ -238,6 +240,19 @@ namespace ShiNengShiHui.AppServices
                 return new ReturnVal(ReturnStatu.Err);
             }
             _userRepository.Delete(user);
+            return new ReturnVal(ReturnStatu.Success);
+        }
+
+        public ReturnVal UserPasswordUpdate(UserPasswordUpdateInput userPasswordUpdateInput)
+        {
+            var user = _userRepository.FirstOrDefault(userPasswordUpdateInput.Id);
+            if (user==null)
+            {
+                return new ReturnVal(ReturnStatu.Failure);
+            }
+
+            user.Password = new PasswordHasher().HashPassword(userPasswordUpdateInput.Password);
+            _userRepository.Update(user);
             return new ReturnVal(ReturnStatu.Success);
         }
 

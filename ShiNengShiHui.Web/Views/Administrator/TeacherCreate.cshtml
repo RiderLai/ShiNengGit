@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "TeacherCreate";
+    Layout = "~/Views/Shared/_Layout.Edit.cshtml";
+}
+
+@model ShiNengShiHui.Web.Models.Administrator.Teacher.TeacherCreateModel
+
+@Html.AntiForgeryToken()
+<div class="form-horizontal">
+
+    <div class="form-group">
+        <label class="col-xs-4 control-label text-right">Name：</label>
+        <div class="col-xs-6">
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+            <span class="help-inline">@Html.ValidationMessageFor(m => m.Name)</span>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label class="col-xs-4 control-label text-right">Display：</label>
+        <div class="col-xs-6">
+            @Html.DropDownListFor(m => m.Sex, ViewBag.SexList as List<SelectListItem>, new { @class = "form-control" })
+            <span class="help-inline">@Html.ValidationMessageFor(m => m.Sex)</span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-xs-4 control-label text-right">InTime：</label>
+        <div class="col-xs-6">
+            @Html.TextBoxFor(m => m.BirthDay, new { id = "datetimepicker" })
+            <span class="help-inline">@Html.ValidationMessageFor(m => m.BirthDay)</span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-xs-4 control-label text-right">ClassId：</label>
+        <div class="col-xs-6">
+            @Html.DropDownListFor(m => m.ClassId, ViewBag.ClassList as List<SelectListItem>, new { @class = "form-control" })
+            <span class="help-inline">@Html.ValidationMessageFor(m => m.ClassId)</span>
+        </div>
+    </div>
+
+</div>

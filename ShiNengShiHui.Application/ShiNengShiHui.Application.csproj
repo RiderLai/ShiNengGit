@@ -142,6 +142,7 @@
     <Compile Include="AppServices\Administrator\Dto\Class\ClassShowPageInput.cs" />
     <Compile Include="AppServices\Administrator\Dto\Class\ClassShowPageOutput.cs" />
     <Compile Include="AppServices\Administrator\Dto\Class\ClassUpdateInput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\User\UserPasswordUpdateInput.cs" />
     <Compile Include="AppServices\Administrator\IAdministratorAppService.cs" />
     <Compile Include="AppServices\Administrator\Dto\Teacher\TeacherCreateInput.cs" />
     <Compile Include="AppServices\Administrator\Dto\Teacher\TeacherCreateRangeInput.cs" />
