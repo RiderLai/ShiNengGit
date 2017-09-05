@@ -2,6 +2,7 @@
 using ShiNengShiHui.Entities.Classes;
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ShiNengShiHui.Entities.Teachers
 {
@@ -16,6 +17,9 @@ namespace ShiNengShiHui.Entities.Teachers
 
         public virtual DateTime? BirthDay { get; set; }
 
+        public virtual int ClassId { get; set; }
+
+        [ForeignKey("ClassId")]
         public virtual Class Class { get; set; }
     }
 }

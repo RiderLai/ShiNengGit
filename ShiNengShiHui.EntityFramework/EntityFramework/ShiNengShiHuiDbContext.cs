@@ -9,6 +9,7 @@ using ShiNengShiHui.Entities.Students;
 using ShiNengShiHui.Entities.Grades;
 using ShiNengShiHui.Entities.Prizes;
 using System.Data.Entity;
+using ShiNengShiHui.Entities.Function;
 
 namespace ShiNengShiHui.EntityFramework
 {
@@ -21,6 +22,7 @@ namespace ShiNengShiHui.EntityFramework
         public virtual IDbSet<Grade> Grade { get; set; }
         public virtual IDbSet<Prize> Prize { get; set; }
         public virtual IDbSet<PrizeItem> PrizeItem { get; set; }
+        public virtual IDbSet<Function> Function { get; set; }
         /* NOTE: 
          *   Setting "Default" to base class helps us when working migration commands on Package Manager Console.
          *   But it may cause problems when working Migrate.exe of EF. If you will apply migrations on command line, do not

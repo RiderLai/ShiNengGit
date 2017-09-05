@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "ClassEdit";
+    Layout = "~/Views/Shared/_Layout.Edit.cshtml";
+}
+
+@model ShiNengShiHui.Web.Models.Administrator.Class.ClassEditModel
+
+@if (Model == null)
+{
+    <h3>访问出错。请重试</h3>
+}
+else
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+
+
+        @Html.HiddenFor(m => m.Id)
+
+        <div class="form-group">
+            <label class="col-xs-4 control-label text-right">Name：</label>
+            <div class="col-xs-6">
+                @Html.Label(Model.Name, new { @class = "form-control" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="col-xs-4 control-label text-right">Display：</label>
+            <div class="col-xs-6">
+                @Html.TextBoxFor(m => m.Display, new { @class = "form-control" })
+                <span class="help-inline">@Html.ValidationMessageFor(m => m.Display)</span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-xs-4 control-label text-right">InTime：</label>
+            <div class="col-xs-6">
+                @Html.TextBoxFor(m => m.InTime, new { id = "datetimepicker" })
+                <span class="help-inline">@Html.ValidationMessageFor(m => m.InTime)</span>
+            </div>
+        </div>
+
+    </div>
+}

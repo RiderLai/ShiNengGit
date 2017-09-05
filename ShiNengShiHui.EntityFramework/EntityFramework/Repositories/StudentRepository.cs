@@ -13,10 +13,11 @@ namespace ShiNengShiHui.EntityFramework.Repositories
 {
     public class StudentRepository : SqlRepositoryBase<Student>, IStudentRepository
     {
-        private string TableName { get => GetTable(SqlRepositoryBase<Student, int>.TableType.Student) == null ? "testStudents" : GetTable(SqlRepositoryBase<Student, int>.TableType.Student); }
+        private string TableName { get => GetTable(SqlRepositoryBase<Student, int>.TableType.Student) == null ? "testStudents" : GetTable(SqlRepositoryBase<Student, int>.TableType.Student);}
 
         public StudentRepository(IDbContextProvider<ShiNengShiHuiDbContext> dbContextProvider) : base(dbContextProvider)
         {
+            
         }
 
         //public override int Count()
@@ -27,54 +28,47 @@ namespace ShiNengShiHui.EntityFramework.Repositories
         public override IQueryable<Student> GetAll()
         {
             var list = new List<Student>();
-            using (var connection = Context.Database.Connection)
-            {
-                connection.Open();
+            //using (var connection = Context.Database.Connection)
+            //{
+            //    connection.Open();
                 var students = Context.Database.SqlQuery<Student>($@"Select * From {TableName} Where IsDeleted=0");
                 list.AddRange(students);
-            }
+            //}
             return list.AsQueryable<Student>();
         }
 
         public override Student Insert(Student entity)
         {
-            using (var connection = Context.Database.Connection)
-            {
-                connection.Open();
+            entity.CreationTime = Clock.Now;
+            entity.CreatorUserId = AbpSession.UserId;
+            //using (var connection = Context.Database.Connection)
+            //{
+            //    connection.Open();
                 Context.Database.ExecuteSqlCommand($@"INSERT INTO [dbo].[{TableName}]
                                                             ([Name]
-                                                            ,[sex]
+                                                            ,[Sex]
                                                             ,[IsDeleted]
-                                                            ,[DeleterUserId]
-                                                            ,[DeletionTime]
-                                                            ,[LastModificationTime]
-                                                            ,[LastModifierUserId]
                                                             ,[CreationTime]
                                                             ,[CreatorUserId]
-                                                            ,[Class_Id])
+                                                            ,[ClassId]
+                                                            ,[Group])
                                                       VALUES
-                                                            (< Name, nvarchar(10),@Name>
-                                                            ,< sex, bit,@sex>
-                                                            ,< IsDeleted, bit,@IsDeleted>
-                                                            ,< DeleterUserId, bigint,@DeleterUserId>
-                                                            ,< DeletionTime, datetime,@DeletionTime>
-                                                            ,< LastModificationTime, datetime,@LastModificationTime>
-                                                            ,< LastModifierUserId, bigint,@LastModifierUserId>
-                                                            ,< CreationTime, datetime,@CreationTime>
-                                                            ,< CreatorUserId, bigint,@CreatorUserId>
-                                                            ,< Class_Id, int,@Class_Id>)",
+                                                            (@Name
+                                                            ,@Sex
+                                                            ,@IsDeleted
+                                                            ,@CreationTime
+                                                            ,@CreatorUserId
+                                                            ,@ClassId
+                                                            ,@Group)",
                                                             new SqlParameter("Name", entity.Name),
-                                                            new SqlParameter("sex", entity.sex),
-                                                            new SqlParameter("IsDeleted", entity.IsDeleted),
-                                                            new SqlParameter("DeleterUserId", entity.DeleterUserId),
-                                                            new SqlParameter("DeletionTime", entity.DeletionTime),
-                                                            new SqlParameter("LastModificationTime", entity.LastModificationTime),
-                                                            new SqlParameter("LastModifierUserId", entity.LastModifierUserId),
+                                                            new SqlParameter("Sex", entity.Sex),
+                                                            new SqlParameter("IsDeleted", false),
                                                             new SqlParameter("CreationTime", entity.CreationTime),
                                                             new SqlParameter("CreatorUserId", entity.CreatorUserId),
-                                                            new SqlParameter("Class_Id", entity.Class.Id));
-            }
-            return FirstOrDefault(s => s.Name.Equals(entity.Name) && s.sex == entity.sex && s.CreationTime == entity.CreationTime);
+                                                            new SqlParameter("ClassId", entity.ClassId),
+                                                            new SqlParameter("Group", entity.Group));
+            //}
+            return FirstOrDefault(s => s.Name.Equals(entity.Name) && s.Sex == entity.Sex && s.CreationTime == entity.CreationTime);
         }
 
         public override Task<Student> InsertAsync(Student entity)
@@ -86,33 +80,27 @@ namespace ShiNengShiHui.EntityFramework.Repositories
         {
             entity.LastModifierUserId = AbpSession.UserId;
             entity.LastModificationTime = Clock.Now;
-            using (var connection = Context.Database.Connection)
-            {
-                connection.Open();
+            //using (var connection = Context.Database.Connection)
+            //{
+            //    connection.Open();
                 Context.Database.ExecuteSqlCommand($@"UPDATE [dbo].[{TableName}]
-                                                       SET[Name] = < Name, nvarchar(10),@Name>
-                                                          ,[sex] = < sex, bit,@sex>
-                                                          ,[IsDeleted] = < IsDeleted, bit,@IsDeleted>
-                                                          ,[DeleterUserId] = < DeleterUserId, bigint,@DeleterUserId>
-                                                          ,[DeletionTime] = < DeletionTime, datetime,@DeletionTime>
-                                                          ,[LastModificationTime] = < LastModificationTime, datetime,@LastModificationTime>
-                                                          ,[LastModifierUserId] = < LastModifierUserId, bigint,@LastModifierUserId>
-                                                          ,[CreationTime] = < CreationTime, datetime,@CreationTime>
-                                                          ,[CreatorUserId] = < CreatorUserId, bigint,@CreatorUserId>
-                                                          ,[Class_Id] = < Class_Id, int,@Class_Id>
+                                                       SET [Name] = @Name
+                                                          ,[Sex] = @Sex
+                                                          ,[IsDeleted] = @IsDeleted
+                                                          ,[LastModificationTime] = @LastModificationTime
+                                                          ,[LastModifierUserId] = @LastModifierUserId
+                                                          ,[ClassId] = @ClassId
+                                                          ,[Group] = @Group
                                                      WHERE Id=@Id ",
                                                      new SqlParameter("Name", entity.Name),
-                                                     new SqlParameter("sex", entity.sex),
+                                                     new SqlParameter("Sex", entity.Sex),
                                                      new SqlParameter("IsDeleted", entity.IsDeleted),
-                                                     new SqlParameter("DeleterUserId", entity.DeleterUserId),
-                                                     new SqlParameter("DeletionTime", entity.DeletionTime),
                                                      new SqlParameter("LastModificationTime", entity.LastModificationTime),
                                                      new SqlParameter("LastModifierUserId", entity.LastModifierUserId),
-                                                     new SqlParameter("CreationTime", entity.CreationTime),
-                                                     new SqlParameter("CreatorUserId", entity.CreatorUserId),
-                                                     new SqlParameter("Class_Id", entity.Class.Id),
+                                                     new SqlParameter("ClassId", entity.ClassId),
+                                                     new SqlParameter("Group", entity.Group),
                                                      new SqlParameter("Id", entity.Id));
-            }
+            //}
             return entity;
         }
 
@@ -126,7 +114,33 @@ namespace ShiNengShiHui.EntityFramework.Repositories
             entity.IsDeleted = true;
             entity.DeleterUserId = AbpSession.UserId;
             entity.DeletionTime = Clock.Now;
-            Update(entity);
+            Context.Database.ExecuteSqlCommand($@"UPDATE [dbo].[{TableName}]
+                                                       SET [Name] = @Name
+                                                          ,[Sex] = @Sex
+                                                          ,[IsDeleted] = @IsDeleted
+                                                          ,[DeleterUserId] = @DeleterUserId
+                                                          ,[DeletionTime] = @DeletionTime
+                                                          ,[ClassId] = @ClassId
+                                                          ,[Group] = @Group
+                                                     WHERE Id=@Id ",
+                                                     new SqlParameter("Name", entity.Name),
+                                                     new SqlParameter("Sex", entity.Sex),
+                                                     new SqlParameter("IsDeleted", entity.IsDeleted),
+                                                     new SqlParameter("DeleterUserId", entity.DeleterUserId),
+                                                     new SqlParameter("DeletionTime", entity.DeletionTime),
+                                                     new SqlParameter("ClassId", entity.ClassId),
+                                                     new SqlParameter("Group", entity.Group),
+                                                     new SqlParameter("Id", entity.Id));
+        }
+
+        public IQueryable<Student> GetAll(string tableName)
+        {
+            var list = new List<Student>();
+
+            var students = Context.Database.SqlQuery<Student>($@"Select * From {tableName} Where IsDeleted=0");
+            list.AddRange(students);
+
+            return list.AsQueryable<Student>();
         }
     }
 }

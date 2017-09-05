@@ -37,6 +37,7 @@ namespace ShiNengShiHui.Migrations.SeedData.EntitiesData
                 defaultClass = new Class()
                 {
                     Name = DefaultEntitiesDataCreator.DefalutClassName,
+                    Display=DefaultEntitiesDataCreator.DefalutClassName,
                     InTime = Clock.Now
                 };
                 _context.Class.Add(defaultClass);
@@ -82,6 +83,18 @@ namespace ShiNengShiHui.Migrations.SeedData.EntitiesData
                     Name = PrizeItem.ZhouMoFanSheng
                 };
                 _context.PrizeItem.Add(zhouMoFanSheng);
+                _context.SaveChanges();
+            }
+
+            var youXiuTuanDui = _context.PrizeItem.FirstOrDefault(c => c.Name.Equals(PrizeItem.YouXiuTuanDui));
+            if (youXiuTuanDui==null)
+            {
+                youXiuTuanDui = new PrizeItem()
+                {
+                    Id = Guid.NewGuid(),
+                    Name = PrizeItem.YouXiuTuanDui
+                };
+                _context.PrizeItem.Add(youXiuTuanDui);
                 _context.SaveChanges();
             }
 

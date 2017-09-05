@@ -62,6 +62,9 @@
       <HintPath>..\packages\Castle.Windsor.3.4.0\lib\net45\Castle.Windsor.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
     <Reference Include="JetBrains.Annotations, Version=10.4.0.0, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
       <HintPath>..\packages\JetBrains.Annotations.10.4.0\lib\net\JetBrains.Annotations.dll</HintPath>
       <Private>True</Private>
@@ -97,6 +100,18 @@
       <HintPath>..\packages\Nito.AsyncEx.4.0.1\lib\net45\Nito.AsyncEx.Enlightenment.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="NPOI, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.3.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Collections.Immutable, Version=1.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Collections.Immutable.1.3.1\lib\portable-net45+win8+wp8+wpa81\System.Collections.Immutable.dll</HintPath>
@@ -118,44 +133,100 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppServices\Teacher\Dto\CreateGradeInput.cs" />
-    <Compile Include="AppServices\Teacher\Dto\CreateGradeOutput.cs" />
-    <Compile Include="AppServices\Teacher\Dto\CreateGradeRangeInput.cs" />
-    <Compile Include="AppServices\Teacher\Dto\CreateGradeRangeOutput.cs" />
-    <Compile Include="AppServices\Teacher\Dto\CreateStudentInput.cs" />
-    <Compile Include="AppServices\Teacher\Dto\CreateStudentOutput.cs" />
-    <Compile Include="AppServices\Teacher\Dto\CreateStudentRangeInput.cs" />
-    <Compile Include="AppServices\Teacher\Dto\CreateStudentRangeOutput.cs" />
-    <Compile Include="AppServices\Teacher\Dto\DeleteGradeInput.cs" />
-    <Compile Include="AppServices\Teacher\Dto\DeleteGradeOutput.cs" />
-    <Compile Include="AppServices\Teacher\Dto\DeleteGradeRangeInput.cs" />
-    <Compile Include="AppServices\Teacher\Dto\DeleteGradeRangeOutput.cs" />
-    <Compile Include="AppServices\Teacher\Dto\DeleteStudentInput.cs" />
-    <Compile Include="AppServices\Teacher\Dto\DeleteStudentOutput.cs" />
-    <Compile Include="AppServices\Teacher\Dto\DeleteStudentRangeInput.cs" />
-    <Compile Include="AppServices\Teacher\Dto\DeleteStudentRangeOutput.cs" />
-    <Compile Include="AppServices\Teacher\Dto\ShowGradeInput.cs" />
-    <Compile Include="AppServices\Teacher\Dto\ShowGradeOutput.cs" />
-    <Compile Include="AppServices\Teacher\Dto\ShowPageGradeInput.cs" />
-    <Compile Include="AppServices\Teacher\Dto\ShowPageGradeOutput.cs" />
-    <Compile Include="AppServices\Teacher\Dto\ShowPagePrizeInput.cs" />
-    <Compile Include="AppServices\Teacher\Dto\ShowPagePrizeOutput.cs" />
-    <Compile Include="AppServices\Teacher\Dto\ShowPageStudentInput.cs" />
-    <Compile Include="AppServices\Teacher\Dto\ShowPageStudentOutput.cs" />
-    <Compile Include="AppServices\Teacher\Dto\ShowPrizeInput.cs" />
-    <Compile Include="AppServices\Teacher\Dto\ShowPrizeOutput.cs" />
-    <Compile Include="AppServices\Teacher\Dto\ShowStudentInput.cs" />
-    <Compile Include="AppServices\Teacher\Dto\ShowStudentOutput.cs" />
-    <Compile Include="AppServices\Teacher\Dto\UpdateGradeInput.cs" />
-    <Compile Include="AppServices\Teacher\Dto\UpdateGradeOutput.cs" />
-    <Compile Include="AppServices\Teacher\Dto\UpdateGradeRangeInput.cs" />
-    <Compile Include="AppServices\Teacher\Dto\UpdateGradeRangeOutput.cs" />
-    <Compile Include="AppServices\Teacher\Dto\UpdateStudentInput.cs" />
-    <Compile Include="AppServices\Teacher\Dto\UpdateStudentOutput.cs" />
-    <Compile Include="AppServices\Teacher\Dto\UpdateStudentRangeInput.cs" />
-    <Compile Include="AppServices\Teacher\Dto\UpdateStudentRangeOutput.cs" />
+    <Compile Include="AppServices\Administrator\AdministratorAppService.cs" />
+    <Compile Include="AppServices\Administrator\Dto\Class\ClassCreateInput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\Class\ClassCreateRangeInput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\Class\ClassDeleteInput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\Class\ClassShowInput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\Class\ClassShowOutput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\Class\ClassShowPageInput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\Class\ClassShowPageOutput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\Class\ClassUpdateInput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\User\UserPasswordUpdateInput.cs" />
+    <Compile Include="AppServices\Administrator\IAdministratorAppService.cs" />
+    <Compile Include="AppServices\Administrator\Dto\Teacher\TeacherCreateInput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\Teacher\TeacherCreateRangeInput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\Teacher\TeacherDeleteInput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\Teacher\TeacherShowInput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\Teacher\TeacherShowOutput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\Teacher\TeacherShowPageInput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\Teacher\TeacherShowPageOutput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\Teacher\TeacherUpdateInput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\User\UserCreateInput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\User\UserDeleteInput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\User\UserShowInput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\User\UserShowOutput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\User\UserShowPageInput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\User\UserShowPageOutput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\User\UserUpdateInput.cs" />
+    <Compile Include="AppServices\Administrator\Dto\User\UserCreateRangeInput.cs" />
+    <Compile Include="AppServices\Excel\Dto\GradeExcelOutput.cs" />
+    <Compile Include="AppServices\Excel\Dto\GradeInsertOfExcelInput.cs" />
+    <Compile Include="AppServices\Excel\Dto\GradeInsertOfExcelOutput.cs" />
+    <Compile Include="AppServices\Excel\Dto\StudentExcelDownOutput.cs" />
+    <Compile Include="AppServices\Excel\Dto\StudentInsertOfExcelInput.cs" />
+    <Compile Include="AppServices\Excel\Dto\StudentInsertOfExcelOutput.cs" />
+    <Compile Include="AppServices\Excel\ExcelAppService.cs" />
+    <Compile Include="AppServices\Function\Dto\FunctionDto.cs" />
+    <Compile Include="AppServices\Function\Dto\FunctionGetOfRoleOutput.cs" />
+    <Compile Include="AppServices\Function\FunctionAppService.cs" />
+    <Compile Include="AppServices\Function\IFunctionAppService.cs" />
+    <Compile Include="AppServices\Excel\IExcelAppService.cs" />
+    <Compile Include="AppServices\Headmaster\Dto\ClassShowInput.cs" />
+    <Compile Include="AppServices\Headmaster\Dto\ClassShowOutput.cs" />
+    <Compile Include="AppServices\Headmaster\Dto\ClassShowPageInput.cs" />
+    <Compile Include="AppServices\Headmaster\Dto\ClassShowPageOutput.cs" />
+    <Compile Include="AppServices\Headmaster\Dto\GradeShowInput.cs" />
+    <Compile Include="AppServices\Headmaster\Dto\GradeShowOutput.cs" />
+    <Compile Include="AppServices\Headmaster\Dto\GradeShowPageInput.cs" />
+    <Compile Include="AppServices\Headmaster\Dto\GradeShowPageOutput.cs" />
+    <Compile Include="AppServices\Headmaster\IHeadmasterAppService.cs" />
+    <Compile Include="AppServices\Headmaster\Dto\PrizeShowInput.cs" />
+    <Compile Include="AppServices\Headmaster\Dto\PrizeShowOutput.cs" />
+    <Compile Include="AppServices\Headmaster\Dto\PrizeShowPageInput.cs" />
+    <Compile Include="AppServices\Headmaster\Dto\PrizeShowPageOutput.cs" />
+    <Compile Include="AppServices\Headmaster\Dto\StudentShowInput.cs" />
+    <Compile Include="AppServices\Headmaster\Dto\StudentShowOutput.cs" />
+    <Compile Include="AppServices\Headmaster\Dto\StudentShowPageInput.cs" />
+    <Compile Include="AppServices\Headmaster\Dto\StudentShowPageOutput.cs" />
+    <Compile Include="AppServices\Headmaster\Dto\TeacherShowInput.cs" />
+    <Compile Include="AppServices\Headmaster\Dto\TeacherShowOutput.cs" />
+    <Compile Include="AppServices\Headmaster\Dto\TeacherShowPageInput.cs" />
+    <Compile Include="AppServices\Headmaster\Dto\TeacherShowPageOutput.cs" />
+    <Compile Include="AppServices\Return\ReturnVal.cs" />
+    <Compile Include="AppServices\Teacher\Dto\Grade\CreateGradeInput.cs" />
+    <Compile Include="AppServices\Teacher\Dto\Grade\CreateGradeRangeInput.cs" />
+    <Compile Include="AppServices\Teacher\Dto\Prize\PrizeComputInput.cs" />
+    <Compile Include="AppServices\Teacher\Dto\Prize\PrizeTianMoFanShengComputInput.cs" />
+    <Compile Include="AppServices\Teacher\Dto\Prize\PrizeXiaoMoFanShengComputInput.cs" />
+    <Compile Include="AppServices\Teacher\Dto\Prize\PrizeYueMoFanShengComputInput.cs" />
+    <Compile Include="AppServices\Teacher\Dto\Prize\PrizeZhouMoFanShengComputInput.cs" />
+    <Compile Include="AppServices\Teacher\Dto\Student\CreateStudentInput.cs" />
+    <Compile Include="AppServices\Teacher\Dto\Student\CreateStudentRangeInput.cs" />
+    <Compile Include="AppServices\Teacher\Dto\Grade\DeleteGradeInput.cs" />
+    <Compile Include="AppServices\Teacher\Dto\Grade\DeleteGradeRangeInput.cs" />
+    <Compile Include="AppServices\Teacher\Dto\Student\DeleteStudentInput.cs" />
+    <Compile Include="AppServices\Teacher\Dto\Student\DeleteStudentRangeInput.cs" />
+    <Compile Include="AppServices\Teacher\Dto\ScreenEnum.cs" />
+    <Compile Include="AppServices\Teacher\Dto\Grade\ShowGradeInput.cs" />
+    <Compile Include="AppServices\Teacher\Dto\Grade\ShowGradeOutput.cs" />
+    <Compile Include="AppServices\Teacher\Dto\Grade\ShowPageGradeInput.cs" />
+    <Compile Include="AppServices\Teacher\Dto\Grade\ShowPageGradeOutput.cs" />
+    <Compile Include="AppServices\Teacher\Dto\Prize\ShowPagePrizeInput.cs" />
+    <Compile Include="AppServices\Teacher\Dto\Prize\ShowPagePrizeOutput.cs" />
+    <Compile Include="AppServices\Teacher\Dto\Student\ShowPageStudentInput.cs" />
+    <Compile Include="AppServices\Teacher\Dto\Student\ShowPageStudentOutput.cs" />
+    <Compile Include="AppServices\Teacher\Dto\Prize\ShowPrizeInput.cs" />
+    <Compile Include="AppServices\Teacher\Dto\Prize\ShowPrizeOutput.cs" />
+    <Compile Include="AppServices\Teacher\Dto\Student\ShowStudentInput.cs" />
+    <Compile Include="AppServices\Teacher\Dto\Student\ShowStudentOutput.cs" />
+    <Compile Include="AppServices\Teacher\Dto\Grade\UpdateGradeInput.cs" />
+    <Compile Include="AppServices\Teacher\Dto\Grade\UpdateGradeRangeInput.cs" />
+    <Compile Include="AppServices\Teacher\Dto\Student\UpdateStudentInput.cs" />
+    <Compile Include="AppServices\Teacher\Dto\Student\UpdateStudentRangeInput.cs" />
     <Compile Include="AppServices\Teacher\ITeacherAppService.cs" />
     <Compile Include="AppServices\Teacher\TeacherAppService.cs" />
+    <Compile Include="Dto\PageBaseDto.cs" />
     <Compile Include="ShiNengShiHuiApplicationModule.cs" />
     <Compile Include="ShiNengShiHuiAppServiceBase.cs" />
     <Compile Include="MultiTenancy\Dto\CreateTenantInput.cs" />
@@ -189,10 +260,7 @@
       <Name>ShiNengShiHui.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="AppServices\Adminstrator\" />
-    <Folder Include="AppServices\Headmaster\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

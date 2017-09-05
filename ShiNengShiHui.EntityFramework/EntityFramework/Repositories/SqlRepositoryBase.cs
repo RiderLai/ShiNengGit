@@ -9,6 +9,7 @@ using Abp.EntityFramework;
 using Abp.Domain.Repositories;
 using Abp.Domain.Entities;
 using Abp.Runtime.Session;
+using ShiNengShiHui.RepositoryExtend;
 
 namespace ShiNengShiHui.EntityFramework.Repositories
 {
@@ -139,6 +140,24 @@ namespace ShiNengShiHui.EntityFramework.Repositories
             {
                 Insert(entity);
             }
+        }
+
+        public override TEntity[] GetPage(int pageIndex, int showCount)
+        {
+            TEntity[] entiries = GetAllList().ToArray<TEntity>();
+            List<TEntity> list = new List<TEntity>();
+
+            int start = (pageIndex - 1) * showCount;
+            int end = start + showCount;
+            if (end > entiries.Length)
+            {
+                end = entiries.Length;
+            }
+            for (int i = start; i < end; i++)
+            {
+                list.Add(entiries[i]);
+            }
+            return list.ToArray<TEntity>();
         }
         #endregion
     }

@@ -132,10 +132,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntityFramework\Repositories\ClassRepository.cs" />
+    <Compile Include="EntityFramework\Repositories\FunctionRepository.cs" />
     <Compile Include="EntityFramework\Repositories\GradeRepository.cs" />
     <Compile Include="EntityFramework\Repositories\PrizeRepository.cs" />
     <Compile Include="EntityFramework\Repositories\SqlRepositoryBase.cs" />
     <Compile Include="EntityFramework\Repositories\StudentRepository.cs" />
+    <Compile Include="EntityFramework\Repositories\TeacherRepository.cs" />
+    <Compile Include="EntityFramework\Repositories\UserRepository.cs" />
     <Compile Include="EntityFramework\ShiNengShiHuiDbContext.cs" />
     <Compile Include="EntityFramework\Repositories\ShiNengShiHuiRepositoryBase.cs" />
     <Compile Include="Migrations\201701271145151_AbpZero_Initial.cs" />
@@ -146,10 +150,34 @@
     <Compile Include="Migrations\201708140905019_EntitiesInitial1.Designer.cs">
       <DependentUpon>201708140905019_EntitiesInitial1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708181101533_EntitiesInitial2.cs" />
+    <Compile Include="Migrations\201708181101533_EntitiesInitial2.Designer.cs">
+      <DependentUpon>201708181101533_EntitiesInitial2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708181149040_EntitiesInitial3.cs" />
+    <Compile Include="Migrations\201708181149040_EntitiesInitial3.Designer.cs">
+      <DependentUpon>201708181149040_EntitiesInitial3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708200754302_EntitiesInitial4.cs" />
+    <Compile Include="Migrations\201708200754302_EntitiesInitial4.Designer.cs">
+      <DependentUpon>201708200754302_EntitiesInitial4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708240840457_EntitiesInitial5.cs" />
+    <Compile Include="Migrations\201708240840457_EntitiesInitial5.Designer.cs">
+      <DependentUpon>201708240840457_EntitiesInitial5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708260704016_EntitiesInitial6.cs" />
+    <Compile Include="Migrations\201708260704016_EntitiesInitial6.Designer.cs">
+      <DependentUpon>201708260704016_EntitiesInitial6.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\SeedData\EntitiesData\AdministratorFunctionCreator.cs" />
     <Compile Include="Migrations\SeedData\EntitiesData\DefaultEntitiesDataCreator.cs" />
+    <Compile Include="Migrations\SeedData\EntitiesData\HeadmasterFunctionCreator.cs" />
     <Compile Include="Migrations\SeedData\EntitiesData\RoleCreator.cs" />
+    <Compile Include="Migrations\SeedData\EntitiesData\TeacherFunctionCreator.cs" />
+    <Compile Include="Migrations\SeedData\EntitiesData\TeacherUserCreator.cs" />
     <Compile Include="ShiNengShiHuiDataModule.cs" />
     <Compile Include="Migrations\SeedData\DefaultEditionsCreator.cs" />
     <Compile Include="Migrations\SeedData\DefaultLanguagesCreator.cs" />
@@ -176,6 +204,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708140905019_EntitiesInitial1.resx">
       <DependentUpon>201708140905019_EntitiesInitial1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708181101533_EntitiesInitial2.resx">
+      <DependentUpon>201708181101533_EntitiesInitial2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708181149040_EntitiesInitial3.resx">
+      <DependentUpon>201708181149040_EntitiesInitial3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708200754302_EntitiesInitial4.resx">
+      <DependentUpon>201708200754302_EntitiesInitial4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708240840457_EntitiesInitial5.resx">
+      <DependentUpon>201708240840457_EntitiesInitial5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708260704016_EntitiesInitial6.resx">
+      <DependentUpon>201708260704016_EntitiesInitial6.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

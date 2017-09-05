@@ -5,7 +5,7 @@
             var vm = this;
 
             vm.users = [];
-
+            
             function getUsers() {
                 userService.getUsers({}).then(function (result) {
                     vm.users = result.data.items;

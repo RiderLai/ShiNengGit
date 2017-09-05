@@ -37,6 +37,11 @@ namespace ShiNengShiHui.Migrations
 
             new DefaultEntitiesDataCreator(context).Create();
             new RoleCreator(context, 1).Create();
+            new TeacherUserCreator(context, 1).Create();
+            new TeacherFunctionCreator(context).Create();
+            new AdministratorFunctionCreator(context).Create();
+            new HeadmasterFunctionCreator(context).Create();
+
 
             context.SaveChanges();
         }

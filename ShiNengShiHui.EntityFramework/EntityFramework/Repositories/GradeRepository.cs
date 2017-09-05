@@ -23,54 +23,45 @@ namespace ShiNengShiHui.EntityFramework.Repositories
         public override IQueryable<Grade> GetAll()
         {
             List<Grade> list = new List<Grade>();
-            using (var connection = Context.Database.Connection)
-            {
-                connection.Open();
+            //using (var connection = Context.Database.Connection)
+            //{
+            //    connection.Open();
                 var grades = Context.Database.SqlQuery<Grade>($@"Select * From {TableName} Where IsDeleted=0");
                 list.AddRange(grades);
-            }
+            //}
             return list.AsQueryable<Grade>();
         }
 
         public override Grade Insert(Grade entity)
         {
-            using (var connection = Context.Database.Connection)
-            {
-                connection.Open();
+            entity.CreationTime = Clock.Now;
+            entity.CreatorUserId = AbpSession.UserId;
+            //using (var connection = Context.Database.Connection)
+            //{
+            //    connection.Open();
                 Context.Database.ExecuteSqlCommand($@"INSERT INTO [dbo].[{TableName}]
                                                             ([DateJson]
                                                             ,[GradeStringJson]
                                                             ,[IsDeleted]
-                                                            ,[DeleterUserId]
-                                                            ,[DeletionTime]
-                                                            ,[LastModificationTime]
-                                                            ,[LastModifierUserId]
                                                             ,[CreationTime]
                                                             ,[CreatorUserId]
-                                                            ,[Student_Id])
+                                                            ,[StudentId])
                                                       VALUES
-                                                            (<DateJson, nvarchar(max),@DateJson>
-                                                            ,<GradeStringJson, nvarchar(max),@GradeStringJson>
-                                                            ,<IsDeleted, bit,@IsDeleted>
-                                                            ,<DeleterUserId, bigint,@DeleterUserId>
-                                                            ,<DeletionTime, datetime,@DeletionTime>
-                                                            ,<LastModificationTime, datetime,@LastModificationTime>
-                                                            ,<LastModifierUserId, bigint,@LastModifierUserId>
-                                                            ,<CreationTime, datetime,@CreationTime>
-                                                            ,<CreatorUserId, bigint,@CreatorUserId>
-                                                            ,<Student_Id, int,@Student_Id>)",
+                                                            (@DateJson
+                                                            ,@GradeStringJson
+                                                            ,@IsDeleted
+                                                            ,@CreationTime
+                                                            ,@CreatorUserId
+                                                            ,@StudentId)",
                                                             new SqlParameter("DateJson", entity.DateJson),
                                                             new SqlParameter("GradeStringJson", entity.GradeStringJson),
-                                                            new SqlParameter("IsDeleted", entity.IsDeleted),
-                                                            new SqlParameter("DeleterUserId", entity.DeleterUserId),
-                                                            new SqlParameter("DeletionTime", entity.DeletionTime),
-                                                            new SqlParameter("LastModificationTime", entity.LastModificationTime),
-                                                            new SqlParameter("LastModifierUserId", entity.LastModifierUserId),
+                                                            new SqlParameter("IsDeleted", false),
                                                             new SqlParameter("CreationTime", entity.CreationTime),
                                                             new SqlParameter("CreatorUserId", entity.CreatorUserId),
-                                                            new SqlParameter("Student_Id", entity.Student.Id));
-            }
-            return FirstOrDefault(g => g.Student.Id == entity.Student.Id && g.CreationTime == entity.CreationTime);
+                                                            new SqlParameter("StudentId", entity.StudentId));
+            //}
+            //Context.SaveChanges();
+            return FirstOrDefault(g => g.StudentId == entity.StudentId && g.CreationTime == entity.CreationTime);
         }
 
         public override Task<Grade> InsertAsync(Grade entity)
@@ -82,33 +73,23 @@ namespace ShiNengShiHui.EntityFramework.Repositories
         {
             entity.LastModifierUserId = AbpSession.UserId;
             entity.LastModificationTime = Clock.Now;
-            using (var connection = Context.Database.Connection)
-            {
-                connection.Open();
+            //using (var connection = Context.Database.Connection)
+            //{
+            //    connection.Open();
                 Context.Database.ExecuteSqlCommand($@"UPDATE [dbo].[{TableName}]
-                                                        SET [DateJson] = <DateJson, nvarchar(max),@DateJson>
-                                                           ,[GradeStringJson] = <GradeStringJson, nvarchar(max),@GradeStringJson>
-                                                           ,[IsDeleted] = <IsDeleted, bit,@IsDeleted>
-                                                           ,[DeleterUserId] = <DeleterUserId, bigint,@DeleterUserId>
-                                                           ,[DeletionTime] = <DeletionTime, datetime,@DeletionTime>
-                                                           ,[LastModificationTime] = <LastModificationTime, datetime,@LastModificationTime>
-                                                           ,[LastModifierUserId] = <LastModifierUserId, bigint,@LastModifierUserId>
-                                                           ,[CreationTime] = <CreationTime, datetime,@CreationTime>
-                                                           ,[CreatorUserId] = <CreatorUserId, bigint,@CreatorUserId>
-                                                           ,[Student_Id] = <Student_Id, int,@Student_Id>
+                                                        SET [DateJson] = @DateJson
+                                                           ,[GradeStringJson] = @GradeStringJson
+                                                           ,[LastModificationTime] = @LastModificationTime
+                                                           ,[LastModifierUserId] = @LastModifierUserId
+                                                           ,[StudentId] = @StudentId
                                                       WHERE Id=@Id",
                                                       new SqlParameter("DateJson", entity.DateJson),
                                                       new SqlParameter("GradeStringJson", entity.GradeStringJson),
-                                                      new SqlParameter("IsDeleted", entity.IsDeleted),
-                                                      new SqlParameter("DeleterUserId", entity.DeleterUserId),
-                                                      new SqlParameter("DeletionTime", entity.DeletionTime),
                                                       new SqlParameter("LastModificationTime", entity.LastModificationTime),
                                                       new SqlParameter("LastModifierUserId", entity.LastModifierUserId),
-                                                      new SqlParameter("CreationTime", entity.CreationTime),
-                                                      new SqlParameter("CreatorUserId", entity.CreatorUserId),
-                                                      new SqlParameter("Student_Id", entity.Student.Id),
+                                                      new SqlParameter("StudentId", entity.StudentId),
                                                       new SqlParameter("Id", entity.Id));
-            }
+            //}
             return entity;
         }
 
@@ -122,7 +103,31 @@ namespace ShiNengShiHui.EntityFramework.Repositories
             entity.IsDeleted = true;
             entity.DeleterUserId = AbpSession.UserId;
             entity.DeletionTime = Clock.Now;
-            Update(entity);
+            Context.Database.ExecuteSqlCommand($@"UPDATE [dbo].[{TableName}]
+                                                        SET [DateJson] = @DateJson
+                                                           ,[GradeStringJson] = @GradeStringJson
+                                                           ,[IsDeleted] = @IsDeleted
+                                                           ,[DeleterUserId] = @DeleterUserId
+                                                           ,[DeletionTime] = @DeletionTime
+                                                           ,[StudentId] = @StudentId
+                                                      WHERE Id=@Id",
+                                                      new SqlParameter("DateJson", entity.DateJson),
+                                                      new SqlParameter("GradeStringJson", entity.GradeStringJson),
+                                                      new SqlParameter("IsDeleted", entity.IsDeleted),
+                                                      new SqlParameter("DeleterUserId", entity.DeleterUserId),
+                                                      new SqlParameter("DeletionTime", entity.DeletionTime),
+                                                      new SqlParameter("StudentId", entity.StudentId),
+                                                      new SqlParameter("Id", entity.Id));
+        }
+
+        public IQueryable<Grade> GetAll(string tableName)
+        {
+            List<Grade> list = new List<Grade>();
+            
+            var grades = Context.Database.SqlQuery<Grade>($@"Select * From {tableName} Where IsDeleted=0");
+            list.AddRange(grades);
+            
+            return list.AsQueryable<Grade>();
         }
     }
 }

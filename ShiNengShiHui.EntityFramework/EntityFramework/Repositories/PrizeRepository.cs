@@ -21,54 +21,30 @@ namespace ShiNengShiHui.EntityFramework.Repositories
         public override IQueryable<Prize> GetAll()
         {
             List<Prize> list = new List<Prize>();
-            using (var connection=Context.Database.Connection)
-            {
-                connection.Open();
+            //using (var connection=Context.Database.Connection)
+            //{
+            //    connection.Open();
                 var prizes = Context.Database.SqlQuery<Prize>($@"Select * From {TableName} Where IsDeleted=0");
                 list.AddRange(prizes);
-            }
+            //}
             return list.AsQueryable<Prize>();
         }
 
         public override Prize Insert(Prize entity)
         {
-            using (var connection = Context.Database.Connection)
-            {
-                connection.Open();
-                Context.Database.ExecuteSqlCommand($@"INSERT INTO [dbo].[{TableName}]
-                                                            ([DateJosn]
-                                                            ,[IsDeleted]
-                                                            ,[DeleterUserId]
-                                                            ,[DeletionTime]
-                                                            ,[LastModificationTime]
-                                                            ,[LastModifierUserId]
-                                                            ,[CreationTime]
-                                                            ,[CreatorUserId]
-                                                            ,[PrizeItem_Id]
-                                                            ,[Student_Id])
-                                                      VALUES
-                                                            (<DateJosn, nvarchar(max),@DateJosn>
-                                                            ,<IsDeleted, bit,@IsDeleted>
-                                                            ,<DeleterUserId, bigint,@DeleterUserId>
-                                                            ,<DeletionTime, datetime,@DeletionTime>
-                                                            ,<LastModificationTime, datetime,@LastModificationTime>
-                                                            ,<LastModifierUserId, bigint,@LastModifierUserId>
-                                                            ,<CreationTime, datetime,@CreationTime>
-                                                            ,<CreatorUserId, bigint,@CreatorUserId>
-                                                            ,<PrizeItem_Id, uniqueidentifier,@PrizeItem_Id>
-                                                            ,<Student_Id, int,@Student_Id>)",
-                                                            new SqlParameter("DateJosn", entity.DateJosn),
-                                                            new SqlParameter("IsDeleted", entity.IsDeleted),
-                                                            new SqlParameter("DeleterUserId", entity.DeleterUserId),
-                                                            new SqlParameter("DeletionTime", entity.DeletionTime),
-                                                            new SqlParameter("LastModificationTime", entity.LastModificationTime),
-                                                            new SqlParameter("LastModifierUserId", entity.LastModifierUserId),
-                                                            new SqlParameter("CreationTime", entity.CreationTime),
-                                                            new SqlParameter("CreatorUserId", entity.CreatorUserId),
-                                                            new SqlParameter("PrizeItem_Id", entity.PrizeItem.Id),
-                                                            new SqlParameter("Student_Id", entity.Student.Id));
-            }
-            return FirstOrDefault(p => p.Student.Id == entity.Student.Id && p.PrizeItem.Id == entity.PrizeItem.Id && p.CreationTime == entity.CreationTime);
+            Context.Database.ExecuteSqlCommand($@"INSERT INTO [dbo].[{TableName}]
+                                                        ([DateJosn]
+                                                        ,[PrizeItemId]
+                                                        ,[StudentId])
+                                                  VALUES
+                                                        @DateJosn
+                                                        ,@PrizeItemId
+                                                        ,@StudentId)",
+                                                        new SqlParameter("DateJosn", entity.DateJosn),
+                                                        new SqlParameter("PrizeItemId", entity.PrizeItemId),
+                                                        new SqlParameter("StudentId", entity.StudentId));
+
+            return FirstOrDefault(p => p.StudentId == entity.StudentId && p.PrizeItemId == entity.PrizeItemId && p.DateJosn == entity.DateJosn);
         }
 
         public override Task<Prize> InsertAsync(Prize entity)
@@ -78,35 +54,21 @@ namespace ShiNengShiHui.EntityFramework.Repositories
 
         public override Prize Update(Prize entity)
         {
-            entity.LastModifierUserId = AbpSession.UserId;
-            entity.LastModificationTime = Clock.Now;
-            using (var connection=Context.Database.Connection)
-            {
-                connection.Open();
-                Context.Database.ExecuteSqlCommand($@"UPDATE [dbo].[{TableName}]
-                                                        SET [DateJosn] = <DateJosn, nvarchar(max),@DateJosn>
-                                                           ,[IsDeleted] = <IsDeleted, bit,@IsDeleted>
-                                                           ,[DeleterUserId] = <DeleterUserId, bigint,@DeleterUserId>
-                                                           ,[DeletionTime] = <DeletionTime, datetime,@DeletionTime>
-                                                           ,[LastModificationTime] = <LastModificationTime, datetime,@LastModificationTime>
-                                                           ,[LastModifierUserId] = <LastModifierUserId, bigint,@LastModifierUserId>
-                                                           ,[CreationTime] = <CreationTime, datetime,@CreationTime>
-                                                           ,[CreatorUserId] = <CreatorUserId, bigint,@CreatorUserId>
-                                                           ,[PrizeItem_Id] = <PrizeItem_Id, uniqueidentifier,@PrizeItem_Id>
-                                                           ,[Student_Id] = <Student_Id, int,@Student_Id>
-                                                      WHERE Id=@Id",
-                                                      new SqlParameter("DateJosn", entity.DateJosn),
-                                                      new SqlParameter("IsDeleted", entity.IsDeleted),
-                                                      new SqlParameter("DeleterUserId", entity.DeleterUserId),
-                                                      new SqlParameter("DeletionTime", entity.DeletionTime),
-                                                      new SqlParameter("LastModificationTime", entity.LastModificationTime),
-                                                      new SqlParameter("LastModifierUserId", entity.LastModifierUserId),
-                                                      new SqlParameter("CreationTime", entity.CreationTime),
-                                                      new SqlParameter("CreatorUserId", entity.CreatorUserId),
-                                                      new SqlParameter("PrizeItem_Id", entity.PrizeItem.Id),
-                                                      new SqlParameter("Student_Id", entity.Student.Id),
-                                                      new SqlParameter("Id", entity.Id));
-            }
+            //entity.LastModifierUserId = AbpSession.UserId;
+            //entity.LastModificationTime = Clock.Now;
+            ////using (var connection=Context.Database.Connection)
+            ////{
+            ////    connection.Open();
+            Context.Database.ExecuteSqlCommand($@"UPDATE [dbo].[{TableName}]
+                                                    SET [DateJosn] = @DateJosn
+                                                       ,[PrizeItemId] = @PrizeItemId
+                                                       ,[StudentId] = @StudentId
+                                                  WHERE Id=@Id",
+                                                  new SqlParameter("DateJosn", entity.DateJosn),
+                                                  new SqlParameter("PrizeItemId", entity.PrizeItemId),
+                                                  new SqlParameter("StudentId", entity.StudentId),
+                                                  new SqlParameter("Id", entity.Id));
+            //}
             return entity;
         }
 
@@ -117,10 +79,19 @@ namespace ShiNengShiHui.EntityFramework.Repositories
 
         public override void Delete(Prize entity)
         {
-            entity.IsDeleted = true;
-            entity.DeleterUserId = AbpSession.UserId;
-            entity.DeletionTime = Clock.Now;
-            Update(entity);
+            Context.Database.ExecuteSqlCommand($@"DELETE FROM [dbo].[testPrizes]
+                                                  WHERE Id=@Id",
+                                                  new SqlParameter("Id", entity.Id));
+        }
+
+        public IQueryable<Prize> GetAll(string tableName)
+        {
+            List<Prize> list = new List<Prize>();
+
+            var prizes = Context.Database.SqlQuery<Prize>($@"Select * From {TableName} Where IsDeleted=0");
+            list.AddRange(prizes);
+
+            return list.AsQueryable<Prize>();
         }
     }
 }

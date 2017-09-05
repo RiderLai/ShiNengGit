@@ -1,0 +1,10 @@
+﻿@using ShiNengShiHui.AppServices.FunctionDTO;
+@model ShiNengShiHui.AppServices.FunctionDTO.FunctionGetOfRoleOutput
+
+@if (Model != null)
+{
+    foreach (FunctionDto item in Model.Functions)
+    {
+        <li><a href="@Url.Action(item.Action,item.Controller)" class=""><i class="@item.ICon"></i> <span>@item.Name</span></a></li>
+    }
+}

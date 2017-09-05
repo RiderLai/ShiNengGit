@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "UserCreate";
+    Layout = "~/Views/Shared/_Layout.Edit.cshtml";
+}
+
+@model ShiNengShiHui.Web.Models.Administrator.User.UserCreateModel
+
+
+@Html.AntiForgeryToken()
+<div class="form-horizontal">
+
+    <div class="form-group">
+        <label class="col-xs-4 control-label text-right">用户名：</label>
+        <div class="col-xs-6">
+            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+            <span class="help-inline">@Html.ValidationMessageFor(m => m.UserName)</span>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label class="col-xs-4 control-label text-right">姓名：</label>
+        <div class="col-xs-6">
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+            <span class="help-inline">@Html.ValidationMessageFor(m => m.Name)</span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-xs-4 control-label text-right">密码：</label>
+        <div class="col-xs-6">
+            @Html.TextBoxFor(m => m.Password, new { @class = "form-control" })
+            <span class="help-inline">@Html.ValidationMessageFor(m => m.Password)</span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-xs-4 control-label text-right">E-mail：</label>
+        <div class="col-xs-6">
+            @Html.TextBoxFor(m => m.EmailAddress, new { @class = "form-control" })
+            <span class="help-inline">@Html.ValidationMessageFor(m => m.EmailAddress)</span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-xs-4 control-label text-right">教师：</label>
+        <div class="col-xs-6">
+            @Html.DropDownListFor(m => m.TeacherId, ViewBag.TeacherList as List<SelectListItem>, new { @class = "form-control" })
+            <span class="help-inline">@Html.ValidationMessageFor(m => m.TeacherId)</span>
+        </div>
+    </div>
+
+
+</div>
