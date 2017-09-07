@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace ShiNengShiHui.Entities.Prizes
 {
-    public interface IPrizeRepository:IRepository<Prize,long>,IPageRepository<Prize,long>
+    public interface IPrizeRepository:IRepository<Prize,long>,IPageRepository<Prize,long>,IPageFromTableRepository<Prize,long>
     {
-        IQueryable<Prize> GetAll(string tableName);
+
     }
 }

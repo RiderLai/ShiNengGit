@@ -24,7 +24,7 @@ namespace ShiNengShiHui.EntityFramework.Repositories
             //using (var connection=Context.Database.Connection)
             //{
             //    connection.Open();
-                var prizes = Context.Database.SqlQuery<Prize>($@"Select * From {TableName} Where IsDeleted=0");
+                var prizes = Context.Database.SqlQuery<Prize>($@"Select * From {TableName}");
                 list.AddRange(prizes);
             //}
             return list.AsQueryable<Prize>();
@@ -84,11 +84,11 @@ namespace ShiNengShiHui.EntityFramework.Repositories
                                                   new SqlParameter("Id", entity.Id));
         }
 
-        public IQueryable<Prize> GetAll(string tableName)
+        public override IQueryable<Prize> GetAll(string tableName)
         {
             List<Prize> list = new List<Prize>();
 
-            var prizes = Context.Database.SqlQuery<Prize>($@"Select * From {TableName} Where IsDeleted=0");
+            var prizes = Context.Database.SqlQuery<Prize>($@"Select * From {TableName}");
             list.AddRange(prizes);
 
             return list.AsQueryable<Prize>();

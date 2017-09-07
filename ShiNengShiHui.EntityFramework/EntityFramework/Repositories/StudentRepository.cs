@@ -133,7 +133,7 @@ namespace ShiNengShiHui.EntityFramework.Repositories
                                                      new SqlParameter("Id", entity.Id));
         }
 
-        public IQueryable<Student> GetAll(string tableName)
+        public override IQueryable<Student> GetAll(string tableName)
         {
             var list = new List<Student>();
 

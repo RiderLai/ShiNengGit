@@ -1,0 +1,153 @@
+﻿@model IEnumerable<ShiNengShiHui.Web.Models.Headmaster.Student.StudentResultViewModel>
+
+<div class="panel">
+    <div class="panel-heading">
+        @using (Html.BeginForm("StudentIndex", "Headmaster", FormMethod.Get))
+        {
+            @Html.AntiForgeryToken()
+            <div class="col-lg-2">
+            @Html.DropDownList("classId", ViewBag.Classes as List<SelectListItem>,new { @Class= "form-control" })
+            </div>
+            <input class="btn btn-info" type="submit" value="查询">
+        }
+
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped table-hover ">
+
+            <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>姓名</th>
+                    <th>性别</th>
+                    <th>小组</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model == null)
+                {
+
+                }
+                else
+                {
+                    int i = 1;
+                    foreach (ShiNengShiHui.Web.Models.Headmaster.Student.StudentResultViewModel s in Model)
+                    {
+                        <tr>
+                            <td>@i</td>
+                            <td>@s.Name</td>
+
+                            <td>
+                                @if (s.Sex)
+                                {
+                                    <span>男</span>
+                                }
+                                else
+                                {
+                                    <span>女</span>
+                                }
+                            </td>
+
+                            <td>
+                                @if (s.Group == null)
+                                {
+                                    <span></span>
+                                }
+                                else
+                                {
+                                    <span>@s.Group</span>
+                                }
+                            </td>
+                        </tr>
+                        i++;
+                    }
+                }
+
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@if (Model == null)
+{
+
+}
+else
+{
+
+    int pageIndex = (int)ViewData["pageIndex"];
+    int pageCount = (int)ViewData["pageCount"];
+
+    <div class="text-right">
+
+
+        <ul class="pagination">
+            <li><a href="@Url.Action("StudentIndex", "Headmaster", new { pageIndex = 1,classId=ViewData["classId"] })">首页</a></li>
+            @if (pageIndex <= 5)
+            {
+                for (int i = 1, length = pageCount; i <= length; i++)
+                {
+                    if (pageIndex == i)
+                    {
+                        <li class="active"><a href="@Url.Action("StudentIndex", "Headmaster", new { pageIndex = i,classId=ViewData["classId"] })">@i</a></li>
+                    }
+                    else
+                    {
+                        <li><a href="@Url.Action("StudentIndex", "Headmaster", new { pageIndex = i,classId=ViewData["classId"] })">@i</a></li>
+                    }
+                }
+            }
+            else
+            {
+                if (pageIndex >= 3 && pageIndex <= pageCount - 2)
+                {
+                    for (int i = pageIndex - 2; i < pageIndex + 2; i++)
+                    {
+                        if (pageIndex == i)
+                        {
+                            <li class="active"><a href="@Url.Action("StudentIndex", "Headmaster", new { pageIndex = i,classId=ViewData["classId"] })">@i</a></li>
+                        }
+                        else
+                        {
+                            <li><a href="@Url.Action("StudentIndex", "Headmaster", new { pageIndex = i,classId=ViewData["classId"] })">@i</a></li>
+                        }
+                    }
+                }
+                else
+                {
+                    if (pageIndex <= 2)
+                    {
+                        for (int i = 1; i <= 5; i++)
+                        {
+                            if (pageIndex == i)
+                            {
+                                <li class="active"><a href="@Url.Action("StudentIndex", "Headmaster", new { pageIndex = i,classId=ViewData["classId"] })">@i</a></li>
+                            }
+                            else
+                            {
+                                <li><a href="@Url.Action("StudentIndex", "Headmaster", new { pageIndex = i,classId=ViewData["classId"] })">@i</a></li>
+                            }
+                        }
+                    }
+                    else
+                    {
+                        for (int i = pageCount - 4; i <= pageCount; i++)
+                        {
+                            if (pageIndex == i)
+                            {
+                                <li class="active"><a href="@Url.Action("StudentIndex", "Headmaster", new { pageIndex = i,classId=ViewData["classId"] })">@i</a></li>
+                            }
+                            else
+                            {
+                                <li><a href="@Url.Action("StudentIndex", "Headmaster", new { pageIndex = i,classId=ViewData["classId"] })">@i</a></li>
+                            }
+                        }
+                    }
+                }
+            }
+            <li><a href="@Url.Action("StudentIndex", "Headmaster", new { pageIndex = pageCount,classId=ViewData["classId"] })">尾页</a></li>
+        </ul>
+
+    </div>
+}

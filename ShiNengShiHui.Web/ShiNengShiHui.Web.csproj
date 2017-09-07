@@ -1404,6 +1404,7 @@
     <Compile Include="App_Start\Startup.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdministratorController.cs" />
+    <Compile Include="Controllers\HeadmasterController.cs" />
     <Compile Include="Controllers\HelperController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ShiNengShiHuiControllerBase.cs" />
@@ -1427,6 +1428,10 @@
     <Compile Include="Models\Administrator\User\UserEditModel.cs" />
     <Compile Include="Models\Administrator\User\UserPasswordEditModel.cs" />
     <Compile Include="Models\Administrator\User\UserResultViewModel.cs" />
+    <Compile Include="Models\Headmaster\Grade\GradeResultViewModel.cs" />
+    <Compile Include="Models\Headmaster\Prize\PrizeResultViewModel.cs" />
+    <Compile Include="Models\Headmaster\Student\StudentResultViewModel.cs" />
+    <Compile Include="Models\Headmaster\Teacher\TeacherResultViewModel.cs" />
     <Compile Include="Models\Teacher\Grade\GradeCreateViewModel.cs" />
     <Compile Include="Models\Teacher\Grade\GradeEditViewModel.cs" />
     <Compile Include="Models\Teacher\Grade\GradeResultViewModel.cs" />
@@ -1477,6 +1482,10 @@
     <Content Include="Views\Administrator\TeacherEdit.cshtml" />
     <Content Include="Views\Administrator\TeacherCreate.cshtml" />
     <Content Include="Views\Administrator\UserPasswordEdit.cshtml" />
+    <Content Include="Views\Headmaster\TeacherIndex.cshtml" />
+    <Content Include="Views\Headmaster\StudentIndex.cshtml" />
+    <Content Include="Views\Headmaster\GradeIndex.cshtml" />
+    <Content Include="Views\Headmaster\PrizeIndex.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
