@@ -25,7 +25,7 @@ namespace ShiNengShiHui.EntityFramework.Repositories
     /// </summary>
     /// <typeparam name="TEntity"></typeparam>
     /// <typeparam name="TPrimaryKey"></typeparam>
-    public class SqlRepositoryBase<TEntity, TPrimaryKey> : ShiNengShiHuiRepositoryBase<TEntity, TPrimaryKey>
+    public class SqlRepositoryBase<TEntity, TPrimaryKey> : ShiNengShiHuiRepositoryBase<TEntity, TPrimaryKey>,IPageFromTableRepository<TEntity,TPrimaryKey>
         where TEntity : class, IEntity<TPrimaryKey>
     {
         public IAbpSession AbpSession{get;set;}
@@ -158,6 +158,20 @@ namespace ShiNengShiHui.EntityFramework.Repositories
                 list.Add(entiries[i]);
             }
             return list.ToArray<TEntity>();
+        }
+
+
+        public virtual TEntity[] GetPageFromTable(string tablename, int pageIndex, int showCount)
+        {
+            var data = from item in GetAll(tablename)
+                       orderby item.Id
+                       select item;
+            return data.Take(pageIndex * showCount).Skip((pageIndex - 1) * showCount).ToArray();
+        }
+
+        public virtual IQueryable<TEntity> GetAll(string tableName)
+        {
+            throw new NotImplementedException();
         }
         #endregion
     }

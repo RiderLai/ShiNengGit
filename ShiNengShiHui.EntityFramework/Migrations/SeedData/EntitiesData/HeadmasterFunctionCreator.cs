@@ -63,21 +63,75 @@ namespace ShiNengShiHui.Migrations.SeedData.EntitiesData
                 _context.SaveChanges();
             }
 
-            var classShow = _context.Function.FirstOrDefault(m => m.Name.Equals("班级查看") && m.RoleId == headmasterRole.Id);
-            if (classShow==null)
+            //var classShow = _context.Function.FirstOrDefault(m => m.Name.Equals("班级查看") && m.RoleId == headmasterRole.Id);
+            //if (classShow==null)
+            //{
+            //    classShow = new Function()
+            //    {
+            //        PID = 0,
+            //        Name = "班级查看",
+            //        Action = "ClassIndex",
+            //        Controller = "Headmaster",
+            //        ICon = "lnr lnr-chart-bars",
+            //        Order = 200,
+            //        RoleId = headmasterRole.Id
+            //    };
+
+            //    _context.Function.Add(classShow);
+            //    _context.SaveChanges();
+            //}
+
+            var studentShow = _context.Function.FirstOrDefault(m => m.Name.Equals("学生查看") && m.RoleId == headmasterRole.Id);
+            if (studentShow==null)
             {
-                classShow = new Function()
+                studentShow = new Function()
                 {
                     PID = 0,
-                    Name = "班级查看",
-                    Action = "ClassIndex",
+                    Name = "学生查看",
+                    Action = "StudentIndex",
                     Controller = "Headmaster",
                     ICon = "lnr lnr-chart-bars",
                     Order = 200,
                     RoleId = headmasterRole.Id
                 };
 
-                _context.Function.Add(classShow);
+                _context.Function.Add(studentShow);
+                _context.SaveChanges();
+            }
+
+            var prizeShow = _context.Function.FirstOrDefault(m => m.Name.Equals("奖项查看") && m.RoleId == headmasterRole.Id);
+            if (prizeShow==null)
+            {
+                prizeShow = new Function()
+                {
+                    PID = 0,
+                    Name = "奖项查看",
+                    Action = "PrizeIndex",
+                    Controller = "Headmaster",
+                    ICon= "lnr lnr-alarm",
+                    Order = 300,
+                    RoleId = headmasterRole.Id
+                };
+
+                _context.Function.Add(prizeShow);
+                _context.SaveChanges();
+            }
+
+            var gradeShow = _context.Function.FirstOrDefault(m => m.Name.Equals("成绩查看") && m.RoleId == headmasterRole.Id);
+            if (gradeShow==null)
+            {
+                gradeShow = new Function()
+                {
+                    PID = 0,
+                    Name = "成绩查看",
+                    Action = "GradeIndex",
+                    Controller = "Headmaster",
+                    ICon= "lnr lnr-linearicons",
+                    Order = 400,
+                    RoleId = headmasterRole.Id
+                };
+
+                _context.Function.Add(gradeShow);
                 _context.SaveChanges();
             }
         }

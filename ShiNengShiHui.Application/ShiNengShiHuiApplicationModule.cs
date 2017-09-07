@@ -2,8 +2,8 @@
 using Abp.AutoMapper;
 using Abp.Modules;
 using ShiNengShiHui.Users;
-using ShiNengShiHui.AppServices.AdministratorDTO;
 using ShiNengShiHui.Entities.Teachers;
+using ShiNengShiHui.Entities.Classes;
 
 namespace ShiNengShiHui
 {
@@ -16,11 +16,21 @@ namespace ShiNengShiHui
             {
                 //Add your custom AutoMapper mappings here...
                 //mapper.CreateMap<,>()
-                mapper.CreateMap<User, UserShowOutput>()
-                        .ForMember(n => n.TeacherName, m => m.MapFrom(input => input.Teacher.Name));
+                #region Administrator
+                mapper.CreateMap<User, AppServices.AdministratorDTO.UserShowOutput>()
+                .ForMember(n => n.TeacherName, m => m.MapFrom(input => input.Teacher.Name));
 
-                mapper.CreateMap<Teacher, TeacherShowOutput>()
+                mapper.CreateMap<Teacher, AppServices.AdministratorDTO.TeacherShowOutput>()
                         .ForMember(n => n.ClassName, m => m.MapFrom(input => input.Class.Display));
+                #endregion
+
+                #region Headmaster
+                mapper.CreateMap<Teacher, AppServices.HeadmasterDTO.TeacherShowOutput>()
+                        .ForMember(n => n.ClassName, m => m.MapFrom(input => input.Class.Display));
+
+                mapper.CreateMap<Class, AppServices.HeadmasterDTO.ClassShowOutput>()
+                        .ForMember(n => n.Name, m => m.MapFrom(input => input.Display));
+                #endregion
             });
         }
 

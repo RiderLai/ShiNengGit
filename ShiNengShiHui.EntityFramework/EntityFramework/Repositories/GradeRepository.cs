@@ -120,7 +120,7 @@ namespace ShiNengShiHui.EntityFramework.Repositories
                                                       new SqlParameter("Id", entity.Id));
         }
 
-        public IQueryable<Grade> GetAll(string tableName)
+        public override IQueryable<Grade> GetAll(string tableName)
         {
             List<Grade> list = new List<Grade>();
             

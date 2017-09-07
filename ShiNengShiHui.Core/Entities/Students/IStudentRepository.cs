@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace ShiNengShiHui.Entities.Students
 {
-    public interface IStudentRepository:IRepository<Student>,IPageRepository<Student>
+    public interface IStudentRepository:IRepository<Student>,IPageRepository<Student>,IPageFromTableRepository<Student>
     {
-        IQueryable<Student> GetAll(string tableName);
+        
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ShiNengShiHui.AppServices
 {
-    interface IHeadmasterAppService:IApplicationService
+    public interface IHeadmasterAppService:IApplicationService
     {
         TeacherShowOutput TeacherShow(TeacherShowInput teacherShowInput);
 
