@@ -5,15 +5,30 @@
         $("#PrizeComput").click(function () {
             $("#PrizeComputForm").submit();
         })
+
+        $("#ComputSelect").change(function () {
+            if (this.value =="XiaoMoFanSheng") {
+                $("#PrizeComputForm").prepend("<div id='Container'><div class='col-lg-2'><lable class='col-lg-4'>学年</lable><div class='col-lg-8'><input type='text' class='form-control' name='schoolYear'></div></div>"
+                                               +"<div class='col-lg-2'><lable class='col-lg-4'>学期</lable><div class='col-lg-8'><input type='text' class='form-control' name='semester'></div></div></div>");
+            }
+            else {
+                if ($('#Container').length>0) {
+                    $('#Container').remove();
+                }
+            }
+        })
     </script>
 }
 
 <div class="panel">
     <div class="panel-heading">
-        @using (Html.BeginForm("PrizeComput", "Teacher", FormMethod.Post,new { id="PrizeComputForm"}))
+        @using (Html.BeginForm("PrizeComput", "Teacher", FormMethod.Post, new { id = "PrizeComputForm" }))
         {
             @Html.AntiForgeryToken();
             <input type="text" id="datetimepicker" name="time">
+            <div class="col-lg-2">
+                @Html.DropDownList("computSelect",ViewBag.ComputSelect as List<SelectListItem>,new { @class="form-control",id="ComputSelect"})
+            </div>
             <a class="btn btn-primary" id="PrizeComput" title='计算成绩' href="javascript:;"><i class="fa fa-calendar" aria-hidden="true"></i> 计算成绩</a>
         }
     </div>
@@ -71,26 +86,30 @@
     </div>
 </div>
 
-@*@{
-        int pageIndex = (int)ViewData["pageIndex"];
-        int pageCount = (int)ViewData["pageCount"];
-    }
+@if (Model == null)
+{
+
+}
+else
+{
+    int pageIndex = (int)ViewData["pageIndex"];
+    int pageCount = (int)ViewData["pageCount"];
     <div class="text-right">
 
 
         <ul class="pagination">
-            <li><a href="@Url.Action("GradeIndex","Teacher",new { pageIndex=1})">首页</a></li>
+            <li><a href="@Url.Action("PrizeIndex","Teacher",new { pageIndex=1})">首页</a></li>
             @if (pageIndex <= 5)
             {
                 for (int i = 1, length = pageCount; i <= length; i++)
                 {
                     if (pageIndex == i)
                     {
-                        <li class="active"><a href="@Url.Action("GradeIndex","Teacher",new { pageIndex=i})">@i</a></li>
+                        <li class="active"><a href="@Url.Action("PrizeIndex","Teacher",new { pageIndex=i})">@i</a></li>
                     }
                     else
                     {
-                        <li><a href="@Url.Action("GradeIndex","Teacher",new { pageIndex=i})">@i</a></li>
+                        <li><a href="@Url.Action("PrizeIndex","Teacher",new { pageIndex=i})">@i</a></li>
                     }
                 }
             }
@@ -102,11 +121,11 @@
                     {
                         if (pageIndex == i)
                         {
-                            <li class="active"><a href="@Url.Action("GradeIndex","Teacher",new { pageIndex=i})">@i</a></li>
+                            <li class="active"><a href="@Url.Action("PrizeIndex","Teacher",new { pageIndex=i})">@i</a></li>
                         }
                         else
                         {
-                            <li><a href="@Url.Action("GradeIndex","Teacher",new { pageIndex=i})">@i</a></li>
+                            <li><a href="@Url.Action("PrizeIndex","Teacher",new { pageIndex=i})">@i</a></li>
                         }
                     }
                 }
@@ -118,11 +137,11 @@
                         {
                             if (pageIndex == i)
                             {
-                                <li class="active"><a href="@Url.Action("GradeIndex","Teacher",new { pageIndex=i})">@i</a></li>
+                                <li class="active"><a href="@Url.Action("PrizeIndex","Teacher",new { pageIndex=i})">@i</a></li>
                             }
                             else
                             {
-                                <li><a href="@Url.Action("GradeIndex","Teacher",new { pageIndex=i})">@i</a></li>
+                                <li><a href="@Url.Action("PrizeIndex","Teacher",new { pageIndex=i})">@i</a></li>
                             }
                         }
                     }
@@ -132,18 +151,18 @@
                         {
                             if (pageIndex == i)
                             {
-                                <li class="active"><a href="@Url.Action("GradeIndex","Teacher",new { pageIndex=i})">@i</a></li>
+                                <li class="active"><a href="@Url.Action("PrizeIndex","Teacher",new { pageIndex=i})">@i</a></li>
                             }
                             else
                             {
-                                <li><a href="@Url.Action("GradeIndex","Teacher",new { pageIndex=i})">@i</a></li>
+                                <li><a href="@Url.Action("PrizeIndex","Teacher",new { pageIndex=i})">@i</a></li>
                             }
                         }
                     }
                 }
             }
-            <li><a href="@Url.Action("GradeIndex","Teacher",new { pageIndex=pageCount })">尾页</a></li>
+            <li><a href="@Url.Action("PrizeIndex","Teacher",new { pageIndex=pageCount })">尾页</a></li>
         </ul>
-
-    </div>*@
+    </div>
+}
 

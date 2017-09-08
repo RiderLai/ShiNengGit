@@ -9,5 +9,9 @@ namespace ShiNengShiHui.AppServices.TeacherDTO
     public class PrizeXiaoMoFanShengComputInput
     {
         public DateTime DateTime { get; set; }
+
+        public int SchoolYear { get; set; }
+
+        public int Semester { get; set; }
     }
 }

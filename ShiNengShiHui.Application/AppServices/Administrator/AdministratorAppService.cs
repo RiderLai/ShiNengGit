@@ -46,10 +46,17 @@ namespace ShiNengShiHui.AppServices
         }
 
         #region 班级模块
+
+        #region 创建班级
+        /// <summary>
+        /// 创建班级
+        /// </summary>
+        /// <param name="classCreateInput"></param>
+        /// <returns></returns>
         public ReturnVal ClassCreate(ClassCreateInput classCreateInput)
         {
             var Class = _classRepository.FirstOrDefault(m => m.Name == classCreateInput.Name);
-            if (Class==null)
+            if (Class == null)
             {
                 return new ReturnVal(ReturnStatu.Failure);
             }
@@ -57,13 +64,20 @@ namespace ShiNengShiHui.AppServices
             _classRepository.Insert(Class);
             _classRepository.TableCreate(Class);
             return new ReturnVal(ReturnStatu.Success);
-        }
+        } 
+        #endregion
 
         public ReturnVal ClassCreateRange(ClassCreateRangeInput classCreateRangeInput)
         {
             throw new NotImplementedException();
         }
 
+        #region 删除班级
+        /// <summary>
+        /// 删除班级
+        /// </summary>
+        /// <param name="classDeleteInput"></param>
+        /// <returns></returns>
         public ReturnVal ClassDelete(ClassDeleteInput classDeleteInput)
         {
             var flag = _classRepository.FirstOrDefault(classDeleteInput.Id);
@@ -74,7 +88,14 @@ namespace ShiNengShiHui.AppServices
             _classRepository.Delete(classDeleteInput.Id);
             return new ReturnVal(ReturnStatu.Success);
         }
+        #endregion
 
+        #region 展示班级
+        /// <summary>
+        /// 展示班级
+        /// </summary>
+        /// <param name="classShowInput"></param>
+        /// <returns></returns>
         public ClassShowOutput ClassShow(ClassShowInput classShowInput)
         {
             var Class = _classRepository.FirstOrDefault(classShowInput.Id);
@@ -84,9 +105,16 @@ namespace ShiNengShiHui.AppServices
             }
 
             return ObjectMapper.Map<ClassShowOutput>(Class);
-            
-        }
 
+        }
+        #endregion
+
+        #region 分页展示班级
+        /// <summary>
+        /// 分页展示班级
+        /// </summary>
+        /// <param name="classShowPageInput"></param>
+        /// <returns></returns>
         public ClassShowPageOutput ClassShowPage(ClassShowPageInput classShowPageInput)
         {
             long count = _classRepository.Count();
@@ -107,7 +135,14 @@ namespace ShiNengShiHui.AppServices
             result.Classes = classShowOutputs;
             return result;
         }
+        #endregion
 
+        #region 更新班级信息
+        /// <summary>
+        /// 更新班级信息
+        /// </summary>
+        /// <param name="classUpdateInput"></param>
+        /// <returns></returns>
         public ReturnVal ClassUpdate(ClassUpdateInput classUpdateInput)
         {
             var Class = _classRepository.FirstOrDefault(classUpdateInput.Id);
@@ -116,13 +151,22 @@ namespace ShiNengShiHui.AppServices
                 return new ReturnVal(ReturnStatu.Err);
             }
 
-            ObjectMapper.Map<ClassUpdateInput,Class>(classUpdateInput,Class);
+            ObjectMapper.Map<ClassUpdateInput, Class>(classUpdateInput, Class);
             _classRepository.Update(Class);
             return new ReturnVal(ReturnStatu.Success);
         }
         #endregion
 
+        #endregion
+
         #region 教师模块
+
+        #region 创建教师
+        /// <summary>
+        /// 创建教师
+        /// </summary>
+        /// <param name="teacherCreateInput"></param>
+        /// <returns></returns>
         public ReturnVal TeacherCreate(TeacherCreateInput teacherCreateInput)
         {
             var teacher = ObjectMapper.Map<Teacher>(teacherCreateInput);
@@ -132,13 +176,20 @@ namespace ShiNengShiHui.AppServices
             }
             _teacherRepository.Insert(teacher);
             return new ReturnVal(ReturnStatu.Success);
-        }
+        } 
+        #endregion
 
         public ReturnVal TeacherCreateRange(TeacherCreateRangeInput teacherCreateRangeInput)
         {
             throw new NotImplementedException();
         }
 
+        #region 删除教师
+        /// <summary>
+        /// 删除教师
+        /// </summary>
+        /// <param name="teacherDeleteInput"></param>
+        /// <returns></returns>
         public ReturnVal TeacherDelete(TeacherDeleteInput teacherDeleteInput)
         {
             var flag = _teacherRepository.FirstOrDefault(teacherDeleteInput.Id);
@@ -149,18 +200,32 @@ namespace ShiNengShiHui.AppServices
             _teacherRepository.Delete(flag);
             return new ReturnVal(ReturnStatu.Success);
         }
+        #endregion
 
+        #region 展示教师
+        /// <summary>
+        /// 展示教师
+        /// </summary>
+        /// <param name="teacherShowInput"></param>
+        /// <returns></returns>
         public TeacherShowOutput TeacherShow(TeacherShowInput teacherShowInput)
         {
             var teacher = _teacherRepository.FirstOrDefault(teacherShowInput.Id);
-            if (teacher==null)
+            if (teacher == null)
             {
                 return null;
             }
 
             return ObjectMapper.Map<TeacherShowOutput>(teacher);
         }
+        #endregion
 
+        #region 分页展示教师
+        /// <summary>
+        /// 分页展示教师
+        /// </summary>
+        /// <param name="teacherShowPageInput"></param>
+        /// <returns></returns>
         public TeacherShowPageOutput TeacherShowPage(TeacherShowPageInput teacherShowPageInput)
         {
             long count = _teacherRepository.Count();
@@ -169,7 +234,7 @@ namespace ShiNengShiHui.AppServices
             {
                 teacherShowPageInput.PageCount += 1;
             }
-            if (teacherShowPageInput.ShowCount>teacherShowPageInput.PageCount)
+            if (teacherShowPageInput.ShowCount > teacherShowPageInput.PageCount)
             {
                 teacherShowPageInput.PageIndex = 1;
             }
@@ -182,7 +247,14 @@ namespace ShiNengShiHui.AppServices
 
             return result;
         }
+        #endregion
 
+        #region 更新教师信息
+        /// <summary>
+        /// 更新教师信息
+        /// </summary>
+        /// <param name="teacherUpdateInput"></param>
+        /// <returns></returns>
         public ReturnVal TeacherUpdate(TeacherUpdateInput teacherUpdateInput)
         {
             var teacher = _teacherRepository.FirstOrDefault(teacherUpdateInput.Id);
@@ -191,13 +263,22 @@ namespace ShiNengShiHui.AppServices
                 return new ReturnVal(ReturnStatu.Err);
             }
 
-            ObjectMapper.Map<TeacherUpdateInput,Teacher>(teacherUpdateInput,teacher);
+            ObjectMapper.Map<TeacherUpdateInput, Teacher>(teacherUpdateInput, teacher);
             _teacherRepository.Update(teacher);
             return new ReturnVal(ReturnStatu.Success);
         }
         #endregion
 
+        #endregion
+
         #region 用户模块
+
+        #region 创建用户
+        /// <summary>
+        /// 创建用户
+        /// </summary>
+        /// <param name="userCreateInput"></param>
+        /// <returns></returns>
         public ReturnVal UserCreate(UserCreateInput userCreateInput)
         {
             var user = ObjectMapper.Map<User>(userCreateInput);
@@ -225,13 +306,20 @@ namespace ShiNengShiHui.AppServices
             });
 
             return new ReturnVal(ReturnStatu.Success);
-        }
+        } 
+        #endregion
 
         public ReturnVal UserCreateRange(UserCreateRangeInput userCreateRangeInput)
         {
             throw new NotImplementedException();
         }
 
+        #region 删除用户
+        /// <summary>
+        /// 删除用户
+        /// </summary>
+        /// <param name="userDeleteInput"></param>
+        /// <returns></returns>
         public ReturnVal UserDelete(UserDeleteInput userDeleteInput)
         {
             var user = _userRepository.FirstOrDefault(m => m.Id == userDeleteInput.Id && m.TenantId == userDeleteInput.TenatId);
@@ -242,11 +330,18 @@ namespace ShiNengShiHui.AppServices
             _userRepository.Delete(user);
             return new ReturnVal(ReturnStatu.Success);
         }
+        #endregion
 
+        #region 修改用户密码
+        /// <summary>
+        /// 修改用户密码
+        /// </summary>
+        /// <param name="userPasswordUpdateInput"></param>
+        /// <returns></returns>
         public ReturnVal UserPasswordUpdate(UserPasswordUpdateInput userPasswordUpdateInput)
         {
             var user = _userRepository.FirstOrDefault(userPasswordUpdateInput.Id);
-            if (user==null)
+            if (user == null)
             {
                 return new ReturnVal(ReturnStatu.Failure);
             }
@@ -255,18 +350,32 @@ namespace ShiNengShiHui.AppServices
             _userRepository.Update(user);
             return new ReturnVal(ReturnStatu.Success);
         }
+        #endregion
 
+        #region 展示用户
+        /// <summary>
+        /// 展示用户
+        /// </summary>
+        /// <param name="userShowInput"></param>
+        /// <returns></returns>
         public UserShowOutput UserShow(UserShowInput userShowInput)
         {
             var user = _userRepository.FirstOrDefault(userShowInput.Id);
-            if (user==null)
+            if (user == null)
             {
                 return null;
             }
 
             return ObjectMapper.Map<UserShowOutput>(user);
         }
+        #endregion
 
+        #region 分页展示用户
+        /// <summary>
+        /// 分页展示用户
+        /// </summary>
+        /// <param name="userShowPageInput"></param>
+        /// <returns></returns>
         public UserShowPageOutput UserShowPage(UserShowPageInput userShowPageInput)
         {
             long count = _userRepository.Count();
@@ -287,11 +396,18 @@ namespace ShiNengShiHui.AppServices
             result.Users = userShowOutputs;
             return result;
         }
+        #endregion
 
+        #region 更新用户信息
+        /// <summary>
+        /// 更新用户信息
+        /// </summary>
+        /// <param name="userUpdateInput"></param>
+        /// <returns></returns>
         public ReturnVal UserUpdate(UserUpdateInput userUpdateInput)
         {
             var user = _userRepository.FirstOrDefault(userUpdateInput.Id);
-            if (user==null)
+            if (user == null)
             {
                 return new ReturnVal(ReturnStatu.Err);
             }
@@ -300,17 +416,19 @@ namespace ShiNengShiHui.AppServices
 
             user.Surname = user.Name;
             //添加教师
-            if (userUpdateInput.TeacherId!=null)
+            if (userUpdateInput.TeacherId != null)
             {
                 var teacher = _teacherRepository.FirstOrDefault((int)userUpdateInput.TeacherId);
-                if (teacher!=null)
+                if (teacher != null)
                 {
                     user.Teacher = teacher;
                 }
             }
             _userRepository.Update(user);
             return new ReturnVal(ReturnStatu.Success);
-        }
+        } 
+        #endregion
+
         #endregion
     }
 }

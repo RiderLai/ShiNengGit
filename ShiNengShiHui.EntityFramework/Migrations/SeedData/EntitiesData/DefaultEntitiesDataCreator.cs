@@ -109,6 +109,18 @@ namespace ShiNengShiHui.Migrations.SeedData.EntitiesData
                 _context.PrizeItem.Add(yueMoFanSheng);
                 _context.SaveChanges();
             }
+
+            var xiaoMoFanSheng = _context.PrizeItem.FirstOrDefault(c => c.Name.Equals(PrizeItem.XiaoMoFanSheng));
+            if (xiaoMoFanSheng==null)
+            {
+                xiaoMoFanSheng = new PrizeItem()
+                {
+                    Id = Guid.NewGuid(),
+                    Name = PrizeItem.XiaoMoFanSheng
+                };
+                _context.PrizeItem.Add(xiaoMoFanSheng);
+                _context.SaveChanges();
+            }
         }
     }
 }

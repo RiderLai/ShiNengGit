@@ -11,6 +11,7 @@ namespace ShiNengShiHui.Entities.Prizes
         public const string ZhouMoFanSheng = "周模范生";
         public const string YouXiuTuanDui = "优秀团队";
         public const string YueMoFanSheng = "月模范生";
+        public const string XiaoMoFanSheng = "校模范生";
         #endregion
 
         [Required]

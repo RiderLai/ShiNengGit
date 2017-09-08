@@ -14,6 +14,7 @@ using ShiNengShiHui.AppServices.Return;
 using System.Text;
 using ShiNengShiHui.AppServices.TeacherDTO;
 using ShiNengShiHui.AppServices.ExcelDTO;
+using ShiNengShiHui.Web.Models.Teacher.Prize;
 
 namespace ShiNengShiHui.Web.Controllers
 {
@@ -22,6 +23,8 @@ namespace ShiNengShiHui.Web.Controllers
     {
         private readonly ITeacherAppService _teacherAppService;
         private readonly IExcelAppService _excelAppService;
+
+        public object PrizeReusltViewModel { get; private set; }
 
         public TeacherController(ITeacherAppService teacherAppService,
             IExcelAppService excelAppService)
@@ -37,6 +40,7 @@ namespace ShiNengShiHui.Web.Controllers
         }
 
         #region 学生模块
+
         public ActionResult StudentIndex(int? pageIndex)
         {
             ShowPageStudentOutput result;
@@ -265,9 +269,11 @@ namespace ShiNengShiHui.Web.Controllers
             }
         } 
         #endregion
+
         #endregion
 
         #region 成绩模块
+
         public ActionResult GradeIndex(int? pageIndex)
         {
             ShowPageGradeOutput result;
@@ -608,20 +614,66 @@ namespace ShiNengShiHui.Web.Controllers
             {
                 return this.RedirectAjax("Failure", null, null, null);
             }
+        }
+        #endregion
+
+        #endregion
+
+
+        #region 奖项模块
+        public ActionResult PrizeIndex(int? pageIndex)
+        {
+            #region 初始化数据
+            List<SelectListItem> computSelectList = new List<SelectListItem>();
+            computSelectList.Add(new SelectListItem() { Value = "TianMoFanSheng", Text = "计算天模范生", Selected = true });
+            computSelectList.Add(new SelectListItem() { Value = "ZhouMoFanSheng", Text = "计算周模范生" });
+            computSelectList.Add(new SelectListItem() { Value = "YueMoFanSheng", Text = "计算月模范生" });
+            computSelectList.Add(new SelectListItem() { Value = "XiaoMoFanSheng", Text = "计算校模范生" });
+            ViewBag.ComputSelect = computSelectList;
+            #endregion
+
+            if (pageIndex == null)
+            {
+                pageIndex = 1;
+            }
+
+            var prizes = _teacherAppService.ShowPagePrize(new ShowPagePrizeInput() { PageIndex = (int)pageIndex });
+            if (prizes.ShowPrizeOutputs.Length <= 0)
+            {
+                return View();
+            }
+
+            List<PrizeResultViewModel> models = prizes.ShowPrizeOutputs.Select(m => ObjectMapper.Map<PrizeResultViewModel>(m)).ToList();
+
+            ViewData["pageIndex"] = prizes.PageIndex;
+            ViewData["pageCount"] = prizes.PageCount;
+
+            return View(models);
+        }
+
+        public ActionResult PrizeComput(DateTime time, string computSelect,int? schoolYear,int? semester)
+        {
+            switch (computSelect)
+            {
+                case "TianMoFanSheng":
+                    _teacherAppService.PrizeTianMoFanShengComput(new PrizeTianMoFanShengComputInput() { DateTime = time });
+                    break;
+                case "ZhouMoFanSheng":
+                    _teacherAppService.PrizeZhouMoFanShengComput(new PrizeZhouMoFanShengComputInput() { DateTime = time });
+                    break;
+                case "YueMoFanSheng":
+                    _teacherAppService.PrizeYueMoFanShengComput(new PrizeYueMoFanShengComputInput() { DateTime = time });
+                    break;
+                case "XiaoMoFanSheng":
+                    if (schoolYear==null || semester==null)
+                    {
+                        break;
+                    }
+                    _teacherAppService.PrizeXiaoMoFanShengComput(new PrizeXiaoMoFanShengComputInput() { SchoolYear = (int)schoolYear, Semester = (int)semester });
+                    break;
+            }
+            return RedirectToAction("PrizeIndex");
         } 
         #endregion
-        #endregion
-
-
-        public ActionResult PrizeIndex()
-        {
-            return View();
-        }
-
-        public ActionResult PrizeComput(DateTime time)
-        {
-            _teacherAppService.PrizeComput(new PrizeComputInput() { DateTime=time});
-            return RedirectToAction("PrizeIndex");
-        }
     }
 }

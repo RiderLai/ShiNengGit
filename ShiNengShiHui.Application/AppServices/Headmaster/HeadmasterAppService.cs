@@ -41,11 +41,18 @@ namespace ShiNengShiHui.AppServices.Headmaster
         }
 
         #region 班级模块
+
         public ClassShowOutput ClassShow(ClassShowInput classShowInput)
         {
             throw new NotImplementedException();
         }
 
+        #region 分页展示班级
+        /// <summary>
+        /// 分页展示班级
+        /// </summary>
+        /// <param name="classShowPageInput"></param>
+        /// <returns></returns>
         public ClassShowPageOutput ClassShowPage(ClassShowPageInput classShowPageInput)
         {
             long count = _classRepository.Count();
@@ -54,7 +61,7 @@ namespace ShiNengShiHui.AppServices.Headmaster
             {
                 classShowPageInput.PageCount += 1;
             }
-            if (classShowPageInput.PageIndex>classShowPageInput.PageCount)
+            if (classShowPageInput.PageIndex > classShowPageInput.PageCount)
             {
                 classShowPageInput.PageIndex = 1;
             }
@@ -65,15 +72,24 @@ namespace ShiNengShiHui.AppServices.Headmaster
             result.Classes = Classes.Select(m => ObjectMapper.Map<ClassShowOutput>(m)).ToArray();
 
             return result;
-        }
+        } 
+        #endregion
+
         #endregion
 
         #region 成绩模块
+
         public GradeShowOutput GradeShow(GradeShowInput gradeShowInput)
         {
             throw new NotImplementedException();
         }
 
+        #region 分页展示成绩
+        /// <summary>
+        /// 分页展示成绩
+        /// </summary>
+        /// <param name="gradeShowPageInput"></param>
+        /// <returns></returns>
         public GradeShowPageOutput GradeShowPage(GradeShowPageInput gradeShowPageInput)
         {
             var Class = _classRepository.FirstOrDefault(gradeShowPageInput.ClassId);
@@ -117,15 +133,24 @@ namespace ShiNengShiHui.AppServices.Headmaster
             }).ToArray();
 
             return result;
-        }
+        } 
+        #endregion
+
         #endregion
 
         #region 奖项模块
+
         public PrizeShowOutput PrizeShow(PrizeShowInput prizeShowInput)
         {
             throw new NotImplementedException();
         }
 
+        #region 分页展示奖项
+        /// <summary>
+        /// 分页展示奖项
+        /// </summary>
+        /// <param name="prizeShowPageInput"></param>
+        /// <returns></returns>
         public PrizeShowPageOutput PrizeShowPage(PrizeShowPageInput prizeShowPageInput)
         {
             var Class = _classRepository.FirstOrDefault(prizeShowPageInput.ClassId);
@@ -165,15 +190,24 @@ namespace ShiNengShiHui.AppServices.Headmaster
             }).ToArray();
 
             return result;
-        }
+        } 
+        #endregion
+
         #endregion
 
         #region 学生模块
+
         public StudentShowOutput StudentShow(StudentShowInput studentShowInput)
         {
             throw new NotImplementedException();
         }
 
+        #region 分页展示学生
+        /// <summary>
+        /// 分页展示学生
+        /// </summary>
+        /// <param name="studentShowPageInput"></param>
+        /// <returns></returns>
         public StudentShowPageOutput StudentShowPage(StudentShowPageInput studentShowPageInput)
         {
             var Class = _classRepository.FirstOrDefault(studentShowPageInput.ClassId);
@@ -196,15 +230,24 @@ namespace ShiNengShiHui.AppServices.Headmaster
             StudentShowPageOutput result = ObjectMapper.Map<StudentShowPageOutput>(studentShowPageInput);
             result.Students = students.Select(m => ObjectMapper.Map<StudentShowOutput>(m)).ToArray();
             return result;
-        }
+        } 
+        #endregion
+
         #endregion
 
         #region 教师模块
+
         public TeacherShowOutput TeacherShow(TeacherShowInput teacherShowInput)
         {
             throw new NotImplementedException();
         }
 
+        #region 分页展示教师
+        /// <summary>
+        /// 分页展示教师
+        /// </summary>
+        /// <param name="teacherShowPageInput"></param>
+        /// <returns></returns>
         public TeacherShowPageOutput TeacherShowPage(TeacherShowPageInput teacherShowPageInput)
         {
             long count = _teacherRepository.Count();
@@ -223,7 +266,9 @@ namespace ShiNengShiHui.AppServices.Headmaster
             TeacherShowPageOutput result = ObjectMapper.Map<TeacherShowPageOutput>(teacherShowPageInput);
             result.Teachers = teachers.Select(m => ObjectMapper.Map<TeacherShowOutput>(m)).ToArray();
             return result;
-        }
+        } 
+        #endregion
+
         #endregion
     }
 }

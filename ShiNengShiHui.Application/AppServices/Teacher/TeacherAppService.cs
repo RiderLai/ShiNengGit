@@ -37,6 +37,13 @@ namespace ShiNengShiHui.AppServices
         }
 
         #region 添加
+
+        #region 添加成绩
+        /// <summary>
+        /// 添加成绩
+        /// </summary>
+        /// <param name="createGradeInput"></param>
+        /// <returns></returns>
         public ReturnVal CreateGrade(CreateGradeInput createGradeInput)
         {
             var flag = _gradeRepository.FirstOrDefault(g => JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(g.DateJson).Date.DayOfYear == createGradeInput.Datetime.DayOfYear && JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(g.DateJson).Date.Year == createGradeInput.Datetime.Year && g.StudentId == createGradeInput.StudentId);
@@ -53,7 +60,7 @@ namespace ShiNengShiHui.AppServices
                         Semester = createGradeInput.Semester,
                         Week = createGradeInput.Week
                     })
-                    
+
                 };
                 _gradeRepository.Insert(grade);
                 return new ReturnVal(ReturnStatu.Success);
@@ -63,23 +70,30 @@ namespace ShiNengShiHui.AppServices
                 return new ReturnVal(ReturnStatu.Failure);
             }
 
-        }
+        } 
+        #endregion
 
+        #region 批量添加成绩
+        /// <summary>
+        /// 批量添加成绩
+        /// </summary>
+        /// <param name="createGradeRangeInput"></param>
+        /// <returns></returns>
         public ReturnVal CreateGradeRange(CreateGradeRangeInput createGradeRangeInput)
         {
             GradeInsertOfExcelOutput gradeInsertOfExcelOutput = _excelAppService.GradeInsertOfExcel(new GradeInsertOfExcelInput() { DataStream = createGradeRangeInput.DataStream });
 
-            if (gradeInsertOfExcelOutput==null)
+            if (gradeInsertOfExcelOutput == null)
             {
                 return null;
             }
 
             List<string> errNumber = new List<string>();
-            for (int i = 0,length=gradeInsertOfExcelOutput.Grades.Length; i < length; i++)
+            for (int i = 0, length = gradeInsertOfExcelOutput.Grades.Length; i < length; i++)
             {
                 CreateGradeInput temp = gradeInsertOfExcelOutput.Grades[i];
                 var flag = _gradeRepository.FirstOrDefault(g => JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(g.DateJson).Date.DayOfYear == temp.Datetime.DayOfYear && JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(g.DateJson).Date.Year == temp.Datetime.Year && g.StudentId == temp.StudentId);
-                if (flag==null)
+                if (flag == null)
                 {
                     Grade grade = new Grade()
                     {
@@ -101,11 +115,11 @@ namespace ShiNengShiHui.AppServices
                 }
             }
 
-            if (errNumber.Count==gradeInsertOfExcelOutput.Grades.Length)
+            if (errNumber.Count == gradeInsertOfExcelOutput.Grades.Length)
             {
                 return new ReturnVal(ReturnStatu.Err, "添加失败，失败同学的学号：", errNumber);
             }
-            else if (errNumber.Count>0)
+            else if (errNumber.Count > 0)
             {
                 return new ReturnVal(ReturnStatu.Failure, "有部分同学成绩没有添加成功，失败同学的学号：", errNumber);
             }
@@ -115,8 +129,15 @@ namespace ShiNengShiHui.AppServices
             }
 
             throw new NotImplementedException();
-        }
+        } 
+        #endregion
 
+        #region 添加学生
+        /// <summary>
+        /// 添加学生
+        /// </summary>
+        /// <param name="createStudentInput"></param>
+        /// <returns></returns>
         public ReturnVal CreateStudent(CreateStudentInput createStudentInput)
         {
             var flag = _studentRepository.FirstOrDefault(s => s.Name.Equals(createStudentInput.Name));
@@ -131,22 +152,29 @@ namespace ShiNengShiHui.AppServices
             {
                 return new ReturnVal(ReturnStatu.Failure);
             }
-        }
+        } 
+        #endregion
 
+        #region 批量添加学生
+        /// <summary>
+        /// 批量添加学生
+        /// </summary>
+        /// <param name="createStudentRangeInput"></param>
+        /// <returns></returns>
         public ReturnVal CreateStudentRange(CreateStudentRangeInput createStudentRangeInput)
         {
             StudentInsertOfExcelOutput studentInsertOfExcelOutput = _excelAppService.StudentInsertOfExcel(new StudentInsertOfExcelInput() { DataStream = createStudentRangeInput.DataStream });
 
-            if (studentInsertOfExcelOutput==null)
+            if (studentInsertOfExcelOutput == null)
             {
                 return null;
             }
 
             List<string> errStudentName = new List<string>();
-            for (int i = 0,length=studentInsertOfExcelOutput.Students.Length; i < length; i++)
+            for (int i = 0, length = studentInsertOfExcelOutput.Students.Length; i < length; i++)
             {
                 var flag = _studentRepository.FirstOrDefault(m => m.Name.Equals(studentInsertOfExcelOutput.Students[i].Name));
-                if (flag==null)
+                if (flag == null)
                 {
                     _studentRepository.Insert(ObjectMapper.Map<Student>(studentInsertOfExcelOutput.Students[i]));
                 }
@@ -156,11 +184,11 @@ namespace ShiNengShiHui.AppServices
                 }
             }
 
-            if (errStudentName.Count==studentInsertOfExcelOutput.Students.Length)
+            if (errStudentName.Count == studentInsertOfExcelOutput.Students.Length)
             {
                 return new ReturnVal(ReturnStatu.Err, "添加失败，失败同学的名字：", errStudentName);
             }
-            else if(errStudentName.Count>0)
+            else if (errStudentName.Count > 0)
             {
                 return new ReturnVal(ReturnStatu.Failure, "有部分同学没有添加成功，失败同学的名字：", errStudentName);
             }
@@ -171,7 +199,16 @@ namespace ShiNengShiHui.AppServices
         }
         #endregion
 
+        #endregion
+
         #region 删除
+
+        #region 删除成绩
+        /// <summary>
+        /// 删除成绩
+        /// </summary>
+        /// <param name="deleteGradeInput"></param>
+        /// <returns></returns>
         public ReturnVal DeleteGrade(DeleteGradeInput deleteGradeInput)
         {
             var flag = _gradeRepository.FirstOrDefault(deleteGradeInput.Id);
@@ -184,21 +221,28 @@ namespace ShiNengShiHui.AppServices
             {
                 return new ReturnVal(ReturnStatu.Failure);
             }
-        }
+        } 
+        #endregion
 
         public ReturnVal DeleteGradeRange(DeleteGradeRangeInput deleteGradeRangeInput)
         {
             throw new NotImplementedException();
         }
 
+        #region 删除学生
+        /// <summary>
+        /// 删除学生
+        /// </summary>
+        /// <param name="deleteStudentInput"></param>
+        /// <returns></returns>
         public ReturnVal DeleteStudent(DeleteStudentInput deleteStudentInput)
         {
             var flag = _studentRepository.FirstOrDefault(deleteStudentInput.Id);
             if (flag != null)
             {
                 _studentRepository.Delete(flag);
-                var gradeDeleteList= _gradeRepository.GetAllList(m => m.StudentId == flag.Id);
-                for (int i = 0,length=gradeDeleteList.Count; i < length; i++)
+                var gradeDeleteList = _gradeRepository.GetAllList(m => m.StudentId == flag.Id);
+                for (int i = 0, length = gradeDeleteList.Count; i < length; i++)
                 {
                     _gradeRepository.Delete(gradeDeleteList[i]);
                 }
@@ -208,15 +252,24 @@ namespace ShiNengShiHui.AppServices
             {
                 return new ReturnVal(ReturnStatu.Failure);
             }
-        }
+        } 
+        #endregion
 
         public ReturnVal DeleteStudentRange(DeleteStudentRangeInput deleteStudentRangeInput)
         {
             throw new NotImplementedException();
         }
+
         #endregion
 
         #region 展示
+
+        #region 展示单个成绩
+        /// <summary>
+        /// 展示单个成绩
+        /// </summary>
+        /// <param name="showGradeInput"></param>
+        /// <returns></returns>
         public ShowGradeOutput ShowGrade(ShowGradeInput showGradeInput)
         {
             Grade grade = _gradeRepository.FirstOrDefault(showGradeInput.Id);
@@ -230,18 +283,25 @@ namespace ShiNengShiHui.AppServices
             var gradedata = JsonConvert.DeserializeObject<GradeData>(grade.GradeStringJson);
             return new ShowGradeOutput()
             {
-                Id=grade.Id,
+                Id = grade.Id,
                 StudentName = _studentRepository.Get(grade.StudentId).Name,
                 Grades = gradedata.Grades,
                 PenaltyReason = gradedata.PenaltyReason,
                 DateTime = date.Date,
-                SchoolYead=date.SchoolYear,
-                Semester=date.Semester,
-                Week=date.Week,
+                SchoolYead = date.SchoolYear,
+                Semester = date.Semester,
+                Week = date.Week,
                 SchoolYearAndMore = date.SchoolYear + "  " + date.Semester + "  " + date.Week
             };
         }
+        #endregion
 
+        #region 展示单个奖项
+        /// <summary>
+        /// 展示单个奖项
+        /// </summary>
+        /// <param name="showPrizeInput"></param>
+        /// <returns></returns>
         public ShowPrizeOutput ShowPrize(ShowPrizeInput showPrizeInput)
         {
             Prize prize = _prizeRepository.FirstOrDefault(showPrizeInput.Id);
@@ -260,7 +320,14 @@ namespace ShiNengShiHui.AppServices
                 SchoolYearAndMore = date.SchoolYear + "  " + date.Semester + "  " + date.Week
             };
         }
+        #endregion
 
+        #region 展示单个学生
+        /// <summary>
+        /// 展示单个学生
+        /// </summary>
+        /// <param name="showStudentInput"></param>
+        /// <returns></returns>
         public ShowStudentOutput ShowStudent(ShowStudentInput showStudentInput)
         {
             Student student = _studentRepository.FirstOrDefault(showStudentInput.Id);
@@ -271,7 +338,14 @@ namespace ShiNengShiHui.AppServices
             }
             return ObjectMapper.Map<ShowStudentOutput>(student);
         }
+        #endregion
 
+        #region 分页展示成绩
+        /// <summary>
+        /// 分页展示成绩
+        /// </summary>
+        /// <param name="showPageGradeInput"></param>
+        /// <returns></returns>
         public ShowPageGradeOutput ShowPageGrade(ShowPageGradeInput showPageGradeInput)
         {
             long count = _gradeRepository.Count();
@@ -305,7 +379,14 @@ namespace ShiNengShiHui.AppServices
                }).ToArray<ShowGradeOutput>();
             return result;
         }
+        #endregion
 
+        #region 分页展示奖项
+        /// <summary>
+        /// 分页展示奖项
+        /// </summary>
+        /// <param name="showPagePrizeInput"></param>
+        /// <returns></returns>
         public ShowPagePrizeOutput ShowPagePrize(ShowPagePrizeInput showPagePrizeInput)
         {
             long count = _prizeRepository.Count();
@@ -336,7 +417,14 @@ namespace ShiNengShiHui.AppServices
                }).ToArray<ShowPrizeOutput>();
             return result;
         }
+        #endregion
 
+        #region 分页展示学生
+        /// <summary>
+        /// 分页展示学生
+        /// </summary>
+        /// <param name="showPageStudentInput"></param>
+        /// <returns></returns>
         public ShowPageStudentOutput ShowPageStudent(ShowPageStudentInput showPageStudentInput)
         {
             int count = _studentRepository.Count();
@@ -372,14 +460,23 @@ namespace ShiNengShiHui.AppServices
         }
         #endregion
 
+        #endregion
+
         #region 更新
+
+        #region 更新成绩
+        /// <summary>
+        /// 更新成绩
+        /// </summary>
+        /// <param name="updateGradeInput"></param>
+        /// <returns></returns>
         public ReturnVal UpdateGrade(UpdateGradeInput updateGradeInput)
         {
             var flag = _gradeRepository.FirstOrDefault(updateGradeInput.Id);
             if (flag != null)
             {
                 Grade grade = flag;
-                grade.GradeStringJson = JsonConvert.SerializeObject(new GradeData() { Grades = updateGradeInput.Grades,PenaltyReason=updateGradeInput.PenaltyReason});
+                grade.GradeStringJson = JsonConvert.SerializeObject(new GradeData() { Grades = updateGradeInput.Grades, PenaltyReason = updateGradeInput.PenaltyReason });
                 grade.DateJson = JsonConvert.SerializeObject(new GradeOrPrizeDateTime()
                 {
                     Date = updateGradeInput.Datetime,
@@ -394,13 +491,20 @@ namespace ShiNengShiHui.AppServices
             {
                 return new ReturnVal(ReturnStatu.Failure);
             }
-        }
+        } 
+        #endregion
 
         public ReturnVal UpdateGradeRange(UpdateGradeRangeInput updateGradeRangeInput)
         {
             throw new NotImplementedException();
         }
 
+        #region 更新学生信息
+        /// <summary>
+        /// 更新学生信息
+        /// </summary>
+        /// <param name="updateStudentInput"></param>
+        /// <returns></returns>
         public ReturnVal UpdateStudent(UpdateStudentInput updateStudentInput)
         {
             var flag = _studentRepository.FirstOrDefault(updateStudentInput.Id);
@@ -415,17 +519,27 @@ namespace ShiNengShiHui.AppServices
             {
                 return new ReturnVal(ReturnStatu.Failure);
             }
-        }
+        } 
+        #endregion
 
         public ReturnVal UpdateStudentRange(UpdateStudentRangeInput updateStudentRangeInput)
         {
             throw new NotImplementedException();
         }
 
+        #endregion
+
+        #region 评奖计算
+
+        #region 勿用
+        /// <summary>
+        /// 勿用
+        /// </summary>
+        /// <param name="prizeComputInput"></param>
         public void PrizeComput(PrizeComputInput prizeComputInput)
         {
-            var gradeList= _gradeRepository.GetAllList(m =>JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJson).Date.Year==prizeComputInput.DateTime.Year&&JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJson).Date.DayOfYear==prizeComputInput.DateTime.DayOfYear);
-            if (gradeList==null||gradeList.Count<=0)
+            var gradeList = _gradeRepository.GetAllList(m => JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJson).Date.Year == prizeComputInput.DateTime.Year && JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJson).Date.DayOfYear == prizeComputInput.DateTime.DayOfYear);
+            if (gradeList == null || gradeList.Count <= 0)
             {
                 return;
             }
@@ -509,42 +623,248 @@ namespace ShiNengShiHui.AppServices
 
             int week = JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(gradeList[0].DateJson).Week;
             List<Prize> prizeMonthOfWeelList = null;
-            if (week%4!=0)
+            if (week % 4 != 0)
             {
                 prizeMonthOfWeelList = _prizeRepository.GetAllList(m => JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJosn).Week > (week - week % 4) &&
-                                                                        JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJosn).Week <= week&&
-                                                                        m.PrizeItemId==zhouMoFanShengId);
+                                                                        JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJosn).Week <= week &&
+                                                                        m.PrizeItemId == zhouMoFanShengId);
             }
             else
             {
                 prizeMonthOfWeelList = _prizeRepository.GetAllList(m => JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJosn).Week > (week - 4) &&
-                                                                        JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJosn).Week <= week&&
+                                                                        JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJosn).Week <= week &&
                                                                         m.PrizeItemId == zhouMoFanShengId);
             }
 
             int monthWeekMax = week % 4 != 0 ? week % 4 : 4;
-            
-        }
 
-        public void PrizeTianMoFanShengComput(PrizeTianMoFanShengComputInput prizeComputInput)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void PrizeZhouMoFanShengComput(PrizeZhouMoFanShengComputInput prizeZhouMoFanShengComputInput)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void PrizeYueMoFanShengComput(PrizeYueMoFanShengComputInput prizeYueMoFanShengComput)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void PrizeXiaoMoFanShengComput(PrizeXiaoMoFanShengComputInput prizeXiaoMoFanShengComput)
-        {
-            throw new NotImplementedException();
         }
         #endregion
+
+        #region 计算天模范生
+        /// <summary>
+        /// 计算天模范生
+        /// </summary>
+        /// <param name="prizeComputInput"></param>
+        public void PrizeTianMoFanShengComput(PrizeTianMoFanShengComputInput prizeComputInput)
+        {
+            Guid tianMoFanShengId = _prizeItemRepository.FirstOrDefault(m => m.Name.Equals(PrizeItem.TianMoFanSheng)).Id;
+
+            var grades = _gradeRepository.GetAllList(m => JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJson).Date.DayOfYear == prizeComputInput.DateTime.DayOfYear
+                                                          && JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJson).Date.Year == prizeComputInput.DateTime.Year);
+
+            //计算平均成绩
+            double avgGrade = 0;
+            grades.ForEach(m => avgGrade += JsonConvert.DeserializeObject<GradeData>(m.GradeStringJson).Sums);
+            avgGrade /= grades.Count;
+
+            //添加天模范生
+            grades.ForEach(m =>
+            {
+                var prize = _prizeRepository.FirstOrDefault(p => p.DateJosn.Equals(m.DateJson));
+                if (prize != null)
+                {
+                    _prizeRepository.Delete(prize);
+                }
+
+                if (JsonConvert.DeserializeObject<GradeData>(m.GradeStringJson).Sums >= avgGrade)
+                {
+                    _prizeRepository.Insert(new Prize()
+                    {
+                        PrizeItemId = tianMoFanShengId,
+                        StudentId = m.StudentId,
+                        DateJosn = m.DateJson
+                    });
+                }
+            });
+        }
+        #endregion
+
+        #region 计算周模范生
+        /// <summary>
+        /// 计算周模范生
+        /// </summary>
+        /// <param name="prizeZhouMoFanShengComputInput"></param>
+        public void PrizeZhouMoFanShengComput(PrizeZhouMoFanShengComputInput prizeZhouMoFanShengComputInput)
+        {
+            Guid tianMoFanShengId = _prizeItemRepository.FirstOrDefault(m => m.Name.Equals(PrizeItem.TianMoFanSheng)).Id;
+            Guid zhouMoFanShengId = _prizeItemRepository.FirstOrDefault(m => m.Name.Equals(PrizeItem.ZhouMoFanSheng)).Id;
+            //这个星期一和星期日，在这一年的第几天
+            int weekMon = prizeZhouMoFanShengComputInput.DateTime.DayOfYear - ((int)prizeZhouMoFanShengComputInput.DateTime.DayOfWeek - 1);
+            int weekSat = prizeZhouMoFanShengComputInput.DateTime.DayOfYear - ((int)prizeZhouMoFanShengComputInput.DateTime.DayOfWeek - 1) + 6;
+
+            //获得这一周所有的天模范生
+            var prizesDay = _prizeRepository.GetAllList(m => JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJosn).Date.DayOfYear >= weekMon
+                                                          && JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJosn).Date.DayOfYear <= weekSat
+                                                          && JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJosn).Date.Year == prizeZhouMoFanShengComputInput.DateTime.Year
+                                                          && m.PrizeItemId == tianMoFanShengId);
+            if (prizesDay==null||prizesDay.Count<=0)
+            {
+                return;
+            }
+
+            //删除已存在的周模范生
+            var prizesWeek = _prizeRepository.GetAllList(m => JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJosn).Date.DayOfYear >= weekMon
+                                                          && JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJosn).Date.DayOfYear <= weekSat
+                                                          && JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJosn).Date.Year == prizeZhouMoFanShengComputInput.DateTime.Year
+                                                          && m.PrizeItemId == zhouMoFanShengId);
+            foreach (Prize item in prizesWeek)
+            {
+                _prizeRepository.Delete(item);
+            }
+
+            //对天模范生进行分组
+            var group = from items in prizesDay
+                        group items by JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(items.DateJosn).Date.DayOfYear into item
+                        select item;
+            int dayNumber = group.Count();
+
+            //计算出周模范生。存放在groupOne中
+            var groupOne = group.ToList()[0].ToList();
+            for (int i = 1, length = dayNumber; i < length; i++)
+            {
+                var grouptemp = group.ToList()[i].ToList();
+                var groupCopy = new List<Prize>(groupOne);
+                foreach (Prize item in groupCopy)
+                {
+                    Prize temp = grouptemp.FirstOrDefault(m => m.StudentId == item.StudentId);
+                    if (temp == null)
+                    {
+                        groupOne.Remove(item);
+                    }
+                }
+            }
+
+            //添加周模范生
+            //周模范生生时间采用item当中的时间
+            foreach (Prize item in groupOne)
+            {
+                _prizeRepository.Insert(new Prize()
+                {
+                    PrizeItemId = zhouMoFanShengId,
+                    StudentId = item.StudentId,
+                    DateJosn = item.DateJosn
+                });
+            }
+        }
+        #endregion
+
+        #region 计算月模范生
+        /// <summary>
+        /// 计算月模范生
+        /// </summary>
+        /// <param name="prizeYueMoFanShengComput"></param>
+        public void PrizeYueMoFanShengComput(PrizeYueMoFanShengComputInput prizeYueMoFanShengComput)
+        {
+            Guid zhouMoFanShengId = _prizeItemRepository.FirstOrDefault(m => m.Name.Equals(PrizeItem.ZhouMoFanSheng)).Id;
+            Guid yueMoFanShengId = _prizeItemRepository.FirstOrDefault(m => m.Name.Equals(PrizeItem.YueMoFanSheng)).Id;
+
+            //获得一个月的所有周模范生
+            var prizeWeek = _prizeRepository.GetAllList(m => JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJosn).Date.Month == prizeYueMoFanShengComput.DateTime.Month
+                                                           && JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJosn).Date.Year == prizeYueMoFanShengComput.DateTime.Year
+                                                           && m.PrizeItemId == zhouMoFanShengId);
+            if (prizeWeek==null||prizeWeek.Count<=0)
+            {
+                return;
+            }
+
+            //获得一个月的所有月模范生，并将这些月模范生删除
+            var prizeMonth = _prizeRepository.GetAllList(m => JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJosn).Date.Month == prizeYueMoFanShengComput.DateTime.Month
+                                                           && JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJosn).Date.Year == prizeYueMoFanShengComput.DateTime.Year
+                                                           && m.PrizeItemId == yueMoFanShengId);
+            foreach (Prize item in prizeMonth)
+            {
+                _prizeRepository.Delete(item);
+            }
+
+            //对周模范生进行分组
+            var group = from items in prizeWeek
+                        group items by JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(items.DateJosn).Week into item
+                        select item;
+            int monthNumber = group.Count();
+
+            //计算出月模范生。存放在groupOne中
+            var groupOne = group.ToList()[0].ToList();
+            for (int i = 1, length = monthNumber; i < length; i++)
+            {
+                var grouptemp = group.ToList()[i].ToList();
+                var groupCopy = new List<Prize>(groupOne);
+                foreach (Prize item in groupCopy)
+                {
+                    var temp = grouptemp.FirstOrDefault(m => m.StudentId == item.StudentId);
+                    if (temp == null)
+                    {
+                        groupOne.Remove(item);
+                    }
+                }
+            }
+
+            //添加月模范生
+            //月模范生生时间采用item当中的时间
+            foreach (Prize item in groupOne)
+            {
+                _prizeRepository.Insert(new Prize()
+                {
+                    PrizeItemId = yueMoFanShengId,
+                    DateJosn = item.DateJosn,
+                    StudentId = item.StudentId,
+                });
+            }
+        }
+        #endregion
+
+        #region 计算校模范生
+        /// <summary>
+        /// 计算校模范生
+        /// </summary>
+        /// <param name="prizeXiaoMoFanShengComput"></param>
+        public void PrizeXiaoMoFanShengComput(PrizeXiaoMoFanShengComputInput prizeXiaoMoFanShengComput)
+        {
+            Guid yueMoFanShengId = _prizeItemRepository.FirstOrDefault(m => m.Name.Equals(PrizeItem.YueMoFanSheng)).Id;
+            Guid xiaoMoFanShengId = _prizeItemRepository.FirstOrDefault(m => m.Name.Equals(PrizeItem.XiaoMoFanSheng)).Id;
+
+            //获取一学期的所有月模范生
+            var prizeMonth = _prizeRepository.GetAllList(m => JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJosn).SchoolYear == prizeXiaoMoFanShengComput.SchoolYear
+                                                              && JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJosn).Semester == prizeXiaoMoFanShengComput.Semester
+                                                              && m.PrizeItemId == yueMoFanShengId);
+            if (prizeMonth==null||prizeMonth.Count<=0)
+            {
+                return;
+            }
+
+            //获取一学期的校模范生
+            var prizeXiao = _prizeRepository.GetAllList(m => JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJosn).SchoolYear == prizeXiaoMoFanShengComput.SchoolYear
+                                                                && JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJosn).Semester == prizeXiaoMoFanShengComput.Semester
+                                                                && m.PrizeItemId == xiaoMoFanShengId);
+            //删除一学期的校模范生
+            foreach (Prize item in prizeXiao)
+            {
+                _prizeRepository.Delete(item);
+            }
+
+            //按照学号，对月模范生进行分组
+            var group = from items in prizeMonth
+                        group items by items.StudentId into item
+                        select item;
+
+            //添加校模范生
+            foreach (IGrouping<int, Prize> item in group)
+            {
+                if (item.Count() >= 3)
+                {
+                    var temp = item.ToList()[0];
+                    _prizeRepository.Insert(new Prize()
+                    {
+                        PrizeItemId = xiaoMoFanShengId,
+                        DateJosn = temp.DateJosn,
+                        StudentId = temp.StudentId
+                    });
+                }
+            }
+        }  
+        #endregion
+
+        #endregion
+
     }
 }

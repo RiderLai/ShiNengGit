@@ -37,7 +37,7 @@ namespace ShiNengShiHui.EntityFramework.Repositories
                                                         ,[PrizeItemId]
                                                         ,[StudentId])
                                                   VALUES
-                                                        @DateJosn
+                                                        (@DateJosn
                                                         ,@PrizeItemId
                                                         ,@StudentId)",
                                                         new SqlParameter("DateJosn", entity.DateJosn),
