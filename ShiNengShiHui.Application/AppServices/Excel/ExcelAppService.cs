@@ -9,6 +9,8 @@ using System.IO;
 using System.Data;
 using ShiNengShiHui.AppServices.TeacherDTO;
 using ShiNengShiHui.AppServices.ExcelDTO;
+using ShiNengShiHui.AppServices.AdministratorDTO;
+using ShiNengShiHui.Entities.Classes;
 
 namespace ShiNengShiHui.AppServices
 {
@@ -16,13 +18,16 @@ namespace ShiNengShiHui.AppServices
     {
         private readonly IStudentRepository _studentRepository;
         private readonly IGradeRepository _gradeRepository;
+        private readonly IClassRepository _classRepository;
 
         public ExcelAppService(IStudentRepository studentRepository,
-            IGradeRepository gradeRepository
+            IGradeRepository gradeRepository,
+            IClassRepository classRepository
             )
         {
             _studentRepository = studentRepository;
             _gradeRepository = gradeRepository;
+            _classRepository = classRepository;
         }
 
         #region excel转DataTable
@@ -85,11 +90,12 @@ namespace ShiNengShiHui.AppServices
             }
 
             return dt;
-        } 
+        }
         #endregion
 
 
-        public GradeExcelOutput GradeExcelDown()
+        #region 成绩表
+        public GradeExcelDownOutput GradeExcelDown()
         {
             string[] ShiNengShiHuiItem = new string[10] { "敬", "善", "净", "捡", "勤", "静", "厚", "乐", "跑", "勇" };
 
@@ -216,7 +222,7 @@ namespace ShiNengShiHui.AppServices
             MemoryStream stream = new MemoryStream();
             wk.Write(stream);
 
-            return new GradeExcelOutput()
+            return new GradeExcelDownOutput()
             {
                 ExcelData = stream
             };
@@ -224,7 +230,7 @@ namespace ShiNengShiHui.AppServices
 
         public GradeInsertOfExcelOutput GradeInsertOfExcel(GradeInsertOfExcelInput gradeInsertOfExcelInput)
         {
-            if (gradeInsertOfExcelInput.DataStream==null)
+            if (gradeInsertOfExcelInput.DataStream == null)
             {
                 return null;
             }
@@ -273,12 +279,14 @@ namespace ShiNengShiHui.AppServices
                     Semester = semester,
                     Week = week
                 });
-            } 
+            }
             #endregion
 
             return new GradeInsertOfExcelOutput() { Grades = gradeCreateList.ToArray() };
         }
+        #endregion
 
+        #region 学生表
         public StudentExcelDownOutput StudentExcelDown()
         {
             HSSFWorkbook wk = new HSSFWorkbook();
@@ -355,12 +363,12 @@ namespace ShiNengShiHui.AppServices
 
             MemoryStream stream = new MemoryStream();
             wk.Write(stream);
-            return new StudentExcelDownOutput() { ExcelData=stream};
+            return new StudentExcelDownOutput() { ExcelData = stream };
         }
 
         public StudentInsertOfExcelOutput StudentInsertOfExcel(StudentInsertOfExcelInput studentInsertOfExcelInput)
         {
-            if (studentInsertOfExcelInput.DataStream==null)
+            if (studentInsertOfExcelInput.DataStream == null)
             {
                 return null;
             }
@@ -386,10 +394,387 @@ namespace ShiNengShiHui.AppServices
                     Group = group,
                     ClassId = ClassId
                 });
-            } 
+            }
             #endregion
 
             return new StudentInsertOfExcelOutput() { Students = studentCreateList.ToArray() };
         }
+        #endregion
+
+        #region 用户表
+        public UserExcelDownOutput UserExcelDown()
+        {
+            HSSFWorkbook wk = new HSSFWorkbook();
+
+            ISheet sheet = wk.CreateSheet("用户");
+
+            #region 标题
+
+            //创建表格
+            IRow rowTitle = sheet.CreateRow(0);
+            ICell cellTitile = rowTitle.CreateCell(0);
+            cellTitile.SetCellValue("用户信息导入模板");
+            sheet.AddMergedRegion(new NPOI.SS.Util.CellRangeAddress(0, 0, 0, 3));
+
+            //设置样式
+            ICellStyle styleTitile = wk.CreateCellStyle();
+            styleTitile.Alignment = HorizontalAlignment.Center;
+            IFont fontTitile = wk.CreateFont();
+            fontTitile.Boldweight = short.MaxValue;
+            fontTitile.FontHeightInPoints = 22;
+            fontTitile.FontName = "宋体";
+            styleTitile.SetFont(fontTitile);
+
+            //将样式添加到表格中
+            cellTitile.CellStyle = styleTitile;
+
+
+            rowTitle.CreateCell(4).SetCellValue("Tip：导入时请从表格第三行开始填入数据");
+
+            IFont fontTip = wk.CreateFont();
+            fontTip.Color = NPOI.HSSF.Util.HSSFColor.Red.Index;
+
+            ICellStyle styleTipe = wk.CreateCellStyle();
+            styleTipe.SetFont(fontTip);
+            styleTipe.Alignment = HorizontalAlignment.Center;
+            styleTipe.VerticalAlignment = VerticalAlignment.Center;
+
+            rowTitle.GetCell(4).CellStyle = styleTipe;
+            sheet.SetColumnWidth(6, 20 * 256);
+            sheet.AddMergedRegion(new NPOI.SS.Util.CellRangeAddress(0, 1, 4, 6));
+            #endregion
+
+            #region 第二行 表头
+
+            //设置样式
+            ICellStyle styleTH = wk.CreateCellStyle();
+            styleTH.Alignment = HorizontalAlignment.Center;
+
+            //设置背景颜色
+            //styleTH.FillBackgroundColor = NPOI.HSSF.Util.HSSFColor.Yellow.Index;
+            styleTH.FillForegroundColor = NPOI.HSSF.Util.HSSFColor.Yellow.Index;
+            styleTH.FillPattern = FillPattern.SolidForeground;
+
+            IFont fontTH = wk.CreateFont();
+            fontTH.Boldweight = short.MaxValue;
+            styleTH.SetFont(fontTH);
+
+            //创建表格
+            IRow rowTH = sheet.CreateRow(1);
+
+            rowTH.CreateCell(0).SetCellValue("账号");
+            rowTH.GetCell(0).CellStyle = styleTH;
+            sheet.SetColumnWidth(0, 20 * 256);
+
+            rowTH.CreateCell(1).SetCellValue("用户名");
+            rowTH.GetCell(1).CellStyle = styleTH;
+
+            rowTH.CreateCell(2).SetCellValue("密码");
+            rowTH.GetCell(2).CellStyle = styleTH;
+            sheet.SetColumnWidth(2, 20 * 256);
+
+            rowTH.CreateCell(3).SetCellValue("邮箱");
+            rowTH.GetCell(3).CellStyle = styleTH;
+            sheet.SetColumnWidth(3, 20 * 256);
+            #endregion
+
+            MemoryStream stream = new MemoryStream();
+            wk.Write(stream);
+
+            return new UserExcelDownOutput() { ExcelData = stream };
+        }
+
+        public UserInsertOfExcelOutput UserInsertOfExcel(UserInsertOfExcelInput userInsertOfExcelInput)
+        {
+            if (userInsertOfExcelInput.DataStream==null)
+            {
+                return null;
+            }
+
+            HSSFWorkbook wk = new HSSFWorkbook(userInsertOfExcelInput.DataStream);
+            DataTable dataTable = this.ExcelToDataTable(wk, 1, 0);
+
+            #region DataTable转List<UserCreateInput>
+            List<UserCreateInput> list = new List<UserCreateInput>();
+            for (int i = 0, length = dataTable.Rows.Count; i < length; i++)
+            {
+                DataRow row= dataTable.Rows[i];
+
+                string userName = string.IsNullOrEmpty((string)row[0]) ? null : (string)row[0];
+                string name= string.IsNullOrEmpty((string)row[1]) ? null : (string)row[1];
+                string password = string.IsNullOrEmpty((string)row[2]) ? null : (string)row[2];
+                string emailAddress= string.IsNullOrEmpty((string)row[3]) ? null : (string)row[3];
+
+                if (userName==null||name==null||password==null||emailAddress==null)
+                {
+                    continue;
+                }
+
+                list.Add(new UserCreateInput()
+                {
+                    UserName = userName,
+                    Name = name,
+                    Password = password,
+                    EmailAddress = emailAddress
+                });
+            } 
+            #endregion
+
+            return new UserInsertOfExcelOutput() { Users = list.ToArray() };
+        }
+        #endregion
+
+        #region 教师表
+        public TeacherExcelDownOutput TeacherExcelDown()
+        {
+            HSSFWorkbook wk = new HSSFWorkbook();
+
+            ISheet sheet = wk.CreateSheet("教师");
+
+            #region 标题
+
+            //创建表格
+            IRow rowTitle = sheet.CreateRow(0);
+            ICell cellTitile = rowTitle.CreateCell(0);
+            cellTitile.SetCellValue("教师信息导入模板");
+            sheet.AddMergedRegion(new NPOI.SS.Util.CellRangeAddress(0, 0, 0, 3));
+
+            //设置样式
+            ICellStyle styleTitile = wk.CreateCellStyle();
+            styleTitile.Alignment = HorizontalAlignment.Center;
+            IFont fontTitile = wk.CreateFont();
+            fontTitile.Boldweight = short.MaxValue;
+            fontTitile.FontHeightInPoints = 22;
+            fontTitile.FontName = "宋体";
+            styleTitile.SetFont(fontTitile);
+
+            //将样式添加到表格中
+            cellTitile.CellStyle = styleTitile;
+
+
+            rowTitle.CreateCell(4).SetCellValue("Tip：导入时请从表格第三行开始填入数据");
+
+            IFont fontTip = wk.CreateFont();
+            fontTip.Color = NPOI.HSSF.Util.HSSFColor.Red.Index;
+
+            ICellStyle styleTipe = wk.CreateCellStyle();
+            styleTipe.SetFont(fontTip);
+            styleTipe.Alignment = HorizontalAlignment.Center;
+            styleTipe.VerticalAlignment = VerticalAlignment.Center;
+
+            rowTitle.GetCell(4).CellStyle = styleTipe;
+            sheet.SetColumnWidth(6, 20 * 256);
+            sheet.AddMergedRegion(new NPOI.SS.Util.CellRangeAddress(0, 1, 4, 6));
+            #endregion
+
+            #region 第二行 表头
+
+            //设置样式
+            ICellStyle styleTH = wk.CreateCellStyle();
+            styleTH.Alignment = HorizontalAlignment.Center;
+
+            //设置背景颜色
+            //styleTH.FillBackgroundColor = NPOI.HSSF.Util.HSSFColor.Yellow.Index;
+            styleTH.FillForegroundColor = NPOI.HSSF.Util.HSSFColor.Yellow.Index;
+            styleTH.FillPattern = FillPattern.SolidForeground;
+
+            IFont fontTH = wk.CreateFont();
+            fontTH.Boldweight = short.MaxValue;
+            styleTH.SetFont(fontTH);
+
+            //创建表格
+            IRow rowTH = sheet.CreateRow(1);
+
+            rowTH.CreateCell(0).SetCellValue("姓名");
+            rowTH.GetCell(0).CellStyle = styleTH;
+            sheet.SetColumnWidth(0, 20 * 256);
+
+            rowTH.CreateCell(1).SetCellValue("性别");
+            rowTH.GetCell(1).CellStyle = styleTH;
+
+            rowTH.CreateCell(2).SetCellValue("生日");
+            rowTH.GetCell(2).CellStyle = styleTH;
+            sheet.SetColumnWidth(2, 20 * 256);
+
+            rowTH.CreateCell(3).SetCellValue("班级编号");
+            rowTH.GetCell(3).CellStyle = styleTH;
+            sheet.SetColumnWidth(3, 20 * 256);
+            #endregion
+
+            MemoryStream stream = new MemoryStream();
+            wk.Write(stream);
+
+            return new TeacherExcelDownOutput() { ExcelData = stream };
+        }
+
+        public TeacherInsertOfExcelOutput TeacherInsertOfExcel(TeacherInsertOfExcelInput teacherInsertOfExcelInput)
+        {
+            if (teacherInsertOfExcelInput.DataStream==null)
+            {
+                return null;
+            }
+
+            #region DataTable转List<TeacherCreateInput>
+            HSSFWorkbook wk = new HSSFWorkbook(teacherInsertOfExcelInput.DataStream);
+            DataTable dataTable = this.ExcelToDataTable(wk, 1, 0);
+
+            List<TeacherCreateInput> list = new List<TeacherCreateInput>();
+            for (int i = 0, length = dataTable.Rows.Count; i < length; i++)
+            {
+                DataRow row = dataTable.Rows[i];
+                string className = row[3].ToString();
+                var classTemp = _classRepository.FirstOrDefault(m => m.Name.Equals(className));
+                int? classId;
+                if (classTemp == null)
+                {
+                    classId = null;
+                }
+                else
+                {
+                    classId = classTemp.Id;
+                }
+
+                string name = string.IsNullOrEmpty((string)row[0]) ? null : (string)row[0];
+                bool sex = row[1].ToString().Equals("男") ? true : false;
+                DateTime? dateTime = string.IsNullOrEmpty((string)row[2]) ? null : (DateTime?)Convert.ToDateTime(row[2]);
+
+                if (name == null || classId == null)
+                {
+                    continue;
+                }
+
+                list.Add(new TeacherCreateInput()
+                {
+                    Name = name,
+                    Sex = sex,
+                    BirthDay = dateTime,
+                    ClassId = (int)classId
+                });
+            } 
+            #endregion
+
+            return new TeacherInsertOfExcelOutput() { Teachers = list.ToArray() };
+        }
+        #endregion
+
+        #region 班级表
+        public ClassExcelDownOutput ClassExcelDown()
+        {
+            HSSFWorkbook wk = new HSSFWorkbook();
+
+            ISheet sheet = wk.CreateSheet("班级");
+
+            #region 标题
+
+            //创建表格
+            IRow rowTitle = sheet.CreateRow(0);
+            ICell cellTitile = rowTitle.CreateCell(0);
+            cellTitile.SetCellValue("班级信息导入模板");
+            sheet.AddMergedRegion(new NPOI.SS.Util.CellRangeAddress(0, 0, 0, 2));
+
+            //设置样式
+            ICellStyle styleTitile = wk.CreateCellStyle();
+            styleTitile.Alignment = HorizontalAlignment.Center;
+            IFont fontTitile = wk.CreateFont();
+            fontTitile.Boldweight = short.MaxValue;
+            fontTitile.FontHeightInPoints = 22;
+            fontTitile.FontName = "宋体";
+            styleTitile.SetFont(fontTitile);
+
+            //将样式添加到表格中
+            cellTitile.CellStyle = styleTitile;
+
+
+            rowTitle.CreateCell(3).SetCellValue("Tip：导入时请从表格第三行开始填入数据");
+
+            IFont fontTip = wk.CreateFont();
+            fontTip.Color = NPOI.HSSF.Util.HSSFColor.Red.Index;
+
+            ICellStyle styleTipe = wk.CreateCellStyle();
+            styleTipe.SetFont(fontTip);
+            styleTipe.Alignment = HorizontalAlignment.Center;
+            styleTipe.VerticalAlignment = VerticalAlignment.Center;
+
+            rowTitle.GetCell(3).CellStyle = styleTipe;
+            sheet.SetColumnWidth(5, 20 * 256);
+            sheet.AddMergedRegion(new NPOI.SS.Util.CellRangeAddress(0, 1, 3, 5));
+            #endregion
+
+            #region 第二行 表头
+
+            //设置样式
+            ICellStyle styleTH = wk.CreateCellStyle();
+            styleTH.Alignment = HorizontalAlignment.Center;
+
+            //设置背景颜色
+            //styleTH.FillBackgroundColor = NPOI.HSSF.Util.HSSFColor.Yellow.Index;
+            styleTH.FillForegroundColor = NPOI.HSSF.Util.HSSFColor.Yellow.Index;
+            styleTH.FillPattern = FillPattern.SolidForeground;
+
+            IFont fontTH = wk.CreateFont();
+            fontTH.Boldweight = short.MaxValue;
+            styleTH.SetFont(fontTH);
+
+            //创建表格
+            IRow rowTH = sheet.CreateRow(1);
+
+            rowTH.CreateCell(0).SetCellValue("班级编号");
+            rowTH.GetCell(0).CellStyle = styleTH;
+            sheet.SetColumnWidth(0, 20 * 256);
+
+            rowTH.CreateCell(1).SetCellValue("班级名");
+            rowTH.GetCell(1).CellStyle = styleTH;
+            sheet.SetColumnWidth(0, 20 * 256);
+
+            rowTH.CreateCell(2).SetCellValue("开班时间");
+            rowTH.GetCell(2).CellStyle = styleTH;
+            sheet.SetColumnWidth(2, 20 * 256);
+
+            #endregion
+
+            MemoryStream stream = new MemoryStream();
+            wk.Write(stream);
+
+            return new ClassExcelDownOutput() { ExcelData = stream };
+        }
+
+        public ClassInsertOfExcelOutput ClassInsertOfExcel(ClassInsertOfExcelInput classInsertOfExcelInput)
+        {
+            if (classInsertOfExcelInput.DataStream==null)
+            {
+                return null;
+            }
+
+            HSSFWorkbook wk = new HSSFWorkbook(classInsertOfExcelInput.DataStream);
+            DataTable dataTable = this.ExcelToDataTable(wk, 1, 0);
+
+            #region DataTable转List<ClassCreateInput>
+            List<ClassCreateInput> list = new List<ClassCreateInput>();
+            for (int i = 0, length = dataTable.Rows.Count; i < length; i++)
+            {
+                DataRow row = dataTable.Rows[i];
+
+                string name = string.IsNullOrEmpty((string)row[0]) ? null : (string)row[0];
+                string display = string.IsNullOrEmpty((string)row[1]) ? null : (string)row[1];
+                DateTime? dateTime = string.IsNullOrEmpty((string)row[2])? null : (DateTime?)Convert.ToDateTime(row[2]);
+
+                if (name == null || display == null || dateTime == null)
+                {
+                    continue;
+                }
+
+                list.Add(new ClassCreateInput()
+                {
+                    Name = name,
+                    Display = display,
+                    InTime = (DateTime)dateTime
+                });
+            } 
+            #endregion
+
+            return new ClassInsertOfExcelOutput() { Classes = list.ToArray() };
+        } 
+        #endregion
+
     }
 }

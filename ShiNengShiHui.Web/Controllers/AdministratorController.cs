@@ -1,12 +1,16 @@
-﻿using Abp.Web.Mvc.Authorization;
+﻿using Abp.Domain.Uow;
+using Abp.Web.Mvc.Authorization;
 using ShiNengShiHui.AppServices;
 using ShiNengShiHui.AppServices.AdministratorDTO;
+using ShiNengShiHui.AppServices.ExcelDTO;
+using ShiNengShiHui.AppServices.Return;
 using ShiNengShiHui.Authorization;
 using ShiNengShiHui.Web.Models.Administrator.Class;
 using ShiNengShiHui.Web.Models.Administrator.Teacher;
 using ShiNengShiHui.Web.Models.Administrator.User;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -17,10 +21,13 @@ namespace ShiNengShiHui.Web.Controllers
     public class AdministratorController : ShiNengShiHuiControllerBase
     {
         private IAdministratorAppService _administratorAppService;
+        private IExcelAppService _excelAppService;
 
-        public AdministratorController(IAdministratorAppService administratorAppService)
+        public AdministratorController(IAdministratorAppService administratorAppService,
+            IExcelAppService excelAppService)
         {
             _administratorAppService = administratorAppService;
+            _excelAppService = excelAppService;
         }
 
         // GET: Administrator
@@ -40,6 +47,11 @@ namespace ShiNengShiHui.Web.Controllers
             else
             {
                 result = _administratorAppService.UserShowPage(new UserShowPageInput() { PageIndex = (int)pageIndex });
+            }
+
+            if (result.Users.Length <= 0)
+            {
+                return View();
             }
 
             ViewData["pageIndex"] = result.PageIndex;
@@ -179,7 +191,7 @@ namespace ShiNengShiHui.Web.Controllers
                 return this.RefreshParent();
             }
             return View(model);
-        } 
+        }
         #endregion
 
         #region 删除数据
@@ -192,6 +204,49 @@ namespace ShiNengShiHui.Web.Controllers
             return RedirectToAction("UserIndex");
         }
         #endregion
+
+        #region 表格下载
+        public FileResult UserExcelDown()
+        {
+            UserExcelDownOutput result = _excelAppService.UserExcelDown();
+            using (result.ExcelData)
+            {
+                return File(result.ExcelData.ToArray(), "application/octet-stream", "用户导入模板.xls");
+            }
+        }
+        #endregion
+
+        #region Excel批量导入
+        public ActionResult UsersCereateOfExcel(HttpPostedFileBase file)
+        {
+            if (file == null)
+            {
+                return this.RedirectAjax("Failure", "没有文件", null, null);
+            }
+            else if (!Path.GetExtension(file.FileName).Equals(".xls"))
+            {
+                return this.RedirectAjax("Failure", "请上传Excel文件", null, null);
+            }
+            else if (file.ContentLength >= 0)
+            {
+                var result = _administratorAppService.UserCreateRange(new UserCreateRangeInput() { DataStream = file.InputStream });
+
+                if (result.Statu == ReturnStatu.Success)
+                {
+                    return this.RedirectAjax("Success", "上传成功", null, null);
+                }
+                else
+                {
+                    return this.RedirectAjax("Failure", "上传失败", null, null);
+                }
+            }
+            else
+            {
+                return this.RedirectAjax("Failure", null, null, null);
+            }
+        } 
+        #endregion
+
         #endregion
 
         #region 班级模块
@@ -205,6 +260,11 @@ namespace ShiNengShiHui.Web.Controllers
             else
             {
                 result = _administratorAppService.ClassShowPage(new ClassShowPageInput() { PageIndex = (int)pageIndex });
+            }
+
+            if (result.Classes.Length <= 0)
+            {
+                return View();
             }
 
             ViewData["pageIndex"] = result.PageIndex;
@@ -271,6 +331,49 @@ namespace ShiNengShiHui.Web.Controllers
             return RedirectToAction("ClassIndex");
         }
         #endregion
+
+        #region 表格下载
+        public FileResult ClassExcelDown()
+        {
+            ClassExcelDownOutput result = _excelAppService.ClassExcelDown();
+            using (result.ExcelData)
+            {
+                return File(result.ExcelData.ToArray(), "application/octet-stream", "班级导入模板.xls");
+            }
+        }
+        #endregion
+
+        #region Excel批量导入
+        public ActionResult ClassesCereateOfExcel(HttpPostedFileBase file)
+        {
+            if (file == null)
+            {
+                return this.RedirectAjax("Failure", "没有文件", null, null);
+            }
+            if (!Path.GetExtension(file.FileName).Equals(".xls"))
+            {
+                return this.RedirectAjax("Failure", "请上传Excel文件", null, null);
+            }
+            else if (file.ContentLength >= 0)
+            {
+                var result = _administratorAppService.ClassCreateRange(new ClassCreateRangeInput() { DataStream = file.InputStream });
+
+                if (result.Statu == ReturnStatu.Success)
+                {
+                    return this.RedirectAjax("Success", "上传成功", null, null);
+                }
+                else
+                {
+                    return this.RedirectAjax("Failure", "上传失败", null, null);
+                }
+            }
+            else
+            {
+                return this.RedirectAjax("Failure", null, null, null);
+            }
+        } 
+        #endregion
+
         #endregion
 
         #region 教师模块
@@ -284,6 +387,11 @@ namespace ShiNengShiHui.Web.Controllers
             else
             {
                 result = _administratorAppService.TeacherShowPage(new TeacherShowPageInput() { PageIndex = (int)pageIndex });
+            }
+
+            if (result.Teachers.Length <= 0)
+            {
+                return View();
             }
 
             ViewData["pageIndex"] = result.PageIndex;
@@ -348,11 +456,11 @@ namespace ShiNengShiHui.Web.Controllers
             var classes = _administratorAppService.ClassShowPage(new ClassShowPageInput() { ShowCount = 10000 });
             classList.AddRange(classes.Classes.Select(m =>
             {
-               if (model.ClassId == m.Id)
-               {
-                   return new SelectListItem() { Text = m.Display, Value = m.Id.ToString(), Selected = true };
-               }
-               return new SelectListItem() { Text = m.Display, Value = m.Id.ToString() };
+                if (model.ClassId == m.Id)
+                {
+                    return new SelectListItem() { Text = m.Display, Value = m.Id.ToString(), Selected = true };
+                }
+                return new SelectListItem() { Text = m.Display, Value = m.Id.ToString() };
             }).ToList());
             ViewBag.ClassList = classList;
             #endregion
@@ -424,8 +532,51 @@ namespace ShiNengShiHui.Web.Controllers
                 _administratorAppService.TeacherDelete(new TeacherDeleteInput() { Id = sid[i] });
             }
             return RedirectToAction("TeacherIndex");
+        }
+        #endregion
+
+        #region 表格下载
+        public FileResult TeacherExcelDown()
+        {
+            TeacherExcelDownOutput result = _excelAppService.TeacherExcelDown();
+            using (result.ExcelData)
+            {
+                return File(result.ExcelData.ToArray(), "application/octet-stream", "教师导入模板.xls");
+            }
+        }
+        #endregion
+
+        #region Excel批量导入
+        public ActionResult TeachersCereateOfExcel(HttpPostedFileBase file)
+        {
+            if (file == null)
+            {
+                return this.RedirectAjax("Failure", "没有文件", null, null);
+            }
+            else if (!Path.GetExtension(file.FileName).Equals(".xls"))
+            {
+                return this.RedirectAjax("Failure", "请上传Excel文件", null, null);
+            }
+            else if (file.ContentLength >= 0)
+            {
+                var result = _administratorAppService.TeacherCreateRange(new TeacherCreateRangeInput() { DataStream = file.InputStream });
+
+                if (result.Statu == ReturnStatu.Success)
+                {
+                    return this.RedirectAjax("Success", "上传成功", null, null);
+                }
+                else
+                {
+                    return this.RedirectAjax("Failure", "上传失败", null, null);
+                }
+            }
+            else
+            {
+                return this.RedirectAjax("Failure", null, null, null);
+            }
         } 
         #endregion
+
         #endregion
     }
 }

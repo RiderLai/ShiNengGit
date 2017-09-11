@@ -44,13 +44,18 @@ namespace ShiNengShiHui.Web.Controllers
         public ActionResult StudentIndex(int? pageIndex)
         {
             ShowPageStudentOutput result;
-            if (pageIndex==null||!ModelState.IsValid)
+            if (pageIndex == null || !ModelState.IsValid)
             {
-                result= _teacherAppService.ShowPageStudent(new ShowPageStudentInput());
+                result = _teacherAppService.ShowPageStudent(new ShowPageStudentInput());
             }
             else
             {
-                result = _teacherAppService.ShowPageStudent(new ShowPageStudentInput() { PageIndex=(int)pageIndex});
+                result = _teacherAppService.ShowPageStudent(new ShowPageStudentInput() { PageIndex = (int)pageIndex });
+            }
+
+            if (result.ShowStudentOutputs.Length <= 0)
+            {
+                return View();
             }
 
             ViewData["pageIndex"] = result.PageIndex;
@@ -267,7 +272,7 @@ namespace ShiNengShiHui.Web.Controllers
             {
                 return this.RedirectAjax("Failure", null, null, null);
             }
-        } 
+        }
         #endregion
 
         #endregion
@@ -284,6 +289,11 @@ namespace ShiNengShiHui.Web.Controllers
             else
             {
                 result = _teacherAppService.ShowPageGrade(new ShowPageGradeInput() { PageIndex = (int)pageIndex });
+            }
+
+            if (result.ShowGradeOutputs.Length <= 0)
+            {
+                return View();
             }
 
             ViewData["pageIndex"] = result.PageIndex;
@@ -565,7 +575,7 @@ namespace ShiNengShiHui.Web.Controllers
         #region 表格下载
         public FileResult GradeExcelDown()
         {
-            GradeExcelOutput gradeExcelOutput = _excelAppService.GradeExcelDown();
+            GradeExcelDownOutput gradeExcelOutput = _excelAppService.GradeExcelDown();
             using (gradeExcelOutput.ExcelData)
             {
                 return File(gradeExcelOutput.ExcelData.ToArray(), "application/octet-stream", "成绩导入模板.xls");
@@ -619,7 +629,6 @@ namespace ShiNengShiHui.Web.Controllers
 
         #endregion
 
-
         #region 奖项模块
         public ActionResult PrizeIndex(int? pageIndex)
         {
@@ -651,7 +660,7 @@ namespace ShiNengShiHui.Web.Controllers
             return View(models);
         }
 
-        public ActionResult PrizeComput(DateTime time, string computSelect,int? schoolYear,int? semester)
+        public ActionResult PrizeComput(DateTime time, string computSelect, int? schoolYear, int? semester)
         {
             switch (computSelect)
             {
@@ -665,7 +674,7 @@ namespace ShiNengShiHui.Web.Controllers
                     _teacherAppService.PrizeYueMoFanShengComput(new PrizeYueMoFanShengComputInput() { DateTime = time });
                     break;
                 case "XiaoMoFanSheng":
-                    if (schoolYear==null || semester==null)
+                    if (schoolYear == null || semester == null)
                     {
                         break;
                     }
@@ -673,7 +682,7 @@ namespace ShiNengShiHui.Web.Controllers
                     break;
             }
             return RedirectToAction("PrizeIndex");
-        } 
+        }
         #endregion
     }
 }

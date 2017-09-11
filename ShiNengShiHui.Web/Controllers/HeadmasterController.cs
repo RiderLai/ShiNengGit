@@ -72,6 +72,11 @@ namespace ShiNengShiHui.Web.Controllers
 
             var teachers = _headmasterAppService.TeacherShowPage(new TeacherShowPageInput() { PageIndex = (int)pageIndex });
 
+            if (teachers.Teachers.Length <= 0)
+            {
+                return View();
+            }
+
             List<TeacherResultViewModel> models = new List<TeacherResultViewModel>();
             models.AddRange(teachers.Teachers.Select(m => ObjectMapper.Map<TeacherResultViewModel>(m)));
 
@@ -79,7 +84,7 @@ namespace ShiNengShiHui.Web.Controllers
             ViewData["pageCount"] = teachers.PageCount;
 
             return View(models);
-        } 
+        }
         #endregion
 
         #region 学生模块
@@ -128,7 +133,7 @@ namespace ShiNengShiHui.Web.Controllers
 
 
             return View(models);
-        } 
+        }
         #endregion
 
         #region 成绩模块
@@ -175,7 +180,7 @@ namespace ShiNengShiHui.Web.Controllers
             ViewData["pageCount"] = grades.PageCount;
 
             return View(models);
-        } 
+        }
         #endregion
 
         #region 奖项模块
@@ -222,7 +227,7 @@ namespace ShiNengShiHui.Web.Controllers
             ViewData["pageCount"] = prizes.PageCount;
 
             return View(models);
-        } 
+        }
         #endregion
     }
 }

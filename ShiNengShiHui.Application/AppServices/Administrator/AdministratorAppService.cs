@@ -12,11 +12,15 @@ using ShiNengShiHui.AppServices.AdministratorDTO;
 using ShiNengShiHui.Entities.Teachers;
 using Microsoft.AspNet.Identity;
 using System.Linq;
+using ShiNengShiHui.AppServices.ExcelDTO;
+using Abp.Domain.Uow;
 
 namespace ShiNengShiHui.AppServices
 {
     public class AdministratorAppService : ShiNengShiHuiAppServiceBase, IAdministratorAppService
     {
+        private readonly IUnitOfWorkManager _unitOfWorkManager;
+
         private readonly IStudentRepository _studentRepository;
         private readonly IPrizeRepository _prizeRepository;
         private readonly IGradeRepository _gradeRepository;
@@ -25,6 +29,7 @@ namespace ShiNengShiHui.AppServices
         private readonly IUserRepository _userRepository;
         private readonly IRepository<Role> _roleRepository;
         private readonly IRepository<UserRole, long> _userRoleRepository;
+        private readonly IExcelAppService _excelAppService;
 
         public AdministratorAppService(IStudentRepository studentRepository,
             IPrizeRepository prizeRepository,
@@ -33,7 +38,9 @@ namespace ShiNengShiHui.AppServices
             IClassRepository classRepository,
             IUserRepository userRepository,
             IRepository<Role> roleRepository,
-            IRepository<UserRole, long> userRoleRepository)
+            IRepository<UserRole, long> userRoleRepository,
+            IExcelAppService excelAppService,
+            IUnitOfWorkManager unitOfWorkManager)
         {
             _studentRepository = studentRepository;
             _prizeRepository = prizeRepository;
@@ -43,6 +50,9 @@ namespace ShiNengShiHui.AppServices
             _userRepository = userRepository;
             _roleRepository = roleRepository;
             _userRoleRepository = userRoleRepository;
+            _excelAppService = excelAppService;
+
+            _unitOfWorkManager = unitOfWorkManager;
         }
 
         #region 班级模块
@@ -56,7 +66,7 @@ namespace ShiNengShiHui.AppServices
         public ReturnVal ClassCreate(ClassCreateInput classCreateInput)
         {
             var Class = _classRepository.FirstOrDefault(m => m.Name == classCreateInput.Name);
-            if (Class == null)
+            if (Class != null)
             {
                 return new ReturnVal(ReturnStatu.Failure);
             }
@@ -64,13 +74,33 @@ namespace ShiNengShiHui.AppServices
             _classRepository.Insert(Class);
             _classRepository.TableCreate(Class);
             return new ReturnVal(ReturnStatu.Success);
-        } 
+        }
         #endregion
 
+        #region 批量创建班级
+        /// <summary>
+        /// 批量创建班级
+        /// </summary>
+        /// <param name="classCreateRangeInput"></param>
+        /// <returns></returns>
         public ReturnVal ClassCreateRange(ClassCreateRangeInput classCreateRangeInput)
         {
-            throw new NotImplementedException();
-        }
+            var classes = _excelAppService.ClassInsertOfExcel(new ClassInsertOfExcelInput() { DataStream = classCreateRangeInput.DataStream });
+
+            if (classes == null)
+            {
+                return null;
+            }
+
+            foreach (ClassCreateInput item in classes.Classes)
+            {
+                var Class = _classRepository.Insert(ObjectMapper.Map<Class>(item));
+                _classRepository.TableCreate(Class);
+            }
+
+            return new ReturnVal(ReturnStatu.Success);
+        } 
+        #endregion
 
         #region 删除班级
         /// <summary>
@@ -176,13 +206,32 @@ namespace ShiNengShiHui.AppServices
             }
             _teacherRepository.Insert(teacher);
             return new ReturnVal(ReturnStatu.Success);
-        } 
+        }
         #endregion
 
+        #region 批量创建教师
+        /// <summary>
+        /// 批量创建教师
+        /// </summary>
+        /// <param name="teacherCreateRangeInput"></param>
+        /// <returns></returns>
         public ReturnVal TeacherCreateRange(TeacherCreateRangeInput teacherCreateRangeInput)
         {
-            throw new NotImplementedException();
-        }
+            var teachers = _excelAppService.TeacherInsertOfExcel(new TeacherInsertOfExcelInput() { DataStream = teacherCreateRangeInput.DataStream });
+
+            if (teachers == null)
+            {
+                return null;
+            }
+
+            foreach (TeacherCreateInput item in teachers.Teachers)
+            {
+                _teacherRepository.Insert(ObjectMapper.Map<Teacher>(item));
+            }
+
+            return new ReturnVal(ReturnStatu.Success);
+        } 
+        #endregion
 
         #region 删除教师
         /// <summary>
@@ -306,13 +355,54 @@ namespace ShiNengShiHui.AppServices
             });
 
             return new ReturnVal(ReturnStatu.Success);
-        } 
+        }
         #endregion
 
+        #region 批量创建用户
+        /// <summary>
+        /// 批量创建用户
+        /// </summary>
+        /// <param name="userCreateRangeInput"></param>
+        /// <returns></returns>
         public ReturnVal UserCreateRange(UserCreateRangeInput userCreateRangeInput)
         {
-            throw new NotImplementedException();
-        }
+            var users = _excelAppService.UserInsertOfExcel(new UserInsertOfExcelInput() { DataStream = userCreateRangeInput.DataStream });
+
+            if (users == null)
+            {
+                return null;
+            }
+
+            var teacherRole = _roleRepository.FirstOrDefault(m => m.Name.Equals(StaticRoleNames.Tenants.Teacher) && m.TenantId == 1);
+
+            foreach (UserCreateInput item in users.Users)
+            {
+
+                var user = _userRepository.FirstOrDefault(m => m.Name.Equals(item.Name));
+                if (user != null)
+                {
+                    continue;
+                }
+                user = ObjectMapper.Map<User>(item);
+                user.Password = new PasswordHasher().HashPassword(user.Password);
+                user.TenantId = 1;
+                user.Surname = user.Name;
+
+                user = _userRepository.Insert(user);
+
+                _userRoleRepository.Insert(new UserRole()
+                {
+                    UserId = user.Id,
+                    RoleId = teacherRole.Id,
+                    TenantId = user.TenantId
+                });
+
+                _unitOfWorkManager.Current.SaveChanges();
+            }
+
+            return new ReturnVal(ReturnStatu.Success);
+        } 
+        #endregion
 
         #region 删除用户
         /// <summary>
@@ -426,7 +516,7 @@ namespace ShiNengShiHui.AppServices
             }
             _userRepository.Update(user);
             return new ReturnVal(ReturnStatu.Success);
-        } 
+        }
         #endregion
 
         #endregion

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ShiNengShiHui.AppServices.ExcelDTO
 {
-    public class GradeExcelOutput
+    public class GradeExcelDownOutput
     {
         public MemoryStream ExcelData { get; set; }
     }

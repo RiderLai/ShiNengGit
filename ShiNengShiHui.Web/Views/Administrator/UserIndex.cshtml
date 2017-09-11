@@ -19,7 +19,7 @@
 
         $("#BatchImportStudents").click(function () {
             $.upload({
-                url: '@Url.Action("StudentsCereateOfExcel")',
+                url: '@Url.Action("UsersCereateOfExcel")',
                 fileName: 'file',
                 dataType: 'json',
                 validateAntiForgeryToken:'@Html.AntiForgeryToken()',
@@ -46,7 +46,7 @@
 
 <div class="alert alert-info alert-dismissible" role="alert">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <i class="fa fa-info-circle"></i> 批量导入功能可以通过Excel表格导入学生信息，为保证系统性能，单次导入学生数量不可超过500人。导入的Excel模板请点击<a class="green" href="@Url.Action("StudentExcelDown")"> 这里下载</a>。
+    <i class="fa fa-info-circle"></i> 批量导入功能可以通过Excel表格导入学生信息，为保证系统性能，单次导入学生数量不可超过500人。导入的Excel模板请点击<a class="green" href="@Url.Action("UserExcelDown")"> 这里下载</a>。
 </div>
 
 @using (Html.BeginForm("UserDelete", "Administrator", FormMethod.Post, new { id = "mainForm" }))
@@ -67,55 +67,33 @@
                         <th style="width: 8px;">
                             <input type="checkbox" id="checkall" class="group-checkable" />
                         </th>
-
-                        <th>
-                            用户名
-                        </th>
-                        <th>
-                            姓名
-                        </th>
-
-                        <th>
-                            电子邮箱
-                        </th>
-
-                        <th>
-                            老师名
-                        </th>
-
-                        <th>
-                            操作
-                        </th>
+                        <th>序号</th>
+                        <th>用户名</th>
+                        <th>姓名</th>
+                        <th>电子邮箱</th>
+                        <th>老师名</th>
+                        <th>操作</th>
                     </tr>
                 </thead>
                 <tbody>
                     @if (Model == null)
-                {
-
-                }
-                else
-                {
-                    foreach (ShiNengShiHui.Web.Models.Administrator.User.UserResultViewModel s in Model)
                     {
+
+                    }
+                    else
+                    {
+                        int i = 1;
+                        foreach (ShiNengShiHui.Web.Models.Administrator.User.UserResultViewModel s in Model)
+                        {
                             <tr>
                                 <td>
                                     <input type="checkbox" class="checkboxes" name='sid' value='@s.Id' />
                                 </td>
-                                <td>
-                                    @s.UserName
-                                </td>
-
-                                <td>
-                                    @s.Name
-                                </td>
-
-                                <td>
-                                    @s.EmailAddress
-                                </td>
-
-                                <td>
-                                    @s.TeacherName
-                                </td>
+                                <td>@i</td>
+                                <td>@s.UserName</td>
+                                <td>@s.Name</td>
+                                <td>@s.EmailAddress</td>
+                                <td>@s.TeacherName</td>
 
                                 <td>
 
@@ -130,6 +108,7 @@
                                     </a>
                                 </td>
                             </tr>
+                            i++;
                         }
                     }
 
@@ -140,34 +119,22 @@
     </div>
 }
 
-@{
+@if (Model == null)
+{
+}
+else
+{
     int pageIndex = (int)ViewData["pageIndex"];
     int pageCount = (int)ViewData["pageCount"];
-}
-<div class="text-right">
+
+    <div class="text-right">
 
 
-    <ul class="pagination">
-        <li><a href="@Url.Action("UserIndex","Administrator",new { pageIndex=1})">首页</a></li>
-        @if (pageIndex <= 5)
-        {
-            for (int i = 1, length = pageCount; i <= length; i++)
+        <ul class="pagination">
+            <li><a href="@Url.Action("UserIndex","Administrator",new { pageIndex=1})">首页</a></li>
+            @if (pageIndex <= 5)
             {
-                if (pageIndex == i)
-                {
-                    <li class="active"><a href="@Url.Action("UserIndex","Administrator",new { pageIndex=i})">@i</a></li>
-                }
-                else
-                {
-                    <li><a href="@Url.Action("UserIndex","Administrator",new { pageIndex=i})">@i</a></li>
-                }
-            }
-        }
-        else
-        {
-            if (pageIndex >= 3 && pageIndex <= pageCount - 2)
-            {
-                for (int i = pageIndex - 2; i < pageIndex + 2; i++)
+                for (int i = 1, length = pageCount; i <= length; i++)
                 {
                     if (pageIndex == i)
                     {
@@ -181,9 +148,9 @@
             }
             else
             {
-                if (pageIndex <= 2)
+                if (pageIndex >= 3 && pageIndex <= pageCount - 2)
                 {
-                    for (int i = 1; i <= 5; i++)
+                    for (int i = pageIndex - 2; i < pageIndex + 2; i++)
                     {
                         if (pageIndex == i)
                         {
@@ -197,21 +164,38 @@
                 }
                 else
                 {
-                    for (int i = pageCount - 4; i <= pageCount; i++)
+                    if (pageIndex <= 2)
                     {
-                        if (pageIndex == i)
+                        for (int i = 1; i <= 5; i++)
                         {
-                            <li class="active"><a href="@Url.Action("UserIndex","Administrator",new { pageIndex=i})">@i</a></li>
+                            if (pageIndex == i)
+                            {
+                                <li class="active"><a href="@Url.Action("UserIndex","Administrator",new { pageIndex=i})">@i</a></li>
+                            }
+                            else
+                            {
+                                <li><a href="@Url.Action("UserIndex","Administrator",new { pageIndex=i})">@i</a></li>
+                            }
                         }
-                        else
+                    }
+                    else
+                    {
+                        for (int i = pageCount - 4; i <= pageCount; i++)
                         {
-                            <li><a href="@Url.Action("UserIndex","Administrator",new { pageIndex=i})">@i</a></li>
+                            if (pageIndex == i)
+                            {
+                                <li class="active"><a href="@Url.Action("UserIndex","Administrator",new { pageIndex=i})">@i</a></li>
+                            }
+                            else
+                            {
+                                <li><a href="@Url.Action("UserIndex","Administrator",new { pageIndex=i})">@i</a></li>
+                            }
                         }
                     }
                 }
             }
-        }
-        <li><a href="@Url.Action("UserIndex","Administrator",new { pageIndex=pageCount })">尾页</a></li>
-    </ul>
+            <li><a href="@Url.Action("UserIndex","Administrator",new { pageIndex=pageCount })">尾页</a></li>
+        </ul>
 
-</div>
+    </div>
+}

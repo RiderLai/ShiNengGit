@@ -67,123 +67,63 @@
                         <th style="width: 8px;">
                             <input type="checkbox" id="checkall" class="group-checkable" />
                         </th>
-
-                        <th>
-                            姓名
-                        </th>
-                        <th>
-                            时间
-                        </th>
-                        <th>
-                            学期
-                        </th>
-                        <th>
-                            敬
-                        </th>
-                        <th>
-                            善
-                        </th>
-                        <th>
-                            净
-                        </th>
-                        <th>
-                            捡
-                        </th>
-                        <th>
-                            勤
-                        </th>
-                        <th>
-                            静
-                        </th>
-                        <th>
-                            厚
-                        </th>
-                        <th>
-                            乐
-                        </th>
-                        <th>
-                            跑
-                        </th>
-                        <th>
-                            勇
-                        </th>
-                        <th>
-                            总分
-                        </th>
-                        <th>
-                            扣分原因
-                        </th>
-                        <th>
-                            操作
-                        </th>
+                        <th>序号</th>
+                        <th>姓名</th>
+                        <th>时间</th>
+                        <th>学期</th>
+                        <th>敬</th>
+                        <th>善</th>
+                        <th>净</th>
+                        <th>捡</th>
+                        <th>勤</th>
+                        <th>静</th>
+                        <th>厚</th>
+                        <th>乐</th>
+                        <th>跑</th>
+                        <th>勇</th>
+                        <th>总分</th>
+                        <th>扣分原因</th>
+                        <th>操作</th>
                     </tr>
                 </thead>
                 <tbody>
                     @if (Model == null)
-                {
-
-                }
-                else
-                {
-                    foreach (ShiNengShiHui.Web.Models.Teacher.Grade.GradeResultViewModel m in Model)
                     {
+
+                    }
+                    else
+                    {
+                        int i = 1;
+                        foreach (ShiNengShiHui.Web.Models.Teacher.Grade.GradeResultViewModel m in Model)
+                        {
                             <tr>
                                 <td>
                                     <input type="checkbox" class="checkboxes" name='id' value='@m.Id' />
                                 </td>
+                                <td>@i</td>
+                                <td>@m.StudentName</td>
+                                <td>@m.DateTime</td>
+                                <td>@m.SchoolYearAndMore</td>
+                                <td>@m.Respect</td>
+                                <td>@m.Kind</td>
+                                <td>@m.Clean</td>
+                                <td>@m.Saves</td>
+                                <td>@m.Industrious</td>
+                                <td>@m.Quiet</td>
+                                <td>@m.Honest</td>
+                                <td>@m.Enjoy</td>
+                                <td>@m.Vigour</td>
+                                <td>@m.Brave</td>
+                                <td>@m.Sums</td>
+                                <td>@m.PenaltyReason</td>
                                 <td>
-                                    @m.StudentName
-                                </td>
-                                <td>
-                                    @m.DateTime
-                                </td>
-                                <td>
-                                    @m.SchoolYearAndMore
-                                </td>
-                                <td>
-                                    @m.Respect
-                                </td>
-                                <td>
-                                    @m.Kind
-                                </td>
-                                <td>
-                                    @m.Clean
-                                </td>
-                                <td>
-                                    @m.Saves
-                                </td>
-                                <td>
-                                    @m.Industrious
-                                </td>
-                                <td>
-                                    @m.Quiet
-                                </td>
-                                <td>
-                                    @m.Honest
-                                </td>
-                                <td>
-                                    @m.Enjoy
-                                </td>
-                                <td>
-                                    @m.Vigour
-                                </td>
-                                <td>
-                                    @m.Brave
-                                </td>
-                                <td>
-                                    @m.Sums
-                                </td>
-                                <td>
-                                    @m.PenaltyReason
-                                </td>
-                                <td>
-
                                     <a class="btn btn-info thickbox" title='编辑用户资料' href="@Url.Action("GradeEdit", new { id = m.Id })?TB_iframe=true&height=450&width=500">
                                         <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                         编辑
                                     </a>
                                 </td>
                             </tr>
+                            i++;
                         }
                     }
 
@@ -195,34 +135,23 @@
 }
 
 
-@{
+@if (Model == null)
+{
+
+}
+else
+{
     int pageIndex = (int)ViewData["pageIndex"];
     int pageCount = (int)ViewData["pageCount"];
-}
-<div class="text-right">
+
+    <div class="text-right">
 
 
-    <ul class="pagination">
-        <li><a href="@Url.Action("GradeIndex","Teacher",new { pageIndex=1})">首页</a></li>
-        @if (pageIndex <= 5)
-        {
-            for (int i = 1, length = pageCount; i <= length; i++)
+        <ul class="pagination">
+            <li><a href="@Url.Action("GradeIndex","Teacher",new { pageIndex=1})">首页</a></li>
+            @if (pageIndex <= 5)
             {
-                if (pageIndex == i)
-                {
-                    <li class="active"><a href="@Url.Action("GradeIndex","Teacher",new { pageIndex=i})">@i</a></li>
-                }
-                else
-                {
-                    <li><a href="@Url.Action("GradeIndex","Teacher",new { pageIndex=i})">@i</a></li>
-                }
-            }
-        }
-        else
-        {
-            if (pageIndex >= 3 && pageIndex <= pageCount - 2)
-            {
-                for (int i = pageIndex - 2; i < pageIndex + 2; i++)
+                for (int i = 1, length = pageCount; i <= length; i++)
                 {
                     if (pageIndex == i)
                     {
@@ -236,9 +165,9 @@
             }
             else
             {
-                if (pageIndex <= 2)
+                if (pageIndex >= 3 && pageIndex <= pageCount - 2)
                 {
-                    for (int i = 1; i <= 5; i++)
+                    for (int i = pageIndex - 2; i < pageIndex + 2; i++)
                     {
                         if (pageIndex == i)
                         {
@@ -252,21 +181,38 @@
                 }
                 else
                 {
-                    for (int i = pageCount - 4; i <= pageCount; i++)
+                    if (pageIndex <= 2)
                     {
-                        if (pageIndex == i)
+                        for (int i = 1; i <= 5; i++)
                         {
-                            <li class="active"><a href="@Url.Action("GradeIndex","Teacher",new { pageIndex=i})">@i</a></li>
+                            if (pageIndex == i)
+                            {
+                                <li class="active"><a href="@Url.Action("GradeIndex","Teacher",new { pageIndex=i})">@i</a></li>
+                            }
+                            else
+                            {
+                                <li><a href="@Url.Action("GradeIndex","Teacher",new { pageIndex=i})">@i</a></li>
+                            }
                         }
-                        else
+                    }
+                    else
+                    {
+                        for (int i = pageCount - 4; i <= pageCount; i++)
                         {
-                            <li><a href="@Url.Action("GradeIndex","Teacher",new { pageIndex=i})">@i</a></li>
+                            if (pageIndex == i)
+                            {
+                                <li class="active"><a href="@Url.Action("GradeIndex","Teacher",new { pageIndex=i})">@i</a></li>
+                            }
+                            else
+                            {
+                                <li><a href="@Url.Action("GradeIndex","Teacher",new { pageIndex=i})">@i</a></li>
+                            }
                         }
                     }
                 }
             }
-        }
-        <li><a href="@Url.Action("GradeIndex","Teacher",new { pageIndex=pageCount })">尾页</a></li>
-    </ul>
+            <li><a href="@Url.Action("GradeIndex","Teacher",new { pageIndex=pageCount })">尾页</a></li>
+        </ul>
 
-</div>
+    </div>
+}

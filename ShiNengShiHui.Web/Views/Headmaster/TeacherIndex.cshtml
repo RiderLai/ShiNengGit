@@ -7,6 +7,7 @@
 
             <thead>
                 <tr>
+                    <th>序号</th>
                     <th>姓名</th>
                     <th>性别</th>
                     <th>生日</th>
@@ -21,9 +22,11 @@
                 }
                 else
                 {
+                    int i = 1;
                     foreach (ShiNengShiHui.Web.Models.Headmaster.Teacher.TeacherResultViewModel s in Model)
                     {
                         <tr>
+                            <td>@i</td>
                             <td>@s.Name</td>
                             <td>
                                 @if (s.Sex)
@@ -64,6 +67,7 @@
                                 </a>
                             </td>
                         </tr>
+                        i++;
                     }
                 }
 
@@ -73,34 +77,22 @@
     </div>
 </div>
 
-@{
+@if (Model == null)
+{
+}
+else
+{
     int pageIndex = (int)ViewData["pageIndex"];
     int pageCount = (int)ViewData["pageCount"];
-}
-<div class="text-right">
+
+    <div class="text-right">
 
 
-    <ul class="pagination">
-        <li><a href="@Url.Action("TeacherIndex","Headmaster",new { pageIndex=1})">首页</a></li>
-        @if (pageIndex <= 5)
-        {
-            for (int i = 1, length = pageCount; i <= length; i++)
+        <ul class="pagination">
+            <li><a href="@Url.Action("TeacherIndex","Headmaster",new { pageIndex=1})">首页</a></li>
+            @if (pageIndex <= 5)
             {
-                if (pageIndex == i)
-                {
-                    <li class="active"><a href="@Url.Action("TeacherIndex","Headmaster",new { pageIndex=i})">@i</a></li>
-                }
-                else
-                {
-                    <li><a href="@Url.Action("TeacherIndex","Headmaster",new { pageIndex=i})">@i</a></li>
-                }
-            }
-        }
-        else
-        {
-            if (pageIndex >= 3 && pageIndex <= pageCount - 2)
-            {
-                for (int i = pageIndex - 2; i < pageIndex + 2; i++)
+                for (int i = 1, length = pageCount; i <= length; i++)
                 {
                     if (pageIndex == i)
                     {
@@ -114,9 +106,9 @@
             }
             else
             {
-                if (pageIndex <= 2)
+                if (pageIndex >= 3 && pageIndex <= pageCount - 2)
                 {
-                    for (int i = 1; i <= 5; i++)
+                    for (int i = pageIndex - 2; i < pageIndex + 2; i++)
                     {
                         if (pageIndex == i)
                         {
@@ -130,22 +122,38 @@
                 }
                 else
                 {
-                    for (int i = pageCount - 4; i <= pageCount; i++)
+                    if (pageIndex <= 2)
                     {
-                        if (pageIndex == i)
+                        for (int i = 1; i <= 5; i++)
                         {
-                            <li class="active"><a href="@Url.Action("TeacherIndex","Headmaster",new { pageIndex=i})">@i</a></li>
+                            if (pageIndex == i)
+                            {
+                                <li class="active"><a href="@Url.Action("TeacherIndex","Headmaster",new { pageIndex=i})">@i</a></li>
+                            }
+                            else
+                            {
+                                <li><a href="@Url.Action("TeacherIndex","Headmaster",new { pageIndex=i})">@i</a></li>
+                            }
                         }
-                        else
+                    }
+                    else
+                    {
+                        for (int i = pageCount - 4; i <= pageCount; i++)
                         {
-                            <li><a href="@Url.Action("TeacherIndex","Headmaster",new { pageIndex=i})">@i</a></li>
+                            if (pageIndex == i)
+                            {
+                                <li class="active"><a href="@Url.Action("TeacherIndex","Headmaster",new { pageIndex=i})">@i</a></li>
+                            }
+                            else
+                            {
+                                <li><a href="@Url.Action("TeacherIndex","Headmaster",new { pageIndex=i})">@i</a></li>
+                            }
                         }
                     }
                 }
             }
-        }
-        <li><a href="@Url.Action("TeacherIndex","Headmaster",new { pageIndex=pageCount })">尾页</a></li>
-    </ul>
+            <li><a href="@Url.Action("TeacherIndex","Headmaster",new { pageIndex=pageCount })">尾页</a></li>
+        </ul>
 
-</div>
-
+    </div>
+}

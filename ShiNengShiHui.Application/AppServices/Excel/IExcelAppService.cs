@@ -10,12 +10,24 @@ namespace ShiNengShiHui.AppServices
 {
     public interface IExcelAppService:IApplicationService
     {
-        GradeExcelOutput GradeExcelDown();
-
-        StudentExcelDownOutput StudentExcelDown();
+        GradeExcelDownOutput GradeExcelDown();
 
         GradeInsertOfExcelOutput GradeInsertOfExcel(GradeInsertOfExcelInput gradeInsertOfExcelInput);
 
+        StudentExcelDownOutput StudentExcelDown();
+
         StudentInsertOfExcelOutput StudentInsertOfExcel(StudentInsertOfExcelInput studentInsertOfExcelInput);
+
+        UserExcelDownOutput UserExcelDown();
+
+        UserInsertOfExcelOutput UserInsertOfExcel(UserInsertOfExcelInput userInsertOfExcelInput);
+
+        TeacherExcelDownOutput TeacherExcelDown();
+
+        TeacherInsertOfExcelOutput TeacherInsertOfExcel(TeacherInsertOfExcelInput teacherInsertOfExcelInput);
+
+        ClassExcelDownOutput ClassExcelDown();
+
+        ClassInsertOfExcelOutput ClassInsertOfExcel(ClassInsertOfExcelInput classInsertOfExcelInput);
     }
 }
