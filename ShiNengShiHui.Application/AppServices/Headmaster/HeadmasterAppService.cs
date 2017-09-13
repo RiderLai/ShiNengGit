@@ -66,13 +66,13 @@ namespace ShiNengShiHui.AppServices.Headmaster
                 classShowPageInput.PageIndex = 1;
             }
 
-            var Classes = _classRepository.GetPage(classShowPageInput.PageIndex, classShowPageInput.ShowCount);
+            var Classes = _classRepository.GetPage(classShowPageInput.PageIndex, classShowPageInput.ShowCount, null);
 
             ClassShowPageOutput result = ObjectMapper.Map<ClassShowPageOutput>(classShowPageInput);
             result.Classes = Classes.Select(m => ObjectMapper.Map<ClassShowOutput>(m)).ToArray();
 
             return result;
-        } 
+        }
         #endregion
 
         #endregion
@@ -98,7 +98,24 @@ namespace ShiNengShiHui.AppServices.Headmaster
                 return null;
             }
 
-            long count = _gradeRepository.GetAll(Class.GradesTable).Count();
+            long count;
+            switch (gradeShowPageInput.ScreenCondition)
+            {
+                case ScreenEnum.No:
+                    count = _gradeRepository.GetAll(Class.GradesTable).Count();
+                    break;
+                case ScreenEnum.Day:
+                    count = _gradeRepository.GetAll(Class.GradesTable).Count(m => JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJson).Date.Year == gradeShowPageInput.DateTime.Year &&
+                                                                                  JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJson).Date.DayOfYear == gradeShowPageInput.DateTime.DayOfYear);
+                    break;
+                case ScreenEnum.Month:
+                    count = _gradeRepository.GetAll(Class.GradesTable).Count(m => JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJson).Date.Year == gradeShowPageInput.DateTime.Year &&
+                                                                                  JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJson).Date.Month == gradeShowPageInput.DateTime.Month);
+                    break;
+                default:
+                    count = _gradeRepository.GetAll(Class.GradesTable).Count();
+                    break;
+            }
             gradeShowPageInput.PageCount = (int)(count / gradeShowPageInput.ShowCount);
             if (count % gradeShowPageInput.ShowCount != 0)
             {
@@ -109,7 +126,26 @@ namespace ShiNengShiHui.AppServices.Headmaster
                 gradeShowPageInput.PageIndex = 1;
             }
 
-            var grades = _gradeRepository.GetPageFromTable(Class.GradesTable, gradeShowPageInput.PageIndex, gradeShowPageInput.ShowCount);
+            Grade[] grades;
+            switch (gradeShowPageInput.ScreenCondition)
+            {
+                case ScreenEnum.No:
+                    grades = _gradeRepository.GetPageFromTable(Class.GradesTable, gradeShowPageInput.PageIndex, gradeShowPageInput.ShowCount, null);
+                    break;
+                case ScreenEnum.Day:
+                    grades = _gradeRepository.GetPageFromTable(Class.GradesTable, gradeShowPageInput.PageIndex, gradeShowPageInput.ShowCount,
+                                                                m => JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJson).Date.Year == gradeShowPageInput.DateTime.Year &&
+                                                                    JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJson).Date.DayOfYear == gradeShowPageInput.DateTime.DayOfYear);
+                    break;
+                case ScreenEnum.Month:
+                    grades = _gradeRepository.GetPageFromTable(Class.GradesTable, gradeShowPageInput.PageIndex, gradeShowPageInput.ShowCount,
+                                                                m => JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJson).Date.Year == gradeShowPageInput.DateTime.Year &&
+                                                                    JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJson).Date.Month == gradeShowPageInput.DateTime.Month);
+                    break;
+                default:
+                    grades = _gradeRepository.GetPageFromTable(Class.GradesTable, gradeShowPageInput.PageIndex, gradeShowPageInput.ShowCount, null);
+                    break;
+            }
             var students = _studentRepository.GetAll(Class.StudentsTable).ToList();
 
             GradeShowPageOutput result = ObjectMapper.Map<GradeShowPageOutput>(gradeShowPageInput);
@@ -133,7 +169,7 @@ namespace ShiNengShiHui.AppServices.Headmaster
             }).ToArray();
 
             return result;
-        } 
+        }
         #endregion
 
         #endregion
@@ -159,7 +195,24 @@ namespace ShiNengShiHui.AppServices.Headmaster
                 return null;
             }
 
-            long count = _prizeRepository.GetAll(Class.PrizesTable).Count();
+            long count;
+            switch (prizeShowPageInput.ScreenCondition)
+            {
+                case ScreenEnum.No:
+                    count = _prizeRepository.GetAll(Class.PrizesTable).Count();
+                    break;
+                case ScreenEnum.Day:
+                    count = _prizeRepository.GetAll(Class.PrizesTable).Count(m => JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJosn).Date.Year == prizeShowPageInput.DateTime.Year &&
+                                                                                  JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJosn).Date.DayOfYear == prizeShowPageInput.DateTime.DayOfYear);
+                    break;
+                case ScreenEnum.Month:
+                    count = _prizeRepository.GetAll(Class.PrizesTable).Count(m => JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJosn).Date.Year == prizeShowPageInput.DateTime.Year &&
+                                                                                  JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJosn).Date.Month == prizeShowPageInput.DateTime.Month);
+                    break;
+                default:
+                    count = _prizeRepository.GetAll(Class.PrizesTable).Count();
+                    break;
+            }
             prizeShowPageInput.PageCount = (int)(count / prizeShowPageInput.ShowCount);
             if (count % prizeShowPageInput.ShowCount != 0)
             {
@@ -170,7 +223,26 @@ namespace ShiNengShiHui.AppServices.Headmaster
                 prizeShowPageInput.PageCount = 1;
             }
 
-            var prizes = _prizeRepository.GetPageFromTable(Class.PrizesTable, prizeShowPageInput.PageIndex, prizeShowPageInput.ShowCount);
+            Prize[] prizes;
+            switch (prizeShowPageInput.ScreenCondition)
+            {
+                case ScreenEnum.No:
+                    prizes = _prizeRepository.GetPageFromTable(Class.PrizesTable, prizeShowPageInput.PageIndex, prizeShowPageInput.ShowCount, null);
+                    break;
+                case ScreenEnum.Day:
+                    prizes = _prizeRepository.GetPageFromTable(Class.PrizesTable, prizeShowPageInput.PageIndex, prizeShowPageInput.ShowCount,
+                                                                m => JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJosn).Date.Year == prizeShowPageInput.DateTime.Year &&
+                                                                        JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJosn).Date.DayOfYear == prizeShowPageInput.DateTime.DayOfYear);
+                    break;
+                case ScreenEnum.Month:
+                    prizes = _prizeRepository.GetPageFromTable(Class.PrizesTable, prizeShowPageInput.PageIndex, prizeShowPageInput.ShowCount,
+                                                                m => JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJosn).Date.Year == prizeShowPageInput.DateTime.Year &&
+                                                                        JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJosn).Date.Month == prizeShowPageInput.DateTime.Month);
+                    break;
+                default:
+                    prizes = _prizeRepository.GetPageFromTable(Class.PrizesTable, prizeShowPageInput.PageIndex, prizeShowPageInput.ShowCount, null);
+                    break;
+            }
             var students = _studentRepository.GetAll(Class.StudentsTable).ToList();
             var prizeItems = _prizeItemRepository.GetAll().ToList();
 
@@ -190,7 +262,7 @@ namespace ShiNengShiHui.AppServices.Headmaster
             }).ToArray();
 
             return result;
-        } 
+        }
         #endregion
 
         #endregion
@@ -226,11 +298,11 @@ namespace ShiNengShiHui.AppServices.Headmaster
                 studentShowPageInput.PageIndex = 1;
             }
 
-            var students = _studentRepository.GetPageFromTable(Class.StudentsTable, studentShowPageInput.PageIndex, studentShowPageInput.ShowCount);
+            var students = _studentRepository.GetPageFromTable(Class.StudentsTable, studentShowPageInput.PageIndex, studentShowPageInput.ShowCount, m => true);
             StudentShowPageOutput result = ObjectMapper.Map<StudentShowPageOutput>(studentShowPageInput);
             result.Students = students.Select(m => ObjectMapper.Map<StudentShowOutput>(m)).ToArray();
             return result;
-        } 
+        }
         #endregion
 
         #endregion
@@ -261,12 +333,12 @@ namespace ShiNengShiHui.AppServices.Headmaster
                 teacherShowPageInput.PageIndex = 1;
             }
 
-            Teacher[] teachers = _teacherRepository.GetPage(teacherShowPageInput.PageIndex, teacherShowPageInput.ShowCount);
+            Teacher[] teachers = _teacherRepository.GetPage(teacherShowPageInput.PageIndex, teacherShowPageInput.ShowCount, m => true);
 
             TeacherShowPageOutput result = ObjectMapper.Map<TeacherShowPageOutput>(teacherShowPageInput);
             result.Teachers = teachers.Select(m => ObjectMapper.Map<TeacherShowOutput>(m)).ToArray();
             return result;
-        } 
+        }
         #endregion
 
         #endregion

@@ -2,7 +2,9 @@
 using Abp.EntityFramework;
 using Abp.EntityFramework.Repositories;
 using ShiNengShiHui.RepositoryExtend;
+using System;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace ShiNengShiHui.EntityFramework.Repositories
 {
@@ -15,12 +17,19 @@ namespace ShiNengShiHui.EntityFramework.Repositories
 
         }
 
-        public virtual TEntity[] GetPage(int pageIndex, int showCount)
+        public virtual TEntity[] GetPage(int pageIndex, int showCount, Expression<Func<TEntity, bool>> expression)
         {
             var data = from item in GetAll()
                        orderby item.Id
                        select item;
-            return data.Take(showCount * pageIndex).Skip(showCount * (pageIndex - 1)).ToArray();
+            if (expression==null)
+            {
+                return data.Take(showCount * pageIndex).Skip(showCount * (pageIndex - 1)).ToArray();
+            }
+            else
+            {
+                return data.Where(expression).Take(showCount * pageIndex).Skip(showCount * (pageIndex - 1)).ToArray();
+            }
         }
 
         //add common methods for all repositories

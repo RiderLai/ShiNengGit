@@ -137,8 +137,15 @@ namespace ShiNengShiHui.Web.Controllers
         #endregion
 
         #region 成绩模块
-        public ActionResult GradeIndex(int? pageIndex, int? classId)
+        public ActionResult GradeIndex(int? pageIndex, int? classId, string selectd, DateTime? dateTime)
         {
+            #region 初始化数据
+            List<SelectListItem> selectList = new List<SelectListItem>();
+            selectList.Add(new SelectListItem() { Value = "NULL", Text = "不选择任何条件" });
+            selectList.Add(new SelectListItem() { Value = "Month", Text = "按月查找" });
+            selectList.Add(new SelectListItem() { Value = "Day", Text = "按天查找" });
+            ViewBag.SelectList = selectList;
+
             var classes = _headmasterAppService.ClassShowPage(new ClassShowPageInput() { ShowCount = 10000 });
             List<SelectListItem> classList = new List<SelectListItem>();
 
@@ -160,13 +167,34 @@ namespace ShiNengShiHui.Web.Controllers
                     return new SelectListItem() { Text = m.Name, Value = m.Id.ToString() };
                 }));
             }
+            #endregion
 
-            if (pageIndex == null)
+            if (pageIndex == null||pageIndex<=0)
             {
                 pageIndex = 1;
             }
 
-            var grades = _headmasterAppService.GradeShowPage(new GradeShowPageInput() { PageIndex = (int)pageIndex, ClassId = (int)classId });
+            if (dateTime==null)
+            {
+                dateTime = DateTime.Now;
+            }
+
+            GradeShowPageOutput grades;
+            switch (selectd)
+            {
+                case "NULL":
+                    grades = _headmasterAppService.GradeShowPage(new GradeShowPageInput() { PageIndex = (int)pageIndex, ClassId = (int)classId, ScreenCondition = ScreenEnum.No });
+                    break;
+                case "Month":
+                    grades = _headmasterAppService.GradeShowPage(new GradeShowPageInput() { PageIndex = (int)pageIndex, ClassId = (int)classId, ScreenCondition = ScreenEnum.Month,DateTime=(DateTime)dateTime });
+                    break;
+                case "Day":
+                    grades = _headmasterAppService.GradeShowPage(new GradeShowPageInput() { PageIndex = (int)pageIndex, ClassId = (int)classId, ScreenCondition = ScreenEnum.Day ,DateTime=(DateTime)dateTime});
+                    break;
+                default:
+                    grades = _headmasterAppService.GradeShowPage(new GradeShowPageInput() { PageIndex = (int)pageIndex, ClassId = (int)classId, ScreenCondition = ScreenEnum.No });
+                    break;
+            }
             if (grades.Grades.Length <= 0)
             {
                 return View();
@@ -175,17 +203,27 @@ namespace ShiNengShiHui.Web.Controllers
             List<GradeResultViewModel> models = new List<GradeResultViewModel>();
             models.AddRange(grades.Grades.Select(m => ObjectMapper.Map<GradeResultViewModel>(m)));
 
-            ViewData["classId"] = classId;
             ViewData["pageIndex"] = grades.PageIndex;
             ViewData["pageCount"] = grades.PageCount;
+
+            ViewData["classId"] = classId;
+            ViewData["selectd"] = selectd==null?"":selectd;
+            ViewData["dateTime"] = dateTime==null?"":dateTime.ToString();
 
             return View(models);
         }
         #endregion
 
         #region 奖项模块
-        public ActionResult PrizeIndex(int? pageIndex, int? classId)
+        public ActionResult PrizeIndex(int? pageIndex, int? classId, string selectd, DateTime? dateTime)
         {
+            #region 初始化数据
+            List<SelectListItem> selectList = new List<SelectListItem>();
+            selectList.Add(new SelectListItem() { Value = "NULL", Text = "不选择任何条件" });
+            selectList.Add(new SelectListItem() { Value = "Month", Text = "按月查找" });
+            selectList.Add(new SelectListItem() { Value = "Day", Text = "按天查找" });
+            ViewBag.SelectList = selectList;
+
             var classes = _headmasterAppService.ClassShowPage(new ClassShowPageInput() { ShowCount = 10000 });
             List<SelectListItem> classList = new List<SelectListItem>();
 
@@ -207,13 +245,34 @@ namespace ShiNengShiHui.Web.Controllers
                     return new SelectListItem() { Text = m.Name, Value = m.Id.ToString() };
                 }));
             }
+            #endregion
 
-            if (pageIndex == null)
+            if (pageIndex == null||pageIndex<=0)
             {
                 pageIndex = 1;
             }
 
-            var prizes = _headmasterAppService.PrizeShowPage(new PrizeShowPageInput() { PageIndex = (int)pageIndex, ClassId = (int)classId });
+            if (dateTime==null)
+            {
+                dateTime = DateTime.Now;
+            }
+
+            PrizeShowPageOutput prizes;
+            switch (selectd)
+            {
+                case "NULL":
+                    prizes = _headmasterAppService.PrizeShowPage(new PrizeShowPageInput() { PageIndex = (int)pageIndex, ClassId = (int)classId, ScreenCondition = ScreenEnum.No });
+                    break;
+                case "Month":
+                    prizes = _headmasterAppService.PrizeShowPage(new PrizeShowPageInput() { PageIndex = (int)pageIndex, ClassId = (int)classId, ScreenCondition = ScreenEnum.Month,DateTime=(DateTime)dateTime });
+                    break;
+                case "Day":
+                    prizes = _headmasterAppService.PrizeShowPage(new PrizeShowPageInput() { PageIndex = (int)pageIndex, ClassId = (int)classId, ScreenCondition = ScreenEnum.Day,DateTime=(DateTime)dateTime });
+                    break;
+                default:
+                    prizes = _headmasterAppService.PrizeShowPage(new PrizeShowPageInput() { PageIndex = (int)pageIndex, ClassId = (int)classId, ScreenCondition = ScreenEnum.No });
+                    break;
+            }
             if (prizes.Prizes.Length <= 0)
             {
                 return View();
@@ -222,9 +281,12 @@ namespace ShiNengShiHui.Web.Controllers
             List<PrizeResultViewModel> models = new List<PrizeResultViewModel>();
             models.AddRange(prizes.Prizes.Select(m => ObjectMapper.Map<PrizeResultViewModel>(m)));
 
-            ViewData["classId"] = classId;
             ViewData["pageIndex"] = prizes.PageIndex;
             ViewData["pageCount"] = prizes.PageCount;
+
+            ViewData["classId"] = classId;
+            ViewData["selectd"] = selectd == null ? "" : selectd;
+            ViewData["dateTime"] = dateTime == null ? "" : dateTime.ToString();
 
             return View(models);
         }

@@ -279,16 +279,49 @@ namespace ShiNengShiHui.Web.Controllers
 
         #region 成绩模块
 
-        public ActionResult GradeIndex(int? pageIndex)
+        public ActionResult GradeIndex(int? pageIndex, string selectd, DateTime? dateTime)
         {
+            #region 初始化数据
+            List<SelectListItem> selectList = new List<SelectListItem>();
+            selectList.Add(new SelectListItem() { Value = "NULL", Text = "不选择任何条件" });
+            selectList.Add(new SelectListItem() { Value = "Month", Text = "按月查找" });
+            selectList.Add(new SelectListItem() { Value = "Day", Text = "按天查找" });
+
+            ViewBag.SelectList = selectList;
+            #endregion
+
             ShowPageGradeOutput result;
-            if (pageIndex == null || !ModelState.IsValid)
+            if (pageIndex == null || pageIndex <= 0)
             {
-                result = _teacherAppService.ShowPageGrade(new ShowPageGradeInput());
+                pageIndex = 1;
+            }
+
+            if (dateTime == null)
+            {
+                dateTime = DateTime.Now;
+            }
+
+            if (ModelState.IsValid)
+            {
+                switch (selectd)
+                {
+                    case "NULL":
+                        result = _teacherAppService.ShowPageGrade(new ShowPageGradeInput() { PageIndex = (int)pageIndex, ScreenCondition = ScreenEnum.No });
+                        break;
+                    case "Month":
+                        result = _teacherAppService.ShowPageGrade(new ShowPageGradeInput() { PageIndex = (int)pageIndex, ScreenCondition = ScreenEnum.Month, DateTime = (DateTime)dateTime });
+                        break;
+                    case "Day":
+                        result = _teacherAppService.ShowPageGrade(new ShowPageGradeInput() { PageIndex = (int)pageIndex, ScreenCondition = ScreenEnum.Day, DateTime = (DateTime)dateTime });
+                        break;
+                    default:
+                        result = _teacherAppService.ShowPageGrade(new ShowPageGradeInput() { PageIndex = (int)pageIndex, ScreenCondition = ScreenEnum.No });
+                        break;
+                }
             }
             else
             {
-                result = _teacherAppService.ShowPageGrade(new ShowPageGradeInput() { PageIndex = (int)pageIndex });
+                result = _teacherAppService.ShowPageGrade(new ShowPageGradeInput() { ScreenCondition = ScreenEnum.No });
             }
 
             if (result.ShowGradeOutputs.Length <= 0)
@@ -298,6 +331,10 @@ namespace ShiNengShiHui.Web.Controllers
 
             ViewData["pageIndex"] = result.PageIndex;
             ViewData["pageCount"] = result.PageCount;
+
+            ViewData["selectd"] = selectd == null ? "" : selectd;
+            ViewData["dateTime"] = dateTime == null ? "" : dateTime.ToString();
+
             var listmodel = result.ShowGradeOutputs.Select<ShowGradeOutput, GradeResultViewModel>(m => ObjectMapper.Map<GradeResultViewModel>(m));
             return View(listmodel);
         }
@@ -630,7 +667,7 @@ namespace ShiNengShiHui.Web.Controllers
         #endregion
 
         #region 奖项模块
-        public ActionResult PrizeIndex(int? pageIndex)
+        public ActionResult PrizeIndex(int? pageIndex, string selectd, DateTime? dateTime)
         {
             #region 初始化数据
             List<SelectListItem> computSelectList = new List<SelectListItem>();
@@ -639,14 +676,41 @@ namespace ShiNengShiHui.Web.Controllers
             computSelectList.Add(new SelectListItem() { Value = "YueMoFanSheng", Text = "计算月模范生" });
             computSelectList.Add(new SelectListItem() { Value = "XiaoMoFanSheng", Text = "计算校模范生" });
             ViewBag.ComputSelect = computSelectList;
+
+            List<SelectListItem> selectList = new List<SelectListItem>();
+            selectList.Add(new SelectListItem() { Value = "NULL", Text = "不选择任何条件" });
+            selectList.Add(new SelectListItem() { Value = "Month", Text = "按月查找" });
+            selectList.Add(new SelectListItem() { Value = "Day", Text = "按天查找" });
+            ViewBag.SelectList = selectList;
             #endregion
 
-            if (pageIndex == null)
+            ShowPagePrizeOutput prizes;
+            if (pageIndex == null||pageIndex<=0)
             {
                 pageIndex = 1;
             }
 
-            var prizes = _teacherAppService.ShowPagePrize(new ShowPagePrizeInput() { PageIndex = (int)pageIndex });
+            if (dateTime == null)
+            {
+                dateTime = DateTime.Now;
+            }
+
+            switch (selectd)
+            {
+                case "NULL":
+                    prizes = _teacherAppService.ShowPagePrize(new ShowPagePrizeInput() { PageIndex = (int)pageIndex, ScreenCondition = ScreenEnum.No });
+                    break;
+                case "Month":
+                    prizes = _teacherAppService.ShowPagePrize(new ShowPagePrizeInput() { PageIndex = (int)pageIndex, ScreenCondition = ScreenEnum.Month, DateTime = (DateTime)dateTime });
+                    break;
+                case "Day":
+                    prizes = _teacherAppService.ShowPagePrize(new ShowPagePrizeInput() { PageIndex = (int)pageIndex, ScreenCondition = ScreenEnum.Day, DateTime = (DateTime)dateTime });
+                    break;
+                default:
+                    prizes = _teacherAppService.ShowPagePrize(new ShowPagePrizeInput() { PageIndex = (int)pageIndex, ScreenCondition = ScreenEnum.No });
+                    break;
+            }
+            
             if (prizes.ShowPrizeOutputs.Length <= 0)
             {
                 return View();
@@ -656,6 +720,9 @@ namespace ShiNengShiHui.Web.Controllers
 
             ViewData["pageIndex"] = prizes.PageIndex;
             ViewData["pageCount"] = prizes.PageCount;
+
+            ViewData["selectd"] = selectd == null ? "" : selectd;
+            ViewData["dateTime"] = dateTime == null ? "" : dateTime.ToString();
 
             return View(models);
         }

@@ -189,6 +189,7 @@
     <Compile Include="AppServices\Headmaster\Dto\Grade\GradeShowOutput.cs" />
     <Compile Include="AppServices\Headmaster\Dto\Grade\GradeShowPageInput.cs" />
     <Compile Include="AppServices\Headmaster\Dto\Grade\GradeShowPageOutput.cs" />
+    <Compile Include="AppServices\Headmaster\Dto\ScreenEnum.cs" />
     <Compile Include="AppServices\Headmaster\HeadmasterAppService.cs" />
     <Compile Include="AppServices\Headmaster\IHeadmasterAppService.cs" />
     <Compile Include="AppServices\Headmaster\Dto\Prize\PrizeShowInput.cs" />

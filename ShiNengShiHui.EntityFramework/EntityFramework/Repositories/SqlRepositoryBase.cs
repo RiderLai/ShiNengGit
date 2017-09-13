@@ -25,10 +25,10 @@ namespace ShiNengShiHui.EntityFramework.Repositories
     /// </summary>
     /// <typeparam name="TEntity"></typeparam>
     /// <typeparam name="TPrimaryKey"></typeparam>
-    public class SqlRepositoryBase<TEntity, TPrimaryKey> : ShiNengShiHuiRepositoryBase<TEntity, TPrimaryKey>,IPageFromTableRepository<TEntity,TPrimaryKey>
+    public class SqlRepositoryBase<TEntity, TPrimaryKey> : ShiNengShiHuiRepositoryBase<TEntity, TPrimaryKey>, IPageFromTableRepository<TEntity, TPrimaryKey>
         where TEntity : class, IEntity<TPrimaryKey>
     {
-        public IAbpSession AbpSession{get;set;}
+        public IAbpSession AbpSession { get; set; }
 
         public SqlRepositoryBase(IDbContextProvider<ShiNengShiHuiDbContext> dbContextProvider) : base(dbContextProvider)
         {
@@ -127,7 +127,7 @@ namespace ShiNengShiHui.EntityFramework.Repositories
         public override void Delete(TPrimaryKey id)
         {
             var temp = FirstOrDefault(id);
-            if (temp==null)
+            if (temp == null)
             {
                 return;
             }
@@ -136,15 +136,24 @@ namespace ShiNengShiHui.EntityFramework.Repositories
 
         protected override void AttachIfNot(TEntity entity)
         {
-            if (FirstOrDefault(entity.Id)==null)
+            if (FirstOrDefault(entity.Id) == null)
             {
                 Insert(entity);
             }
         }
 
-        public override TEntity[] GetPage(int pageIndex, int showCount)
+        public override TEntity[] GetPage(int pageIndex, int showCount, Expression<Func<TEntity, bool>> expression)
         {
-            TEntity[] entiries = GetAllList().ToArray<TEntity>();
+            TEntity[] entiries;
+            if (expression == null)
+            {
+                entiries = GetAllList().ToArray<TEntity>();
+            }
+            else
+            {
+                entiries= GetAllList(expression).ToArray<TEntity>();
+            }
+
             List<TEntity> list = new List<TEntity>();
 
             int start = (pageIndex - 1) * showCount;
@@ -161,12 +170,19 @@ namespace ShiNengShiHui.EntityFramework.Repositories
         }
 
 
-        public virtual TEntity[] GetPageFromTable(string tablename, int pageIndex, int showCount)
+        public virtual TEntity[] GetPageFromTable(string tablename, int pageIndex, int showCount, Expression<Func<TEntity, bool>> expression)
         {
             var data = from item in GetAll(tablename)
                        orderby item.Id
                        select item;
-            return data.Take(pageIndex * showCount).Skip((pageIndex - 1) * showCount).ToArray();
+            if (expression==null)
+            {
+                return data.Take(pageIndex * showCount).Skip((pageIndex - 1) * showCount).ToArray();
+            }
+            else
+            {
+                return data.Where(expression).Take(pageIndex * showCount).Skip((pageIndex - 1) * showCount).ToArray();
+            }
         }
 
         public virtual IQueryable<TEntity> GetAll(string tableName)

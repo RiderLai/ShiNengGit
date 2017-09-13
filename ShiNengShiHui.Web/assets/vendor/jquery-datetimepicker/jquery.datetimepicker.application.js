@@ -21,4 +21,12 @@ lang:'en',
 disabledDates:['1986/01/08','1986/01/09','1986/01/10'],
 startDate:	getNowFormatDate()
 });
-$('#datetimepicker').datetimepicker({value:getNowFormatDate(),step:10});
+$('#datetimepicker').datetimepicker({ value: getNowFormatDate(), step: 10 });
+
+$('#datetimepicker1').datetimepicker({
+    dayOfWeekStart: 1,
+    lang: 'en',
+    disabledDates: ['1986/01/08', '1986/01/09', '1986/01/10'],
+    startDate: getNowFormatDate()
+});
+$('#datetimepicker1').datetimepicker({ value: getNowFormatDate(), step: 10 });

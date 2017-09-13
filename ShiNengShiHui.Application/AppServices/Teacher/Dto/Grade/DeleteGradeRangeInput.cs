@@ -8,5 +8,6 @@ namespace ShiNengShiHui.AppServices.TeacherDTO
 {
     public class DeleteGradeRangeInput
     {
+
     }
 }

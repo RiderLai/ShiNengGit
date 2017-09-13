@@ -7,7 +7,7 @@
 
 
         $("#delete").click(function () {
-            var message = "你确定要删除勾选的记录吗?将删除学生所有的信息（包括成绩记录），删除后数据将不可恢复！";
+            var message = "你确定要删除勾选的记录吗?将删除班级所有的信息，删除后数据将不可恢复！";
             if ($(this).attr("message"))
                 message = $(this).attr("message") + "，" + message;
             bootbox.confirm(message, function (result) {
@@ -46,7 +46,7 @@
 
 <div class="alert alert-info alert-dismissible" role="alert">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <i class="fa fa-info-circle"></i> 批量导入功能可以通过Excel表格导入学生信息，为保证系统性能，单次导入学生数量不可超过500人。导入的Excel模板请点击<a class="green" href="@Url.Action("ClassExcelDown")"> 这里下载</a>。
+    <i class="fa fa-info-circle"></i> 批量导入功能可以通过Excel表格导入班级信息，为保证系统性能，单次导入班级数量不可超过500人。导入的Excel模板请点击<a class="green" href="@Url.Action("ClassExcelDown")"> 这里下载</a>。
 </div>
 
 @using (Html.BeginForm("ClassDelete", "Administrator", FormMethod.Post, new { id = "mainForm" }))

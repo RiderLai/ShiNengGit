@@ -158,7 +158,7 @@ namespace ShiNengShiHui.AppServices
                 classShowPageInput.PageIndex = 1;
             }
 
-            Class[] classes = _classRepository.GetPage(classShowPageInput.PageIndex, classShowPageInput.ShowCount);
+            Class[] classes = _classRepository.GetPage(classShowPageInput.PageIndex, classShowPageInput.ShowCount,m=>true);
             ClassShowOutput[] classShowOutputs = classes.Select(m => ObjectMapper.Map<ClassShowOutput>(m)).ToArray();
 
             ClassShowPageOutput result = ObjectMapper.Map<ClassShowPageOutput>(classShowPageInput);
@@ -288,7 +288,7 @@ namespace ShiNengShiHui.AppServices
                 teacherShowPageInput.PageIndex = 1;
             }
 
-            Teacher[] teachers = _teacherRepository.GetPage(teacherShowPageInput.PageIndex, teacherShowPageInput.ShowCount);
+            Teacher[] teachers = _teacherRepository.GetPage(teacherShowPageInput.PageIndex, teacherShowPageInput.ShowCount,m=>true);
             TeacherShowOutput[] teacherShowOutputs = teachers.Select(m => ObjectMapper.Map<TeacherShowOutput>(m)).ToArray();
 
             TeacherShowPageOutput result = ObjectMapper.Map<TeacherShowPageOutput>(teacherShowPageInput);
@@ -479,7 +479,7 @@ namespace ShiNengShiHui.AppServices
                 userShowPageInput.PageIndex = 1;
             }
 
-            User[] users = _userRepository.GetPage(userShowPageInput.PageIndex, userShowPageInput.ShowCount);
+            User[] users = _userRepository.GetPage(userShowPageInput.PageIndex, userShowPageInput.ShowCount,m=>true);
             UserShowOutput[] userShowOutputs = users.Select<User, UserShowOutput>(m => ObjectMapper.Map<UserShowOutput>(m)).ToArray();
 
             UserShowPageOutput result = ObjectMapper.Map<UserShowPageOutput>(userShowPageInput);
