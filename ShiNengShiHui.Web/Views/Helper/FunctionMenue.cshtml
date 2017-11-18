@@ -5,6 +5,23 @@
 {
     foreach (FunctionDto item in Model.Functions)
     {
-        <li><a href="@Url.Action(item.Action,item.Controller)" class=""><i class="@item.ICon"></i> <span>@item.Name</span></a></li>
+        if (item.CFunctions.Count <= 0)
+        {
+            <li><a href="@Url.Action(item.Action,item.Controller)" class=""><i class="@item.ICon"></i> <span>@item.Name</span></a></li>
+        }
+        else
+        {
+            <li>
+                <a href="#subPages" data-toggle="collapse" class="collapsed"><i class="@item.ICon"></i> <span>@item.Name</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+                <div id="subPages" class="collapse ">
+                    <ul class="nav">
+                        @foreach (FunctionDto i in item.CFunctions)
+                        {
+                            <li><a href="@Url.Action(i.Action,i.Controller)" class=""><i class="@i.ICon"></i> <span>@i.Name</span></a></li>
+                        }
+                    </ul>
+                </div>
+            </li>
+        }
     }
 }

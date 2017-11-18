@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using ShiNengShiHui.Entities.Function;
 using ShiNengShiHui.AppServices.FunctionDTO;
+using System.Collections.Generic;
 
 namespace ShiNengShiHui.AppServices
 {
@@ -20,8 +21,24 @@ namespace ShiNengShiHui.AppServices
             {
                 return null;
             }
-            
-            var result = functions.Select<Function, FunctionDto>(m => ObjectMapper.Map<FunctionDto>(m));
+
+            functions.GroupBy(m => m.Order);
+            var temp = functions.Select<Function, FunctionDto>(m => ObjectMapper.Map<FunctionDto>(m)).ToList();
+
+            List<FunctionDto> result = new List<FunctionDto>();
+            temp.ForEach(m =>
+            {
+                m.CFunctions = new List<FunctionDto>();
+                if (m.PID == 0)
+                {
+                    result.Add(m);
+                }
+                else
+                {
+                    result.FirstOrDefault(n => n.Id == m.PID).CFunctions.Add(m);
+                }
+            });
+
             return new FunctionGetOfRoleOutput() { Functions = result.ToList<FunctionDto>() };
         }
     }

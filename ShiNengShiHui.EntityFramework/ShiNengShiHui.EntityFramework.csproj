@@ -170,6 +170,10 @@
     <Compile Include="Migrations\201708260704016_EntitiesInitial6.Designer.cs">
       <DependentUpon>201708260704016_EntitiesInitial6.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710240856066_EntitiesInitial7.cs" />
+    <Compile Include="Migrations\201710240856066_EntitiesInitial7.Designer.cs">
+      <DependentUpon>201710240856066_EntitiesInitial7.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedData\EntitiesData\AdministratorFunctionCreator.cs" />
@@ -219,6 +223,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708260704016_EntitiesInitial6.resx">
       <DependentUpon>201708260704016_EntitiesInitial6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710240856066_EntitiesInitial7.resx">
+      <DependentUpon>201710240856066_EntitiesInitial7.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

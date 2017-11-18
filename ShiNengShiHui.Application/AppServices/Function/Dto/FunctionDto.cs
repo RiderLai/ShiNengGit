@@ -36,5 +36,6 @@ namespace ShiNengShiHui.AppServices.FunctionDTO
         /// </summary>
         public string ICon { get; set; }
 
+        public List<FunctionDto> CFunctions { get; set; }
     }
 }
