@@ -19,6 +19,7 @@ namespace ShiNengShiHui.EntityFramework.Repositories
             StudentTableCreate(Class.StudentsTable);
             GradeTableCreate(Class);
             PrizeTableCreate(Class);
+            GroupWeekGradeTableCreate(Class);
         }
 
         private void StudentTableCreate(string tablename)
@@ -119,6 +120,26 @@ namespace ShiNengShiHui.EntityFramework.Repositories
                                                     
                                                     ALTER TABLE [dbo].[{Class.PrizesTable}] CHECK CONSTRAINT [FK_dbo.{Class.PrizesTable}_dbo.testStudents_Student_Id]
                                                     ");
+        }
+
+        private void GroupWeekGradeTableCreate(Class Class)
+        {
+            Context.Database.ExecuteSqlCommand($@"
+                                                 SET ANSI_NULLS ON
+                                                 
+                                                 SET QUOTED_IDENTIFIER ON
+                                                 
+                                                 CREATE TABLE [dbo].[{Class.GroupWeekGradeTable}](
+                                                 	[Id] [bigint] IDENTITY(1,1) NOT NULL,
+                                                 	[DateJson] [nvarchar](max) NOT NULL,
+                                                 	[Group] [int] NOT NULL,
+                                                 	[IsWell] [bit] NOT NULL,
+                                                  CONSTRAINT [PK_dbo.{Class.GroupWeekGradeTable}] PRIMARY KEY CLUSTERED 
+                                                 (
+                                                 	[Id] ASC
+                                                 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+                                                 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+                                                 ");
         }
     }
 }

@@ -10,7 +10,6 @@ using ShiNengShiHui.Entities.Grades;
 using ShiNengShiHui.Entities.Prizes;
 using System.Data.Entity;
 using ShiNengShiHui.Entities.Function;
-using ShiNengShiHui.Entities.WeekGrades;
 
 namespace ShiNengShiHui.EntityFramework
 {
@@ -24,7 +23,6 @@ namespace ShiNengShiHui.EntityFramework
         public virtual IDbSet<Prize> Prize { get; set; }
         public virtual IDbSet<PrizeItem> PrizeItem { get; set; }
         public virtual IDbSet<Function> Function { get; set; }
-        public virtual IDbSet<WeekGrade> WeekGrade { get; set; }
         public virtual IDbSet<GroupWeekGrade> GroupWeekGrade { get; set; }
         /* NOTE: 
          *   Setting "Default" to base class helps us when working migration commands on Package Manager Console.

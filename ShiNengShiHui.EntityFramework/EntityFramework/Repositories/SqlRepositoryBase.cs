@@ -43,7 +43,8 @@ namespace ShiNengShiHui.EntityFramework.Repositories
         {
             Student,
             Grade,
-            Prize
+            Prize,
+            GroupWeekGrade
         }
 
         /// <summary>
@@ -73,6 +74,9 @@ namespace ShiNengShiHui.EntityFramework.Repositories
                                 break;
                             case TableType.Prize:
                                 result = Class.PrizesTable;
+                                break;
+                            case TableType.GroupWeekGrade:
+                                result = Class.GroupWeekGradeTable;
                                 break;
                             default:
                                 break;

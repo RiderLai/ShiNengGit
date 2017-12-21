@@ -207,6 +207,12 @@
     <Compile Include="AppServices\Return\ReturnVal.cs" />
     <Compile Include="AppServices\Teacher\Dto\Grade\CreateGradeInput.cs" />
     <Compile Include="AppServices\Teacher\Dto\Grade\CreateGradeRangeInput.cs" />
+    <Compile Include="AppServices\Teacher\Dto\GroupWeekGrade\GroupWeekGradeCreateInput.cs" />
+    <Compile Include="AppServices\Teacher\Dto\GroupWeekGrade\GroupWeekGradeShowInput.cs" />
+    <Compile Include="AppServices\Teacher\Dto\GroupWeekGrade\GroupWeekGradeShowOutput.cs" />
+    <Compile Include="AppServices\Teacher\Dto\GroupWeekGrade\GroupWeekGradeShowPageInput.cs" />
+    <Compile Include="AppServices\Teacher\Dto\GroupWeekGrade\GroupWeekGradeShowPageOutput.cs" />
+    <Compile Include="AppServices\Teacher\Dto\GroupWeekGrade\GroupWeekGradeUpdate.cs" />
     <Compile Include="AppServices\Teacher\Dto\Prize\PrizeComputInput.cs" />
     <Compile Include="AppServices\Teacher\Dto\Prize\PrizeTianMoFanShengComputInput.cs" />
     <Compile Include="AppServices\Teacher\Dto\Prize\PrizeXiaoMoFanShengComputInput.cs" />
@@ -225,6 +231,8 @@
     <Compile Include="AppServices\Teacher\Dto\Grade\ShowPageGradeOutput.cs" />
     <Compile Include="AppServices\Teacher\Dto\Prize\ShowPagePrizeInput.cs" />
     <Compile Include="AppServices\Teacher\Dto\Prize\ShowPagePrizeOutput.cs" />
+    <Compile Include="AppServices\Teacher\Dto\Student\ShowGroupStudentInput.cs" />
+    <Compile Include="AppServices\Teacher\Dto\Student\ShowGroupStudentOutput.cs" />
     <Compile Include="AppServices\Teacher\Dto\Student\ShowPageStudentInput.cs" />
     <Compile Include="AppServices\Teacher\Dto\Student\ShowPageStudentOutput.cs" />
     <Compile Include="AppServices\Teacher\Dto\Prize\ShowPrizeInput.cs" />
@@ -235,6 +243,10 @@
     <Compile Include="AppServices\Teacher\Dto\Grade\UpdateGradeRangeInput.cs" />
     <Compile Include="AppServices\Teacher\Dto\Student\UpdateStudentInput.cs" />
     <Compile Include="AppServices\Teacher\Dto\Student\UpdateStudentRangeInput.cs" />
+    <Compile Include="AppServices\Teacher\Dto\WeekGrade\WeekGradeCreateInput.cs" />
+    <Compile Include="AppServices\Teacher\Dto\WeekGrade\WeekGradeShowInput.cs" />
+    <Compile Include="AppServices\Teacher\Dto\WeekGrade\WeekGradeShowOutput.cs" />
+    <Compile Include="AppServices\Teacher\Dto\WeekGrade\WeekGradeUpdateInput.cs" />
     <Compile Include="AppServices\Teacher\ITeacherAppService.cs" />
     <Compile Include="AppServices\Teacher\TeacherAppService.cs" />
     <Compile Include="AppServices\WeekGrade\Dto\GroupWeekGrade\GroupWeekGradeCreateInput.cs" />

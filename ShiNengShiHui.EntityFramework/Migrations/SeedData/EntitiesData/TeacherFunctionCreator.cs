@@ -70,10 +70,64 @@ namespace ShiNengShiHui.Migrations.SeedData.EntitiesData
                 {
                     PID = 0,
                     Name = "成绩管理",
-                    Action = "GradeIndex",
-                    Controller = "Teacher",
+                    Action = "NULL",
+                    Controller = "NULL",
                     ICon = "lnr lnr-text-format",
                     Order=200,
+                    RoleId = teacherRole.Id
+                };
+
+                _context.Function.Add(gradeManage);
+                _context.SaveChanges();
+            }
+
+            var weekGradeManage = _context.Function.FirstOrDefault(m => m.Name.Equals("周成绩管理") && m.RoleId == teacherRole.Id);
+            if (gradeManage == null)
+            {
+                gradeManage = new Function()
+                {
+                    PID = gradeManage.Id,
+                    Name = "周成绩管理",
+                    Action = "GradeIndex",
+                    Controller = "Teacher",
+                    ICon = "NULL",
+                    Order = 201,
+                    RoleId = teacherRole.Id
+                };
+
+                _context.Function.Add(gradeManage);
+                _context.SaveChanges();
+            }
+
+            var weekGradeShow = _context.Function.FirstOrDefault(m => m.Name.Equals("周成绩查看") && m.RoleId == teacherRole.Id);
+            if (gradeManage == null)
+            {
+                gradeManage = new Function()
+                {
+                    PID = gradeManage.Id,
+                    Name = "周成绩查看",
+                    Action = "GradeShow",
+                    Controller = "Teacher",
+                    ICon = "NULL",
+                    Order = 202,
+                    RoleId = teacherRole.Id
+                };
+
+                _context.Function.Add(gradeManage);
+                _context.SaveChanges();
+            }
+
+            var groupWeekGradeManage = _context.Function.FirstOrDefault(m => m.Name.Equals("优胜组管理") && m.RoleId == teacherRole.Id);
+            if (gradeManage == null)
+            {
+                gradeManage = new Function()
+                {
+                    PID = gradeManage.Id,
+                    Name = "优胜组管理",
+                    Action = "GroupWeekGradeIndex",
+                    Controller = "Teacher",
+                    ICon = "NULL",
+                    Order = 203,
                     RoleId = teacherRole.Id
                 };
 

@@ -135,6 +135,7 @@
     <Compile Include="EntityFramework\Repositories\ClassRepository.cs" />
     <Compile Include="EntityFramework\Repositories\FunctionRepository.cs" />
     <Compile Include="EntityFramework\Repositories\GradeRepository.cs" />
+    <Compile Include="EntityFramework\Repositories\GroupWeekGradeRepository.cs" />
     <Compile Include="EntityFramework\Repositories\PrizeRepository.cs" />
     <Compile Include="EntityFramework\Repositories\SqlRepositoryBase.cs" />
     <Compile Include="EntityFramework\Repositories\StudentRepository.cs" />
@@ -174,6 +175,10 @@
     <Compile Include="Migrations\201710240856066_EntitiesInitial7.Designer.cs">
       <DependentUpon>201710240856066_EntitiesInitial7.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712210637412_EntitiesInitial8.cs" />
+    <Compile Include="Migrations\201712210637412_EntitiesInitial8.Designer.cs">
+      <DependentUpon>201712210637412_EntitiesInitial8.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedData\EntitiesData\AdministratorFunctionCreator.cs" />
@@ -181,7 +186,7 @@
     <Compile Include="Migrations\SeedData\EntitiesData\HeadmasterFunctionCreator.cs" />
     <Compile Include="Migrations\SeedData\EntitiesData\RoleCreator.cs" />
     <Compile Include="Migrations\SeedData\EntitiesData\TeacherFunctionCreator.cs" />
-    <Compile Include="Migrations\SeedData\EntitiesData\TeacherUserCreator.cs" />
+    <Compile Include="Migrations\SeedData\EntitiesData\UserCreator.cs" />
     <Compile Include="ShiNengShiHuiDataModule.cs" />
     <Compile Include="Migrations\SeedData\DefaultEditionsCreator.cs" />
     <Compile Include="Migrations\SeedData\DefaultLanguagesCreator.cs" />
@@ -189,7 +194,7 @@
     <Compile Include="Migrations\SeedData\DefaultTenantCreator.cs" />
     <Compile Include="Migrations\SeedData\HostRoleAndUserCreator.cs" />
     <Compile Include="Migrations\SeedData\InitialHostDbBuilder.cs" />
-    <Compile Include="Migrations\SeedData\TenantRoleAndUserBuilder.cs" />
+    <Compile Include="Migrations\SeedData\EntitiesData\TenantRoleAndUserBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -226,6 +231,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710240856066_EntitiesInitial7.resx">
       <DependentUpon>201710240856066_EntitiesInitial7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712210637412_EntitiesInitial8.resx">
+      <DependentUpon>201712210637412_EntitiesInitial8.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

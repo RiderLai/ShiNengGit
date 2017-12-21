@@ -1,5 +1,5 @@
 ﻿using ShiNengShiHui.AppServices;
-using ShiNengShiHui.AppServices.TeacherDTO;
+//using ShiNengShiHui.AppServices.TeacherDTO;
 using ShiNengShiHui.AppServices.WeekGradeDTO;
 using ShiNengShiHui.Web.Models.WeekGrade;
 using System;
@@ -95,7 +95,7 @@ namespace ShiNengShiHui.Web.Controllers
             WeekGradeCreateModel result = new WeekGradeCreateModel();
             result.WeekGrades = new List<WeekGrade>();
             int[] grades = new int[] { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 };
-            foreach (ShowStudentOutput item in students.ShowStudentOutputs)
+            foreach (AppServices.TeacherDTO.ShowStudentOutput item in students.ShowStudentOutputs)
             {
                 if (item.Group == group)
                 {

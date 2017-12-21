@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ShiNengShiHui.Entities.Classes
 {
-    public class Class:FullAuditedEntity
+    public class Class : FullAuditedEntity
     {
         [StringLength(maximumLength: 20)]
         [Required]
@@ -15,12 +15,13 @@ namespace ShiNengShiHui.Entities.Classes
 
         public virtual DateTime InTime { get; set; }
 
-        public  string StudentsTable { get=>Name+"Students"; }
+        public string StudentsTable { get => Name + "Students"; }
 
-        public string GradesTable { get=>Name+"Grades"; }
+        public string GradesTable { get => Name + "Grades"; }
 
-        public string PrizesTable { get=>Name+"Prizes";}
+        public string PrizesTable { get => Name + "Prizes"; }
 
-        
+        public string GroupWeekGradeTable { get => Name + "GroupWeekGrades"; }
+
     }
 }

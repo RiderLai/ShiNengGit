@@ -6,6 +6,7 @@ namespace ShiNengShiHui.AppServices
 {
     public interface ITeacherAppService:IApplicationService
     {
+        #region 学生管理
         /// <summary>
         /// 展示单个学生
         /// </summary>
@@ -18,6 +19,12 @@ namespace ShiNengShiHui.AppServices
         /// <param name="showPageStudentInput"></param>
         /// <returns></returns>
         ShowPageStudentOutput ShowPageStudent(ShowPageStudentInput showPageStudentInput);
+        /// <summary>
+        /// 展示小组的学生
+        /// </summary>
+        /// <param name="showGroupStudentInput"></param>
+        /// <returns></returns>
+        ShowGroupStudentOutput ShowGroupStudent(ShowGroupStudentInput showGroupStudentInput);
 
         /// <summary>
         /// 添加学生
@@ -57,7 +64,9 @@ namespace ShiNengShiHui.AppServices
         /// <param name="deleteStudentRangeInput"></param>
         /// <returns></returns>
         ReturnVal DeleteStudentRange(DeleteStudentRangeInput deleteStudentRangeInput);
+        #endregion
 
+        #region 成绩管理--老版本成绩计算，计算的事一天的成绩
         /// <summary>
         /// 展示单个成绩
         /// </summary>
@@ -122,7 +131,60 @@ namespace ShiNengShiHui.AppServices
         /// <param name="showPagePrizeInput"></param>
         /// <returns></returns>
         ShowPagePrizeOutput ShowPagePrize(ShowPagePrizeInput showPagePrizeInput);
+        #endregion
 
+        #region 成绩管理--新版本成绩计算，录入一周的成绩
+        /// <summary>
+        /// 周成绩新增
+        /// </summary>
+        /// <param name="weekGradeCreateInput"></param>
+        /// <returns></returns>
+        ReturnVal WeekGradeCreate(WeekGradeCreateInput weekGradeCreateInput);
+
+        /// <summary>
+        /// 周成绩更新
+        /// </summary>
+        /// <param name="weekGradeUpdateInput"></param>
+        /// <returns></returns>
+        ReturnVal WeekGradeUpdate(WeekGradeUpdateInput weekGradeUpdateInput);
+
+        /// <summary>
+        /// 周成绩展示
+        /// </summary>
+        /// <param name="weekGradeShowInput"></param>
+        /// <returns></returns>
+        WeekGradeShowOutput WeekGradeShow(WeekGradeShowInput weekGradeShowInput);
+
+        /// <summary>
+        /// 优胜组新增
+        /// </summary>
+        /// <param name="groupWeekGradeCreateInput"></param>
+        /// <returns></returns>
+        ReturnVal GroupWeekGradeCreate(GroupWeekGradeCreateInput groupWeekGradeCreateInput);
+
+        /// <summary>
+        /// 优胜组更新
+        /// </summary>
+        /// <param name="groupWeekGradeUpdate"></param>
+        /// <returns></returns>
+        ReturnVal GroupWeekGradeUpdate(GroupWeekGradeUpdate groupWeekGradeUpdate);
+
+        /// <summary>
+        /// 展示单个优胜组
+        /// </summary>
+        /// <param name="groupWeekGradeShowInput"></param>
+        /// <returns></returns>
+        GroupWeekGradeShowOutput GroupWeekGradeShow(GroupWeekGradeShowInput groupWeekGradeShowInput);
+
+        /// <summary>
+        /// 分页展示优胜组
+        /// </summary>
+        /// <param name="groupWeekGradeShowPageInput"></param>
+        /// <returns></returns>
+        GroupWeekGradeShowPageOutput GroupWeekGradeShowPage(GroupWeekGradeShowPageInput groupWeekGradeShowPageInput);
+        #endregion
+
+        #region prize计算
         /// <summary>
         /// 奖项计算
         /// </summary>
@@ -151,6 +213,7 @@ namespace ShiNengShiHui.AppServices
         /// 计算校模范生
         /// </summary>
         /// <param name="prizeXiaoMoFanShengComput"></param>
-        void PrizeXiaoMoFanShengComput(PrizeXiaoMoFanShengComputInput prizeXiaoMoFanShengComput);
+        void PrizeXiaoMoFanShengComput(PrizeXiaoMoFanShengComputInput prizeXiaoMoFanShengComput); 
+        #endregion
     }
 }

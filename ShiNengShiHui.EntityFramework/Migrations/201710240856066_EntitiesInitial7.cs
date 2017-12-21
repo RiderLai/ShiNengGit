@@ -8,7 +8,7 @@ namespace ShiNengShiHui.Migrations
         public override void Up()
         {
             CreateTable(
-                "dbo.GroupWeekGrades",
+                "dbo.testGroupWeekGrades",
                 c => new
                     {
                         Id = c.Long(nullable: false, identity: true),

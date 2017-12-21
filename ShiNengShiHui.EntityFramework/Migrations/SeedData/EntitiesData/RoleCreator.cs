@@ -11,7 +11,7 @@ namespace ShiNengShiHui.Migrations.SeedData.EntitiesData
         private readonly ShiNengShiHuiDbContext _context;
         private readonly int _tenantId;
 
-        public RoleCreator(ShiNengShiHuiDbContext context,int tenantId)
+        public RoleCreator(ShiNengShiHuiDbContext context, int tenantId)
         {
             _context = context;
             _tenantId = tenantId;
@@ -50,9 +50,9 @@ namespace ShiNengShiHui.Migrations.SeedData.EntitiesData
             }
 
             var teacher = _context.Roles.FirstOrDefault(r => r.TenantId == _tenantId && r.Name == StaticRoleNames.Tenants.Teacher);
-            if (teacher==null)
+            if (teacher == null)
             {
-                teacher = _context.Roles.Add(new Role(_tenantId, StaticRoleNames.Tenants.Teacher, StaticRoleNames.Tenants.Teacher));
+                teacher = _context.Roles.Add(new Role(_tenantId, StaticRoleNames.Tenants.Teacher, StaticRoleNames.Tenants.Teacher) { IsStatic = true });
                 _context.SaveChanges();
 
                 _context.Permissions.Add(
