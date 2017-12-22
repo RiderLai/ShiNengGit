@@ -77,14 +77,14 @@ namespace ShiNengShiHui.Migrations.SeedData.EntitiesData
                     RoleId = teacherRole.Id
                 };
 
-                _context.Function.Add(gradeManage);
+                gradeManage = _context.Function.Add(gradeManage);
                 _context.SaveChanges();
             }
 
             var weekGradeManage = _context.Function.FirstOrDefault(m => m.Name.Equals("周成绩管理") && m.RoleId == teacherRole.Id);
-            if (gradeManage == null)
+            if (weekGradeManage == null)
             {
-                gradeManage = new Function()
+                weekGradeManage = new Function()
                 {
                     PID = gradeManage.Id,
                     Name = "周成绩管理",
@@ -95,32 +95,32 @@ namespace ShiNengShiHui.Migrations.SeedData.EntitiesData
                     RoleId = teacherRole.Id
                 };
 
-                _context.Function.Add(gradeManage);
+                _context.Function.Add(weekGradeManage);
                 _context.SaveChanges();
             }
 
             var weekGradeShow = _context.Function.FirstOrDefault(m => m.Name.Equals("周成绩查看") && m.RoleId == teacherRole.Id);
-            if (gradeManage == null)
+            if (weekGradeShow == null)
             {
-                gradeManage = new Function()
+                weekGradeShow = new Function()
                 {
                     PID = gradeManage.Id,
                     Name = "周成绩查看",
-                    Action = "GradeShow",
+                    Action = "WeekGradeShow",
                     Controller = "Teacher",
                     ICon = "NULL",
                     Order = 202,
                     RoleId = teacherRole.Id
                 };
 
-                _context.Function.Add(gradeManage);
+                _context.Function.Add(weekGradeShow);
                 _context.SaveChanges();
             }
 
             var groupWeekGradeManage = _context.Function.FirstOrDefault(m => m.Name.Equals("优胜组管理") && m.RoleId == teacherRole.Id);
-            if (gradeManage == null)
+            if (groupWeekGradeManage == null)
             {
-                gradeManage = new Function()
+                groupWeekGradeManage = new Function()
                 {
                     PID = gradeManage.Id,
                     Name = "优胜组管理",
@@ -131,7 +131,7 @@ namespace ShiNengShiHui.Migrations.SeedData.EntitiesData
                     RoleId = teacherRole.Id
                 };
 
-                _context.Function.Add(gradeManage);
+                _context.Function.Add(groupWeekGradeManage);
                 _context.SaveChanges();
             }
 

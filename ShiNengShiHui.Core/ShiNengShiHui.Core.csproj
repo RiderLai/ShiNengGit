@@ -134,10 +134,6 @@
     <Compile Include="Entities\Students\Student.cs" />
     <Compile Include="Entities\Teachers\ITeacherRepository.cs" />
     <Compile Include="Entities\Teachers\Teacher.cs" />
-    <Compile Include="Entities\WeekGrades\GroupWeekGrade.cs" />
-    <Compile Include="Entities\WeekGrades\WeekDate.cs" />
-    <Compile Include="Entities\WeekGrades\WeekGrade.cs" />
-    <Compile Include="Entities\WeekGrades\WeekGradeData.cs" />
     <Compile Include="RepositoryExtend\IPageFromTableRepository.cs" />
     <Compile Include="RepositoryExtend\IPageRepository.cs" />
     <Compile Include="ShiNengShiHuiConsts.cs" />

@@ -205,6 +205,7 @@
     <Compile Include="AppServices\Headmaster\Dto\Teacher\TeacherShowPageInput.cs" />
     <Compile Include="AppServices\Headmaster\Dto\Teacher\TeacherShowPageOutput.cs" />
     <Compile Include="AppServices\Return\ReturnVal.cs" />
+    <Compile Include="AppServices\Teacher\Dto\GetCurrentClassOutput.cs" />
     <Compile Include="AppServices\Teacher\Dto\Grade\CreateGradeInput.cs" />
     <Compile Include="AppServices\Teacher\Dto\Grade\CreateGradeRangeInput.cs" />
     <Compile Include="AppServices\Teacher\Dto\GroupWeekGrade\GroupWeekGradeCreateInput.cs" />
@@ -249,16 +250,6 @@
     <Compile Include="AppServices\Teacher\Dto\WeekGrade\WeekGradeUpdateInput.cs" />
     <Compile Include="AppServices\Teacher\ITeacherAppService.cs" />
     <Compile Include="AppServices\Teacher\TeacherAppService.cs" />
-    <Compile Include="AppServices\WeekGrade\Dto\GroupWeekGrade\GroupWeekGradeCreateInput.cs" />
-    <Compile Include="AppServices\WeekGrade\Dto\GroupWeekGrade\GroupWeekGradeUpdate.cs" />
-    <Compile Include="AppServices\WeekGrade\Dto\GroupWeekGrade\GroupWeekGradeShowInput.cs" />
-    <Compile Include="AppServices\WeekGrade\Dto\GroupWeekGrade\GroupWeekGradeShowOutput.cs" />
-    <Compile Include="AppServices\WeekGrade\IWeekGradeAppService.cs" />
-    <Compile Include="AppServices\WeekGrade\Dto\WeekGrade\WeekGradeCreateInput.cs" />
-    <Compile Include="AppServices\WeekGrade\Dto\WeekGrade\WeekGradeShowInput.cs" />
-    <Compile Include="AppServices\WeekGrade\Dto\WeekGrade\WeekGradeShowOutput.cs" />
-    <Compile Include="AppServices\WeekGrade\Dto\WeekGrade\WeekGradeUpdateInput.cs" />
-    <Compile Include="AppServices\WeekGrade\WeekGradeAppService.cs" />
     <Compile Include="Dto\PageBaseDto.cs" />
     <Compile Include="ShiNengShiHuiApplicationModule.cs" />
     <Compile Include="ShiNengShiHuiAppServiceBase.cs" />

@@ -213,7 +213,13 @@ namespace ShiNengShiHui.AppServices
         /// 计算校模范生
         /// </summary>
         /// <param name="prizeXiaoMoFanShengComput"></param>
-        void PrizeXiaoMoFanShengComput(PrizeXiaoMoFanShengComputInput prizeXiaoMoFanShengComput); 
+        void PrizeXiaoMoFanShengComput(PrizeXiaoMoFanShengComputInput prizeXiaoMoFanShengComput);
         #endregion
+
+        /// <summary>
+        /// 获得当前用户对应的class
+        /// </summary>
+        /// <returns></returns>
+        GetCurrentClassOutput GetCurrentClass();
     }
 }

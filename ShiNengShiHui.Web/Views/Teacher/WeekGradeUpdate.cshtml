@@ -1,0 +1,157 @@
+﻿@model ShiNengShiHui.Web.Models.Teacher.Grade.WeekGradeUpdateModel
+@{
+    ViewBag.Title = "WeekGradeUpdate";
+}
+
+@section PageSpecificJavascriptIncludes{
+
+    <script type="text/javascript">
+        $("#Button").click(function () {
+            $("#Form").submit();
+        })
+
+        $(function () {
+            var img = $(".star");
+            var button = $(".starButton");
+            for (var i = 0; i < img.length;i++) {
+                var gi = $(img[i]).attr("i");
+                var gj = $(img[i]).attr("j");
+                var input = $("#WeekGrades_" + gi + "__Grades_" + gj + "_");
+                if (input.attr("value")=="0") {
+                    img[i].src = "/assets/img/start/Star2t.png";
+                }
+                else {
+                    img[i].src = "/assets/img/start/star1.png";
+                }
+
+                $(button[i]).click(function () {
+                    var img = $($(this).children()[0])
+                    var gi = img.attr("i");
+                    var gj = img.attr("j");
+                    var input = $("#WeekGrades_" + gi + "__Grades_" + gj + "_");
+                    if (input.attr("value") == "0") {
+                        img.attr("src","/assets/img/start/star1.png");
+                        input.attr("value", "1");
+                    }
+                    else {
+                        img.attr("src","/assets/img/start/Star2t.png");
+                        input.attr("value", "0");
+                    }
+                })
+
+            }
+
+        })
+    </script>
+}
+<div class="panel">
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "Form" }))
+            {
+        <div class="panel-heading">
+            <div class="right col-lg-6">
+
+                @Html.AntiForgeryToken()
+                <div class="col-lg-3">
+                    @Html.Label(Model.SchoolYear + "学年", new { @class = "form-control" })
+                    @Html.HiddenFor(m => m.SchoolYear)
+                </div>
+
+                <div class="col-lg-3">
+                    @Html.Label(Model.Semester + "学期", new { @class = "form-control" })
+                    @Html.HiddenFor(m => m.Semester)
+                </div>
+
+                <div class="col-lg-2">
+                    @Html.Label("第" + Model.Week + "周", new { @class = "form-control" })
+                    @Html.HiddenFor(m => m.Week)
+                </div>
+
+                <div class="col-lg-2">
+                    @Html.Label(ViewData["GroupId"].ToString() + "组", new { @class = "form-control" })
+                    @Html.HiddenFor(m => m.Week)
+                </div>
+
+                <a class="btn btn-info" href="javascript:;" id="Button">更新</a>
+            </div>
+        </div>
+
+        <div class="panel-body">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>姓名</th>
+                        <th>敬</th>
+                        <th>善</th>
+                        <th>净</th>
+                        <th>捡</th>
+                        <th>勤</th>
+                        <th>静</th>
+                        <th>厚</th>
+                        <th>乐</th>
+                        <th>跑</th>
+                        <th>勇</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0, length = Model.WeekGrades.Count; i < length; i++)
+                    {
+                        <tr>
+                            @Html.HiddenFor(m => Model.WeekGrades[i].Id)
+                            <td>@(i + 1)</td>
+                            <td>@Model.WeekGrades[i].Name</td>
+                            <td>
+                                <a class="starButton"><img i="@i" j="0" class="star" width="32px" height="32px" /></a>
+                                @Html.HiddenFor(m => Model.WeekGrades[i].Grades[0])
+                            </td>
+                            <td>
+                                <a class="starButton"><img i="@i" j="1" class="star" width="32px" height="32px" /></a>
+                                @Html.HiddenFor(m => Model.WeekGrades[i].Grades[1])
+                            </td>
+                            <td>
+                                <a class="starButton"><img i="@i" j="2" class="star" width="32px" height="32px" /></a>
+                                @Html.HiddenFor(m => Model.WeekGrades[i].Grades[2])
+                            </td>
+                            <td>
+                                <a class="starButton"><img i="@i" j="3" class="star" width="32px" height="32px" /></a>
+                                @Html.HiddenFor(m => Model.WeekGrades[i].Grades[3])
+                            </td>
+                            <td>
+                                <a class="starButton"><img i="@i" j="4" class="star" width="32px" height="32px" /></a>
+                                @Html.HiddenFor(m => Model.WeekGrades[i].Grades[4])
+                            </td>
+                            <td>
+                                <a class="starButton"><img i="@i" j="5" class="star" width="32px" height="32px" /></a>
+                                @Html.HiddenFor(m => Model.WeekGrades[i].Grades[5])
+                            </td>
+                            <td>
+                                <a class="starButton"><img i="@i" j="6" class="star" width="32px" height="32px" /></a>
+                                @Html.HiddenFor(m => Model.WeekGrades[i].Grades[6])
+                            </td>
+                            <td>
+                                <a class="starButton"><img i="@i" j="7" class="star" width="32px" height="32px" /></a>
+                                @Html.HiddenFor(m => Model.WeekGrades[i].Grades[7])
+                            </td>
+                            <td>
+                                <a class="starButton"><img i="@i" j="8" class="star" width="32px" height="32px" /></a>
+                                @Html.HiddenFor(m => Model.WeekGrades[i].Grades[8])
+                            </td>
+                            <td>
+                                <a class="starButton"><img i="@i" j="9" class="star" width="32px" height="32px" /></a>
+                                @Html.HiddenFor(m => Model.WeekGrades[i].Grades[9])
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
+
+@if (ViewData["IsWell"] != null)
+{
+    if ((bool)ViewData["IsWell"])
+    {
+        <img src="~/assets/img/good.png" width="64px" height="64px" />
+    }
+}

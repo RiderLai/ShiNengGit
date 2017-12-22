@@ -16,6 +16,7 @@ using ShiNengShiHui.Users;
 using Castle.MicroKernel.Registration;
 using Effort;
 using EntityFramework.DynamicFilters;
+using ShiNengShiHui.Migrations.SeedData.EntitiesData;
 
 namespace ShiNengShiHui.Tests
 {

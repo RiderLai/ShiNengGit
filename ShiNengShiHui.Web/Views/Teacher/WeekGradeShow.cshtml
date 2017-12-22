@@ -1,0 +1,213 @@
+﻿@model ShiNengShiHui.Web.Models.Teacher.Grade.WeekGradeShowModel
+@{
+    ViewBag.Title = "WeekGradeShow";
+}
+@section PageSpecificJavascriptIncludes{
+
+    <script type="text/javascript">
+        $("#Button").click(function () {
+            $("#Form").submit();
+        })
+    </script>
+
+}
+<div class="panel">
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "Form" }))
+    {
+        <div class="panel-heading">
+            <div class="right col-lg-8">
+
+                @Html.AntiForgeryToken()
+                <div class="col-lg-3">
+                    @Html.DropDownList("SchoolYear", ViewBag.SchoolYear as List<SelectListItem>, new { @class = "form-control" })
+                </div>
+
+                <div class="col-lg-3">
+                    @Html.DropDownList("Semester", ViewBag.Semester as List<SelectListItem>, new { @class = "form-control" })
+                </div>
+
+                <div class="col-lg-2">
+                    @Html.DropDownList("Week", ViewBag.Week as List<SelectListItem>, new { @class = "form-control" })
+                </div>
+
+                <div class="col-lg-2">
+                    @Html.DropDownList("GroupId", ViewBag.GroupId as List<SelectListItem>, new { @class = "form-control" })
+                </div>
+                <a class="btn btn-info" href="javascript:;" id="Button">查看</a>
+            </div>
+        </div>
+    }
+    <div class="panel-body">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>姓名</th>
+                    <th>敬</th>
+                    <th>善</th>
+                    <th>净</th>
+                    <th>捡</th>
+                    <th>勤</th>
+                    <th>静</th>
+                    <th>厚</th>
+                    <th>乐</th>
+                    <th>跑</th>
+                    <th>勇</th>
+                    <th>是否周模范生</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model == null)
+                {
+
+                }
+                else
+                {
+                    int i = 1;
+                    foreach (var item in Model.WeekGrades)
+                    {
+                        <tr>
+                            <td>@i</td>
+                            <td>@item.Name</td>
+                            <td>
+                                @if (item.Grades[0] == 0)
+                                {
+                                    <img src="~/assets/img/start/Star2t.png" width="32px" height="32px" />
+                                }
+                                else
+                                {
+                                    <img src="~/assets/img/start/star1.png" width="32px" height="32px" />
+                                }
+                            </td>
+                            <td>
+                                @if (item.Grades[1] == 0)
+                                {
+                                    <img src="~/assets/img/start/Star2t.png" width="32px" height="32px" />
+                                }
+                                else
+                                {
+                                    <img src="~/assets/img/start/star1.png" width="32px" height="32px" />
+                                }
+                            </td>
+                            <td>
+                                @if (item.Grades[2] == 0)
+                                {
+                                    <img src="~/assets/img/start/Star2t.png" width="32px" height="32px" />
+                                }
+                                else
+                                {
+                                    <img src="~/assets/img/start/star1.png" width="32px" height="32px" />
+                                }
+                            </td>
+                            <td>
+                                @if (item.Grades[3] == 0)
+                                {
+                                    <img src="~/assets/img/start/Star2t.png" width="32px" height="32px" />
+                                }
+                                else
+                                {
+                                    <img src="~/assets/img/start/star1.png" width="32px" height="32px" />
+                                }
+                            </td>
+                            <td>
+                                @if (item.Grades[4] == 0)
+                                {
+                                    <img src="~/assets/img/start/Star2t.png" width="32px" height="32px" />
+                                }
+                                else
+                                {
+                                    <img src="~/assets/img/start/star1.png" width="32px" height="32px" />
+                                }
+                            </td>
+                            <td>
+                                @if (item.Grades[5] == 0)
+                                {
+                                    <img src="~/assets/img/start/Star2t.png" width="32px" height="32px" />
+                                }
+                                else
+                                {
+                                    <img src="~/assets/img/start/star1.png" width="32px" height="32px" />
+                                }
+                            </td>
+                            <td>
+                                @if (item.Grades[6] == 0)
+                                {
+                                    <img src="~/assets/img/start/Star2t.png" width="32px" height="32px" />
+                                }
+                                else
+                                {
+                                    <img src="~/assets/img/start/star1.png" width="32px" height="32px" />
+                                }
+                            </td>
+                            <td>
+                                @if (item.Grades[7] == 0)
+                                {
+                                    <img src="~/assets/img/start/Star2t.png" width="32px" height="32px" />
+                                }
+                                else
+                                {
+                                    <img src="~/assets/img/start/star1.png" width="32px" height="32px" />
+                                }
+                            </td>
+                            <td>
+                                @if (item.Grades[8] == 0)
+                                {
+                                    <img src="~/assets/img/start/Star2t.png" width="32px" height="32px" />
+                                }
+                                else
+                                {
+                                    <img src="~/assets/img/start/star1.png" width="32px" height="32px" />
+                                }
+                            </td>
+                            <td>
+                                @if (item.Grades[9] == 0)
+                                {
+                                    <img src="~/assets/img/start/Star2t.png" width="32px" height="32px" />
+                                }
+                                else
+                                {
+                                    <img src="~/assets/img/start/star1.png" width="32px" height="32px" />
+                                }
+                            </td>
+                            <td>
+                                @{
+                                    bool isGoodStudent = true;
+                                    for (int j = 0; j < 10; j++)
+                                    {
+                                        if (item.Grades[j] == 0)
+                                        {
+                                            isGoodStudent = false;
+                                            break;
+                                        }
+                                    }
+                                    if (isGoodStudent)
+                                    {
+                                        <img src="~/assets/img/start/star1.png" width="32px" height="32px" />
+                                    }
+                                    else
+                                    {
+                                        <img src="~/assets/img/start/Star2t.png" width="32px" height="32px" />
+                                    }
+                                }
+                            </td>
+                        </tr>
+                         i++;
+                     }
+                 }
+            </tbody>
+        </table>
+    </div>
+</div>
+@if (ViewData["IsWell"] == null)
+{
+
+}
+else
+{
+    if ((bool)ViewData["IsWell"])
+    {
+        <div class="right col-lg-1">
+            <a href="@Url.Action("WeekGradeUpdate",new { schoolyear = ViewData["y"].ToString(), semester = ViewData["s"].ToString(), week = ViewData["w"].ToString(),groupId=ViewData["g"].ToString()})"><img src="~/assets/img/good.png" width="64px" height="64px" /></a>
+        </div>
+    }
+}

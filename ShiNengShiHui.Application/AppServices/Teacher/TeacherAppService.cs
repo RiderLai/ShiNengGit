@@ -10,6 +10,8 @@ using ShiNengShiHui.AppServices.Return;
 using ShiNengShiHui.Entities.OtherData;
 using ShiNengShiHui.AppServices.TeacherDTO;
 using ShiNengShiHui.AppServices.ExcelDTO;
+using ShiNengShiHui.Users;
+using ShiNengShiHui.Entities.Classes;
 
 namespace ShiNengShiHui.AppServices
 {
@@ -21,6 +23,8 @@ namespace ShiNengShiHui.AppServices
         private readonly IPrizeRepository _prizeRepository;
         private readonly IRepository<PrizeItem, Guid> _prizeItemRepository;
         private readonly IGroupWeekGradeRepository _groupWeekGradeRepository;
+        private readonly IUserRepository _userRepository;
+        private readonly IRepository<Class> _classRepository;
 
         private readonly IExcelAppService _excelAppService;
 
@@ -28,15 +32,22 @@ namespace ShiNengShiHui.AppServices
             IGradeRepository gradeRepository,
             IPrizeRepository prizeRepository,
             IRepository<PrizeItem, Guid> prizeItemRepository,
-            IExcelAppService excelAppService,
-            IGroupWeekGradeRepository groupWeekGradeRepository)
+            IGroupWeekGradeRepository groupWeekGradeRepository,
+            IUserRepository userRepository,
+            IRepository<Class> classRepository,
+
+            IExcelAppService excelAppService)
         {
             _studentRepository = studentRepository;
             _gradeRepository = gradeRepository;
             _prizeRepository = prizeRepository;
             _prizeItemRepository = prizeItemRepository;
-            _excelAppService = excelAppService;
             _groupWeekGradeRepository = groupWeekGradeRepository;
+            _userRepository = userRepository;
+            _classRepository = classRepository;
+
+            _excelAppService = excelAppService;
+
         }
 
         private List<Student> StudentsGroupGet(int groupId)
@@ -211,7 +222,7 @@ namespace ShiNengShiHui.AppServices
             ShowGroupStudentOutput result = new ShowGroupStudentOutput();
             result.showStudentOutput = students.Select<Student, ShowStudentOutput>(m => ObjectMapper.Map<ShowStudentOutput>(m)).ToArray();
             return result;
-        } 
+        }
         #endregion
 
         #region 更新学生信息
@@ -1139,10 +1150,18 @@ namespace ShiNengShiHui.AppServices
 
             return result;
         }
-        #endregion
 
         #endregion
 
         #endregion
+
+        #endregion
+
+        public GetCurrentClassOutput GetCurrentClass()
+        {
+            var user = _userRepository.GetAllList(m => m.Id == AbpSession.UserId).FirstOrDefault();
+            var Class = _classRepository.GetAllList(m => m.Id == user.Teacher.ClassId).First();
+            return new GetCurrentClassOutput() { ClassIntime = Class.InTime };
+        }
     }
 }

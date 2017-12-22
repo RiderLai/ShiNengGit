@@ -1417,7 +1417,6 @@
     <Compile Include="Controllers\ShiNengShiHuiControllerBase.cs" />
     <Compile Include="Controllers\Results\ChallengeResult.cs" />
     <Compile Include="Controllers\TeacherController.cs" />
-    <Compile Include="Controllers\WeekGradeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1443,12 +1442,14 @@
     <Compile Include="Models\Teacher\Grade\GradeCreateViewModel.cs" />
     <Compile Include="Models\Teacher\Grade\GradeEditViewModel.cs" />
     <Compile Include="Models\Teacher\Grade\GradeResultViewModel.cs" />
+    <Compile Include="Models\Teacher\Grade\GroupWeekGradeShowModel.cs" />
+    <Compile Include="Models\Teacher\Grade\WeekGradeCreateModel.cs" />
+    <Compile Include="Models\Teacher\Grade\WeekGradeShowModel.cs" />
+    <Compile Include="Models\Teacher\Grade\WeekGradeUpdateModel.cs" />
     <Compile Include="Models\Teacher\Prize\PrizeResultViewModel.cs" />
     <Compile Include="Models\Teacher\Student\StudentCreatreViewModel.cs" />
     <Compile Include="Models\Teacher\Student\StudentEditViewModel.cs" />
     <Compile Include="Models\Teacher\Student\StudentResultViewModel.cs" />
-    <Compile Include="Models\WeekGrade\WeekGradeCreateModel.cs" />
-    <Compile Include="Models\WeekGrade\WeekGradeUpdateModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\ShiNengShiHuiWebViewPageBase.cs" />
   </ItemGroup>
@@ -1475,13 +1476,13 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Helper\FunctionMenue.cshtml" />
     <Content Include="Views\Teacher\StudentIndex.cshtml" />
-    <Content Include="Views\Teacher\GradeIndex.cshtml" />
+    <Content Include="Views\Teacher\GradeIndex-old.cshtml" />
     <Content Include="Views\Teacher\PrizeIndex.cshtml" />
     <Content Include="Views\Shared\_Layout.Edit.cshtml" />
     <Content Include="Views\Teacher\StudentEdit.cshtml" />
     <Content Include="Views\Teacher\StudentCreate.cshtml" />
-    <Content Include="Views\Teacher\GradeCreate.cshtml" />
-    <Content Include="Views\Teacher\GradeEdit.cshtml" />
+    <Content Include="Views\Teacher\GradeCreate-old.cshtml" />
+    <Content Include="Views\Teacher\GradeEdit-old.cshtml" />
     <Content Include="Views\Administrator\UserIndex.cshtml" />
     <Content Include="Views\Administrator\ClassIndex.cshtml" />
     <Content Include="Views\Administrator\TeacherIndex.cshtml" />
@@ -1496,13 +1497,13 @@
     <Content Include="Views\Headmaster\StudentIndex.cshtml" />
     <Content Include="Views\Headmaster\GradeIndex.cshtml" />
     <Content Include="Views\Headmaster\PrizeIndex.cshtml" />
-    <Content Include="Views\WeekGrade\Index.cshtml" />
-    <Content Include="Views\WeekGrade\WeekGradeCreate.cshtml" />
-    <Content Include="Views\WeekGrade\WeekGradeUpdate.cshtml" />
-    <Content Include="Views\WeekGrade\WeekGradeShow.cshtml" />
-    <Content Include="Views\WeekGrade\GroupWeekIndex.cshtml" />
-    <Content Include="Views\WeekGrade\GroupWeekCreate.cshtml" />
-    <Content Include="Views\WeekGrade\GroupWeekUpdate.cshtml" />
+    <Content Include="Views\Teacher\GradeIndex.cshtml" />
+    <Content Include="Views\Teacher\WeekGradeCreate.cshtml" />
+    <Content Include="Views\Teacher\WeekGradeUpdate.cshtml" />
+    <Content Include="Views\Teacher\WeekGradeShow.cshtml" />
+    <Content Include="Views\Teacher\GroupWeekGradeIndex.cshtml" />
+    <Content Include="Views\Teacher\GroupWeekCreate.cshtml" />
+    <Content Include="Views\Teacher\GroupWeekUpdate.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
