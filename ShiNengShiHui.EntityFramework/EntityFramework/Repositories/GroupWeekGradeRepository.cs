@@ -76,7 +76,7 @@ namespace ShiNengShiHui.EntityFramework.Repositories
         public override IQueryable<GroupWeekGrade> GetAll(string tableName)
         {
             var list = new List<GroupWeekGrade>();
-            var groupWeekGrades = Context.Database.SqlQuery<GroupWeekGrade>($@"Select * From {TableName} ");
+            var groupWeekGrades = Context.Database.SqlQuery<GroupWeekGrade>($@"Select * From {tableName} ");
             list.AddRange(groupWeekGrades);
 
             return list.AsQueryable<GroupWeekGrade>();

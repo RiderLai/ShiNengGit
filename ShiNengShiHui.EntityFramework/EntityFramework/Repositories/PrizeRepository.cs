@@ -88,7 +88,7 @@ namespace ShiNengShiHui.EntityFramework.Repositories
         {
             List<Prize> list = new List<Prize>();
 
-            var prizes = Context.Database.SqlQuery<Prize>($@"Select * From {TableName}");
+            var prizes = Context.Database.SqlQuery<Prize>($@"Select * From {tableName}");
             list.AddRange(prizes);
 
             return list.AsQueryable<Prize>();
