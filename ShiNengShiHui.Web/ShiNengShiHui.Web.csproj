@@ -470,6 +470,14 @@
     <Content Include="Content\flags\famfamfam-flags.png" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\IndexCss\css\index.css" />
+    <Content Include="Content\IndexCss\images\background.jpg" />
+    <Content Include="Content\IndexCss\images\button.png" />
+    <Content Include="Content\IndexCss\images\details.png" />
+    <Content Include="Content\IndexCss\images\logos.png" />
+    <Content Include="Content\IndexCss\images\other.png" />
+    <Content Include="Content\IndexCss\images\other1.png" />
+    <Content Include="Content\IndexCss\images\title.png" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -628,6 +636,8 @@
     <Content Include="assets\vendor\bootstrap-bootbox\tests\dialog.test.coffee" />
     <Content Include="assets\vendor\bootstrap-bootbox\tests\locales.test.coffee" />
     <Content Include="assets\vendor\bootstrap-bootbox\tests\prompt.test.coffee" />
+    <Content Include="Content\IndexCss\css\.DS_Store" />
+    <Content Include="Content\IndexCss\__MACOSX\css\._.DS_Store" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <None Include="Scripts\jquery-2.2.0-vsdoc.js" />
@@ -1504,6 +1514,7 @@
     <Content Include="Views\Teacher\GroupWeekGradeIndex.cshtml" />
     <Content Include="Views\Teacher\GroupWeekCreate.cshtml" />
     <Content Include="Views\Teacher\GroupWeekUpdate.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

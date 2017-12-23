@@ -60,6 +60,11 @@ namespace ShiNengShiHui.Web.Controllers
             _logInManager = logInManager;
         }
 
+        public ActionResult Index()
+        {
+            return View();
+        }
+
         #region Login / Logout
 
         public ActionResult Login(string returnUrl = "")

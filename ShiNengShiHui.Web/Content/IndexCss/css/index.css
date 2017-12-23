@@ -1,0 +1,154 @@
+@font-face {
+  font-family: "icon";
+  src: url('../fonts/icon.eot');
+  src: url('../fonts/icon.eot?#iefix') format('eot'), url('../fonts/icon.woff2') format('woff2'), url('../fonts/icon.woff') format('woff'), url('../fonts/icon.ttf') format('truetype'), url('../fonts/icon.svg#icon') format('svg');
+}
+.icon:before {
+  font-family: "icon";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  /* speak: none; only necessary if not using the private unicode range (firstGlyph option) */
+  text-decoration: none;
+  text-transform: none;
+}
+.icon-alert:before {
+  content: "\E001";
+}
+.icon-dispatch:before {
+  content: "\E002";
+}
+.icon-fast:before {
+  content: "\E003";
+}
+.icon-grade:before {
+  content: "\E004";
+}
+.icon-info:before {
+  content: "\E005";
+}
+.icon-monitor:before {
+  content: "\E006";
+}
+.icon-survey:before {
+  content: "\E007";
+}
+.icon-threat:before {
+  content: "\E008";
+}
+.icon-track:before {
+  content: "\E009";
+}
+/*
+LESS variables are information about icon's compiled state, stored under its original file name
+
+.icon-home {
+  width: @icon-home-width;
+}
+
+The large array-like variables contain all information about a single icon
+@icon-home: x y offset_x offset_y width height total_width total_height image_path name;
+
+At the bottom of this section, we provide information about the spritesheet itself
+@spritesheet: width height image @spritesheet-sprites;
+*/
+/*
+The provided classes are intended to be used with the array-like variables
+
+.icon-home {
+  .sprite-width(@icon-home);
+}
+.icon-email {
+  .sprite(@icon-email);
+}
+
+Example usage in HTML:
+
+`display: block` sprite:
+<div class="icon-home"></div>
+
+To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+
+// CSS
+.icon {
+  display: inline-block;
+}
+
+// HTML
+<i class="icon icon-home"></i>
+*/
+/*
+The `.sprites` mixin generates identical output to the CSS template
+  but can be overridden inside of LESS
+
+This must be run when you have at least 2 sprites.
+  If run with a single sprite, then there will be reference errors.
+
+.sprites(@spritesheet-sprites);
+*/
+* {
+  font-family: Helvetica, Tahoma, Arial, "PingFang SC", "Microsoft YaHei", "微软雅黑", STXihei, "华文细黑", SimSun, "宋体", Heiti, "黑体", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+html,
+body {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+body {
+  overflow: hidden;
+  background: url(../images/background.jpg) no-repeat left bottom #f5f2e9;
+}
+.container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-content: center;
+      -ms-flex-line-pack: center;
+          align-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+.container .logo {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+}
+.container .details {
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+}
+.container .copyright {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+}
+.container .center a {
+  display: block;
+  margin-top: 10px;
+}
+.container .center a img {
+  display: block;
+  margin: 0 auto;
+}
