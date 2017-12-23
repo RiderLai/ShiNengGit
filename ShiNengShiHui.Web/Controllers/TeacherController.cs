@@ -906,8 +906,8 @@ namespace ShiNengShiHui.Web.Controllers
             semesterList.Add(new SelectListItem() { Text = "第一学期", Value = 1.ToString() });
             semesterList.Add(new SelectListItem() { Text = "第二学期", Value = 2.ToString() });
 
-            ViewBag.SchoolYear = schoolyearList;
-            ViewBag.Semester = semesterList;
+            ViewBag.SchoolYearList = schoolyearList;
+            ViewBag.SemesterList = semesterList;
             #endregion
 
             if (String.IsNullOrEmpty(schoolyear) || String.IsNullOrEmpty(semester))
@@ -934,6 +934,8 @@ namespace ShiNengShiHui.Web.Controllers
             ViewData["pageIndex"] = result.PageIndex;
             ViewData["pageCount"] = result.PageCount;
 
+            ViewData["schoolyear"] = schoolyear == null ? "" : schoolyear;
+            ViewData["semester"] = semester == null ? "" : semester;
             return View(listmodel);
         }
 
@@ -1019,21 +1021,45 @@ namespace ShiNengShiHui.Web.Controllers
         #endregion
 
         #region 奖项模块
-        public ActionResult PrizeIndex(int? pageIndex, string selectd, DateTime? dateTime)
+        public ActionResult PrizeIndex(int? pageIndex, string selectd, string schoolyear, string semester, string week)
         {
             #region 初始化数据
             List<SelectListItem> computSelectList = new List<SelectListItem>();
-            computSelectList.Add(new SelectListItem() { Value = "TianMoFanSheng", Text = "计算天模范生", Selected = true });
-            computSelectList.Add(new SelectListItem() { Value = "ZhouMoFanSheng", Text = "计算周模范生" });
+            computSelectList.Add(new SelectListItem() { Value = "ZhouMoFanSheng", Text = "计算周模范生", Selected = true });
             computSelectList.Add(new SelectListItem() { Value = "YueMoFanSheng", Text = "计算月模范生" });
             computSelectList.Add(new SelectListItem() { Value = "XiaoMoFanSheng", Text = "计算校模范生" });
-            ViewBag.ComputSelect = computSelectList;
 
             List<SelectListItem> selectList = new List<SelectListItem>();
             selectList.Add(new SelectListItem() { Value = "NULL", Text = "不选择任何条件" });
-            selectList.Add(new SelectListItem() { Value = "Month", Text = "按月查找" });
-            selectList.Add(new SelectListItem() { Value = "Day", Text = "按天查找" });
+            selectList.Add(new SelectListItem() { Value = "Week", Text = "查找周模范生" });
+            selectList.Add(new SelectListItem() { Value = "Month", Text = "查找月模范生" });
+            selectList.Add(new SelectListItem() { Value = "Xiao", Text = "查找校模范生" });
+
+
+            var classCurrent = _teacherAppService.GetCurrentClass();
+            int classInTimeYear = classCurrent.ClassIntime.Year;
+
+            List<SelectListItem> schoolyearList = new List<SelectListItem>();
+            for (int i = classInTimeYear; i < classInTimeYear + 6; i++)
+            {
+                schoolyearList.Add(new SelectListItem() { Text = i + "学年", Value = i.ToString() });
+            }
+
+            List<SelectListItem> semesterList = new List<SelectListItem>();
+            semesterList.Add(new SelectListItem() { Text = "第一学期", Value = 1.ToString() });
+            semesterList.Add(new SelectListItem() { Text = "第二学期", Value = 2.ToString() });
+
+            List<SelectListItem> weekList = new List<SelectListItem>();
+            for (int i = 1; i < 31; i++)
+            {
+                weekList.Add(new SelectListItem() { Text = "第" + i + "周", Value = i.ToString() });
+            }
+
+            ViewBag.ComputSelect = computSelectList;
             ViewBag.SelectList = selectList;
+            ViewBag.SchoolYearList = schoolyearList;
+            ViewBag.SemesterList = semesterList;
+            ViewBag.WeekList = weekList;
             #endregion
 
             ShowPagePrizeOutput prizes;
@@ -1042,24 +1068,56 @@ namespace ShiNengShiHui.Web.Controllers
                 pageIndex = 1;
             }
 
-            if (dateTime == null)
+            if (String.IsNullOrEmpty(schoolyear) || String.IsNullOrEmpty(semester) || String.IsNullOrEmpty(week))
             {
-                dateTime = DateTime.Now;
+                return View();
             }
 
             switch (selectd)
             {
                 case "NULL":
-                    prizes = _teacherAppService.ShowPagePrize(new ShowPagePrizeInput() { PageIndex = (int)pageIndex, ScreenCondition = ScreenEnum.No });
+                    prizes = _teacherAppService.ShowPagePrize(new ShowPagePrizeInput()
+                    {
+                        PageIndex = (int)pageIndex,
+                        ScreenCondition = ScreenEnum.No
+                    });
+                    break;
+                case "Week":
+                    prizes = _teacherAppService.ShowPagePrize(new ShowPagePrizeInput()
+                    {
+                        PageIndex = (int)pageIndex,
+                        ScreenCondition = ScreenEnum.Week,
+                        SchoolYear = schoolyear,
+                        Semester = semester,
+                        Week = week
+                    });
                     break;
                 case "Month":
-                    prizes = _teacherAppService.ShowPagePrize(new ShowPagePrizeInput() { PageIndex = (int)pageIndex, ScreenCondition = ScreenEnum.Month, DateTime = (DateTime)dateTime });
+                    prizes = _teacherAppService.ShowPagePrize(new ShowPagePrizeInput()
+                    {
+                        PageIndex = (int)pageIndex,
+                        ScreenCondition = ScreenEnum.Month,
+                        SchoolYear = schoolyear,
+                        Semester = semester,
+                        Week = week
+                    });
                     break;
-                case "Day":
-                    prizes = _teacherAppService.ShowPagePrize(new ShowPagePrizeInput() { PageIndex = (int)pageIndex, ScreenCondition = ScreenEnum.Day, DateTime = (DateTime)dateTime });
+                case "Xiao":
+                    prizes = _teacherAppService.ShowPagePrize(new ShowPagePrizeInput()
+                    {
+                        PageIndex = (int)pageIndex,
+                        ScreenCondition = ScreenEnum.Xiao,
+                        SchoolYear = schoolyear,
+                        Semester = semester,
+                        Week = week
+                    });
                     break;
                 default:
-                    prizes = _teacherAppService.ShowPagePrize(new ShowPagePrizeInput() { PageIndex = (int)pageIndex, ScreenCondition = ScreenEnum.No });
+                    prizes = _teacherAppService.ShowPagePrize(new ShowPagePrizeInput()
+                    {
+                        PageIndex = (int)pageIndex,
+                        ScreenCondition = ScreenEnum.No
+                    });
                     break;
             }
 
@@ -1074,30 +1132,44 @@ namespace ShiNengShiHui.Web.Controllers
             ViewData["pageCount"] = prizes.PageCount;
 
             ViewData["selectd"] = selectd == null ? "" : selectd;
-            ViewData["dateTime"] = dateTime == null ? "" : dateTime.ToString();
+            ViewData["schoolyear"] = schoolyear == null ? "" : schoolyear;
+            ViewData["semester"] = semester == null ? "" : semester;
+            ViewData["week"] = week == null ? "" : week;
 
             return View(models);
         }
 
-        public ActionResult PrizeComput(DateTime time, string computSelect, int? schoolYear, int? semester)
+        public ActionResult PrizeComput(string computSelect, string schoolyear, string semester, string week)
         {
+            if (String.IsNullOrEmpty(schoolyear) || String.IsNullOrEmpty(semester) || String.IsNullOrEmpty(week))
+            {
+                return RedirectToAction("PrizeIndex");
+            }
+
             switch (computSelect)
             {
-                case "TianMoFanSheng":
-                    _teacherAppService.PrizeTianMoFanShengComput(new PrizeTianMoFanShengComputInput() { DateTime = time });
-                    break;
                 case "ZhouMoFanSheng":
-                    _teacherAppService.PrizeZhouMoFanShengComput(new PrizeZhouMoFanShengComputInput() { DateTime = time });
+                    _teacherAppService.PrizeZhouMoFanShengComput(new PrizeZhouMoFanShengComputInput()
+                    {
+                        SchoolYear = schoolyear,
+                        Semester = semester,
+                        Week = week
+                    });
                     break;
                 case "YueMoFanSheng":
-                    _teacherAppService.PrizeYueMoFanShengComput(new PrizeYueMoFanShengComputInput() { DateTime = time });
+                    _teacherAppService.PrizeYueMoFanShengComput(new PrizeYueMoFanShengComputInput()
+                    {
+                        SchoolYear = schoolyear,
+                        Semester = semester,
+                        Week = week
+                    });
                     break;
                 case "XiaoMoFanSheng":
-                    if (schoolYear == null || semester == null)
+                    _teacherAppService.PrizeXiaoMoFanShengComput(new PrizeXiaoMoFanShengComputInput()
                     {
-                        break;
-                    }
-                    _teacherAppService.PrizeXiaoMoFanShengComput(new PrizeXiaoMoFanShengComputInput() { SchoolYear = (int)schoolYear, Semester = (int)semester });
+                        SchoolYear = schoolyear,
+                        Semester = semester
+                    });
                     break;
             }
             return RedirectToAction("PrizeIndex");

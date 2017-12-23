@@ -12,10 +12,6 @@
             <div class="col-lg-4">
                 @Html.DropDownList("selectd", ViewBag.SelectList as List<SelectListItem>, new { @class = "form-control" })
             </div>
-
-            <div class="col-lg-2">
-                @Html.TextBox("dateTime", null, new { id = "datetimepicker", @class = "form-control" })
-            </div>
             <input class="btn btn-info" type="submit" value="查询">
         }
 
@@ -29,7 +25,6 @@
                     <th>姓名</th>
                     <th>奖项名称</th>
                     <th>时间</th>
-                    <th>学年时间</th>
                 </tr>
             </thead>
             <tbody>
@@ -46,7 +41,6 @@
                             <td>@i</td>
                             <td>@s.StudentName</td>
                             <td>@s.PrizeName</td>
-                            <td>@s.DateTime</td>
                             <td>@s.SchoolYearAndMore</td>
                         </tr>
                         i++;
@@ -71,24 +65,23 @@ else
 
     string classId = ViewData["classId"].ToString();
     string selectd = ViewData["selectd"].ToString();
-    string dateTime = ViewData["dateTime"].ToString();
 
     <div class="text-right">
 
 
         <ul class="pagination">
-            <li><a href="@Url.Action("PrizeIndex", "Headmaster", new { pageIndex = 1,classId=classId,selectd=selectd,dateTime=dateTime })">首页</a></li>
+            <li><a href="@Url.Action("PrizeIndex", "Headmaster", new { pageIndex = 1,classId=classId,selectd=selectd})">首页</a></li>
             @if (pageIndex <= 5)
             {
                 for (int i = 1, length = pageCount; i <= length; i++)
                 {
                     if (pageIndex == i)
                     {
-                        <li class="active"><a href="@Url.Action("PrizeIndex", "Headmaster", new { pageIndex = i,classId=classId,selectd=selectd,dateTime=dateTime })">@i</a></li>
+                        <li class="active"><a href="@Url.Action("PrizeIndex", "Headmaster", new { pageIndex = i,classId=classId,selectd=selectd})">@i</a></li>
                     }
                     else
                     {
-                        <li><a href="@Url.Action("PrizeIndex", "Headmaster", new { pageIndex = i,classId=classId,selectd=selectd,dateTime=dateTime })">@i</a></li>
+                        <li><a href="@Url.Action("PrizeIndex", "Headmaster", new { pageIndex = i,classId=classId,selectd=selectd})">@i</a></li>
                     }
                 }
             }
@@ -100,11 +93,11 @@ else
                     {
                         if (pageIndex == i)
                         {
-                            <li class="active"><a href="@Url.Action("PrizeIndex", "Headmaster", new { pageIndex = i,classId=classId,selectd=selectd,dateTime=dateTime})">@i</a></li>
+                            <li class="active"><a href="@Url.Action("PrizeIndex", "Headmaster", new { pageIndex = i,classId=classId,selectd=selectd})">@i</a></li>
                         }
                         else
                         {
-                            <li><a href="@Url.Action("PrizeIndex", "Headmaster", new { pageIndex = i,classId=classId,selectd=selectd,dateTime=dateTime })">@i</a></li>
+                            <li><a href="@Url.Action("PrizeIndex", "Headmaster", new { pageIndex = i,classId=classId,selectd=selectd})">@i</a></li>
                         }
                     }
                 }
@@ -116,11 +109,11 @@ else
                         {
                             if (pageIndex == i)
                             {
-                                <li class="active"><a href="@Url.Action("PrizeIndex", "Headmaster", new { pageIndex = i,classId=classId,selectd=selectd,dateTime=dateTime})">@i</a></li>
+                                <li class="active"><a href="@Url.Action("PrizeIndex", "Headmaster", new { pageIndex = i,classId=classId,selectd=selectd})">@i</a></li>
                             }
                             else
                             {
-                                <li><a href="@Url.Action("PrizeIndex", "Headmaster", new { pageIndex = i,classId=classId,selectd=selectd,dateTime=dateTime })">@i</a></li>
+                                <li><a href="@Url.Action("PrizeIndex", "Headmaster", new { pageIndex = i,classId=classId,selectd=selectd})">@i</a></li>
                             }
                         }
                     }
@@ -130,17 +123,17 @@ else
                         {
                             if (pageIndex == i)
                             {
-                                <li class="active"><a href="@Url.Action("PrizeIndex", "Headmaster", new { pageIndex = i,classId=classId,selectd=selectd,dateTime=dateTime })">@i</a></li>
+                                <li class="active"><a href="@Url.Action("PrizeIndex", "Headmaster", new { pageIndex = i,classId=classId,selectd=selectd})">@i</a></li>
                             }
                             else
                             {
-                                <li><a href="@Url.Action("PrizeIndex", "Headmaster", new { pageIndex = i,classId=classId,selectd=selectd,dateTime=dateTime })">@i</a></li>
+                                <li><a href="@Url.Action("PrizeIndex", "Headmaster", new { pageIndex = i,classId=classId,selectd=selectd})">@i</a></li>
                             }
                         }
                     }
                 }
             }
-            <li><a href="@Url.Action("PrizeIndex", "Headmaster", new { pageIndex = pageCount,classId=classId,selectd=selectd,dateTime=dateTime})">尾页</a></li>
+            <li><a href="@Url.Action("PrizeIndex", "Headmaster", new { pageIndex = pageCount,classId=classId,selectd=selectd})">尾页</a></li>
         </ul>
 
     </div>

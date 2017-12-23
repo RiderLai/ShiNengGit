@@ -13,16 +13,16 @@ namespace ShiNengShiHui.AppServices.HeadmasterDTO
         /// </summary>
         No,
         /// <summary>
-        /// 按天筛选
-        /// </summary>
-        Day,
-        /// <summary>
-        /// 按周筛选
+        /// 周模范生
         /// </summary>
         Week,
         /// <summary>
-        /// 按月筛选
+        /// 月模范生
         /// </summary>
-        Month
+        Month,
+        /// <summary>
+        /// 校模范生
+        /// </summary>
+        Xiao
     }
 }

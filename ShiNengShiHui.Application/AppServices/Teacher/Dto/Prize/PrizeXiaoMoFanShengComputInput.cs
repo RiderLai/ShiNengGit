@@ -10,8 +10,8 @@ namespace ShiNengShiHui.AppServices.TeacherDTO
     {
         public DateTime DateTime { get; set; }
 
-        public int SchoolYear { get; set; }
+        public String SchoolYear { get; set; }
 
-        public int Semester { get; set; }
+        public String Semester { get; set; }
     }
 }

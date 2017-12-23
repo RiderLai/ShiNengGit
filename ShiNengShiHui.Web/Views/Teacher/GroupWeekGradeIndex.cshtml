@@ -19,11 +19,11 @@
             {
                 @Html.AntiForgeryToken()
                 <div class="col-lg-3">
-                    @Html.DropDownList("schoolyear", ViewBag.SchoolYear as List<SelectListItem>, new { @class = "form-control" })
+                    @Html.DropDownList("schoolyear", ViewBag.SchoolYearList as List<SelectListItem>, new { @class = "form-control" })
                 </div>
 
                 <div class="col-lg-3">
-                    @Html.DropDownList("semester", ViewBag.Semester as List<SelectListItem>, new { @class = "form-control" })
+                    @Html.DropDownList("semester", ViewBag.SemesterList as List<SelectListItem>, new { @class = "form-control" })
                 </div>
                 <a class="btn btn-info" title='查看' href="javascript:;" id="showButton"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>查看</a>
             }
@@ -92,22 +92,25 @@ else
     int pageIndex = (int)ViewData["pageIndex"];
     int pageCount = (int)ViewData["pageCount"];
 
+    string schoolyear = ViewData["schoolyear"].ToString();
+    string semester = ViewData["semester"].ToString();
+
     <div class="text-right">
 
 
         <ul class="pagination">
-            <li><a href="@Url.Action("GroupWeekGradeIndex","Teacher",new { pageIndex=1})">首页</a></li>
+            <li><a href="@Url.Action("GroupWeekGradeIndex","Teacher",new { pageIndex=1,schoolyear=schoolyear,semester=semester})">首页</a></li>
             @if (pageIndex <= 5)
             {
                 for (int i = 1, length = pageCount; i <= length; i++)
                 {
                     if (pageIndex == i)
                     {
-                        <li class="active"><a href="@Url.Action("GroupWeekGradeIndex","Teacher",new { pageIndex=i})">@i</a></li>
+                        <li class="active"><a href="@Url.Action("GroupWeekGradeIndex","Teacher",new { pageIndex=i,schoolyear=schoolyear,semester=semester})">@i</a></li>
                     }
                     else
                     {
-                        <li><a href="@Url.Action("GroupWeekGradeIndex","Teacher",new { pageIndex=i})">@i</a></li>
+                        <li><a href="@Url.Action("GroupWeekGradeIndex","Teacher",new { pageIndex=i,schoolyear=schoolyear,semester=semester})">@i</a></li>
                     }
                 }
             }
@@ -119,11 +122,11 @@ else
                     {
                         if (pageIndex == i)
                         {
-                            <li class="active"><a href="@Url.Action("GroupWeekGradeIndex","Teacher",new { pageIndex=i})">@i</a></li>
+                            <li class="active"><a href="@Url.Action("GroupWeekGradeIndex","Teacher",new { pageIndex=i,schoolyear=schoolyear,semester=semester})">@i</a></li>
                         }
                         else
                         {
-                            <li><a href="@Url.Action("GroupWeekGradeIndex","Teacher",new { pageIndex=i})">@i</a></li>
+                            <li><a href="@Url.Action("GroupWeekGradeIndex","Teacher",new { pageIndex=i,schoolyear=schoolyear,semester=semester})">@i</a></li>
                         }
                     }
                 }
@@ -135,11 +138,11 @@ else
                         {
                             if (pageIndex == i)
                             {
-                                <li class="active"><a href="@Url.Action("GroupWeekGradeIndex","Teacher",new { pageIndex=i})">@i</a></li>
+                                <li class="active"><a href="@Url.Action("GroupWeekGradeIndex","Teacher",new { pageIndex=i,schoolyear=schoolyear,semester=semester})">@i</a></li>
                             }
                             else
                             {
-                                <li><a href="@Url.Action("GroupWeekGradeIndex","Teacher",new { pageIndex=i})">@i</a></li>
+                                <li><a href="@Url.Action("GroupWeekGradeIndex","Teacher",new { pageIndex=i,schoolyear=schoolyear,semester=semester})">@i</a></li>
                             }
                         }
                     }
@@ -149,17 +152,17 @@ else
                         {
                             if (pageIndex == i)
                             {
-                                <li class="active"><a href="@Url.Action("GroupWeekGradeIndex","Teacher",new { pageIndex=i})">@i</a></li>
+                                <li class="active"><a href="@Url.Action("GroupWeekGradeIndex","Teacher",new { pageIndex=i,schoolyear=schoolyear,semester=semester})">@i</a></li>
                             }
                             else
                             {
-                                <li><a href="@Url.Action("GroupWeekGradeIndex","Teacher",new { pageIndex=i})">@i</a></li>
+                                <li><a href="@Url.Action("GroupWeekGradeIndex","Teacher",new { pageIndex=i,schoolyear=schoolyear,semester=semester})">@i</a></li>
                             }
                         }
                     }
                 }
             }
-            <li><a href="@Url.Action("GroupWeekGradeIndex","Teacher",new { pageIndex=pageCount })">尾页</a></li>
+            <li><a href="@Url.Action("GroupWeekGradeIndex","Teacher",new { pageIndex=pageCount,schoolyear=schoolyear,semester=semester })">尾页</a></li>
         </ul>
 
     </div>

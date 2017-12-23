@@ -117,23 +117,23 @@ namespace ShiNengShiHui.Migrations.SeedData.EntitiesData
                 _context.SaveChanges();
             }
 
-            var gradeShow = _context.Function.FirstOrDefault(m => m.Name.Equals("成绩查看") && m.RoleId == headmasterRole.Id);
-            if (gradeShow==null)
-            {
-                gradeShow = new Function()
-                {
-                    PID = 0,
-                    Name = "成绩查看",
-                    Action = "GradeIndex",
-                    Controller = "Headmaster",
-                    ICon= "lnr lnr-linearicons",
-                    Order = 400,
-                    RoleId = headmasterRole.Id
-                };
+            //var gradeShow = _context.Function.FirstOrDefault(m => m.Name.Equals("成绩查看") && m.RoleId == headmasterRole.Id);
+            //if (gradeShow==null)
+            //{
+            //    gradeShow = new Function()
+            //    {
+            //        PID = 0,
+            //        Name = "成绩查看",
+            //        Action = "GradeIndex",
+            //        Controller = "Headmaster",
+            //        ICon= "lnr lnr-linearicons",
+            //        Order = 400,
+            //        RoleId = headmasterRole.Id
+            //    };
 
-                _context.Function.Add(gradeShow);
-                _context.SaveChanges();
-            }
+            //    _context.Function.Add(gradeShow);
+            //    _context.SaveChanges();
+            //}
         }
     }
 }

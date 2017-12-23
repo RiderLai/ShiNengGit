@@ -169,12 +169,12 @@ namespace ShiNengShiHui.Web.Controllers
             }
             #endregion
 
-            if (pageIndex == null||pageIndex<=0)
+            if (pageIndex == null || pageIndex <= 0)
             {
                 pageIndex = 1;
             }
 
-            if (dateTime==null)
+            if (dateTime == null)
             {
                 dateTime = DateTime.Now;
             }
@@ -186,11 +186,11 @@ namespace ShiNengShiHui.Web.Controllers
                     grades = _headmasterAppService.GradeShowPage(new GradeShowPageInput() { PageIndex = (int)pageIndex, ClassId = (int)classId, ScreenCondition = ScreenEnum.No });
                     break;
                 case "Month":
-                    grades = _headmasterAppService.GradeShowPage(new GradeShowPageInput() { PageIndex = (int)pageIndex, ClassId = (int)classId, ScreenCondition = ScreenEnum.Month,DateTime=(DateTime)dateTime });
+                    grades = _headmasterAppService.GradeShowPage(new GradeShowPageInput() { PageIndex = (int)pageIndex, ClassId = (int)classId, ScreenCondition = ScreenEnum.Month, DateTime = (DateTime)dateTime });
                     break;
-                case "Day":
-                    grades = _headmasterAppService.GradeShowPage(new GradeShowPageInput() { PageIndex = (int)pageIndex, ClassId = (int)classId, ScreenCondition = ScreenEnum.Day ,DateTime=(DateTime)dateTime});
-                    break;
+                //case "Day":
+                //    grades = _headmasterAppService.GradeShowPage(new GradeShowPageInput() { PageIndex = (int)pageIndex, ClassId = (int)classId, ScreenCondition = ScreenEnum.Day, DateTime = (DateTime)dateTime });
+                //    break;
                 default:
                     grades = _headmasterAppService.GradeShowPage(new GradeShowPageInput() { PageIndex = (int)pageIndex, ClassId = (int)classId, ScreenCondition = ScreenEnum.No });
                     break;
@@ -207,21 +207,22 @@ namespace ShiNengShiHui.Web.Controllers
             ViewData["pageCount"] = grades.PageCount;
 
             ViewData["classId"] = classId;
-            ViewData["selectd"] = selectd==null?"":selectd;
-            ViewData["dateTime"] = dateTime==null?"":dateTime.ToString();
+            ViewData["selectd"] = selectd == null ? "" : selectd;
+            ViewData["dateTime"] = dateTime == null ? "" : dateTime.ToString();
 
             return View(models);
         }
         #endregion
 
         #region 奖项模块
-        public ActionResult PrizeIndex(int? pageIndex, int? classId, string selectd, DateTime? dateTime)
+        public ActionResult PrizeIndex(int? pageIndex, int? classId, string selectd)
         {
             #region 初始化数据
             List<SelectListItem> selectList = new List<SelectListItem>();
             selectList.Add(new SelectListItem() { Value = "NULL", Text = "不选择任何条件" });
-            selectList.Add(new SelectListItem() { Value = "Month", Text = "按月查找" });
-            selectList.Add(new SelectListItem() { Value = "Day", Text = "按天查找" });
+            selectList.Add(new SelectListItem() { Value = "Week", Text = "查找周模范生" });
+            selectList.Add(new SelectListItem() { Value = "Month", Text = "查找月模范生" });
+            selectList.Add(new SelectListItem() { Value = "Xiao", Text = "查找校模范生" });
             ViewBag.SelectList = selectList;
 
             var classes = _headmasterAppService.ClassShowPage(new ClassShowPageInput() { ShowCount = 10000 });
@@ -245,16 +246,12 @@ namespace ShiNengShiHui.Web.Controllers
                     return new SelectListItem() { Text = m.Name, Value = m.Id.ToString() };
                 }));
             }
+
             #endregion
 
-            if (pageIndex == null||pageIndex<=0)
+            if (pageIndex == null || pageIndex <= 0)
             {
                 pageIndex = 1;
-            }
-
-            if (dateTime==null)
-            {
-                dateTime = DateTime.Now;
             }
 
             PrizeShowPageOutput prizes;
@@ -263,11 +260,14 @@ namespace ShiNengShiHui.Web.Controllers
                 case "NULL":
                     prizes = _headmasterAppService.PrizeShowPage(new PrizeShowPageInput() { PageIndex = (int)pageIndex, ClassId = (int)classId, ScreenCondition = ScreenEnum.No });
                     break;
-                case "Month":
-                    prizes = _headmasterAppService.PrizeShowPage(new PrizeShowPageInput() { PageIndex = (int)pageIndex, ClassId = (int)classId, ScreenCondition = ScreenEnum.Month,DateTime=(DateTime)dateTime });
+                case "Week":
+                    prizes = _headmasterAppService.PrizeShowPage(new PrizeShowPageInput() { PageIndex = (int)pageIndex, ClassId = (int)classId, ScreenCondition = ScreenEnum.Week });
                     break;
-                case "Day":
-                    prizes = _headmasterAppService.PrizeShowPage(new PrizeShowPageInput() { PageIndex = (int)pageIndex, ClassId = (int)classId, ScreenCondition = ScreenEnum.Day,DateTime=(DateTime)dateTime });
+                case "Month":
+                    prizes = _headmasterAppService.PrizeShowPage(new PrizeShowPageInput() { PageIndex = (int)pageIndex, ClassId = (int)classId, ScreenCondition = ScreenEnum.Month });
+                    break;
+                case "Xiao":
+                    prizes = _headmasterAppService.PrizeShowPage(new PrizeShowPageInput() { PageIndex = (int)pageIndex, ClassId = (int)classId, ScreenCondition = ScreenEnum.Xiao });
                     break;
                 default:
                     prizes = _headmasterAppService.PrizeShowPage(new PrizeShowPageInput() { PageIndex = (int)pageIndex, ClassId = (int)classId, ScreenCondition = ScreenEnum.No });
@@ -286,7 +286,6 @@ namespace ShiNengShiHui.Web.Controllers
 
             ViewData["classId"] = classId;
             ViewData["selectd"] = selectd == null ? "" : selectd;
-            ViewData["dateTime"] = dateTime == null ? "" : dateTime.ToString();
 
             return View(models);
         }

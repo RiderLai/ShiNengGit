@@ -12,5 +12,9 @@ namespace ShiNengShiHui.AppServices.TeacherDTO
         public ScreenEnum ScreenCondition { get; set; }
 
         public DateTime DateTime { get; set; }
+
+        public String SchoolYear { get; set; }
+        public String Semester { get; set; }
+        public String Week { get; set; }
     }
 }

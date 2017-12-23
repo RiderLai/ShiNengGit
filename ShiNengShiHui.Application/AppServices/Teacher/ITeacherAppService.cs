@@ -67,70 +67,57 @@ namespace ShiNengShiHui.AppServices
         #endregion
 
         #region 成绩管理--老版本成绩计算，计算的事一天的成绩
-        /// <summary>
-        /// 展示单个成绩
-        /// </summary>
-        /// <param name="showGradeInput"></param>
-        /// <returns></returns>
-        ShowGradeOutput ShowGrade(ShowGradeInput showGradeInput);
-        /// <summary>
-        /// 分页展示成绩
-        /// </summary>
-        /// <param name="showPageGradeInput"></param>
-        /// <returns></returns>
-        ShowPageGradeOutput ShowPageGrade(ShowPageGradeInput showPageGradeInput);
+        ///// <summary>
+        ///// 展示单个成绩
+        ///// </summary>
+        ///// <param name="showGradeInput"></param>
+        ///// <returns></returns>
+        //ShowGradeOutput ShowGrade(ShowGradeInput showGradeInput);
+        ///// <summary>
+        ///// 分页展示成绩
+        ///// </summary>
+        ///// <param name="showPageGradeInput"></param>
+        ///// <returns></returns>
+        //ShowPageGradeOutput ShowPageGrade(ShowPageGradeInput showPageGradeInput);
 
-        /// <summary>
-        /// 添加成绩
-        /// </summary>
-        /// <param name="createGradeInput"></param>
-        /// <returns></returns>
-        ReturnVal CreateGrade(CreateGradeInput createGradeInput);
-        /// <summary>
-        /// 批量添加成绩
-        /// </summary>
-        /// <param name="createGradeRangeInput"></param>
-        /// <returns></returns>
-        ReturnVal CreateGradeRange(CreateGradeRangeInput createGradeRangeInput);
+        ///// <summary>
+        ///// 添加成绩
+        ///// </summary>
+        ///// <param name="createGradeInput"></param>
+        ///// <returns></returns>
+        //ReturnVal CreateGrade(CreateGradeInput createGradeInput);
+        ///// <summary>
+        ///// 批量添加成绩
+        ///// </summary>
+        ///// <param name="createGradeRangeInput"></param>
+        ///// <returns></returns>
+        //ReturnVal CreateGradeRange(CreateGradeRangeInput createGradeRangeInput);
 
-        /// <summary>
-        /// 更新成绩信息
-        /// </summary>
-        /// <param name="updateGradeInput"></param>
-        /// <returns></returns>
-        ReturnVal UpdateGrade(UpdateGradeInput updateGradeInput);
-        /// <summary>
-        /// 批量更新成绩信息
-        /// </summary>
-        /// <param name="updateGradeRangeInput"></param>
-        /// <returns></returns>
-        ReturnVal UpdateGradeRange(UpdateGradeRangeInput updateGradeRangeInput);
+        ///// <summary>
+        ///// 更新成绩信息
+        ///// </summary>
+        ///// <param name="updateGradeInput"></param>
+        ///// <returns></returns>
+        //ReturnVal UpdateGrade(UpdateGradeInput updateGradeInput);
+        ///// <summary>
+        ///// 批量更新成绩信息
+        ///// </summary>
+        ///// <param name="updateGradeRangeInput"></param>
+        ///// <returns></returns>
+        //ReturnVal UpdateGradeRange(UpdateGradeRangeInput updateGradeRangeInput);
 
-        /// <summary>
-        /// 删除成绩
-        /// </summary>
-        /// <param name="deleteGradeInput"></param>
-        /// <returns></returns>
-        ReturnVal DeleteGrade(DeleteGradeInput deleteGradeInput);
-        /// <summary>
-        /// 批量删除成绩
-        /// </summary>
-        /// <param name="deleteGradeRangeInput"></param>
-        /// <returns></returns>
-        ReturnVal DeleteGradeRange(DeleteGradeRangeInput deleteGradeRangeInput);
-
-        /// <summary>
-        /// 展示奖项
-        /// </summary>
-        /// <param name="showPrizeInput"></param>
-        /// <returns></returns>
-        ShowPrizeOutput ShowPrize(ShowPrizeInput showPrizeInput);
-        /// <summary>
-        /// 分页展示成绩
-        /// </summary>
-        /// <param name="showPagePrizeInput"></param>
-        /// <returns></returns>
-        ShowPagePrizeOutput ShowPagePrize(ShowPagePrizeInput showPagePrizeInput);
+        ///// <summary>
+        ///// 删除成绩
+        ///// </summary>
+        ///// <param name="deleteGradeInput"></param>
+        ///// <returns></returns>
+        //ReturnVal DeleteGrade(DeleteGradeInput deleteGradeInput);
+        ///// <summary>
+        ///// 批量删除成绩
+        ///// </summary>
+        ///// <param name="deleteGradeRangeInput"></param>
+        ///// <returns></returns>
+        //ReturnVal DeleteGradeRange(DeleteGradeRangeInput deleteGradeRangeInput);
         #endregion
 
         #region 成绩管理--新版本成绩计算，录入一周的成绩
@@ -184,6 +171,23 @@ namespace ShiNengShiHui.AppServices
         GroupWeekGradeShowPageOutput GroupWeekGradeShowPage(GroupWeekGradeShowPageInput groupWeekGradeShowPageInput);
         #endregion
 
+        #region 奖项管理
+
+        #region prize展示
+        /// <summary>
+        /// 展示奖项
+        /// </summary>
+        /// <param name="showPrizeInput"></param>
+        /// <returns></returns>
+        ShowPrizeOutput ShowPrize(ShowPrizeInput showPrizeInput);
+        /// <summary>
+        /// 分页展示成绩
+        /// </summary>
+        /// <param name="showPagePrizeInput"></param>
+        /// <returns></returns>
+        ShowPagePrizeOutput ShowPagePrize(ShowPagePrizeInput showPagePrizeInput);
+        #endregion
+
         #region prize计算
         /// <summary>
         /// 奖项计算
@@ -214,6 +218,8 @@ namespace ShiNengShiHui.AppServices
         /// </summary>
         /// <param name="prizeXiaoMoFanShengComput"></param>
         void PrizeXiaoMoFanShengComput(PrizeXiaoMoFanShengComputInput prizeXiaoMoFanShengComput);
+        #endregion 
+
         #endregion
 
         /// <summary>

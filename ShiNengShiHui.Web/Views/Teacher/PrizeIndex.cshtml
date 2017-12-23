@@ -6,18 +6,6 @@
             $("#PrizeComputForm").submit();
         })
 
-        $("#ComputSelect").change(function () {
-            if (this.value == "XiaoMoFanSheng") {
-                $("#PrizeComputForm").prepend("<div id='Container'><div class='col-lg-2'><lable class='col-lg-4'>学年</lable><div class='col-lg-8'><input type='text' class='form-control' name='schoolYear'></div></div>"
-                    + "<div class='col-lg-2'><lable class='col-lg-4'>学期</lable><div class='col-lg-8'><input type='text' class='form-control' name='semester'></div></div></div>");
-            }
-            else {
-                if ($('#Container').length > 0) {
-                    $('#Container').remove();
-                }
-            }
-        })
-
         $("#serchButton").click(function () {
             $("#serchForm").submit();
         })
@@ -26,28 +14,49 @@
 
 <div class="panel">
     <div class="panel-heading">
-        @using (Html.BeginForm("PrizeComput", "Teacher", FormMethod.Post, new { id = "PrizeComputForm" }))
-        {
-            @Html.AntiForgeryToken();
-            <div class="col-lg-2">
-                <input type="text" class="form-control" id="datetimepicker" name="time">
-            </div>
-            <div class="col-lg-2">
-                @Html.DropDownList("computSelect", ViewBag.ComputSelect as List<SelectListItem>, new { @class = "form-control", id = "ComputSelect" })
-            </div>
-            <a class="btn btn-primary" id="PrizeComput" title='计算成绩' href="javascript:;"><i class="fa fa-calendar" aria-hidden="true"></i> 计算成绩</a>
-        }
+        <div class="row">
+            @using (Html.BeginForm("PrizeComput", "Teacher", FormMethod.Post, new { id = "PrizeComputForm" }))
+            {
+                @Html.AntiForgeryToken();
+                <div class="col-lg-3">
+                    @Html.DropDownList("schoolyear", ViewBag.SchoolYearList as List<SelectListItem>, new { @class = "form-control" })
+                </div>
 
-        <div class="right col-lg-6">
+                <div class="col-lg-2">
+                    @Html.DropDownList("semester", ViewBag.SemesterList as List<SelectListItem>, new { @class = "form-control" })
+                </div>
+
+                <div class="col-lg-2">
+                    @Html.DropDownList("week", ViewBag.WeekList as List<SelectListItem>, new { @class = "form-control" })
+                </div>
+                <div class="col-lg-2">
+                    @Html.DropDownList("computSelect", ViewBag.ComputSelect as List<SelectListItem>, new { @class = "form-control", id = "ComputSelect" })
+                </div>
+                <a class="btn btn-primary" id="PrizeComput" title='计算成绩' href="javascript:;"><i class="fa fa-calendar" aria-hidden="true"></i> 计算成绩</a>
+            }
+        </div>
+        
+        <br/>
+
+        <div class="row">
             @using (Html.BeginForm(null, null, FormMethod.Get, new { id = "serchForm" }))
             {
                 @Html.AntiForgeryToken()
-                <div class="col-lg-6">
-                    @Html.DropDownList("selectd", ViewBag.SelectList as List<SelectListItem>, new { @class = "form-control" })
+
+                <div class="col-lg-3">
+                    @Html.DropDownList("schoolyear", ViewBag.SchoolYearList as List<SelectListItem>, new { @class = "form-control" })
                 </div>
 
-                <div class="col-lg-4">
-                    @Html.TextBox("dateTime", null, new { id = "datetimepicker1", @class = "form-control" })
+                <div class="col-lg-2">
+                    @Html.DropDownList("semester", ViewBag.SemesterList as List<SelectListItem>, new { @class = "form-control" })
+                </div>
+
+                <div class="col-lg-2">
+                    @Html.DropDownList("week", ViewBag.WeekList as List<SelectListItem>, new { @class = "form-control" })
+                </div>
+
+                <div class="col-lg-2">
+                    @Html.DropDownList("selectd", ViewBag.SelectList as List<SelectListItem>, new { @class = "form-control" })
                 </div>
 
                 <a class="btn btn-info" id="serchButton" href="javascript:;"><i class="fa fa-search"></i>查找</a>
@@ -58,7 +67,7 @@
     <div class="panel-body">
         @if (Model == null)
         {
-            <h3>请计算当天的成绩</h3>
+            <h3>请查询信息</h3>
         }
         else
         {
@@ -69,7 +78,6 @@
                         <th>姓名</th>
                         <th>获奖名称</th>
                         <th>时间</th>
-                        <th>学期</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -81,7 +89,6 @@
                                 <td>@i</td>
                                 <td>@m.StudentName</td>
                                 <td>@m.PrizeName</td>
-                                <td>@m.DateTime</td>
                                 <td>@m.SchoolYearAndMore</td>
                             </tr>
                             i++;
@@ -107,24 +114,26 @@ else
     int pageCount = (int)ViewData["pageCount"];
 
     string selectd = ViewData["selectd"].ToString();
-    string dateTime = ViewData["dateTime"].ToString();
+    string schoolyear = ViewData["schoolyear"].ToString();
+    string semester = ViewData["semester"].ToString();
+    string week = ViewData["week"].ToString();
 
     <div class="text-right">
 
 
         <ul class="pagination">
-            <li><a href="@Url.Action("PrizeIndex","Teacher",new { pageIndex=1,selectd=selectd,dateTime=dateTime})">首页</a></li>
+            <li><a href="@Url.Action("PrizeIndex","Teacher",new { pageIndex=1,selectd=selectd,schoolyear=schoolyear,semester=semester,week=week})">首页</a></li>
             @if (pageIndex <= 5)
             {
                 for (int i = 1, length = pageCount; i <= length; i++)
                 {
                     if (pageIndex == i)
                     {
-                        <li class="active"><a href="@Url.Action("PrizeIndex","Teacher",new { pageIndex=i,selectd=selectd,dateTime=dateTime})">@i</a></li>
+                        <li class="active"><a href="@Url.Action("PrizeIndex","Teacher",new { pageIndex=i,selectd=selectd,schoolyear=schoolyear,semester=semester,week=week})">@i</a></li>
                     }
                     else
                     {
-                        <li><a href="@Url.Action("PrizeIndex","Teacher",new { pageIndex=i,selectd=selectd,dateTime=dateTime})">@i</a></li>
+                        <li><a href="@Url.Action("PrizeIndex","Teacher",new { pageIndex=i,selectd=selectd,schoolyear=schoolyear,semester=semester,week=week})">@i</a></li>
                     }
                 }
             }
@@ -136,11 +145,11 @@ else
                     {
                         if (pageIndex == i)
                         {
-                            <li class="active"><a href="@Url.Action("PrizeIndex","Teacher",new { pageIndex=i,selectd=selectd,dateTime=dateTime})">@i</a></li>
+                            <li class="active"><a href="@Url.Action("PrizeIndex","Teacher",new { pageIndex=i,selectd=selectd,schoolyear=schoolyear,semester=semester,week=week})">@i</a></li>
                         }
                         else
                         {
-                            <li><a href="@Url.Action("PrizeIndex","Teacher",new { pageIndex=i,selectd=selectd,dateTime=dateTime})">@i</a></li>
+                            <li><a href="@Url.Action("PrizeIndex","Teacher",new { pageIndex=i,selectd=selectd,schoolyear=schoolyear,semester=semester,week=week})">@i</a></li>
                         }
                     }
                 }
@@ -152,11 +161,11 @@ else
                         {
                             if (pageIndex == i)
                             {
-                                <li class="active"><a href="@Url.Action("PrizeIndex","Teacher",new { pageIndex=i,selectd=selectd,dateTime=dateTime})">@i</a></li>
+                                <li class="active"><a href="@Url.Action("PrizeIndex","Teacher",new { pageIndex=i,selectd=selectd,schoolyear=schoolyear,semester=semester,week=week})">@i</a></li>
                             }
                             else
                             {
-                                <li><a href="@Url.Action("PrizeIndex","Teacher",new { pageIndex=i,selectd=selectd,dateTime=dateTime})">@i</a></li>
+                                <li><a href="@Url.Action("PrizeIndex","Teacher",new { pageIndex=i,selectd=selectd,schoolyear=schoolyear,semester=semester,week=week})">@i</a></li>
                             }
                         }
                     }
@@ -166,17 +175,17 @@ else
                         {
                             if (pageIndex == i)
                             {
-                                <li class="active"><a href="@Url.Action("PrizeIndex","Teacher",new { pageIndex=i,selectd=selectd,dateTime=dateTime})">@i</a></li>
+                                <li class="active"><a href="@Url.Action("PrizeIndex","Teacher",new { pageIndex=i,selectd=selectd,schoolyear=schoolyear,semester=semester,week=week})">@i</a></li>
                             }
                             else
                             {
-                                <li><a href="@Url.Action("PrizeIndex","Teacher",new { pageIndex=i,selectd=selectd,dateTime=dateTime})">@i</a></li>
+                                <li><a href="@Url.Action("PrizeIndex","Teacher",new { pageIndex=i,selectd=selectd,schoolyear=schoolyear,semester=semester,week=week})">@i</a></li>
                             }
                         }
                     }
                 }
             }
-            <li><a href="@Url.Action("PrizeIndex","Teacher",new { pageIndex=pageCount ,selectd=selectd,dateTime=dateTime})">尾页</a></li>
+            <li><a href="@Url.Action("PrizeIndex","Teacher",new { pageIndex=pageCount ,selectd=selectd,schoolyear=schoolyear,semester=semester,week=week})">尾页</a></li>
         </ul>
     </div>
 }

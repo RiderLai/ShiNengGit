@@ -1,5 +1,4 @@
 ﻿using Abp.AutoMapper;
-using ShiNengShiHui.Entities.WeekGrades;
 
 namespace ShiNengShiHui.AppServices.TeacherDTO
 {

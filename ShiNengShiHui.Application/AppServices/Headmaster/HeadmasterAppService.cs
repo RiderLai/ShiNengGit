@@ -104,10 +104,10 @@ namespace ShiNengShiHui.AppServices.Headmaster
                 case ScreenEnum.No:
                     count = _gradeRepository.GetAll(Class.GradesTable).Count();
                     break;
-                case ScreenEnum.Day:
-                    count = _gradeRepository.GetAll(Class.GradesTable).Count(m => JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJson).Date.Year == gradeShowPageInput.DateTime.Year &&
-                                                                                  JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJson).Date.DayOfYear == gradeShowPageInput.DateTime.DayOfYear);
-                    break;
+                //case ScreenEnum.Day:
+                //    count = _gradeRepository.GetAll(Class.GradesTable).Count(m => JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJson).Date.Year == gradeShowPageInput.DateTime.Year &&
+                //                                                                  JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJson).Date.DayOfYear == gradeShowPageInput.DateTime.DayOfYear);
+                //    break;
                 case ScreenEnum.Month:
                     count = _gradeRepository.GetAll(Class.GradesTable).Count(m => JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJson).Date.Year == gradeShowPageInput.DateTime.Year &&
                                                                                   JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJson).Date.Month == gradeShowPageInput.DateTime.Month);
@@ -132,11 +132,11 @@ namespace ShiNengShiHui.AppServices.Headmaster
                 case ScreenEnum.No:
                     grades = _gradeRepository.GetPageFromTable(Class.GradesTable, gradeShowPageInput.PageIndex, gradeShowPageInput.ShowCount, null);
                     break;
-                case ScreenEnum.Day:
-                    grades = _gradeRepository.GetPageFromTable(Class.GradesTable, gradeShowPageInput.PageIndex, gradeShowPageInput.ShowCount,
-                                                                m => JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJson).Date.Year == gradeShowPageInput.DateTime.Year &&
-                                                                    JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJson).Date.DayOfYear == gradeShowPageInput.DateTime.DayOfYear);
-                    break;
+                //case ScreenEnum.Day:
+                //    grades = _gradeRepository.GetPageFromTable(Class.GradesTable, gradeShowPageInput.PageIndex, gradeShowPageInput.ShowCount,
+                //                                                m => JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJson).Date.Year == gradeShowPageInput.DateTime.Year &&
+                //                                                    JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJson).Date.DayOfYear == gradeShowPageInput.DateTime.DayOfYear);
+                //    break;
                 case ScreenEnum.Month:
                     grades = _gradeRepository.GetPageFromTable(Class.GradesTable, gradeShowPageInput.PageIndex, gradeShowPageInput.ShowCount,
                                                                 m => JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJson).Date.Year == gradeShowPageInput.DateTime.Year &&
@@ -195,19 +195,24 @@ namespace ShiNengShiHui.AppServices.Headmaster
                 return null;
             }
 
+            Guid zhouMoFanShengId = _prizeItemRepository.FirstOrDefault(m => m.Name.Equals(PrizeItem.ZhouMoFanSheng)).Id;
+            Guid yueMoFanShengId = _prizeItemRepository.FirstOrDefault(m => m.Name.Equals(PrizeItem.YueMoFanSheng)).Id;
+            Guid xiaoMoFanShengId = _prizeItemRepository.FirstOrDefault(m => m.Name.Equals(PrizeItem.XiaoMoFanSheng)).Id;
+
             long count;
             switch (prizeShowPageInput.ScreenCondition)
             {
                 case ScreenEnum.No:
                     count = _prizeRepository.GetAll(Class.PrizesTable).Count();
                     break;
-                case ScreenEnum.Day:
-                    count = _prizeRepository.GetAll(Class.PrizesTable).Count(m => JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJosn).Date.Year == prizeShowPageInput.DateTime.Year &&
-                                                                                  JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJosn).Date.DayOfYear == prizeShowPageInput.DateTime.DayOfYear);
+                case ScreenEnum.Week:
+                    count = _prizeRepository.GetAll(Class.PrizesTable).Count(m => m.PrizeItemId == zhouMoFanShengId);
                     break;
                 case ScreenEnum.Month:
-                    count = _prizeRepository.GetAll(Class.PrizesTable).Count(m => JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJosn).Date.Year == prizeShowPageInput.DateTime.Year &&
-                                                                                  JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJosn).Date.Month == prizeShowPageInput.DateTime.Month);
+                    count = _prizeRepository.GetAll(Class.PrizesTable).Count(m => m.PrizeItemId == yueMoFanShengId);
+                    break;
+                case ScreenEnum.Xiao:
+                    count = _prizeRepository.GetAll(Class.PrizesTable).Count(m => m.PrizeItemId == xiaoMoFanShengId);
                     break;
                 default:
                     count = _prizeRepository.GetAll(Class.PrizesTable).Count();
@@ -229,15 +234,17 @@ namespace ShiNengShiHui.AppServices.Headmaster
                 case ScreenEnum.No:
                     prizes = _prizeRepository.GetPageFromTable(Class.PrizesTable, prizeShowPageInput.PageIndex, prizeShowPageInput.ShowCount, null);
                     break;
-                case ScreenEnum.Day:
+                case ScreenEnum.Week:
                     prizes = _prizeRepository.GetPageFromTable(Class.PrizesTable, prizeShowPageInput.PageIndex, prizeShowPageInput.ShowCount,
-                                                                m => JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJosn).Date.Year == prizeShowPageInput.DateTime.Year &&
-                                                                        JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJosn).Date.DayOfYear == prizeShowPageInput.DateTime.DayOfYear);
+                                                                m => m.PrizeItemId == zhouMoFanShengId);
                     break;
                 case ScreenEnum.Month:
                     prizes = _prizeRepository.GetPageFromTable(Class.PrizesTable, prizeShowPageInput.PageIndex, prizeShowPageInput.ShowCount,
-                                                                m => JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJosn).Date.Year == prizeShowPageInput.DateTime.Year &&
-                                                                        JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJosn).Date.Month == prizeShowPageInput.DateTime.Month);
+                                                                m => m.PrizeItemId == yueMoFanShengId);
+                    break;
+                case ScreenEnum.Xiao:
+                    prizes = _prizeRepository.GetPageFromTable(Class.PrizesTable, prizeShowPageInput.PageIndex, prizeShowPageInput.ShowCount,
+                                                               m => m.PrizeItemId == xiaoMoFanShengId);
                     break;
                 default:
                     prizes = _prizeRepository.GetPageFromTable(Class.PrizesTable, prizeShowPageInput.PageIndex, prizeShowPageInput.ShowCount, null);
@@ -249,15 +256,14 @@ namespace ShiNengShiHui.AppServices.Headmaster
             PrizeShowPageOutput result = ObjectMapper.Map<PrizeShowPageOutput>(prizeShowPageInput);
             result.Prizes = prizes.Select(m =>
             {
-                var date = JsonConvert.DeserializeObject<GradeOrPrizeDateTime>(m.DateJosn);
+                var date = JsonConvert.DeserializeObject<WeekDate>(m.DateJosn);
                 string studentName = students.FirstOrDefault(item => item.Id == m.StudentId).Name;
                 string prizeName = prizeItems.FirstOrDefault(item => item.Id == m.PrizeItemId).Name;
                 return new PrizeShowOutput()
                 {
                     StudentName = studentName,
                     PrizeName = prizeName,
-                    DateTime = date.Date,
-                    SchoolYearAndMore = date.SchoolYear + " " + date.Semester + " " + date.Week
+                    SchoolYearAndMore = date.SchoolYear + "学年  " + date.Semester + "学期  " + date.Week + "周"
                 };
             }).ToArray();
 
