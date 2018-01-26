@@ -141,5 +141,41 @@ namespace ShiNengShiHui.EntityFramework.Repositories
                                                  ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
                                                  ");
         }
+
+        public void TableDelete(Class Class)
+        {
+            GradeTableDelete(Class);
+            PrizeTableDelete(Class);
+            StudentTableDelete(Class);
+            GroupWeekGradeTableDelete(Class);
+        }
+
+        private void StudentTableDelete(Class Class)
+        {
+            Context.Database.ExecuteSqlCommand($@"
+                                                DROP TABLE [dbo].[{Class.StudentsTable}]
+                                                ");
+        }
+
+        private void GradeTableDelete(Class Class)
+        {
+            Context.Database.ExecuteSqlCommand($@"
+                                                DROP TABLE [dbo].[{Class.GradesTable}]
+                                                ");
+        }
+
+        private void PrizeTableDelete(Class Class)
+        {
+            Context.Database.ExecuteSqlCommand($@"
+                                                DROP TABLE [dbo].[{Class.PrizesTable}]
+                                                ");
+        }
+
+        private void GroupWeekGradeTableDelete(Class Class)
+        {
+            Context.Database.ExecuteSqlCommand($@"
+                                                DROP TABLE [dbo].[{Class.GroupWeekGradeTable}]
+                                                ");
+        }
     }
 }

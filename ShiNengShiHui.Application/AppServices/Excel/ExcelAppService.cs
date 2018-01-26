@@ -596,7 +596,7 @@ namespace ShiNengShiHui.AppServices
             rowTH.GetCell(2).CellStyle = styleTH;
             sheet.SetColumnWidth(2, 20 * 256);
 
-            rowTH.CreateCell(3).SetCellValue("班级编号");
+            rowTH.CreateCell(3).SetCellValue("班级名称");
             rowTH.GetCell(3).CellStyle = styleTH;
             sheet.SetColumnWidth(3, 20 * 256);
             #endregion
@@ -718,7 +718,7 @@ namespace ShiNengShiHui.AppServices
             //创建表格
             IRow rowTH = sheet.CreateRow(1);
 
-            rowTH.CreateCell(0).SetCellValue("班级编号");
+            rowTH.CreateCell(0).SetCellValue("班级入学编号");
             rowTH.GetCell(0).CellStyle = styleTH;
             sheet.SetColumnWidth(0, 20 * 256);
 

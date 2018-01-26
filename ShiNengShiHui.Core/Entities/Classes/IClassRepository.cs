@@ -11,5 +11,7 @@ namespace ShiNengShiHui.Entities.Classes
     public interface IClassRepository:IRepository<Class>,IPageRepository<Class>
     {
         void TableCreate(Class Class);
+
+        void TableDelete(Class Class);
     }
 }

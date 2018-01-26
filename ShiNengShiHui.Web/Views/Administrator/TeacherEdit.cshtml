@@ -19,7 +19,7 @@ else
         @Html.HiddenFor(m => m.Id)
 
         <div class="form-group">
-            <label class="col-xs-4 control-label text-right">Name：</label>
+            <label class="col-xs-4 control-label text-right">名字：</label>
             <div class="col-xs-6">
                 @Html.TextBoxFor(m=>m.Name, new { @class = "form-control" })
                 <span class="help-inline">@Html.ValidationMessageFor(m => m.Name)</span>
@@ -28,7 +28,7 @@ else
 
 
         <div class="form-group">
-            <label class="col-xs-4 control-label text-right">Display：</label>
+            <label class="col-xs-4 control-label text-right">性别：</label>
             <div class="col-xs-6">
                 @Html.DropDownListFor(m=>m.Sex,ViewBag.SexList as List<SelectListItem>,new { @class = "form-control" })
                 <span class="help-inline">@Html.ValidationMessageFor(m => m.Sex)</span>
@@ -36,7 +36,7 @@ else
         </div>
 
         <div class="form-group">
-            <label class="col-xs-4 control-label text-right">InTime：</label>
+            <label class="col-xs-4 control-label text-right">创建时间：</label>
             <div class="col-xs-6">
                 @Html.TextBoxFor(m => m.BirthDay, new { id = "datetimepicker" })
                 <span class="help-inline">@Html.ValidationMessageFor(m => m.BirthDay)</span>
@@ -44,7 +44,7 @@ else
         </div>
 
         <div class="form-group">
-            <label class="col-xs-4 control-label text-right">ClassId：</label>
+            <label class="col-xs-4 control-label text-right">班级：</label>
             <div class="col-xs-6">
                 @Html.DropDownListFor(m => m.ClassId,ViewBag.ClassList as List<SelectListItem> ,new { @class = "form-control" })
                 <span class="help-inline">@Html.ValidationMessageFor(m => m.ClassId)</span>

@@ -10,7 +10,7 @@
 <div class="form-horizontal">
 
     <div class="form-group">
-        <label class="col-xs-4 control-label text-right">Name：</label>
+        <label class="col-xs-4 control-label text-right">班级入学编号：</label>
         <div class="col-xs-6">
             @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
             <span class="help-inline">@Html.ValidationMessageFor(m => m.Name)</span>
@@ -19,7 +19,7 @@
 
 
     <div class="form-group">
-        <label class="col-xs-4 control-label text-right">Display：</label>
+        <label class="col-xs-4 control-label text-right">班级名：</label>
         <div class="col-xs-6">
             @Html.TextBoxFor(m => m.Display, new { @class = "form-control" })
             <span class="help-inline">@Html.ValidationMessageFor(m => m.Display)</span>
@@ -27,7 +27,7 @@
     </div>
 
     <div class="form-group">
-        <label class="col-xs-4 control-label text-right">InTime：</label>
+        <label class="col-xs-4 control-label text-right">创建时间：</label>
         <div class="col-xs-6">
             @Html.TextBoxFor(m => m.InTime, new { id = "datetimepicker" })
             <span class="help-inline">@Html.ValidationMessageFor(m => m.InTime)</span>

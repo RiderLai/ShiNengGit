@@ -56,7 +56,7 @@
     <div class="panel">
         <div class="panel-heading">
             <a class="btn btn-danger" id="delete" href="javascript:;"><i class="fa fa-trash-o"></i> 删除</a>
-            <a class="btn btn-success thickbox" title='添加新用户' href="@Url.Action("TeacherCreate")?TB_iframe=true&height=450&width=500"><i class="fa fa-plus" aria-hidden="true"></i> 新增</a>
+            <a class="btn btn-success thickbox" title='添加新老师' href="@Url.Action("TeacherCreate")?TB_iframe=true&height=450&width=500"><i class="fa fa-plus" aria-hidden="true"></i> 新增</a>
             <a class="btn btn-default" id="BatchImportStudents" href="javascript:;"><i class="fa fa-folder-open" aria-hidden="true"></i> 批量导入</a>
         </div>
         <div class="panel-body">
@@ -115,7 +115,7 @@
 
                                 <td>
 
-                                    <a class="btn btn-info thickbox" title='编辑用户资料' href="@Url.Action("TeacherEdit", new { id = s.Id })?TB_iframe=true&height=450&width=500">
+                                    <a class="btn btn-info thickbox" title='编辑老师资料' href="@Url.Action("TeacherEdit", new { id = s.Id })?TB_iframe=true&height=450&width=500">
                                         <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                         编辑
                                     </a>
